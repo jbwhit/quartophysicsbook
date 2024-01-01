@@ -1,5 +1,5 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+Consider this as an option for developing (and publishing?) the book. 
 
 To learn more about Quarto books visit <https://quarto.org/docs/books>.
