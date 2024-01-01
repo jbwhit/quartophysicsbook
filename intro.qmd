@@ -1,0 +1,45 @@
+# Introduction
+
+This is a book created from markdown and executable code.
+
+<!-- PXL_20231119_164825569.NIGHT.jpg -->
+
+| Base Quantity| Base Unit | Symbol|
+|-----|-------|-----|
+| length | meter | $m$|
+|time| second| $s$|
+|mass | kilogram | kg|
+| electric current| ampere| A|
+|Thermodynamic temperature | Kelvin | K|
+| Amount of substance| mole| mol|
+| Luminous Intensity| candela| cd|
+
+: SI units  {.striped .hover}
+
+|length|time|mass|charge|temperature|
+|:--:|:--:|:--:|:--:|:--:|
+|m|s|kg|C|K|
+
+: Fundamental Units  {.striped .hover}
+
+|Concept| Units|
+|:--|:--|
+|Force| $kg\; m\; s^{-2} = N$|
+|Energy| $kg\; m^{2}\; s^{-2} = N\; m = J$|
+|Power| $kg\; m^{2}\; s^{-3} = J\; s^{-1} = W$|
+|Current| $C\; s^{-1}$|
+
+: Combinations {.striped .hover}
+
+Dimensional analysis: always checking and fudging (?).
+
+Same units go to the same side of the equation! 
+
+Vectors vs scalars
+
+Math is a tool, not the be all and end all -- don't simply formula fit. 
+
+Sensible answers! Check!
+
+We can cite easily as well, see @knuth84 for additional discussion of literate programming.
+

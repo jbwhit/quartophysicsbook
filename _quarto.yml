@@ -1,0 +1,23 @@
+project:
+  type: book
+
+book:
+  title: "Physics Thinking"
+  author: "Casey Handmer and Jonathan Whitmore"
+  date: "2024-01-01"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
