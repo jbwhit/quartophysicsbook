@@ -41,5 +41,18 @@ Math is a tool, not the be all and end all -- don't simply formula fit.
 
 Sensible answers! Check!
 
+## Solving Problems with the 7D's and the little S
+
+- Diagram: Big! (2/3 of a page) and as many as you need. Graphs
+- Directions: Mark it (negative/positive)
+- Definitions & Data: Put it on the page (all of them)
+- Diagnosis: Type (how) conservation principles, force laws, angular momentum.
+- Derivation: Equations (diagnosis in symbols) as many equations as variables add to diagram dimensions
+- Determination - D'algebra - box the answer.
+- Dimensions - Check and limiting cases -- if makes sense then possibly right (if not prob wrong). LHS = RHS then :grinning:.
+- Substitution: if necessary - do rough calc by hand an dunits include error!
+
+
+
 We can cite easily as well, see @knuth84 for additional discussion of literate programming.
 
