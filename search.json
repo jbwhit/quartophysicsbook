@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Physics Thinking",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\n\n\nSI units\n\n\nBase Quantity\nBase Unit\nSymbol\n\n\n\n\nlength\nmeter\n\\(m\\)\n\n\ntime\nsecond\n\\(s\\)\n\n\nmass\nkilogram\nkg\n\n\nelectric current\nampere\nA\n\n\nThermodynamic temperature\nKelvin\nK\n\n\nAmount of substance\nmole\nmol\n\n\nLuminous Intensity\ncandela\ncd\n\n\n\n\nFundamental Units\n\n\nlength\ntime\nmass\ncharge\ntemperature\n\n\n\n\nm\ns\nkg\nC\nK\n\n\n\n\nCombinations\n\n\nConcept\nUnits\n\n\n\n\nForce\n\\(kg\\; m\\; s^{-2} = N\\)\n\n\nEnergy\n\\(kg\\; m^{2}\\; s^{-2} = N\\; m = J\\)\n\n\nPower\n\\(kg\\; m^{2}\\; s^{-3} = J\\; s^{-1} = W\\)\n\n\nCurrent\n\\(C\\; s^{-1}\\)\n\n\n\nDimensional analysis: always checking and fudging (?).\nSame units go to the same side of the equation!\nVectors vs scalars\nMath is a tool, not the be all and end all – don’t simply formula fit.\nSensible answers! Check!\nWe can cite easily as well, see Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "A work in progress."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  }
+]
