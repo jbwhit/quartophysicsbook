@@ -4,6 +4,10 @@ project:
 book:
   title: "Physics Thinking"
   author: "Casey Handmer and Jonathan Whitmore"
+  image: physics_logo.png
+  sidebar: 
+    logo: physics_logo.png
+    search: true
   date: "2024-01-01"
   chapters:
     - index.qmd
@@ -15,7 +19,9 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
   pdf:
     documentclass: scrreprt
 
