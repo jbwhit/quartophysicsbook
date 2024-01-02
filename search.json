@@ -11,20 +11,20 @@
     "href": "intro.html#solving-problems-with-the-7ds-and-the-little-s",
     "title": "1  Introduction",
     "section": "1.1 Solving Problems with the 7D’s and the little S",
-    "text": "1.1 Solving Problems with the 7D’s and the little S\n\nDiagram: Big! (2/3 of a page) and as many as you need. Graphs\nDirections: Mark it (negative/positive)\nDefinitions & Data: Put it on the page (all of them)\nDiagnosis: Type (how) conservation principles, force laws, angular momentum.\nDerivation: Equations (diagnosis in symbols) as many equations as variables add to diagram dimensions\nDetermination - D’algebra - box the answer.\nDimensions - Check and limiting cases – if makes sense then possibly right (if not prob wrong). LHS = RHS then :grinning:.\nSubstitution: if necessary - do rough calc by hand an dunits include error!\n\nWe can cite easily as well, see Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "1.1 Solving Problems with the 7D’s and the little S\n\nDiagram: Big! (2/3 of a page) and as many as you need. Graphs\nDirections: Mark it (negative/positive)\nDefinitions & Data: Put it on the page (all of them)\nDiagnosis: Type (how) conservation principles, force laws, angular momentum.\nDerivation: Equations (diagnosis in symbols) as many equations as variables add to diagram dimensions\nDetermination - D’algebra - box the answer.\nDimensions - Check and limiting cases – if makes sense then possibly right (if not prob wrong). LHS = RHS then :grinning:.\nSubstitution: if necessary - do rough calc by hand an dunits include error!"
+  },
+  {
+    "objectID": "mechanics.html#example-problem",
+    "href": "mechanics.html#example-problem",
+    "title": "2  Mechanics",
+    "section": "2.1 Example Problem",
+    "text": "2.1 Example Problem\n\n\n\nDiagram\nTODO\n\n\nDirections\nTODO\n\n\nDefinitions & Data\n\n\n\n\nVariable\nDescription\n\n\n\n\n\\(m\\)\nMass of object\n\n\n\\(H\\)\nInitial height\n\n\n\\(h\\)\nFinal height\n\n\n\\(k\\)\nSpring constant\n\n\n\\(g\\)\nAcceleration due to gravity\n\n\n\\(x\\)\nCompression of spring\n\n\n\\(U_{gpe}\\)\ngravitational potential energy\n\n\n\\(U_{E}\\)\nelastic potential energy\n\n\n\\(E\\)\nenergy\n\n\n\n\n\nDiagnosis\nConservation of Energy (E is conserved).\n\\[U_{gpe} \\rightarrow U_{E}\\]\n\\[mgH = mgh + \\frac{1}{2} k x^{2}\\]\n\n\nDerivation\n\\[F = -kx\\]\n\\[\\begin{aligned}\nU &= -\\int F \\, \\textnormal{d}x\\\\\n&= -\\int_{x_i}^{x_{f}} k x \\, \\textnormal{d}x\\\\\n&= \\frac{1}{2}k x_f^2\n\\end{aligned}\\]\n\n\nDetermination\n\\[mg\\left(H -h\\right) = \\frac{1}{2} k x^2\\]\n\\[\\frac{2mg\\left(H -h\\right)}{k} = x^2\\]\n\\[x = \\sqrt{\\frac{2mg(H-h)}{k}}\\]\n\n\nDimensions\n\\[\\begin{aligned}\nL &= \\sqrt{\\frac{M L T^{-2} \\left(L\\right)}{M T^{-2}}}\\\\\n&= \\sqrt{L^2}\n\\end{aligned}\\]\n\n\nLimiting Cases\n\\[H \\rightarrow h\\]\n\\[ H - h = 0 \\implies x=0\\] makes sense!\n\\[m \\rightarrow 0 \\implies x \\rightarrow 0\\] makes sense!\n\\[k \\rightarrow \\infty \\implies x \\rightarrow 0\\] makes sense!\n\\[k \\rightarrow 0 \\implies x \\rightarrow \\infty\\] makes sense!\n\n\nSubstitution\nNot needed."
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "2  Summary",
+    "title": "3  Summary",
     "section": "",
     "text": "A work in progress."
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   }
 ]
