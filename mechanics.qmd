@@ -40,11 +40,11 @@ $$mgH = mgh + \frac{1}{2} k x^{2}$$
 
 $$F = -kx$$
 
-$$\begin{align}
+$$\begin{aligned}
 U &= -\int F \, \textnormal{d}x\\
 &= -\int_{x_i}^{x_{f}} k x \, \textnormal{d}x\\
 &= \frac{1}{2}k x_f^2
-\end{align}$$
+\end{aligned}$$
 
 ### Determination {.unnumbered}
 
@@ -56,10 +56,10 @@ $$x = \sqrt{\frac{2mg(H-h)}{k}}$$
 
 ### Dimensions {.unnumbered}
 
-$$\begin{align}
+$$\begin{aligned}
 L &= \sqrt{\frac{M L T^{-2} \left(L\right)}{M T^{-2}}}\\
 &= \sqrt{L^2}
-\end{align}$$
+\end{aligned}$$
 
 ### Limiting Cases {.unnumbered}
 $$H \rightarrow h$$ 
