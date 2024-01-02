@@ -1,0 +1,76 @@
+# Mechanics
+
+## Example Problem {.numbered}
+
+<!-- PXL_20231119_164841696.jpg -->
+<!-- PXL_20231119_164844998.jpg -->
+
+### Diagram {.unnumbered}
+TODO
+
+### Directions {.unnumbered}
+TODO
+
+### Definitions & Data {.unnumbered}
+
+| Variable | Description                   |
+|----------|-------------------------------|
+| $m$        | Mass of object                |
+| $H$        | Initial height                |
+| $h$        | Final height                  |
+| $k$        | Spring constant               |
+| $g$        | Acceleration due to gravity   |
+| $x$        | Compression of spring         |
+| $U_{gpe}$| gravitational potential energy|
+|$U_{E}$| elastic potential energy|
+|$E$| energy |
+
+: {.striped .hover}
+
+### Diagnosis {.unnumbered}
+
+Conservation of Energy (E is conserved).
+
+$$U_{gpe} \rightarrow U_{E}$$
+
+$$mgH = mgh + \frac{1}{2} k x^{2}$$
+
+
+### Derivation {.unnumbered}
+
+$$F = -kx$$
+
+$$\begin{align}
+U &= -\int F \, \textnormal{d}x\\
+&= -\int_{x_i}^{x_{f}} k x \, \textnormal{d}x\\
+&= \frac{1}{2}k x_f^2
+\end{align}$$
+
+### Determination {.unnumbered}
+
+$$mg\left(H -h\right) = \frac{1}{2} k x^2$$
+
+$$\frac{2mg\left(H -h\right)}{k} = x^2$$
+
+$$x = \sqrt{\frac{2mg(H-h)}{k}}$$
+
+### Dimensions {.unnumbered}
+
+$$\begin{align}
+L &= \sqrt{\frac{M L T^{-2} \left(L\right)}{M T^{-2}}}\\
+&= \sqrt{L^2}
+\end{align}$$
+
+### Limiting Cases {.unnumbered}
+$$H \rightarrow h$$ 
+
+$$ H - h = 0 \implies x=0$$ makes sense!
+
+$$m \rightarrow 0 \implies x \rightarrow 0$$ makes sense!
+
+$$k \rightarrow \infty \implies x \rightarrow 0$$ makes sense!
+
+$$k \rightarrow 0 \implies x \rightarrow \infty$$ makes sense!
+
+### Substitution {.unnumbered}
+Not needed.

@@ -54,5 +54,4 @@ Sensible answers! Check!
 
 
 
-We can cite easily as well, see @knuth84 for additional discussion of literate programming.
 
