@@ -52,7 +52,7 @@ $$mg\left(H -h\right) = \frac{1}{2} k x^2$$
 
 $$\frac{2mg\left(H -h\right)}{k} = x^2$$
 
-$$x = \sqrt{\frac{2mg(H-h)}{k}}$$
+$$\boxed{x = \sqrt{\frac{2mg(H-h)}{k}}}$$
 
 ### Dimensions {.unnumbered}
 
@@ -74,3 +74,97 @@ $$k \rightarrow 0 \implies x \rightarrow \infty$$ makes sense!
 
 ### Substitution {.unnumbered}
 Not needed.
+
+
+
+
+## Example Problem {.numbered}
+**Title:** Acceleration and Tension in a Two-Mass Pulley System on an Incline
+
+A system consists of two masses, a man $m$ and piano $M$, where $m$ is connected by a string over the pulley to the piano $M$, which is positioned on an inclined plane with an angle $\theta$ from the horizontal.
+The mass $M$ experiences kinetic friction characterized by a coefficient $\mu_k$ with the inclined plane.
+The piano $M$ is heavy enough that its sliding down the ramp and pulling the man $m$ up. 
+Determine the acceleration $a$ of the system.
+
+### Diagram {.unnumbered}
+TODO: Create a diagram showing the two masses, $m$ and $M$, the inclined plane with angle $\theta$, and the direction of the frictional force opposing the motion of $M$ up the incline.
+
+### Directions {.unnumbered}
+TODO gravity points down
+
+- Direction of $a$ for man is vertically upwards.
+- Direction of $a$ for piano downward along the incline.
+
+### Definitions & Data {.unnumbered}
+
+- $m$: Mass hanging from the pulley (kg)
+- $M$: Mass on the inclined plane (kg)
+- $\theta$: Angle of the inclined plane from the horizontal (radians)
+- $\mu_k$: Coefficient of kinetic friction
+- $g$: Acceleration due to gravity
+
+### Diagnosis {.unnumbered}
+
+Consider the forces on each mass and draw a free body diagram:
+
+TODO FBD 
+
+- Mass $m$: Gravitational force $mg$ and tension $T$.
+- Mass $M$: Gravitational force component along the incline, normal force, frictional force $f_k = \mu_k N$, and tension $T$.
+- Conservation of String: string is the same length, so when pulled the forces are transmitted without diminishing.
+
+
+### Derivation {.unnumbered}
+1. Write down the force equations for each mass.
+   - For mass $m$: $mg - T = ma$ (Downward force - tension = mass times acceleration).
+   - For mass $M$: $Mg\sin(\theta) - f_k - T = Ma$ (Component of gravity along incline - friction - tension = mass times acceleration).
+
+$$\left| F\right| = \left(m + M\right) * \left|a\right|$$
+
+$$N = M g \cos{\theta}$$
+
+$$T = T$$
+
+$$ \therefore \sum{F} = M g \sin{\theta}  + \mu_k N - m g$$
+
+
+### D'algebra {.unnumbered}
+
+$$\left| F\right| = \left(m + M\right) * \left|a\right| = M g \sin{\theta}  + \mu_k N - m g$$
+
+
+$$\begin{aligned}
+\left| a\right| &= \frac{M g \sin{\theta}  + \mu_k N - m g}{\left(m + M\right)}\\
+ &= \frac{M g \sin{\theta}  + \mu_k M g \cos{\theta} - m g}{\left(m + M\right)}
+ \end{aligned}$$
+
+
+### Determination {.unnumbered}
+
+$$\boxed{\left| a\right|= g \left(\frac{M  \sin{\theta}  + \mu_k M  \cos{\theta} - m }{\left(m + M\right)}\right)}$$
+
+### Dimensions {.unnumbered}
+
+$$LHS = L T^{-2}$$
+
+$$RHS = L T^{-2} \left(\frac{M + M - m}{M}\right)$$
+
+Looks right!
+
+### Limiting Cases {.unnumbered}
+Consider extreme cases like:
+
+- What happens when $\theta = 0$?
+    - acceleration is difference in weight of the man from the frictional force. Makes sense.
+- What happens when $\theta = 90^\circ$?
+    - acceleration is the difference in masses divided by the sum of the masses times g. Makes sense.
+- What happens when $\mu_k = 0$ or is very large?
+    - Larger $\mu_k \implies$ smaller $a$.
+- What happens if $M \gg m$?
+    - The piano will slide as though nothing is attached (only forces of friction and force due to gravity matter). Makes sense.
+- What happens if $m \gg M$?
+    - The weight of the man will pull the piano up the incline. Makes sense.
+
+
+### Substitution {.unnumbered}
+TODO
