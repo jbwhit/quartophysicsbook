@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -396,8 +425,55 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#electric-charge" id="toc-electric-charge" class="nav-link active" data-scroll-target="#electric-charge"><span class="header-section-number">6.1</span> Electric Charge</a></li>
+  <li><a href="#coulombs-law" id="toc-coulombs-law" class="nav-link" data-scroll-target="#coulombs-law"><span class="header-section-number">6.2</span> Coulomb’s Law</a></li>
+  <li><a href="#the-electric-field" id="toc-the-electric-field" class="nav-link" data-scroll-target="#the-electric-field"><span class="header-section-number">6.3</span> The Electric Field</a>
+  <ul class="collapse">
+  <li><a href="#superposition" id="toc-superposition" class="nav-link" data-scroll-target="#superposition"><span class="header-section-number">6.3.1</span> Superposition</a></li>
+  <li><a href="#field-lines" id="toc-field-lines" class="nav-link" data-scroll-target="#field-lines"><span class="header-section-number">6.3.2</span> Field Lines</a></li>
+  <li><a href="#conductors" id="toc-conductors" class="nav-link" data-scroll-target="#conductors"><span class="header-section-number">6.3.3</span> Conductors</a></li>
+  <li><a href="#continuous-charge-distributions" id="toc-continuous-charge-distributions" class="nav-link" data-scroll-target="#continuous-charge-distributions"><span class="header-section-number">6.3.4</span> Continuous Charge Distributions</a></li>
+  </ul></li>
+  <li><a href="#gausss-law" id="toc-gausss-law" class="nav-link" data-scroll-target="#gausss-law"><span class="header-section-number">6.4</span> Gauss’s Law</a>
+  <ul class="collapse">
+  <li><a href="#electric-flux" id="toc-electric-flux" class="nav-link" data-scroll-target="#electric-flux"><span class="header-section-number">6.4.1</span> Electric Flux</a></li>
+  <li><a href="#the-law" id="toc-the-law" class="nav-link" data-scroll-target="#the-law"><span class="header-section-number">6.4.2</span> The Law</a></li>
+  <li><a href="#application-point-charge" id="toc-application-point-charge" class="nav-link" data-scroll-target="#application-point-charge"><span class="header-section-number">6.4.3</span> Application: Point Charge</a></li>
+  <li><a href="#application-infinite-line-charge" id="toc-application-infinite-line-charge" class="nav-link" data-scroll-target="#application-infinite-line-charge"><span class="header-section-number">6.4.4</span> Application: Infinite Line Charge</a></li>
+  <li><a href="#application-charged-conducting-sphere" id="toc-application-charged-conducting-sphere" class="nav-link" data-scroll-target="#application-charged-conducting-sphere"><span class="header-section-number">6.4.5</span> Application: Charged Conducting Sphere</a></li>
+  <li><a href="#faraday-cage" id="toc-faraday-cage" class="nav-link" data-scroll-target="#faraday-cage"><span class="header-section-number">6.4.6</span> Faraday Cage</a></li>
+  </ul></li>
+  <li><a href="#electric-potential" id="toc-electric-potential" class="nav-link" data-scroll-target="#electric-potential"><span class="header-section-number">6.5</span> Electric Potential</a>
+  <ul class="collapse">
+  <li><a href="#from-force-to-potential-energy" id="toc-from-force-to-potential-energy" class="nav-link" data-scroll-target="#from-force-to-potential-energy"><span class="header-section-number">6.5.1</span> From Force to Potential Energy</a></li>
+  <li><a href="#electric-potential-voltage" id="toc-electric-potential-voltage" class="nav-link" data-scroll-target="#electric-potential-voltage"><span class="header-section-number">6.5.2</span> Electric Potential (Voltage)</a></li>
+  <li><a href="#potential-of-a-point-charge" id="toc-potential-of-a-point-charge" class="nav-link" data-scroll-target="#potential-of-a-point-charge"><span class="header-section-number">6.5.3</span> Potential of a Point Charge</a></li>
+  <li><a href="#from-potential-back-to-field" id="toc-from-potential-back-to-field" class="nav-link" data-scroll-target="#from-potential-back-to-field"><span class="header-section-number">6.5.4</span> From Potential Back to Field</a></li>
+  <li><a href="#equipotentials" id="toc-equipotentials" class="nav-link" data-scroll-target="#equipotentials"><span class="header-section-number">6.5.5</span> Equipotentials</a></li>
+  </ul></li>
+  <li><a href="#capacitors" id="toc-capacitors" class="nav-link" data-scroll-target="#capacitors"><span class="header-section-number">6.6</span> Capacitors</a>
+  <ul class="collapse">
+  <li><a href="#parallel-plate-capacitor" id="toc-parallel-plate-capacitor" class="nav-link" data-scroll-target="#parallel-plate-capacitor"><span class="header-section-number">6.6.1</span> Parallel-Plate Capacitor</a></li>
+  <li><a href="#energy-stored-in-a-capacitor" id="toc-energy-stored-in-a-capacitor" class="nav-link" data-scroll-target="#energy-stored-in-a-capacitor"><span class="header-section-number">6.6.2</span> Energy Stored in a Capacitor</a></li>
+  </ul></li>
+  <li><a href="#dielectrics" id="toc-dielectrics" class="nav-link" data-scroll-target="#dielectrics"><span class="header-section-number">6.7</span> Dielectrics</a>
+  <ul class="collapse">
+  <li><a href="#polarization" id="toc-polarization" class="nav-link" data-scroll-target="#polarization"><span class="header-section-number">6.7.1</span> Polarization</a></li>
+  <li><a href="#linear-dielectrics" id="toc-linear-dielectrics" class="nav-link" data-scroll-target="#linear-dielectrics"><span class="header-section-number">6.7.2</span> Linear Dielectrics</a></li>
+  </ul></li>
+  <li><a href="#electric-dipoles" id="toc-electric-dipoles" class="nav-link" data-scroll-target="#electric-dipoles"><span class="header-section-number">6.8</span> Electric Dipoles</a>
+  <ul class="collapse">
+  <li><a href="#torque-on-a-dipole" id="toc-torque-on-a-dipole" class="nav-link" data-scroll-target="#torque-on-a-dipole"><span class="header-section-number">6.8.1</span> Torque on a Dipole</a></li>
+  <li><a href="#potential-energy-of-a-dipole" id="toc-potential-energy-of-a-dipole" class="nav-link" data-scroll-target="#potential-energy-of-a-dipole"><span class="header-section-number">6.8.2</span> Potential Energy of a Dipole</a></li>
+  <li><a href="#dipole-potential-and-field" id="toc-dipole-potential-and-field" class="nav-link" data-scroll-target="#dipole-potential-and-field"><span class="header-section-number">6.8.3</span> Dipole Potential and Field</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,21 +498,261 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="electric-charge" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="electric-charge"><span class="header-section-number">6.1</span> Electric Charge</h2>
+<p><strong>Charge</strong> is a fundamental, conserved property of particles. It comes in two types — positive and negative — and is measured in <strong>coulombs</strong> (C). The fundamental unit of charge is the electron charge:</p>
+<p><span class="math display">\[e = 1.6 \times 10^{-19}\;\text{C}\]</span></p>
+<p>Charges exert forces on each other at a distance: like charges repel, unlike charges attract. These interactions can be dealt with using vectors.</p>
+</section>
+<section id="coulombs-law" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="coulombs-law"><span class="header-section-number">6.2</span> Coulomb’s Law</h2>
+<p>The force between two point charges <span class="math inline">\(q_1\)</span> and <span class="math inline">\(q_2\)</span> separated by distance <span class="math inline">\(r\)</span>:</p>
+<p><span class="math display">\[\boxed{\vec{F} = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}\hat{r}}\]</span></p>
+<p>where <span class="math inline">\(\varepsilon_0\)</span> is the <strong>permittivity of free space</strong> (<span class="math inline">\(\varepsilon_0 \approx 8.85 \times 10^{-12}\;\text{C}^2/\text{N}\cdot\text{m}^2\)</span>) and <span class="math inline">\(\hat{r}\)</span> points from one charge to the other. The force is positive (repulsive) for like charges and negative (attractive) for unlike charges.</p>
+<p>Note the structural similarity to Newton’s law of gravitation — both are inverse-square laws. Coulomb’s law deals with charge; gravity deals with mass.</p>
+</section>
+<section id="the-electric-field" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="the-electric-field"><span class="header-section-number">6.3</span> The Electric Field</h2>
+<p>Coulomb’s law describes a force between two charges. But we often want an <strong>intensive</strong> property — one that doesn’t depend on the test charge. Divide by the test charge to get the <strong>electric field</strong>:</p>
+<p><span class="math display">\[\boxed{\vec{E} = \frac{\vec{F}}{q} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\hat{r}}\]</span></p>
+<p>The electric field is the force per unit charge at a point in space. It exists whether or not a test charge is present.</p>
+<section id="superposition" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="superposition"><span class="header-section-number">6.3.1</span> Superposition</h3>
+<p>The electric field obeys the <strong>principle of superposition</strong>: the total field from multiple charges is the vector sum of the individual fields:</p>
+<p><span class="math display">\[\vec{E}_\text{total} = \sum_i \vec{E}_i = \frac{1}{4\pi\varepsilon_0}\sum_i \frac{q_i}{r_i^2}\hat{r}_i\]</span></p>
+</section>
+<section id="field-lines" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="field-lines"><span class="header-section-number">6.3.2</span> Field Lines</h3>
+<p>Electric field lines are a visualization tool:</p>
+<ul>
+<li>Start at positive charges (sources), end at negative charges (sinks)</li>
+<li>Never cross</li>
+<li>Always hit conducting surfaces at 90°</li>
+<li>Closer lines indicate stronger field</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status
+<span class="screen-reader-only">Warning</span>TODO: Diagram
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Content to be transcribed from IPhO notes.</p>
+<p>Electric field lines for: (1) a single positive charge (radially outward), (2) a dipole (field lines from + to −), (3) two like charges (lines repelling). Show density of lines proportional to field strength.</p>
 </div>
 </div>
+</section>
+<section id="conductors" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="conductors"><span class="header-section-number">6.3.3</span> Conductors</h3>
+<p>Conductors allow charges to flow freely. In <strong>electrostatic equilibrium</strong>:</p>
+<ul>
+<li>The electric field inside a conductor is <strong>zero</strong> (<span class="math inline">\(\vec{E} = 0\)</span>)</li>
+<li>All excess charge resides on the <strong>surface</strong></li>
+<li>Charge clusters more densely at sharp points (higher curvature → stronger field)</li>
+<li>The field just outside the surface is perpendicular to it</li>
+</ul>
+</section>
+<section id="continuous-charge-distributions" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="continuous-charge-distributions"><span class="header-section-number">6.3.4</span> Continuous Charge Distributions</h3>
+<p>For many charges, replace the sum with an integral. Define charge densities:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Charge Density Notation</caption>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\lambda\)</span></td>
+<td>Linear charge density</td>
+<td>C/m</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\sigma\)</span></td>
+<td>Surface charge density</td>
+<td>C/m²</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho\)</span></td>
+<td>Volume charge density</td>
+<td>C/m³</td>
+</tr>
+</tbody>
+</table>
+<p>The field from a continuous distribution:</p>
+<p><span class="math display">\[\vec{E} = \frac{1}{4\pi\varepsilon_0}\int \frac{dq}{r^2}\hat{r}\]</span></p>
+</section>
+</section>
+<section id="gausss-law" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="gausss-law"><span class="header-section-number">6.4</span> Gauss’s Law</h2>
+<section id="electric-flux" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="electric-flux"><span class="header-section-number">6.4.1</span> Electric Flux</h3>
+<p>The <strong>electric flux</strong> through a surface measures how much field “flows through” it:</p>
+<p><span class="math display">\[\Phi_E = \oint \vec{E}\cdot d\vec{A}\]</span></p>
+<p>where <span class="math inline">\(d\vec{A}\)</span> is the outward-pointing area element of a closed surface. When <span class="math inline">\(\vec{E}\)</span> is constant and parallel to <span class="math inline">\(d\vec{A}\)</span>, this simplifies to <span class="math inline">\(\Phi_E = EA\)</span>.</p>
+</section>
+<section id="the-law" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="the-law"><span class="header-section-number">6.4.2</span> The Law</h3>
+<p><strong>Gauss’s law</strong> relates the flux through any closed surface to the enclosed charge:</p>
+<p><span class="math display">\[\boxed{\oint \vec{E}\cdot d\vec{A} = \frac{q_\text{enc}}{\varepsilon_0}}\]</span></p>
+<p>This is always true, but it is most <em>useful</em> when symmetry makes <span class="math inline">\(\vec{E}\)</span> constant over the Gaussian surface and parallel (or perpendicular) to <span class="math inline">\(d\vec{A}\)</span>.</p>
+<p>Compare with the gravitational analogue: <span class="math inline">\(\oint \vec{g}\cdot d\vec{A} = -4\pi G M_\text{enc}\)</span>.</p>
+</section>
+<section id="application-point-charge" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="application-point-charge"><span class="header-section-number">6.4.3</span> Application: Point Charge</h3>
+<p>Choose a spherical Gaussian surface of radius <span class="math inline">\(r\)</span> centered on charge <span class="math inline">\(q\)</span>. By symmetry, <span class="math inline">\(\vec{E}\)</span> is radial and constant on the sphere:</p>
+<p><span class="math display">\[E(4\pi r^2) = \frac{q}{\varepsilon_0}\]</span></p>
+<p><span class="math display">\[\boxed{E = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}}\]</span></p>
+<p>This recovers Coulomb’s law — Gauss’s law contains it.</p>
+</section>
+<section id="application-infinite-line-charge" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="application-infinite-line-charge"><span class="header-section-number">6.4.4</span> Application: Infinite Line Charge</h3>
+<p>For an infinite line with linear charge density <span class="math inline">\(\lambda\)</span>, choose a cylindrical Gaussian surface of radius <span class="math inline">\(r\)</span> and length <span class="math inline">\(L\)</span>. The flux through the end caps is zero (field is parallel to caps); the curved surface contributes:</p>
+<p><span class="math display">\[E(2\pi r L) = \frac{\lambda L}{\varepsilon_0}\]</span></p>
+<p><span class="math display">\[\boxed{E = \frac{\lambda}{2\pi\varepsilon_0 r} = \frac{1}{4\pi\varepsilon_0}\frac{2\lambda}{r}}\]</span></p>
+<p>The field falls off as <span class="math inline">\(1/r\)</span>, not <span class="math inline">\(1/r^2\)</span> — the line charge is effectively one-dimensional.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Gaussian surfaces for: (1) spherical surface around a point charge, (2) cylindrical surface around an infinite line charge. Show <span class="math inline">\(\vec{E}\)</span> and <span class="math inline">\(d\vec{A}\)</span> vectors on the surfaces, with end-cap contributions labeled as zero for the cylinder.</p>
+</div>
+</div>
+</section>
+<section id="application-charged-conducting-sphere" class="level3" data-number="6.4.5">
+<h3 data-number="6.4.5" class="anchored" data-anchor-id="application-charged-conducting-sphere"><span class="header-section-number">6.4.5</span> Application: Charged Conducting Sphere</h3>
+<p><strong>Inside</strong> (<span class="math inline">\(r &lt; R\)</span>): A Gaussian surface inside the conductor encloses no charge (all charge is on the surface), so <span class="math inline">\(E = 0\)</span>.</p>
+<p><strong>Outside</strong> (<span class="math inline">\(r &gt; R\)</span>): The field is identical to that of a point charge <span class="math inline">\(Q\)</span> at the center:</p>
+<p><span class="math display">\[E = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\]</span></p>
+</section>
+<section id="faraday-cage" class="level3" data-number="6.4.6">
+<h3 data-number="6.4.6" class="anchored" data-anchor-id="faraday-cage"><span class="header-section-number">6.4.6</span> Faraday Cage</h3>
+<p>A hollow conducting shell shields its interior from external electric fields. If a charge <span class="math inline">\(q\)</span> is placed inside the cavity, it induces <span class="math inline">\(-q\)</span> on the inner surface and <span class="math inline">\(+q\)</span> on the outer surface, but external fields have no effect on the interior. This is the principle behind the <strong>Faraday cage</strong>.</p>
+</section>
+</section>
+<section id="electric-potential" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="electric-potential"><span class="header-section-number">6.5</span> Electric Potential</h2>
+<section id="from-force-to-potential-energy" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="from-force-to-potential-energy"><span class="header-section-number">6.5.1</span> From Force to Potential Energy</h3>
+<p>The work done by the electric force on charge <span class="math inline">\(q\)</span> moving through displacement <span class="math inline">\(d\vec{s}\)</span>:</p>
+<p><span class="math display">\[dW = \vec{F}\cdot d\vec{s} = q\vec{E}\cdot d\vec{s}\]</span></p>
+<p>The potential energy change is <span class="math inline">\(dU = -dW\)</span>, so:</p>
+<p><span class="math display">\[\Delta U = -q\int_a^b \vec{E}\cdot d\vec{s}\]</span></p>
+</section>
+<section id="electric-potential-voltage" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="electric-potential-voltage"><span class="header-section-number">6.5.2</span> Electric Potential (Voltage)</h3>
+<p>Divide by charge to get an <strong>intensive</strong> quantity — the <strong>electric potential</strong> <span class="math inline">\(V\)</span>:</p>
+<p><span class="math display">\[\boxed{V = -\int \vec{E}\cdot d\vec{s}}\]</span></p>
+<p>The potential is a scalar (just add contributions!), which makes it much easier to work with than the vector field <span class="math inline">\(\vec{E}\)</span>. The relationship between potential energy and potential is simply <span class="math inline">\(U = qV\)</span>.</p>
+<p>The potential is path-independent — it depends only on the endpoints. This is because the electrostatic force is <strong>conservative</strong>.</p>
+</section>
+<section id="potential-of-a-point-charge" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="potential-of-a-point-charge"><span class="header-section-number">6.5.3</span> Potential of a Point Charge</h3>
+<p>For a point charge <span class="math inline">\(Q\)</span> at the origin:</p>
+<p><span class="math display">\[\boxed{V = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}}\]</span></p>
+<p>For multiple point charges, superposition gives:</p>
+<p><span class="math display">\[V = \frac{1}{4\pi\varepsilon_0}\sum_i \frac{q_i}{r_i}\]</span></p>
+<p>Since <span class="math inline">\(V\)</span> is a scalar, there are no vector components to worry about — just add the numbers.</p>
+</section>
+<section id="from-potential-back-to-field" class="level3" data-number="6.5.4">
+<h3 data-number="6.5.4" class="anchored" data-anchor-id="from-potential-back-to-field"><span class="header-section-number">6.5.4</span> From Potential Back to Field</h3>
+<p>The electric field is the negative gradient of the potential:</p>
+<p><span class="math display">\[\boxed{\vec{E} = -\nabla V}\]</span></p>
+<p>In Cartesian coordinates:</p>
+<p><span class="math display">\[\vec{E} = -\frac{\partial V}{\partial x}\hat{x} - \frac{\partial V}{\partial y}\hat{y} - \frac{\partial V}{\partial z}\hat{z}\]</span></p>
+<p>In one dimension, <span class="math inline">\(E = -dV/dx\)</span>.</p>
+</section>
+<section id="equipotentials" class="level3" data-number="6.5.5">
+<h3 data-number="6.5.5" class="anchored" data-anchor-id="equipotentials"><span class="header-section-number">6.5.5</span> Equipotentials</h3>
+<p>Surfaces of constant potential are called <strong>equipotentials</strong>. Key properties:</p>
+<ul>
+<li><span class="math inline">\(\vec{E}\)</span> is always perpendicular to equipotential surfaces</li>
+<li>No work is done moving a charge along an equipotential</li>
+<li>A nonzero potential does <em>not</em> imply a nonzero field (e.g., inside a charged conductor <span class="math inline">\(V\)</span> is constant but <span class="math inline">\(E = 0\)</span>)</li>
+</ul>
+</section>
+</section>
+<section id="capacitors" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="capacitors"><span class="header-section-number">6.6</span> Capacitors</h2>
+<p>A <strong>capacitor</strong> stores charge (and energy) by maintaining a potential difference between two conductors.</p>
+<section id="parallel-plate-capacitor" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="parallel-plate-capacitor"><span class="header-section-number">6.6.1</span> Parallel-Plate Capacitor</h3>
+<p>Consider two parallel plates of area <span class="math inline">\(A\)</span> separated by distance <span class="math inline">\(d\)</span>, with surface charge density <span class="math inline">\(\pm\sigma\)</span>. By Gauss’s law (using a pillbox surface), the field between the plates is uniform:</p>
+<p><span class="math display">\[E = \frac{\sigma}{\varepsilon_0}\]</span></p>
+<p>The potential difference is:</p>
+<p><span class="math display">\[V = Ed = \frac{\sigma d}{\varepsilon_0} = \frac{qd}{\varepsilon_0 A}\]</span></p>
+<p>The <strong>capacitance</strong> — charge stored per unit voltage:</p>
+<p><span class="math display">\[\boxed{C = \frac{q}{V} = \frac{\varepsilon_0 A}{d}}\]</span></p>
+<p>Larger area and smaller separation give larger capacitance.</p>
+</section>
+<section id="energy-stored-in-a-capacitor" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="energy-stored-in-a-capacitor"><span class="header-section-number">6.6.2</span> Energy Stored in a Capacitor</h3>
+<p>Building up charge on a capacitor requires work against the growing potential. Adding charge <span class="math inline">\(dq\)</span> when the voltage is <span class="math inline">\(V = q/C\)</span>:</p>
+<p><span class="math display">\[dU = V\,dq = \frac{q}{C}\,dq\]</span></p>
+<p>Integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(Q\)</span>:</p>
+<p><span class="math display">\[\boxed{U = \frac{1}{2}\frac{Q^2}{C} = \frac{1}{2}CV^2}\]</span></p>
+</section>
+</section>
+<section id="dielectrics" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="dielectrics"><span class="header-section-number">6.7</span> Dielectrics</h2>
+<p>To increase capacitance without changing geometry, insert a <strong>dielectric</strong> — an insulating material that becomes polarized in an electric field.</p>
+<section id="polarization" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="polarization"><span class="header-section-number">6.7.1</span> Polarization</h3>
+<p>When an external field is applied to a dielectric, the molecular dipoles align with the field. This is called <strong>polarization</strong>. The internal dipoles cancel in the bulk, leaving a net surface charge that opposes the applied field.</p>
+<p>The <strong>polarization</strong> <span class="math inline">\(\vec{P}\)</span> is the dipole moment per unit volume. The bound surface charge density is:</p>
+<p><span class="math display">\[\sigma_\text{bound} = \vec{P}\cdot\hat{n}\]</span></p>
+</section>
+<section id="linear-dielectrics" class="level3" data-number="6.7.2">
+<h3 data-number="6.7.2" class="anchored" data-anchor-id="linear-dielectrics"><span class="header-section-number">6.7.2</span> Linear Dielectrics</h3>
+<p>For linear dielectrics, <span class="math inline">\(\vec{P} = \chi_e \varepsilon_0 \vec{E}\)</span>, where <span class="math inline">\(\chi_e\)</span> is the <strong>electric susceptibility</strong>. The total field inside the dielectric is reduced:</p>
+<p><span class="math display">\[E_\text{total} = E_0 - \frac{\sigma_\text{bound}}{\varepsilon_0} = \frac{E_0}{1 + \chi_e} = \frac{E_0}{\kappa}\]</span></p>
+<p>where <span class="math inline">\(\kappa = 1 + \chi_e\)</span> is the <strong>dielectric constant</strong>. The permittivity of the material is:</p>
+<p><span class="math display">\[\varepsilon = \kappa\varepsilon_0\]</span></p>
+<p>With a dielectric, the parallel-plate capacitance becomes:</p>
+<p><span class="math display">\[\boxed{C = \frac{\kappa\varepsilon_0 A}{d} = \kappa C_0}\]</span></p>
+<p>The dielectric multiplies the capacitance by <span class="math inline">\(\kappa\)</span>.</p>
+</section>
+</section>
+<section id="electric-dipoles" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="electric-dipoles"><span class="header-section-number">6.8</span> Electric Dipoles</h2>
+<p>An <strong>electric dipole</strong> consists of two equal and opposite charges <span class="math inline">\(+q\)</span> and <span class="math inline">\(-q\)</span> separated by distance <span class="math inline">\(d\)</span>. The <strong>dipole moment</strong> is:</p>
+<p><span class="math display">\[\vec{p} = q\vec{d}\]</span></p>
+<p>where <span class="math inline">\(\vec{d}\)</span> points from the negative to the positive charge.</p>
+<section id="torque-on-a-dipole" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="torque-on-a-dipole"><span class="header-section-number">6.8.1</span> Torque on a Dipole</h3>
+<p>In a uniform external field <span class="math inline">\(\vec{E}\)</span>, the net force on a dipole is zero, but there is a torque:</p>
+<p><span class="math display">\[\boxed{\vec{\tau} = \vec{p}\times\vec{E}}\]</span></p>
+<p>The torque acts to align the dipole with the field.</p>
+</section>
+<section id="potential-energy-of-a-dipole" class="level3" data-number="6.8.2">
+<h3 data-number="6.8.2" class="anchored" data-anchor-id="potential-energy-of-a-dipole"><span class="header-section-number">6.8.2</span> Potential Energy of a Dipole</h3>
+<p>The potential energy of a dipole in a uniform field:</p>
+<p><span class="math display">\[\boxed{U = -\vec{p}\cdot\vec{E} = -pE\cos\theta}\]</span></p>
+<p>Minimum energy (stable equilibrium) when <span class="math inline">\(\vec{p} \parallel \vec{E}\)</span> (<span class="math inline">\(\theta = 0\)</span>); maximum energy when antiparallel (<span class="math inline">\(\theta = \pi\)</span>).</p>
+</section>
+<section id="dipole-potential-and-field" class="level3" data-number="6.8.3">
+<h3 data-number="6.8.3" class="anchored" data-anchor-id="dipole-potential-and-field"><span class="header-section-number">6.8.3</span> Dipole Potential and Field</h3>
+<p>Far from the dipole (<span class="math inline">\(r \gg d\)</span>), the potential is:</p>
+<p><span class="math display">\[\boxed{V = \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{r^2}}\]</span></p>
+<p>Note the <span class="math inline">\(1/r^2\)</span> dependence — faster falloff than a point charge (<span class="math inline">\(1/r\)</span>).</p>
+<p>The electric field of a dipole (in spherical coordinates):</p>
+<p><span class="math display">\[\boxed{\vec{E} = \frac{p}{4\pi\varepsilon_0 r^3}\left(2\cos\theta\,\hat{r} + \sin\theta\,\hat{\theta}\right)}\]</span></p>
+<p>This <span class="math inline">\(1/r^3\)</span> dependence (one power faster than a monopole’s <span class="math inline">\(1/r^2\)</span>) is characteristic of dipole fields. Along the axis (<span class="math inline">\(\theta = 0\)</span>), <span class="math inline">\(E = 2p/(4\pi\varepsilon_0 r^3)\)</span>; in the equatorial plane (<span class="math inline">\(\theta = \pi/2\)</span>), <span class="math inline">\(E = p/(4\pi\varepsilon_0 r^3)\)</span>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

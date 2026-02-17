@@ -410,7 +410,84 @@
     "href": "electrostatics.html",
     "title": "6  Electrostatics",
     "section": "",
-    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "text": "6.1 Electric Charge\nCharge is a fundamental, conserved property of particles. It comes in two types — positive and negative — and is measured in coulombs (C). The fundamental unit of charge is the electron charge:\n\\[e = 1.6 \\times 10^{-19}\\;\\text{C}\\]\nCharges exert forces on each other at a distance: like charges repel, unlike charges attract. These interactions can be dealt with using vectors.",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#coulombs-law",
+    "href": "electrostatics.html#coulombs-law",
+    "title": "6  Electrostatics",
+    "section": "6.2 Coulomb’s Law",
+    "text": "6.2 Coulomb’s Law\nThe force between two point charges \\(q_1\\) and \\(q_2\\) separated by distance \\(r\\):\n\\[\\boxed{\\vec{F} = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_1 q_2}{r^2}\\hat{r}}\\]\nwhere \\(\\varepsilon_0\\) is the permittivity of free space (\\(\\varepsilon_0 \\approx 8.85 \\times 10^{-12}\\;\\text{C}^2/\\text{N}\\cdot\\text{m}^2\\)) and \\(\\hat{r}\\) points from one charge to the other. The force is positive (repulsive) for like charges and negative (attractive) for unlike charges.\nNote the structural similarity to Newton’s law of gravitation — both are inverse-square laws. Coulomb’s law deals with charge; gravity deals with mass.",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#the-electric-field",
+    "href": "electrostatics.html#the-electric-field",
+    "title": "6  Electrostatics",
+    "section": "6.3 The Electric Field",
+    "text": "6.3 The Electric Field\nCoulomb’s law describes a force between two charges. But we often want an intensive property — one that doesn’t depend on the test charge. Divide by the test charge to get the electric field:\n\\[\\boxed{\\vec{E} = \\frac{\\vec{F}}{q} = \\frac{1}{4\\pi\\varepsilon_0}\\frac{Q}{r^2}\\hat{r}}\\]\nThe electric field is the force per unit charge at a point in space. It exists whether or not a test charge is present.\n\n6.3.1 Superposition\nThe electric field obeys the principle of superposition: the total field from multiple charges is the vector sum of the individual fields:\n\\[\\vec{E}_\\text{total} = \\sum_i \\vec{E}_i = \\frac{1}{4\\pi\\varepsilon_0}\\sum_i \\frac{q_i}{r_i^2}\\hat{r}_i\\]\n\n\n6.3.2 Field Lines\nElectric field lines are a visualization tool:\n\nStart at positive charges (sources), end at negative charges (sinks)\nNever cross\nAlways hit conducting surfaces at 90°\nCloser lines indicate stronger field\n\n\n\n\n\n\n\nWarningTODO: Diagram\n\n\n\nElectric field lines for: (1) a single positive charge (radially outward), (2) a dipole (field lines from + to −), (3) two like charges (lines repelling). Show density of lines proportional to field strength.\n\n\n\n\n6.3.3 Conductors\nConductors allow charges to flow freely. In electrostatic equilibrium:\n\nThe electric field inside a conductor is zero (\\(\\vec{E} = 0\\))\nAll excess charge resides on the surface\nCharge clusters more densely at sharp points (higher curvature → stronger field)\nThe field just outside the surface is perpendicular to it\n\n\n\n6.3.4 Continuous Charge Distributions\nFor many charges, replace the sum with an integral. Define charge densities:\n\nCharge Density Notation\n\n\nSymbol\nMeaning\nUnits\n\n\n\n\n\\(\\lambda\\)\nLinear charge density\nC/m\n\n\n\\(\\sigma\\)\nSurface charge density\nC/m²\n\n\n\\(\\rho\\)\nVolume charge density\nC/m³\n\n\n\nThe field from a continuous distribution:\n\\[\\vec{E} = \\frac{1}{4\\pi\\varepsilon_0}\\int \\frac{dq}{r^2}\\hat{r}\\]",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#gausss-law",
+    "href": "electrostatics.html#gausss-law",
+    "title": "6  Electrostatics",
+    "section": "6.4 Gauss’s Law",
+    "text": "6.4 Gauss’s Law\n\n6.4.1 Electric Flux\nThe electric flux through a surface measures how much field “flows through” it:\n\\[\\Phi_E = \\oint \\vec{E}\\cdot d\\vec{A}\\]\nwhere \\(d\\vec{A}\\) is the outward-pointing area element of a closed surface. When \\(\\vec{E}\\) is constant and parallel to \\(d\\vec{A}\\), this simplifies to \\(\\Phi_E = EA\\).\n\n\n6.4.2 The Law\nGauss’s law relates the flux through any closed surface to the enclosed charge:\n\\[\\boxed{\\oint \\vec{E}\\cdot d\\vec{A} = \\frac{q_\\text{enc}}{\\varepsilon_0}}\\]\nThis is always true, but it is most useful when symmetry makes \\(\\vec{E}\\) constant over the Gaussian surface and parallel (or perpendicular) to \\(d\\vec{A}\\).\nCompare with the gravitational analogue: \\(\\oint \\vec{g}\\cdot d\\vec{A} = -4\\pi G M_\\text{enc}\\).\n\n\n6.4.3 Application: Point Charge\nChoose a spherical Gaussian surface of radius \\(r\\) centered on charge \\(q\\). By symmetry, \\(\\vec{E}\\) is radial and constant on the sphere:\n\\[E(4\\pi r^2) = \\frac{q}{\\varepsilon_0}\\]\n\\[\\boxed{E = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q}{r^2}}\\]\nThis recovers Coulomb’s law — Gauss’s law contains it.\n\n\n6.4.4 Application: Infinite Line Charge\nFor an infinite line with linear charge density \\(\\lambda\\), choose a cylindrical Gaussian surface of radius \\(r\\) and length \\(L\\). The flux through the end caps is zero (field is parallel to caps); the curved surface contributes:\n\\[E(2\\pi r L) = \\frac{\\lambda L}{\\varepsilon_0}\\]\n\\[\\boxed{E = \\frac{\\lambda}{2\\pi\\varepsilon_0 r} = \\frac{1}{4\\pi\\varepsilon_0}\\frac{2\\lambda}{r}}\\]\nThe field falls off as \\(1/r\\), not \\(1/r^2\\) — the line charge is effectively one-dimensional.\n\n\n\n\n\n\nWarningTODO: Diagram\n\n\n\nGaussian surfaces for: (1) spherical surface around a point charge, (2) cylindrical surface around an infinite line charge. Show \\(\\vec{E}\\) and \\(d\\vec{A}\\) vectors on the surfaces, with end-cap contributions labeled as zero for the cylinder.\n\n\n\n\n6.4.5 Application: Charged Conducting Sphere\nInside (\\(r &lt; R\\)): A Gaussian surface inside the conductor encloses no charge (all charge is on the surface), so \\(E = 0\\).\nOutside (\\(r &gt; R\\)): The field is identical to that of a point charge \\(Q\\) at the center:\n\\[E = \\frac{1}{4\\pi\\varepsilon_0}\\frac{Q}{r^2}\\]\n\n\n6.4.6 Faraday Cage\nA hollow conducting shell shields its interior from external electric fields. If a charge \\(q\\) is placed inside the cavity, it induces \\(-q\\) on the inner surface and \\(+q\\) on the outer surface, but external fields have no effect on the interior. This is the principle behind the Faraday cage.",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#electric-potential",
+    "href": "electrostatics.html#electric-potential",
+    "title": "6  Electrostatics",
+    "section": "6.5 Electric Potential",
+    "text": "6.5 Electric Potential\n\n6.5.1 From Force to Potential Energy\nThe work done by the electric force on charge \\(q\\) moving through displacement \\(d\\vec{s}\\):\n\\[dW = \\vec{F}\\cdot d\\vec{s} = q\\vec{E}\\cdot d\\vec{s}\\]\nThe potential energy change is \\(dU = -dW\\), so:\n\\[\\Delta U = -q\\int_a^b \\vec{E}\\cdot d\\vec{s}\\]\n\n\n6.5.2 Electric Potential (Voltage)\nDivide by charge to get an intensive quantity — the electric potential \\(V\\):\n\\[\\boxed{V = -\\int \\vec{E}\\cdot d\\vec{s}}\\]\nThe potential is a scalar (just add contributions!), which makes it much easier to work with than the vector field \\(\\vec{E}\\). The relationship between potential energy and potential is simply \\(U = qV\\).\nThe potential is path-independent — it depends only on the endpoints. This is because the electrostatic force is conservative.\n\n\n6.5.3 Potential of a Point Charge\nFor a point charge \\(Q\\) at the origin:\n\\[\\boxed{V = \\frac{1}{4\\pi\\varepsilon_0}\\frac{Q}{r}}\\]\nFor multiple point charges, superposition gives:\n\\[V = \\frac{1}{4\\pi\\varepsilon_0}\\sum_i \\frac{q_i}{r_i}\\]\nSince \\(V\\) is a scalar, there are no vector components to worry about — just add the numbers.\n\n\n6.5.4 From Potential Back to Field\nThe electric field is the negative gradient of the potential:\n\\[\\boxed{\\vec{E} = -\\nabla V}\\]\nIn Cartesian coordinates:\n\\[\\vec{E} = -\\frac{\\partial V}{\\partial x}\\hat{x} - \\frac{\\partial V}{\\partial y}\\hat{y} - \\frac{\\partial V}{\\partial z}\\hat{z}\\]\nIn one dimension, \\(E = -dV/dx\\).\n\n\n6.5.5 Equipotentials\nSurfaces of constant potential are called equipotentials. Key properties:\n\n\\(\\vec{E}\\) is always perpendicular to equipotential surfaces\nNo work is done moving a charge along an equipotential\nA nonzero potential does not imply a nonzero field (e.g., inside a charged conductor \\(V\\) is constant but \\(E = 0\\))",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#capacitors",
+    "href": "electrostatics.html#capacitors",
+    "title": "6  Electrostatics",
+    "section": "6.6 Capacitors",
+    "text": "6.6 Capacitors\nA capacitor stores charge (and energy) by maintaining a potential difference between two conductors.\n\n6.6.1 Parallel-Plate Capacitor\nConsider two parallel plates of area \\(A\\) separated by distance \\(d\\), with surface charge density \\(\\pm\\sigma\\). By Gauss’s law (using a pillbox surface), the field between the plates is uniform:\n\\[E = \\frac{\\sigma}{\\varepsilon_0}\\]\nThe potential difference is:\n\\[V = Ed = \\frac{\\sigma d}{\\varepsilon_0} = \\frac{qd}{\\varepsilon_0 A}\\]\nThe capacitance — charge stored per unit voltage:\n\\[\\boxed{C = \\frac{q}{V} = \\frac{\\varepsilon_0 A}{d}}\\]\nLarger area and smaller separation give larger capacitance.\n\n\n6.6.2 Energy Stored in a Capacitor\nBuilding up charge on a capacitor requires work against the growing potential. Adding charge \\(dq\\) when the voltage is \\(V = q/C\\):\n\\[dU = V\\,dq = \\frac{q}{C}\\,dq\\]\nIntegrating from \\(0\\) to \\(Q\\):\n\\[\\boxed{U = \\frac{1}{2}\\frac{Q^2}{C} = \\frac{1}{2}CV^2}\\]",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#dielectrics",
+    "href": "electrostatics.html#dielectrics",
+    "title": "6  Electrostatics",
+    "section": "6.7 Dielectrics",
+    "text": "6.7 Dielectrics\nTo increase capacitance without changing geometry, insert a dielectric — an insulating material that becomes polarized in an electric field.\n\n6.7.1 Polarization\nWhen an external field is applied to a dielectric, the molecular dipoles align with the field. This is called polarization. The internal dipoles cancel in the bulk, leaving a net surface charge that opposes the applied field.\nThe polarization \\(\\vec{P}\\) is the dipole moment per unit volume. The bound surface charge density is:\n\\[\\sigma_\\text{bound} = \\vec{P}\\cdot\\hat{n}\\]\n\n\n6.7.2 Linear Dielectrics\nFor linear dielectrics, \\(\\vec{P} = \\chi_e \\varepsilon_0 \\vec{E}\\), where \\(\\chi_e\\) is the electric susceptibility. The total field inside the dielectric is reduced:\n\\[E_\\text{total} = E_0 - \\frac{\\sigma_\\text{bound}}{\\varepsilon_0} = \\frac{E_0}{1 + \\chi_e} = \\frac{E_0}{\\kappa}\\]\nwhere \\(\\kappa = 1 + \\chi_e\\) is the dielectric constant. The permittivity of the material is:\n\\[\\varepsilon = \\kappa\\varepsilon_0\\]\nWith a dielectric, the parallel-plate capacitance becomes:\n\\[\\boxed{C = \\frac{\\kappa\\varepsilon_0 A}{d} = \\kappa C_0}\\]\nThe dielectric multiplies the capacitance by \\(\\kappa\\).",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html#electric-dipoles",
+    "href": "electrostatics.html#electric-dipoles",
+    "title": "6  Electrostatics",
+    "section": "6.8 Electric Dipoles",
+    "text": "6.8 Electric Dipoles\nAn electric dipole consists of two equal and opposite charges \\(+q\\) and \\(-q\\) separated by distance \\(d\\). The dipole moment is:\n\\[\\vec{p} = q\\vec{d}\\]\nwhere \\(\\vec{d}\\) points from the negative to the positive charge.\n\n6.8.1 Torque on a Dipole\nIn a uniform external field \\(\\vec{E}\\), the net force on a dipole is zero, but there is a torque:\n\\[\\boxed{\\vec{\\tau} = \\vec{p}\\times\\vec{E}}\\]\nThe torque acts to align the dipole with the field.\n\n\n6.8.2 Potential Energy of a Dipole\nThe potential energy of a dipole in a uniform field:\n\\[\\boxed{U = -\\vec{p}\\cdot\\vec{E} = -pE\\cos\\theta}\\]\nMinimum energy (stable equilibrium) when \\(\\vec{p} \\parallel \\vec{E}\\) (\\(\\theta = 0\\)); maximum energy when antiparallel (\\(\\theta = \\pi\\)).\n\n\n6.8.3 Dipole Potential and Field\nFar from the dipole (\\(r \\gg d\\)), the potential is:\n\\[\\boxed{V = \\frac{1}{4\\pi\\varepsilon_0}\\frac{p\\cos\\theta}{r^2}}\\]\nNote the \\(1/r^2\\) dependence — faster falloff than a point charge (\\(1/r\\)).\nThe electric field of a dipole (in spherical coordinates):\n\\[\\boxed{\\vec{E} = \\frac{p}{4\\pi\\varepsilon_0 r^3}\\left(2\\cos\\theta\\,\\hat{r} + \\sin\\theta\\,\\hat{\\theta}\\right)}\\]\nThis \\(1/r^3\\) dependence (one power faster than a monopole’s \\(1/r^2\\)) is characteristic of dipole fields. Along the axis (\\(\\theta = 0\\)), \\(E = 2p/(4\\pi\\varepsilon_0 r^3)\\); in the equatorial plane (\\(\\theta = \\pi/2\\)), \\(E = p/(4\\pi\\varepsilon_0 r^3)\\).",
     "crumbs": [
       "Electromagnetism & Optics",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
