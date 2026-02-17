@@ -20,7 +20,10 @@ jobs:
       - name: Install LaTeX
         run: quarto install tinytex
 
-      - name: Render and Publish
+      - name: Render PDF (catch rendering errors)
+        run: quarto render --to pdf
+
+      - name: Render and Publish HTML
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
