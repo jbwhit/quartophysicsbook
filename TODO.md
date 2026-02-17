@@ -13,9 +13,6 @@
 
 ---
 
-### Questions for Casey
-1. Error propagation — considered under lab stuff that we're not covering?
-
 ## Phase 2: Transcribe IPhO Notes (169 photos → chapters)
 - [x] Catalog all 169 photos by topic (see `images/IPhO_notes_catalog.md`)
 - [x] **Chapter 4: Mechanics** (`mechanics.qmd`) — forces, energy, momentum, rotation
@@ -23,7 +20,7 @@
 - [x] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
 - [x] **Chapter 7: Optics** (`optics.qmd`) — mirrors, lenses, diffraction, phasors
 - [x] **Chapter 8: Electrostatics** (`electrostatics.qmd`) — Coulomb, fields, Gauss's law
-- [ ] **Chapter 9: Circuits & Magnetism** (`circuits.qmd`) — dipoles, induction, motors
+- [x] **Chapter 9: Circuits & Magnetism** (`circuits.qmd`) — dipoles, induction, motors
 - [ ] **Chapter 10: Modern Physics** (`relativity.qmd`) — relativity, light cones, Doppler
 
 ## Phase 3: Polish & Publish
@@ -59,5 +56,4 @@ part: "Modern Physics"
 
 ## Open Questions
 1. Any topics Casey wants to add beyond what's in the IPhO notes?
-2. What order to tackle Phase 2 chapters?
-3. Target audience refinement — "motivated professionals who know how to Google" per Casey's foreword, or broader?
+2. Error propagation — considered under lab stuff that we're not covering?
