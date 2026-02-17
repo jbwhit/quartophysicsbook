@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -396,8 +425,72 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-bohr-atom" id="toc-the-bohr-atom" class="nav-link active" data-scroll-target="#the-bohr-atom"><span class="header-section-number">9.1</span> The Bohr Atom</a>
+  <ul class="collapse">
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="header-section-number">9.1.1</span> Limitations</a></li>
+  </ul></li>
+  <li><a href="#the-photoelectric-effect" id="toc-the-photoelectric-effect" class="nav-link" data-scroll-target="#the-photoelectric-effect"><span class="header-section-number">9.2</span> The Photoelectric Effect</a>
+  <ul class="collapse">
+  <li><a href="#the-experiment" id="toc-the-experiment" class="nav-link" data-scroll-target="#the-experiment"><span class="header-section-number">9.2.1</span> The experiment</a></li>
+  <li><a href="#classical-predictions-all-wrong" id="toc-classical-predictions-all-wrong" class="nav-link" data-scroll-target="#classical-predictions-all-wrong"><span class="header-section-number">9.2.2</span> Classical predictions (all wrong)</a></li>
+  <li><a href="#three-experimental-tests" id="toc-three-experimental-tests" class="nav-link" data-scroll-target="#three-experimental-tests"><span class="header-section-number">9.2.3</span> Three experimental tests</a></li>
+  <li><a href="#einsteins-explanation" id="toc-einsteins-explanation" class="nav-link" data-scroll-target="#einsteins-explanation"><span class="header-section-number">9.2.4</span> Einstein’s explanation</a></li>
+  </ul></li>
+  <li><a href="#waveparticle-duality" id="toc-waveparticle-duality" class="nav-link" data-scroll-target="#waveparticle-duality"><span class="header-section-number">9.3</span> Wave–Particle Duality</a>
+  <ul class="collapse">
+  <li><a href="#photon-properties" id="toc-photon-properties" class="nav-link" data-scroll-target="#photon-properties"><span class="header-section-number">9.3.1</span> Photon properties</a></li>
+  <li><a href="#de-broglie-wavelength" id="toc-de-broglie-wavelength" class="nav-link" data-scroll-target="#de-broglie-wavelength"><span class="header-section-number">9.3.2</span> De Broglie wavelength</a></li>
+  <li><a href="#electrons-as-waves" id="toc-electrons-as-waves" class="nav-link" data-scroll-target="#electrons-as-waves"><span class="header-section-number">9.3.3</span> Electrons as waves</a></li>
+  <li><a href="#the-wave-function" id="toc-the-wave-function" class="nav-link" data-scroll-target="#the-wave-function"><span class="header-section-number">9.3.4</span> The wave function</a></li>
+  <li><a href="#interpretations" id="toc-interpretations" class="nav-link" data-scroll-target="#interpretations"><span class="header-section-number">9.3.5</span> Interpretations</a></li>
+  </ul></li>
+  <li><a href="#heisenberg-uncertainty-principle" id="toc-heisenberg-uncertainty-principle" class="nav-link" data-scroll-target="#heisenberg-uncertainty-principle"><span class="header-section-number">9.4</span> Heisenberg Uncertainty Principle</a>
+  <ul class="collapse">
+  <li><a href="#physical-intuition" id="toc-physical-intuition" class="nav-link" data-scroll-target="#physical-intuition"><span class="header-section-number">9.4.1</span> Physical intuition</a></li>
+  <li><a href="#einsteins-box" id="toc-einsteins-box" class="nav-link" data-scroll-target="#einsteins-box"><span class="header-section-number">9.4.2</span> Einstein’s box</a></li>
+  </ul></li>
+  <li><a href="#special-relativity" id="toc-special-relativity" class="nav-link" data-scroll-target="#special-relativity"><span class="header-section-number">9.5</span> Special Relativity</a>
+  <ul class="collapse">
+  <li><a href="#postulates" id="toc-postulates" class="nav-link" data-scroll-target="#postulates"><span class="header-section-number">9.5.1</span> Postulates</a></li>
+  <li><a href="#geometry-of-spacetime" id="toc-geometry-of-spacetime" class="nav-link" data-scroll-target="#geometry-of-spacetime"><span class="header-section-number">9.5.2</span> Geometry of spacetime</a></li>
+  <li><a href="#lorentz-transformations" id="toc-lorentz-transformations" class="nav-link" data-scroll-target="#lorentz-transformations"><span class="header-section-number">9.5.3</span> Lorentz Transformations</a></li>
+  <li><a href="#relativity-of-simultaneity" id="toc-relativity-of-simultaneity" class="nav-link" data-scroll-target="#relativity-of-simultaneity"><span class="header-section-number">9.5.4</span> Relativity of Simultaneity</a></li>
+  <li><a href="#length-contraction" id="toc-length-contraction" class="nav-link" data-scroll-target="#length-contraction"><span class="header-section-number">9.5.5</span> Length Contraction</a></li>
+  <li><a href="#time-dilation" id="toc-time-dilation" class="nav-link" data-scroll-target="#time-dilation"><span class="header-section-number">9.5.6</span> Time Dilation</a></li>
+  <li><a href="#light-clocks" id="toc-light-clocks" class="nav-link" data-scroll-target="#light-clocks"><span class="header-section-number">9.5.7</span> Light clocks</a></li>
+  <li><a href="#velocity-addition" id="toc-velocity-addition" class="nav-link" data-scroll-target="#velocity-addition"><span class="header-section-number">9.5.8</span> Velocity Addition</a></li>
+  </ul></li>
+  <li><a href="#spacetime-diagrams-and-light-cones" id="toc-spacetime-diagrams-and-light-cones" class="nav-link" data-scroll-target="#spacetime-diagrams-and-light-cones"><span class="header-section-number">9.6</span> Spacetime Diagrams and Light Cones</a>
+  <ul class="collapse">
+  <li><a href="#a-glimpse-of-general-relativity" id="toc-a-glimpse-of-general-relativity" class="nav-link" data-scroll-target="#a-glimpse-of-general-relativity"><span class="header-section-number">9.6.1</span> A glimpse of general relativity</a></li>
+  </ul></li>
+  <li><a href="#relativistic-dynamics" id="toc-relativistic-dynamics" class="nav-link" data-scroll-target="#relativistic-dynamics"><span class="header-section-number">9.7</span> Relativistic Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#four-vectors" id="toc-four-vectors" class="nav-link" data-scroll-target="#four-vectors"><span class="header-section-number">9.7.1</span> Four-vectors</a></li>
+  <li><a href="#relativistic-momentum" id="toc-relativistic-momentum" class="nav-link" data-scroll-target="#relativistic-momentum"><span class="header-section-number">9.7.2</span> Relativistic momentum</a></li>
+  <li><a href="#relativistic-energy" id="toc-relativistic-energy" class="nav-link" data-scroll-target="#relativistic-energy"><span class="header-section-number">9.7.3</span> Relativistic energy</a></li>
+  <li><a href="#energymomentum-relation" id="toc-energymomentum-relation" class="nav-link" data-scroll-target="#energymomentum-relation"><span class="header-section-number">9.7.4</span> Energy–momentum relation</a></li>
+  <li><a href="#photons" id="toc-photons" class="nav-link" data-scroll-target="#photons"><span class="header-section-number">9.7.5</span> Photons</a></li>
+  </ul></li>
+  <li><a href="#relativistic-collisions" id="toc-relativistic-collisions" class="nav-link" data-scroll-target="#relativistic-collisions"><span class="header-section-number">9.8</span> Relativistic Collisions</a>
+  <ul class="collapse">
+  <li><a href="#impossible-processes" id="toc-impossible-processes" class="nav-link" data-scroll-target="#impossible-processes"><span class="header-section-number">9.8.1</span> Impossible processes</a></li>
+  <li><a href="#compton-scattering" id="toc-compton-scattering" class="nav-link" data-scroll-target="#compton-scattering"><span class="header-section-number">9.8.2</span> Compton Scattering</a></li>
+  <li><a href="#inverse-compton-scattering" id="toc-inverse-compton-scattering" class="nav-link" data-scroll-target="#inverse-compton-scattering"><span class="header-section-number">9.8.3</span> Inverse Compton Scattering</a></li>
+  </ul></li>
+  <li><a href="#visualising-relativity" id="toc-visualising-relativity" class="nav-link" data-scroll-target="#visualising-relativity"><span class="header-section-number">9.9</span> Visualising Relativity</a>
+  <ul class="collapse">
+  <li><a href="#aberration" id="toc-aberration" class="nav-link" data-scroll-target="#aberration"><span class="header-section-number">9.9.1</span> Aberration</a></li>
+  <li><a href="#relativistic-doppler-effect" id="toc-relativistic-doppler-effect" class="nav-link" data-scroll-target="#relativistic-doppler-effect"><span class="header-section-number">9.9.2</span> Relativistic Doppler Effect</a></li>
+  <li><a href="#relativistic-beaming" id="toc-relativistic-beaming" class="nav-link" data-scroll-target="#relativistic-beaming"><span class="header-section-number">9.9.3</span> Relativistic Beaming</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,21 +515,357 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<p>This chapter covers the physics that classical mechanics and electromagnetism cannot explain: the structure of atoms, the quantum nature of light and matter, and Einstein’s theory of special relativity.</p>
+<section id="the-bohr-atom" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="the-bohr-atom"><span class="header-section-number">9.1</span> The Bohr Atom</h2>
+<p>Classical physics — the Rutherford model — imagines electrons orbiting a nucleus like planets around a star. The problem: an accelerating charge radiates energy. The electron should spiral into the nucleus, and the atom should collapse. Atoms are clearly not doing this.</p>
+<p><strong>Bohr’s postulates</strong> (1913) resolve the crisis:</p>
+<ol type="1">
+<li><strong>Stationary states</strong>: Electrons exist only in discrete energy levels. They do not radiate while in these states. Both energy and angular momentum are quantized:</li>
+</ol>
+<p><span class="math display">\[\boxed{L = n\hbar}\]</span></p>
+<p>where <span class="math inline">\(n = 1, 2, 3, \ldots\)</span> is the principal quantum number and <span class="math inline">\(\hbar = h/(2\pi)\)</span> is the reduced Planck constant.</p>
+<ol start="2" type="1">
+<li><strong>Photon emission</strong>: When an electron transitions from a higher energy state <span class="math inline">\(E_2\)</span> to a lower state <span class="math inline">\(E_1\)</span>, it emits a photon with frequency:</li>
+</ol>
+<p><span class="math display">\[\boxed{h\nu = E_2 - E_1}\]</span></p>
+<p>where <span class="math inline">\(h = 6.63 \times 10^{-34}\;\text{J}\cdot\text{s}\)</span> is Planck’s constant and <span class="math inline">\(\nu\)</span> is the photon frequency. Equivalently, <span class="math inline">\(E = h\nu\)</span> and <span class="math inline">\(\lambda = c/\nu\)</span>.</p>
+<p>The lowest possible energy state is called the <strong>ground state</strong> (<span class="math inline">\(n = 1\)</span>).</p>
+<section id="limitations" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="limitations"><span class="header-section-number">9.1.1</span> Limitations</h3>
+<p>The Bohr model:</p>
+<ul>
+<li>Only accounts for one-electron atoms (hydrogen, He<span class="math inline">\(^+\)</span>, Li<span class="math inline">\(^{2+}\)</span>, …)</li>
+<li>Does not work for molecules or solids</li>
+<li>Mixes quantum ideas (quantized orbits) with classical ones (definite trajectories)</li>
+</ul>
+<p>It did, however, explain the spectral lines of hydrogen and paved the way for full quantum mechanics.</p>
+</section>
+</section>
+<section id="the-photoelectric-effect" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="the-photoelectric-effect"><span class="header-section-number">9.2</span> The Photoelectric Effect</h2>
+<p>The <strong>photoelectric effect</strong> is the release of electrons from a metal surface by light. It was discovered by Hertz in 1887 and explained by Einstein in 1905 (Nobel Prize, 1921).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status
+<span class="screen-reader-only">Warning</span>TODO: Diagram
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Content to be transcribed from IPhO notes.</p>
+<p>Photoelectric apparatus: photosensitive cathode on the left, anode (collector) on the right, connected by a circuit with a voltage source and ammeter. Light (wavy arrow) hits the cathode; electrons are ejected and collected by the anode. Show the stopping potential <span class="math inline">\(V_\text{stop}\)</span>.</p>
 </div>
 </div>
+<section id="the-experiment" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="the-experiment"><span class="header-section-number">9.2.1</span> The experiment</h3>
+<p>Shine light on a metal surface and measure the kinetic energy of ejected electrons using a stopping voltage:</p>
+<p><span class="math display">\[K_\text{max} = eV_\text{stop}\]</span></p>
+<p>The <strong>work function</strong> <span class="math inline">\(\phi\)</span> is the minimum energy required to eject an electron from the surface.</p>
+</section>
+<section id="classical-predictions-all-wrong" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="classical-predictions-all-wrong"><span class="header-section-number">9.2.2</span> Classical predictions (all wrong)</h3>
+<p>According to classical wave theory:</p>
+<ul>
+<li>More intense light should give electrons more energy (wrong — it gives more electrons, not faster ones)</li>
+<li>Any frequency should work if you wait long enough (wrong — below a threshold frequency, no electrons are emitted regardless of intensity)</li>
+<li>There should be a time delay for dim light (wrong — electrons appear instantly)</li>
+</ul>
+</section>
+<section id="three-experimental-tests" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="three-experimental-tests"><span class="header-section-number">9.2.3</span> Three experimental tests</h3>
+<ol type="1">
+<li><p><strong>Vary intensity at constant frequency</strong>: More intensity <span class="math inline">\(\Rightarrow\)</span> more photocurrent, but the same stopping voltage. Electrons can only absorb one photon at a time.</p></li>
+<li><p><strong>Vary frequency at constant intensity</strong>: <span class="math inline">\(K_\text{max}\)</span> increases linearly with frequency. Below a threshold frequency (where <span class="math inline">\(h\nu &lt; \phi\)</span>), no electrons are emitted at all. The slope of <span class="math inline">\(K_\text{max}\)</span> vs.&nbsp;<span class="math inline">\(\nu\)</span> gives Planck’s constant <span class="math inline">\(h\)</span>.</p></li>
+<li><p><strong>Check for time delay</strong>: No delay — if the photon energy exceeds <span class="math inline">\(\phi\)</span>, electrons come out immediately.</p></li>
+</ol>
+</section>
+<section id="einsteins-explanation" class="level3" data-number="9.2.4">
+<h3 data-number="9.2.4" class="anchored" data-anchor-id="einsteins-explanation"><span class="header-section-number">9.2.4</span> Einstein’s explanation</h3>
+<p>Light acts like particles called <strong>photons</strong>, each carrying energy <span class="math inline">\(E = h\nu\)</span>. Electrons can only absorb one photon at a time. By conservation of energy:</p>
+<p><span class="math display">\[\boxed{K_\text{max} = h\nu - \phi}\]</span></p>
+<p>This explains everything: the threshold frequency (<span class="math inline">\(h\nu_0 = \phi\)</span>), the linear dependence on frequency, and the absence of time delay.</p>
+</section>
+</section>
+<section id="waveparticle-duality" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="waveparticle-duality"><span class="header-section-number">9.3</span> Wave–Particle Duality</h2>
+<p>Einstein showed light behaves as particles (photons). De Broglie (1924) proposed the reverse: matter behaves as waves.</p>
+<section id="photon-properties" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="photon-properties"><span class="header-section-number">9.3.1</span> Photon properties</h3>
+<p>A photon has energy and momentum but zero rest mass:</p>
+<p><span class="math display">\[E = h\nu, \qquad p = \frac{E}{c} = \frac{h}{\lambda}\]</span></p>
+</section>
+<section id="de-broglie-wavelength" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="de-broglie-wavelength"><span class="header-section-number">9.3.2</span> De Broglie wavelength</h3>
+<p>Any particle with momentum <span class="math inline">\(p\)</span> has an associated wavelength:</p>
+<p><span class="math display">\[\boxed{\lambda = \frac{h}{p} = \frac{h}{mv}}\]</span></p>
+<p>This works for everything. For macroscopic objects the wavelength is absurdly small — a tennis ball (<span class="math inline">\(m = 57\;\text{g}\)</span>, <span class="math inline">\(v = 100\;\text{m/s}\)</span>) has <span class="math inline">\(\lambda \approx 10^{-34}\;\text{m}\)</span>. Only for subatomic particles does the wavelength become comparable to physical scales.</p>
+<p><strong>Example</strong>: An electron (<span class="math inline">\(m = 9.1 \times 10^{-31}\;\text{kg}\)</span>) at <span class="math inline">\(v = 10^6\;\text{m/s}\)</span> has <span class="math inline">\(\lambda = h/(mv) \approx 7.3 \times 10^{-10}\;\text{m} \approx 0.73\;\text{nm}\)</span>, comparable to atomic spacing. This is why electron diffraction works.</p>
+</section>
+<section id="electrons-as-waves" class="level3" data-number="9.3.3">
+<h3 data-number="9.3.3" class="anchored" data-anchor-id="electrons-as-waves"><span class="header-section-number">9.3.3</span> Electrons as waves</h3>
+<p>The 1989 single-electron double-slit experiment confirmed wave–particle duality dramatically: electrons sent through a double slit one at a time still build up an interference pattern. Each electron arrives as a particle (a single dot on the detector), but the statistical pattern of many hits is a wave interference pattern.</p>
+</section>
+<section id="the-wave-function" class="level3" data-number="9.3.4">
+<h3 data-number="9.3.4" class="anchored" data-anchor-id="the-wave-function"><span class="header-section-number">9.3.4</span> The wave function</h3>
+<p>Quantum mechanics describes particles using a <strong>wave function</strong> <span class="math inline">\(\psi\)</span>. The quantity <span class="math inline">\(|\psi|^2\)</span> gives the <strong>probability density</strong> — the probability of finding the particle at a given location.</p>
+<p>The wave function exhibits interference (explaining the double-slit pattern). It also leads to effects that have no classical analogue:</p>
+<ul>
+<li><strong>Tunneling</strong>: Particles can pass through barriers they classically could not surmount</li>
+<li><strong>Discrete energy levels</strong>: Bound particles have quantized energies (as in the Bohr atom)</li>
+</ul>
+</section>
+<section id="interpretations" class="level3" data-number="9.3.5">
+<h3 data-number="9.3.5" class="anchored" data-anchor-id="interpretations"><span class="header-section-number">9.3.5</span> Interpretations</h3>
+<p>What does the wave function “mean”?</p>
+<ul>
+<li><strong>Copenhagen interpretation</strong>: Observation collapses the wave function. Before measurement, the particle is in a superposition of states.</li>
+<li><strong>Many-worlds interpretation</strong>: Every observation causes the universe to branch. All outcomes occur, in separate branches.</li>
+</ul>
+<p>Schrödinger’s cat is a thought experiment illustrating the strangeness of superposition: a cat in a box is both alive and dead until observed. The physics doesn’t depend on the interpretation — the predictions are the same.</p>
+</section>
+</section>
+<section id="heisenberg-uncertainty-principle" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="heisenberg-uncertainty-principle"><span class="header-section-number">9.4</span> Heisenberg Uncertainty Principle</h2>
+<p>There is a fundamental limit to how precisely we can simultaneously know certain pairs of quantities. This is not a limitation of our instruments — it is a property of nature, arising from the wave-like description of particles.</p>
+<p><span class="math display">\[\boxed{\Delta x \, \Delta p \geq \frac{\hbar}{2}}\]</span></p>
+<p>where <span class="math inline">\(\Delta x\)</span> is the uncertainty in position and <span class="math inline">\(\Delta p\)</span> is the uncertainty in momentum. The more precisely you know position, the less precisely you can know momentum, and vice versa.</p>
+<p>Similarly, for energy and time:</p>
+<p><span class="math display">\[\boxed{\Delta E \, \Delta t \geq \frac{\hbar}{2}}\]</span></p>
+<section id="physical-intuition" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="physical-intuition"><span class="header-section-number">9.4.1</span> Physical intuition</h3>
+<p>Consider a wave packet. A narrow packet (well-defined position) requires many Fourier components (spread-out momentum). A single frequency (definite momentum) extends over all space. This is a fundamental property of waves, not a measurement artifact.</p>
+<p><strong>Sound analogy</strong>: A short burst of sound has a well-defined time of arrival but an uncertain pitch. A pure tone has a definite frequency but extends indefinitely in time. The same tradeoff applies to quantum particles.</p>
+</section>
+<section id="einsteins-box" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="einsteins-box"><span class="header-section-number">9.4.2</span> Einstein’s box</h3>
+<p>Einstein proposed a thought experiment to beat the uncertainty principle: weigh a box before and after a photon escapes through a timed shutter, claiming to measure both <span class="math inline">\(\Delta E\)</span> (from the mass change via <span class="math inline">\(E = mc^2\)</span>) and <span class="math inline">\(\Delta t\)</span> (from the shutter timing) with arbitrary precision. Bohr responded using general relativity — the box’s change in position in a gravitational field introduces exactly enough uncertainty to preserve <span class="math inline">\(\Delta E \, \Delta t \geq \hbar/2\)</span>.</p>
+</section>
+</section>
+<section id="special-relativity" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="special-relativity"><span class="header-section-number">9.5</span> Special Relativity</h2>
+<p>Half of all cosmic rays come from gamma-ray bursts (a few per week). These rays have traveled for billions of years to reach Earth. Understanding them requires <strong>time dilation</strong> — and therefore special relativity.</p>
+<section id="postulates" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="postulates"><span class="header-section-number">9.5.1</span> Postulates</h3>
+<p>Special relativity is based on two postulates:</p>
+<ol type="1">
+<li><p><strong>The speed of light</strong> in a vacuum is the same for all observers, independent of the motion of the source or observer: <span class="math inline">\(c \approx 3 \times 10^8\;\text{m/s}\)</span>.</p></li>
+<li><p><strong>The laws of physics</strong> are the same in all inertial reference frames. No experiment can detect absolute motion.</p></li>
+</ol>
+</section>
+<section id="geometry-of-spacetime" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="geometry-of-spacetime"><span class="header-section-number">9.5.2</span> Geometry of spacetime</h3>
+<p>In Euclidean geometry, lengths and angles are invariant under translations and rotations. In <strong>Minkowski geometry</strong> (the geometry of spacetime), the invariant quantity is the <strong>spacetime interval</strong>:</p>
+<p><span class="math display">\[\boxed{s^2 = c^2 t^2 - x^2}\]</span></p>
+<p>This interval is the same for all observers. It is the “proper distance” in spacetime — proportional to the proper time between events.</p>
+<ul>
+<li><span class="math inline">\(s^2 &gt; 0\)</span>: <strong>Timelike</strong> separation — events can be causally connected</li>
+<li><span class="math inline">\(s^2 = 0\)</span>: <strong>Lightlike</strong> (null) — events connected by a light signal</li>
+<li><span class="math inline">\(s^2 &lt; 0\)</span>: <strong>Spacelike</strong> — events cannot be causally connected; nothing travels faster than light</li>
+</ul>
+</section>
+<section id="lorentz-transformations" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="lorentz-transformations"><span class="header-section-number">9.5.3</span> Lorentz Transformations</h3>
+<p>The Lorentz transformations relate coordinates in two inertial frames moving with relative velocity <span class="math inline">\(v\)</span>:</p>
+<p><span class="math display">\[\boxed{x' = \gamma(x - vt), \qquad t' = \gamma\!\left(t - \frac{vx}{c^2}\right)}\]</span></p>
+<p>where the <strong>Lorentz factor</strong> is:</p>
+<p><span class="math display">\[\boxed{\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}}\]</span></p>
+<p>Note <span class="math inline">\(\gamma \geq 1\)</span>, with <span class="math inline">\(\gamma = 1\)</span> for <span class="math inline">\(v = 0\)</span> and <span class="math inline">\(\gamma \to \infty\)</span> as <span class="math inline">\(v \to c\)</span>.</p>
+<p><strong>Invariance proof</strong>: One can verify algebraically that <span class="math inline">\(c^2 t'^2 - x'^2 = c^2 t^2 - x^2\)</span> using the Lorentz transformations. This is the defining property — the interval is preserved.</p>
+</section>
+<section id="relativity-of-simultaneity" class="level3" data-number="9.5.4">
+<h3 data-number="9.5.4" class="anchored" data-anchor-id="relativity-of-simultaneity"><span class="header-section-number">9.5.4</span> Relativity of Simultaneity</h3>
+<p>Two events that are simultaneous in one frame are generally <em>not</em> simultaneous in another. Consider two events <span class="math inline">\((x_1, t_1)\)</span> and <span class="math inline">\((x_2, t_2)\)</span> with <span class="math inline">\(t_1 = t_2\)</span>. In the primed frame:</p>
+<p><span class="math display">\[t_2' - t_1' = \gamma\!\left(t_2 - t_1 - \frac{v(x_2 - x_1)}{c^2}\right) = -\frac{\gamma v}{c^2}(x_2 - x_1)\]</span></p>
+<p>If the events are at different positions (<span class="math inline">\(x_1 \neq x_2\)</span>), they are not simultaneous in the moving frame.</p>
+</section>
+<section id="length-contraction" class="level3" data-number="9.5.5">
+<h3 data-number="9.5.5" class="anchored" data-anchor-id="length-contraction"><span class="header-section-number">9.5.5</span> Length Contraction</h3>
+<p>An object moving with speed <span class="math inline">\(v\)</span> relative to an observer appears shorter in the direction of motion. If the <strong>proper length</strong> (measured in the object’s rest frame) is <span class="math inline">\(L_0\)</span>:</p>
+<p><span class="math display">\[\boxed{L = \frac{L_0}{\gamma}}\]</span></p>
+<p>The proper length is the longest — it is measured in the frame where the object is at rest.</p>
+</section>
+<section id="time-dilation" class="level3" data-number="9.5.6">
+<h3 data-number="9.5.6" class="anchored" data-anchor-id="time-dilation"><span class="header-section-number">9.5.6</span> Time Dilation</h3>
+<p>A moving clock runs slower. If the <strong>proper time</strong> (measured by the clock in its rest frame) between two events is <span class="math inline">\(\Delta t_0\)</span>:</p>
+<p><span class="math display">\[\boxed{\Delta t = \gamma \, \Delta t_0}\]</span></p>
+<p>The proper time is the shortest — it is measured in the frame where the events occur at the same place.</p>
+</section>
+<section id="light-clocks" class="level3" data-number="9.5.7">
+<h3 data-number="9.5.7" class="anchored" data-anchor-id="light-clocks"><span class="header-section-number">9.5.7</span> Light clocks</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Light clock: two mirrors separated by distance <span class="math inline">\(L\)</span>. A pulse of light bounces between them. In the rest frame, the round-trip time is <span class="math inline">\(T_0 = 2L/c\)</span>. In a frame where the clock moves with velocity <span class="math inline">\(v\)</span>, the light travels a longer diagonal path. Show the triangle with legs <span class="math inline">\(L\)</span> and <span class="math inline">\(vT_m/2\)</span>, and hypotenuse <span class="math inline">\(cT_m/2\)</span>.</p>
+</div>
+</div>
+<p>A light clock provides a clean derivation of time dilation. In the rest frame, the round-trip time is <span class="math inline">\(T_0 = 2L/c\)</span>. In a frame where the clock moves at speed <span class="math inline">\(v\)</span>, the light follows a diagonal path of length <span class="math inline">\(\sqrt{L^2 + (vT_m/2)^2}\)</span> per half-trip. Setting this equal to <span class="math inline">\(cT_m/2\)</span> and solving:</p>
+<p><span class="math display">\[T_m = \frac{2L/c}{\sqrt{1 - v^2/c^2}} = \gamma T_0\]</span></p>
+<p>This is time dilation, derived from the two postulates alone.</p>
+<p><strong>Relativity of simultaneity</strong>: Perpendicular light clocks agree with each other. Comparison of perpendicular clocks is closely related to the Michelson–Morley interferometric experiment, which confirmed that “ticks” are independent of orientation.</p>
+</section>
+<section id="velocity-addition" class="level3" data-number="9.5.8">
+<h3 data-number="9.5.8" class="anchored" data-anchor-id="velocity-addition"><span class="header-section-number">9.5.8</span> Velocity Addition</h3>
+<p>In Newtonian mechanics, velocities add: <span class="math inline">\(u' = u - v\)</span>. In special relativity:</p>
+<p><span class="math display">\[\boxed{u' = \frac{u - v}{1 - uv/c^2}}\]</span></p>
+<p>This ensures that no combined velocity can exceed <span class="math inline">\(c\)</span>. If <span class="math inline">\(u = c\)</span>, then <span class="math inline">\(u' = c\)</span> regardless of <span class="math inline">\(v\)</span> — the speed of light is invariant.</p>
+</section>
+</section>
+<section id="spacetime-diagrams-and-light-cones" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="spacetime-diagrams-and-light-cones"><span class="header-section-number">9.6</span> Spacetime Diagrams and Light Cones</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Spacetime diagram: vertical axis is <span class="math inline">\(ct\)</span>, horizontal axes are <span class="math inline">\(x\)</span> (and <span class="math inline">\(y\)</span>). Light cones at 45 degrees emanate from an event. Label the future light cone (above), past light cone (below), timelike region (inside cones), spacelike region (outside cones). Show a worldline passing through the event, staying within the light cones.</p>
+</div>
+</div>
+<p>A <strong>spacetime diagram</strong> plots time (vertical) against space (horizontal). A particle’s history is a <strong>worldline</strong>. Light travels along 45-degree lines (when using <span class="math inline">\(ct\)</span> for the vertical axis).</p>
+<p>The <strong>light cone</strong> of an event divides spacetime into:</p>
+<ul>
+<li><strong>Future light cone</strong>: events that the event can influence (reachable by signals traveling at <span class="math inline">\(\leq c\)</span>)</li>
+<li><strong>Past light cone</strong>: events that could have influenced the event</li>
+<li><strong>Spacelike region</strong>: events outside the cones — causally disconnected</li>
+</ul>
+<p>Nothing travels faster than light, so all worldlines remain inside their light cones. This is the <strong>causal structure</strong> of spacetime.</p>
+<section id="a-glimpse-of-general-relativity" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="a-glimpse-of-general-relativity"><span class="header-section-number">9.6.1</span> A glimpse of general relativity</h3>
+<p>In flat spacetime, light cones are uniformly oriented — all tilted the same way everywhere. <strong>Gravity is curved spacetime</strong>: near a massive object, light cones tilt toward the mass. Objects in freefall follow <strong>geodesics</strong> — the straightest possible paths through curved spacetime.</p>
+<p>A <strong>black hole</strong> occurs when light cones tilt so far that even outward-directed light cannot escape. The boundary is the <strong>event horizon</strong>.</p>
+<p><strong>Gödel’s rotating universe</strong> (1949): In a rotating cosmological solution, light cones tilt in the direction of rotation so much that closed timelike curves become possible — an object could, in principle, travel around the universe and arrive back at the same place and time. This remains a theoretical curiosity.</p>
+</section>
+</section>
+<section id="relativistic-dynamics" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="relativistic-dynamics"><span class="header-section-number">9.7</span> Relativistic Dynamics</h2>
+<section id="four-vectors" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="four-vectors"><span class="header-section-number">9.7.1</span> Four-vectors</h3>
+<p>Geometry is the theory of invariants. In Minkowski spacetime, the invariant interval <span class="math inline">\(s^2 = c^2t^2 - x^2\)</span> suggests treating spacetime as a four-dimensional vector space. The <strong>four-position</strong> is:</p>
+<p><span class="math display">\[X^\mu = (ct, \vec{x})\]</span></p>
+<p>The <strong>four-velocity</strong> is defined using proper time <span class="math inline">\(\tau\)</span>:</p>
+<p><span class="math display">\[U^\mu = \frac{dX^\mu}{d\tau} = \gamma(c, \vec{v})\]</span></p>
+<p>Its invariant magnitude is:</p>
+<p><span class="math display">\[U^\mu U_\mu = \gamma^2(c^2 - v^2) = c^2 \qquad \text{(invariant)}\]</span></p>
+<p>The <strong>four-acceleration</strong> is <span class="math inline">\(A^\mu = dU^\mu/d\tau\)</span>, and its invariant magnitude is negative: <span class="math inline">\(A^\mu A_\mu = -a_0^2\)</span> where <span class="math inline">\(a_0\)</span> is the proper acceleration.</p>
+</section>
+<section id="relativistic-momentum" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="relativistic-momentum"><span class="header-section-number">9.7.2</span> Relativistic momentum</h3>
+<p>The <strong>relativistic three-momentum</strong> is:</p>
+<p><span class="math display">\[\boxed{\vec{p} = \gamma m \vec{v}}\]</span></p>
+<p>where <span class="math inline">\(m\)</span> is the rest mass. This reduces to <span class="math inline">\(m\vec{v}\)</span> for <span class="math inline">\(v \ll c\)</span> and diverges as <span class="math inline">\(v \to c\)</span>.</p>
+</section>
+<section id="relativistic-energy" class="level3" data-number="9.7.3">
+<h3 data-number="9.7.3" class="anchored" data-anchor-id="relativistic-energy"><span class="header-section-number">9.7.3</span> Relativistic energy</h3>
+<p>The <strong>total energy</strong> is:</p>
+<p><span class="math display">\[\boxed{E = \gamma mc^2}\]</span></p>
+<p>For a particle at rest (<span class="math inline">\(v = 0\)</span>, <span class="math inline">\(\gamma = 1\)</span>): <span class="math inline">\(E_0 = mc^2\)</span> — the famous rest energy.</p>
+<p>The <strong>kinetic energy</strong> is the excess over rest energy:</p>
+<p><span class="math display">\[K = E - mc^2 = (\gamma - 1)mc^2\]</span></p>
+<p>For <span class="math inline">\(v \ll c\)</span>: <span class="math inline">\(\gamma \approx 1 + v^2/(2c^2)\)</span>, so <span class="math inline">\(K \approx \frac{1}{2}mv^2\)</span> — recovering the Newtonian result.</p>
+</section>
+<section id="energymomentum-relation" class="level3" data-number="9.7.4">
+<h3 data-number="9.7.4" class="anchored" data-anchor-id="energymomentum-relation"><span class="header-section-number">9.7.4</span> Energy–momentum relation</h3>
+<p>Momentum and energy are unified into the <strong>four-momentum</strong> <span class="math inline">\(P^\mu = (E/c, \vec{p})\)</span>, a Lorentz 4-vector. Its invariant magnitude gives the most important result in relativistic dynamics:</p>
+<p><span class="math display">\[\boxed{E^2 = p^2 c^2 + m^2 c^4}\]</span></p>
+<p>This is the relativistic energy–momentum relation. It works for all particles, including massless ones.</p>
+</section>
+<section id="photons" class="level3" data-number="9.7.5">
+<h3 data-number="9.7.5" class="anchored" data-anchor-id="photons"><span class="header-section-number">9.7.5</span> Photons</h3>
+<p>For a photon (<span class="math inline">\(m = 0\)</span>):</p>
+<p><span class="math display">\[E = pc, \qquad p = \frac{E}{c} = \frac{h\nu}{c} = \frac{h}{\lambda}\]</span></p>
+<p>The Einstein/de Broglie photon hypothesis relates the photon’s momentum to its frequency/wavelength.</p>
+</section>
+</section>
+<section id="relativistic-collisions" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="relativistic-collisions"><span class="header-section-number">9.8</span> Relativistic Collisions</h2>
+<p>Fundamental physics laws must be expressed as relationships between Lorentz invariants. Relativistic momentum (four-momentum) is conserved in all collisions:</p>
+<p><span class="math display">\[\sum_\text{before} P^\mu_i = \sum_\text{after} P^\mu_f\]</span></p>
+<section id="impossible-processes" class="level3" data-number="9.8.1">
+<h3 data-number="9.8.1" class="anchored" data-anchor-id="impossible-processes"><span class="header-section-number">9.8.1</span> Impossible processes</h3>
+<p><strong>Four-vector algebra</strong> provides powerful constraints. Since <span class="math inline">\(P^\mu P_\mu = m^2 c^2\)</span> is invariant:</p>
+<ul>
+<li><p><strong>A single photon cannot decay into a particle</strong>: Consider <span class="math inline">\(\gamma \to e^+ + e^-\)</span>. In the center-of-mass frame of the products, <span class="math inline">\(P^2 &gt; 0\)</span>, but for the photon <span class="math inline">\(P^2 = 0\)</span>. Contradiction — this cannot conserve four-momentum.</p></li>
+<li><p><strong>A single photon cannot be absorbed by a free electron</strong>: Similarly, <span class="math inline">\(e^- + \gamma \to e^-\)</span> cannot conserve four-momentum. (This is why the photoelectric effect requires a bound electron in a metal.)</p></li>
+</ul>
+</section>
+<section id="compton-scattering" class="level3" data-number="9.8.2">
+<h3 data-number="9.8.2" class="anchored" data-anchor-id="compton-scattering"><span class="header-section-number">9.8.2</span> Compton Scattering</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Compton scattering: a photon with wavelength <span class="math inline">\(\lambda\)</span> hits a stationary electron. After scattering, the photon has wavelength <span class="math inline">\(\lambda'\)</span> at angle <span class="math inline">\(\theta\)</span> to the original direction, and the electron recoils.</p>
+</div>
+</div>
+<p>A photon scatters off a stationary electron. Four-momentum conservation gives a change in the photon’s wavelength:</p>
+<p><span class="math display">\[\boxed{\Delta\lambda = \lambda' - \lambda = \frac{h}{mc}(1 - \cos\theta)}\]</span></p>
+<p>where <span class="math inline">\(\theta\)</span> is the scattering angle and <span class="math inline">\(m\)</span> is the electron mass. The quantity <span class="math inline">\(h/(mc)\)</span> is the <strong>Compton wavelength</strong> of the electron (<span class="math inline">\(\approx 2.4 \times 10^{-12}\;\text{m}\)</span>).</p>
+<p><strong>Derivation sketch</strong>: Write four-momentum conservation <span class="math inline">\(P_\gamma + P_e = P_\gamma' + P_e'\)</span>. Rearrange to isolate the electron: <span class="math inline">\((P_\gamma - P_\gamma' + P_e)^2 = P_e'^2\)</span>. Expand using <span class="math inline">\(P_\gamma^2 = 0\)</span>, <span class="math inline">\(P_e^2 = m^2c^2\)</span>, and <span class="math inline">\(P_\gamma \cdot P_e = E_\gamma m c / c = h\nu \cdot m\)</span>. The dot product <span class="math inline">\(P_\gamma \cdot P_\gamma'\)</span> introduces <span class="math inline">\(\cos\theta\)</span>, yielding the result.</p>
+</section>
+<section id="inverse-compton-scattering" class="level3" data-number="9.8.3">
+<h3 data-number="9.8.3" class="anchored" data-anchor-id="inverse-compton-scattering"><span class="header-section-number">9.8.3</span> Inverse Compton Scattering</h3>
+<p>In <strong>inverse Compton scattering</strong>, a fast-moving electron collides with a low-energy photon, <em>boosting</em> the photon’s energy. In the electron’s rest frame, the photon approaches with energy <span class="math inline">\(\sim \gamma f\)</span> (Doppler-shifted). After scattering, it is Doppler-shifted again on the way back to the lab frame. The net energy boost is of order <span class="math inline">\(\gamma^2\)</span>:</p>
+<p><span class="math display">\[f' \approx \gamma^2 f\]</span></p>
+<p>This process is astrophysically important: suitably fast charged particles are slowed by the cosmic microwave background as they travel through space, transferring energy to the CMB photons.</p>
+</section>
+</section>
+<section id="visualising-relativity" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="visualising-relativity"><span class="header-section-number">9.9</span> Visualising Relativity</h2>
+<p>Special relativity affects not just measurements, but what you actually <strong>see</strong>. Observation <span class="math inline">\(\neq\)</span> simultaneous measurement — sight involves light that arrives at your eyes at the same instant, but may have left different parts of an object at different times.</p>
+<p>Three effects modify the appearance of relativistically moving objects:</p>
+<section id="aberration" class="level3" data-number="9.9.1">
+<h3 data-number="9.9.1" class="anchored" data-anchor-id="aberration"><span class="header-section-number">9.9.1</span> Aberration</h3>
+<p>The direction from which light appears to arrive shifts toward the direction of motion. The <strong>angular aberration formula</strong>:</p>
+<p><span class="math display">\[\boxed{\tan\frac{\alpha'}{2} = \sqrt{\frac{c - v}{c + v}}\,\tan\frac{\alpha}{2}}\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is the angle in the rest frame and <span class="math inline">\(\alpha'\)</span> in the moving frame. Since <span class="math inline">\(\alpha' &lt; \alpha\)</span>, objects ahead of you are compressed into a smaller angular region, while objects behind you spread out.</p>
+<p><strong>Rain analogy</strong>: Walking through rain that falls vertically, it appears to come from ahead of you. The faster you walk, the more the rain appears to tilt forward. The same happens with light.</p>
+<p>Effects of angular aberration:</p>
+<ul>
+<li>Objects in front appear smaller (compressed toward the forward direction)</li>
+<li>Objects behind appear larger (spread out)</li>
+<li>At high speeds, objects behind you can be “brought into” your forward field of view — you can see backwards</li>
+</ul>
+</section>
+<section id="relativistic-doppler-effect" class="level3" data-number="9.9.2">
+<h3 data-number="9.9.2" class="anchored" data-anchor-id="relativistic-doppler-effect"><span class="header-section-number">9.9.2</span> Relativistic Doppler Effect</h3>
+<p>The frequency of light changes due to relative motion. For a source moving at velocity <span class="math inline">\(v\)</span> and emitting at angle <span class="math inline">\(\alpha\)</span> to the line of motion:</p>
+<p><span class="math display">\[\boxed{f' = \gamma(1 + \beta\cos\alpha)\,f}\]</span></p>
+<p>where <span class="math inline">\(\beta = v/c\)</span>. This combines the classical Doppler effect with time dilation (the factor of <span class="math inline">\(\gamma\)</span>).</p>
+<ul>
+<li><strong>Approaching</strong> (<span class="math inline">\(\alpha = 0\)</span>): blueshift, <span class="math inline">\(f' = f\sqrt{(1+\beta)/(1-\beta)}\)</span></li>
+<li><strong>Receding</strong> (<span class="math inline">\(\alpha = \pi\)</span>): redshift, <span class="math inline">\(f' = f\sqrt{(1-\beta)/(1+\beta)}\)</span></li>
+<li><strong>Transverse</strong> (<span class="math inline">\(\alpha = \pi/2\)</span>): <span class="math inline">\(f' = \gamma f\)</span> — a purely relativistic effect (no classical analogue)</li>
+</ul>
+<p>At <span class="math inline">\(\sim 0.7c\)</span>, the entire visible spectrum is shifted enough that objects can no longer be recognized by color.</p>
+</section>
+<section id="relativistic-beaming" class="level3" data-number="9.9.3">
+<h3 data-number="9.9.3" class="anchored" data-anchor-id="relativistic-beaming"><span class="header-section-number">9.9.3</span> Relativistic Beaming</h3>
+<p>Light is concentrated in the direction of motion. The apparent intensity transforms as:</p>
+<p><span class="math display">\[I' \propto \left[\gamma(1 + \beta\cos\alpha)\right]^4 I\]</span></p>
+<p>A rapidly moving object appears dramatically brighter in the forward direction and dimmer behind. Looking through a fast-moving starfield, you would see the stars bunch up and brighten ahead of you, while the sky behind goes dark.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
