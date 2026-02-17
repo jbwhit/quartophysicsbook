@@ -1,6 +1,295 @@
 # Waves & Oscillations
 
-::: {.callout-note}
-## Status
-Content to be transcribed from IPhO notes.
+## Simple Harmonic Motion
+
+### What Is an Oscillation?
+
+An oscillation is caused by a **restoring force** — a force that acts to return a system to some equilibrium position. At equilibrium the net force is zero; displace the system and it gets pushed back.
+
+::: {.callout-warning}
+## TODO: Diagram
+Potential energy well (U vs x) with a ball at the minimum. Show the restoring force arrows pointing inward on both sides of the equilibrium point.
 :::
+
+**Key variables:**
+
+| Symbol | Meaning |
+|--------|---------|
+| $T$ | Period — time for one complete oscillation |
+| $f$ | Frequency — cycles per second ($\text{Hz}$) |
+| $\omega$ | Angular frequency ($\text{rad/s}$) |
+| $x_0$ | Amplitude — maximum displacement from equilibrium |
+| $\phi$ | Phase constant |
+| $\lambda$ | Wavelength |
+
+: Oscillation Variables {.striped .hover}
+
+The period and frequency are related by $T = 1/f$, and the angular frequency is $\omega = 2\pi f$.
+
+### The Simple Harmonic Oscillator
+
+The simplest case: a restoring force proportional to displacement (Hooke's law):
+
+$$F = -kx$$
+
+Newton's second law gives:
+
+$$m\ddot{x} = -kx \quad \Longrightarrow \quad \ddot{x} + \frac{k}{m}x = 0$$
+
+The general solution is:
+
+$$\boxed{x(t) = x_0 \cos(\omega t + \phi), \qquad \omega = \sqrt{\frac{k}{m}}}$$
+
+where $x_0$ and $\phi$ are set by initial conditions.
+
+### Velocity and Acceleration in SHM
+
+Differentiating:
+
+$$v(t) = \dot{x} = -x_0 \omega \sin(\omega t + \phi)$$
+
+$$a(t) = \ddot{x} = -x_0 \omega^2 \cos(\omega t + \phi)$$
+
+::: {.callout-warning}
+## TODO: Diagram
+Three aligned graphs of $x$, $v$, and $a$ vs $t$ for SHM. Show $x$ as a cosine, $v$ as a negative sine (leading $x$ by $\pi/2$), and $a$ as a negative cosine (opposite phase to $x$). Label amplitudes $x_0$, $x_0\omega$, $x_0\omega^2$.
+:::
+
+Note the relationships: $v$ leads $x$ by $\pi/2$, and $a$ is exactly out of phase with $x$. Finding the minima and maxima of these functions is a standard exercise.
+
+### Potential Energy in SHM
+
+From $F = -kx$, the potential energy is:
+
+$$U = -\int F\,dx = \int_0^x kx'\,dx'$$
+
+$$\boxed{U = \frac{1}{2}kx^2} = \frac{1}{2}kx_0^2\cos^2(\omega t + \phi)$$
+
+### Energy Conservation in SHM
+
+The total mechanical energy is conserved:
+
+$$E_T = U + K = \frac{1}{2}kx^2 + \frac{1}{2}mv^2$$
+
+Substituting the SHM solutions:
+
+$$E_T = \frac{1}{2}kx_0^2\cos^2(\omega t + \phi) + \frac{1}{2}m\omega^2 x_0^2\sin^2(\omega t + \phi)$$
+
+Since $m\omega^2 = k$, this simplifies to:
+
+$$\boxed{E_T = \frac{1}{2}kx_0^2}$$
+
+The total energy is constant and proportional to the square of the amplitude. Energy sloshes back and forth between kinetic and potential, but their sum never changes.
+
+## The Simple Pendulum
+
+::: {.callout-warning}
+## TODO: Diagram
+Simple pendulum: mass $m$ hanging from a string of length $L$ at angle $\theta$ from vertical. Show the weight $mg$ decomposed into components along and perpendicular to the string. Label the arc length $x = L\theta$.
+:::
+
+For a pendulum of length $L$ at angle $\theta$ from vertical, the restoring force along the arc is:
+
+$$F = -mg\sin\theta$$
+
+For **small angles** ($\theta \lesssim 15°$), $\sin\theta \approx \theta$, so:
+
+$$F \approx -mg\theta = -\frac{mg}{L}x$$
+
+where $x = L\theta$ is the arc-length displacement. This is Hooke's law with effective spring constant $k_\text{eff} = mg/L$, giving:
+
+$$\omega^2 = \frac{k_\text{eff}}{m} = \frac{g}{L}$$
+
+$$\boxed{T = 2\pi\sqrt{\frac{L}{g}}}$$
+
+Note that the period is independent of mass and (for small angles) independent of amplitude. This is why pendulums make good clocks.
+
+## Traveling Waves
+
+### What Is a Wave?
+
+Waves transport **energy and information** without transporting matter. A mechanical wave travels through an elastic medium — particles in the medium oscillate about their equilibrium positions but do not travel with the wave.
+
+**Types:**
+
+- **Transverse** — particle displacement perpendicular to wave propagation (e.g., waves on a string, electromagnetic waves)
+- **Longitudinal** — particle displacement parallel to wave propagation (e.g., sound waves, compression in a spring)
+
+Waves can also be classified by:
+
+- **Dimension** — 1D (string), 2D (water surface, concentric circles), 3D (sound, spherical wavefronts)
+- **Periodicity** — periodic or pulse
+- **Shape of wavefront** — plane, cylindrical, spherical
+
+### The Traveling Wave Equation
+
+A sinusoidal wave traveling in the $+x$ direction:
+
+$$\boxed{y(x,t) = y_0 \sin(kx - \omega t)}$$
+
+where:
+
+- $y_0$ = amplitude
+- $k = \frac{2\pi}{\lambda}$ = wave number
+- $\omega = 2\pi f$ = angular frequency
+
+The **phase velocity** (speed of a given phase of the wave):
+
+$$\boxed{v = \frac{\omega}{k} = \lambda f}$$
+
+A snapshot at fixed $t$ shows the spatial pattern; a fixed point at constant $x$ oscillates in time.
+
+### Waves on a Stretched String
+
+For a string under tension $F_T$ with linear mass density $\mu$ (mass per unit length):
+
+$$\boxed{v = \sqrt{\frac{F_T}{\mu}}}$$
+
+This is one of the most important wave speed formulas. Greater tension means faster waves; greater mass density means slower waves.
+
+### Energy and Power in Waves
+
+The kinetic energy density of a transverse wave on a string:
+
+$$\frac{dK}{dx} = \frac{1}{2}\mu\omega^2 y_0^2 \cos^2(kx - \omega t)$$
+
+The time-averaged power transmitted by the wave:
+
+$$\boxed{P_\text{avg} = \frac{1}{2}\mu\omega^2 y_0^2 v}$$
+
+### Intensity
+
+For waves spreading in 3D, the **intensity** $I$ is the power per unit area:
+
+$$I = \frac{P_\text{avg}}{A}$$
+
+For a point source radiating uniformly in all directions (spherical wavefront):
+
+$$I = \frac{P_\text{avg}}{4\pi r^2}$$
+
+Intensity falls off as $1/r^2$ — the inverse square law. Since intensity is proportional to amplitude squared, the amplitude of a spherical wave falls off as $1/r$.
+
+## Superposition and Interference
+
+### The Superposition Principle
+
+When two or more waves overlap, the resultant displacement at any point is the **sum of the individual displacements**:
+
+$$y_\text{total} = y_1 + y_2 + \cdots$$
+
+This holds for all linear wave equations (i.e., when the restoring force is proportional to displacement).
+
+### Interference
+
+When waves of the same frequency overlap:
+
+- **Constructive interference** — waves in phase, amplitudes add
+- **Destructive interference** — waves out of phase, amplitudes cancel
+
+## Standing Waves
+
+### Formation
+
+Two waves of equal amplitude and frequency traveling in **opposite directions** superimpose to form a standing wave:
+
+$$y_1 = y_0\sin(kx - \omega t), \qquad y_2 = y_0\sin(kx + \omega t)$$
+
+Using the product-to-sum identity:
+
+$$\boxed{y(x,t) = 2y_0\sin(kx)\cos(\omega t)}$$
+
+This is the product of a spatial part $\sin(kx)$ (the "shape") and a temporal part $\cos(\omega t)$ (the "breathing"). The wave does not travel — it oscillates in place.
+
+- **Nodes** — points of zero amplitude at all times ($\sin(kx) = 0$, i.e., $kx = n\pi$)
+- **Antinodes** — points of maximum displacement ($\sin(kx) = \pm 1$, i.e., $kx = (n+\frac{1}{2})\pi$)
+
+### Reflection at Boundaries
+
+- **Fixed boundary** — a transverse wave undergoes a phase change of $\pi$ upon reflection (inverted)
+- **Free boundary** — no phase change upon reflection
+
+::: {.callout-warning}
+## TODO: Diagram
+Pulse reflection at fixed vs free boundaries. Show incoming and reflected pulses, with inversion at fixed end and no inversion at free end.
+:::
+
+### Resonance
+
+A medium of finite length $L$ supports standing waves only at specific frequencies — the **resonant frequencies** (harmonics).
+
+**Two fixed ends** (or two free ends) — e.g., a stretched string:
+
+$$L = n\frac{\lambda}{2}, \qquad n = 1, 2, 3, \ldots$$
+
+$$\boxed{f_n = \frac{nv}{2L}}$$
+
+The $n = 1$ mode is the **fundamental**; higher $n$ are overtones.
+
+**One closed end, one open end** — e.g., an organ pipe:
+
+$$L = (2n-1)\frac{\lambda}{4}, \qquad n = 1, 2, 3, \ldots$$
+
+$$\boxed{f_n = \frac{(2n-1)v}{4L}}$$
+
+Only odd harmonics are present.
+
+::: {.callout-warning}
+## TODO: Diagram
+Standing wave patterns for the first three harmonics of a string fixed at both ends, and for a pipe closed at one end and open at the other. Label nodes and antinodes.
+:::
+
+## Beats
+
+When two waves of **nearly equal frequency** are superimposed, they alternately go in and out of phase, producing a pulsating pattern called **beats**.
+
+For two waves $y_1 = A\cos(\omega_1 t)$ and $y_2 = A\cos(\omega_2 t)$, the sum is:
+
+$$y = y_1 + y_2 = 2A\cos\!\left(\frac{\omega_1 - \omega_2}{2}t\right)\cos\!\left(\frac{\omega_1 + \omega_2}{2}t\right)$$
+
+using the product-to-sum identity $\cos\alpha + \cos\beta = 2\cos\!\left(\frac{\alpha-\beta}{2}\right)\cos\!\left(\frac{\alpha+\beta}{2}\right)$.
+
+::: {.callout-warning}
+## TODO: Diagram
+Beat pattern: two waves of slightly different frequency (top), and their superposition showing the amplitude envelope (bottom). Label the beat frequency.
+:::
+
+The result is a wave at the **average frequency** $\bar{f} = (f_1 + f_2)/2$, with an amplitude that oscillates at the **beat frequency**:
+
+$$\boxed{f_\text{beat} = |f_1 - f_2|}$$
+
+You hear one beat per cycle of the envelope. Since the envelope goes through two maxima per cycle of $\cos\!\left(\frac{\omega_1 - \omega_2}{2}t\right)$, the beat frequency is the difference (not half the difference) of the two frequencies.
+
+## The Doppler Effect
+
+The **Doppler effect** is the apparent shift in frequency due to relative motion between a source and an observer. Let $V$ be the speed of sound in the medium.
+
+### Moving Source, Stationary Observer
+
+A source moving at speed $V_s$ toward the observer compresses the wavelength in front:
+
+$$\lambda' = \lambda - \frac{V_s}{f} = \lambda\left(1 - \frac{V_s}{V}\right)$$
+
+The observed frequency increases:
+
+$$f' = \frac{V}{\lambda'} = f\frac{V}{V - V_s}$$
+
+### Moving Observer, Stationary Source
+
+An observer moving at speed $V_o$ toward the source encounters crests more frequently:
+
+$$f' = \frac{V + V_o}{\lambda} = f\frac{V + V_o}{V}$$
+
+### General Doppler Formula
+
+For both source and observer moving (with velocities taken as positive when toward each other):
+
+$$\boxed{f' = f\,\frac{V - V_o}{V - V_s}}$$
+
+where $V_o$ is positive when the observer moves **away** from the source, and $V_s$ is positive when the source moves **toward** the observer. (Sign convention: define the positive direction as from source to observer. Then $V_s > 0$ means the source chases the wave, reducing wavelength; $V_o > 0$ means the observer flees the wave, reducing observed frequency.)
+
+**Limiting cases:**
+
+- Source approaching ($V_s > 0$, $V_o = 0$): $f' > f$ — pitch increases
+- Source receding ($V_s < 0$, $V_o = 0$): $f' < f$ — pitch decreases
+- Observer approaching ($V_o < 0$, $V_s = 0$): $f' > f$
+- $V_s \to V$: $f' \to \infty$ — sonic boom (Mach 1)

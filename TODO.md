@@ -20,7 +20,7 @@
 - [x] Catalog all 169 photos by topic (see `images/IPhO_notes_catalog.md`)
 - [x] **Chapter 4: Mechanics** (`mechanics.qmd`) — forces, energy, momentum, rotation
 - [x] **Chapter 5: Thermodynamics** (`thermo.qmd`) — gas laws, entropy, heat engines
-- [ ] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
+- [x] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
 - [ ] **Chapter 7: Optics** (`optics.qmd`) — mirrors, lenses, diffraction, phasors
 - [ ] **Chapter 8: Electrostatics** (`electrostatics.qmd`) — Coulomb, fields, Gauss's law
 - [ ] **Chapter 9: Circuits & Magnetism** (`circuits.qmd`) — dipoles, induction, motors
