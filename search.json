@@ -2,36 +2,242 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Physics Thinking",
+    "title": "Think Like A Physicist",
     "section": "",
-    "text": "Preface\nConsider this as an option for developing (and publishing?) the book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Foreword\nFirst Principles Thinking is a teachable and incredibly powerful algorithm for efficiently solving real world problems and building the future.\nIt is the best algorithm I know to make a brain useful.\nThese notes are compiled from the International Physics Olympiad Australian training program held in Canberra c. 2005. I have found, over the intervening 18 years, that the skills and knowledge taught during this intensive two week program have formed the basis of my ability to apply physics to everyday problems.\nI have assembled these notes with the intention to create the most singularly terse summary of undergraduate physics ever written, accessible to motivated professionals who know how to Google. Necessarily, they do not cover the lab or test-taking aspects of the Olympiad training program.\nI hope you find thinking like a physicist to be as rewarding as I do.\n— Casey Handmer, 25 November, 2023.",
+    "crumbs": [
+      "Foreword"
+    ]
   },
   {
-    "objectID": "intro.html#solving-problems-with-the-7ds-and-the-little-s",
-    "href": "intro.html#solving-problems-with-the-7ds-and-the-little-s",
-    "title": "1  Introduction",
-    "section": "1.1 Solving Problems with the 7D’s and the little S",
-    "text": "1.1 Solving Problems with the 7D’s and the little S\n\nDiagram: Big! (2/3 of a page) and as many as you need. Graphs\nDirections: Mark it (negative/positive)\nDefinitions & Data: Put it on the page (all of them)\nDiagnosis: Type (how) conservation principles, force laws, angular momentum.\nDerivation: Equations (diagnosis in symbols) as many equations as variables add to diagram dimensions\nDetermination - D’algebra - box the answer.\nDimensions - Check and limiting cases – if makes sense then possibly right (if not prob wrong). LHS = RHS then :grinning:.\nSubstitution: if necessary - do rough calc by hand an dunits include error!"
-  },
-  {
-    "objectID": "mechanics.html#example-problem",
-    "href": "mechanics.html#example-problem",
-    "title": "2  Mechanics",
-    "section": "2.1 Example Problem",
-    "text": "2.1 Example Problem\n\n\n\nDiagram\nTODO\n\n\nDirections\nTODO\n\n\nDefinitions & Data\n\n\n\n\nVariable\nDescription\n\n\n\n\n\\(m\\)\nMass of object\n\n\n\\(H\\)\nInitial height\n\n\n\\(h\\)\nFinal height\n\n\n\\(k\\)\nSpring constant\n\n\n\\(g\\)\nAcceleration due to gravity\n\n\n\\(x\\)\nCompression of spring\n\n\n\\(U_{gpe}\\)\ngravitational potential energy\n\n\n\\(U_{E}\\)\nelastic potential energy\n\n\n\\(E\\)\nenergy\n\n\n\n\n\nDiagnosis\nConservation of Energy (E is conserved).\n\\[U_{gpe} \\rightarrow U_{E}\\]\n\\[mgH = mgh + \\frac{1}{2} k x^{2}\\]\n\n\nDerivation\n\\[F = -kx\\]\n\\[\\begin{aligned}\nU &= -\\int F \\, \\textnormal{d}x\\\\\n&= -\\int_{x_i}^{x_{f}} k x \\, \\textnormal{d}x\\\\\n&= \\frac{1}{2}k x_f^2\n\\end{aligned}\\]\n\n\nDetermination\n\\[mg\\left(H -h\\right) = \\frac{1}{2} k x^2\\]\n\\[\\frac{2mg\\left(H -h\\right)}{k} = x^2\\]\n\\[\\boxed{x = \\sqrt{\\frac{2mg(H-h)}{k}}}\\]\n\n\nDimensions\n\\[\\begin{aligned}\nL &= \\sqrt{\\frac{M L T^{-2} \\left(L\\right)}{M T^{-2}}}\\\\\n&= \\sqrt{L^2}\n\\end{aligned}\\]\n\n\nLimiting Cases\n\\[H \\rightarrow h\\]\n\\[ H - h = 0 \\implies x=0\\] makes sense!\n\\[m \\rightarrow 0 \\implies x \\rightarrow 0\\] makes sense!\n\\[k \\rightarrow \\infty \\implies x \\rightarrow 0\\] makes sense!\n\\[k \\rightarrow 0 \\implies x \\rightarrow \\infty\\] makes sense!\n\n\nSubstitution\nNot needed."
-  },
-  {
-    "objectID": "mechanics.html#example-problem-1",
-    "href": "mechanics.html#example-problem-1",
-    "title": "2  Mechanics",
-    "section": "2.2 Example Problem",
-    "text": "2.2 Example Problem\nTitle: Acceleration and Tension in a Two-Mass Pulley System on an Incline\nA system consists of two masses, a man \\(m\\) and piano \\(M\\), where \\(m\\) is connected by a string over the pulley to the piano \\(M\\), which is positioned on an inclined plane with an angle \\(\\theta\\) from the horizontal. The mass \\(M\\) experiences kinetic friction characterized by a coefficient \\(\\mu_k\\) with the inclined plane. The piano \\(M\\) is heavy enough that its sliding down the ramp and pulling the man \\(m\\) up. Determine the acceleration \\(a\\) of the system.\n\nDiagram\nTODO: Create a diagram showing the two masses, \\(m\\) and \\(M\\), the inclined plane with angle \\(\\theta\\), and the direction of the frictional force opposing the motion of \\(M\\) up the incline.\n\n\nDirections\nTODO gravity points down\n\nDirection of \\(a\\) for man is vertically upwards.\nDirection of \\(a\\) for piano downward along the incline.\n\n\n\nDefinitions & Data\n\n\\(m\\): Mass hanging from the pulley (kg)\n\\(M\\): Mass on the inclined plane (kg)\n\\(\\theta\\): Angle of the inclined plane from the horizontal (radians)\n\\(\\mu_k\\): Coefficient of kinetic friction\n\\(g\\): Acceleration due to gravity\n\n\n\nDiagnosis\nConsider the forces on each mass and draw a free body diagram:\nTODO FBD\n\nMass \\(m\\): Gravitational force \\(mg\\) and tension \\(T\\).\nMass \\(M\\): Gravitational force component along the incline, normal force, frictional force \\(f_k = \\mu_k N\\), and tension \\(T\\).\nConservation of String: string is the same length, so when pulled the forces are transmitted without diminishing.\n\n\n\nDerivation\n\nWrite down the force equations for each mass.\n\nFor mass \\(m\\): \\(mg - T = ma\\) (Downward force - tension = mass times acceleration).\nFor mass \\(M\\): \\(Mg\\sin(\\theta) - f_k - T = Ma\\) (Component of gravity along incline - friction - tension = mass times acceleration).\n\n\n\\[\\left| F\\right| = \\left(m + M\\right) * \\left|a\\right|\\]\n\\[N = M g \\cos{\\theta}\\]\n\\[T = T\\]\n\\[ \\therefore \\sum{F} = M g \\sin{\\theta}  + \\mu_k N - m g\\]\n\n\nD’algebra\n\\[\\left| F\\right| = \\left(m + M\\right) * \\left|a\\right| = M g \\sin{\\theta}  + \\mu_k N - m g\\]\n\\[\\begin{aligned}\n\\left| a\\right| &= \\frac{M g \\sin{\\theta}  + \\mu_k N - m g}{\\left(m + M\\right)}\\\\\n&= \\frac{M g \\sin{\\theta}  + \\mu_k M g \\cos{\\theta} - m g}{\\left(m + M\\right)}\n\\end{aligned}\\]\n\n\nDetermination\n\\[\\boxed{\\left| a\\right|= g \\left(\\frac{M  \\sin{\\theta}  + \\mu_k M  \\cos{\\theta} - m }{\\left(m + M\\right)}\\right)}\\]\n\n\nDimensions\n\\[LHS = L T^{-2}\\]\n\\[RHS = L T^{-2} \\left(\\frac{M + M - m}{M}\\right)\\]\nLooks right!\n\n\nLimiting Cases\nConsider extreme cases like:\n\nWhat happens when \\(\\theta = 0\\)?\n\nacceleration is difference in weight of the man from the frictional force. Makes sense.\n\nWhat happens when \\(\\theta = 90^\\circ\\)?\n\nacceleration is the difference in masses divided by the sum of the masses times g. Makes sense.\n\nWhat happens when \\(\\mu_k = 0\\) or is very large?\n\nLarger \\(\\mu_k \\implies\\) smaller \\(a\\).\n\nWhat happens if \\(M \\gg m\\)?\n\nThe piano will slide as though nothing is attached (only forces of friction and force due to gravity matter). Makes sense.\n\nWhat happens if \\(m \\gg M\\)?\n\nThe weight of the man will pull the piano up the incline. Makes sense.\n\n\n\n\nSubstitution\nTODO"
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "3  Summary",
+    "objectID": "thinking.html",
+    "href": "thinking.html",
+    "title": "1  How to Think Like a Physicist",
     "section": "",
-    "text": "A work in progress."
+    "text": "1.1 SI Units\nThe five fundamental units are length (meter, m), time (second, s), mass (kilogram, kg), charge (coulomb, C), and temperature (kelvin, K). Ampere (A), mole (mol), and candela (cd) are derived from these base units.\nAll other units are derived from combinations of these fundamental units.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "thinking.html#si-units",
+    "href": "thinking.html#si-units",
+    "title": "1  How to Think Like a Physicist",
+    "section": "",
+    "text": "SI Base Units\n\n\nBase Quantity\nBase Unit Name\nSymbol\n\n\n\n\nLength\nmeter\nm\n\n\nTime\nsecond\ns\n\n\nMass\nkilogram\nkg\n\n\nElectric Current\nampere\nA\n\n\nThermodynamic Temperature\nkelvin\nK\n\n\nAmount of Substance\nmole\nmol\n\n\nLuminous Intensity\ncandela\ncd\n\n\n\n\n\n\nDerived Units\n\n\n\n\n\n\n\nConcept\nUnit\nDerivation\n\n\n\n\nForce\nNewton (N)\n\\(\\text{kg} \\cdot \\text{m} \\cdot \\text{s}^{-2}\\)\n\n\nEnergy\nJoule (J)\n\\(\\text{kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-2}\\)\n\n\nPower\nWatt (W)\n\\(\\text{kg} \\cdot \\text{m}^2 \\cdot \\text{s}^{-3}\\)\n\n\nCurrent\nAmpere (A)\n\\(\\text{C} \\cdot \\text{s}^{-1}\\)",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "thinking.html#dimensional-analysis-and-sanity-checking",
+    "href": "thinking.html#dimensional-analysis-and-sanity-checking",
+    "title": "1  How to Think Like a Physicist",
+    "section": "1.2 Dimensional Analysis and Sanity Checking",
+    "text": "1.2 Dimensional Analysis and Sanity Checking\nVital tool for both checking (always!!) and fudging. It is part of a consistency check — units on both sides of the equation must be the same. A successful dimension check is followed by a :).\nSimilarly, equations with vectors must have the same vector shape on each side.\nMath and formulas are a tool, not the final authority. Never formula fit. Understand what is going on and check that the answers are sensible.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "thinking.html#solving-problems-with-the-7-ds-and-the-little-s",
+    "href": "thinking.html#solving-problems-with-the-7-ds-and-the-little-s",
+    "title": "1  How to Think Like a Physicist",
+    "section": "1.3 Solving Problems with the 7 Ds and the little s",
+    "text": "1.3 Solving Problems with the 7 Ds and the little s\nUsing this basic algorithm to approach problems from first principles is the single biggest update you are likely to make to your thinking, ever.1\n\nDiagrams — Big, 2/3 page, as many as you need. Load the problem into your GPU.\nDirections — Mark it (negative/positive).\nDefinitions and Given Data — Put it on the page (all of them).\nDiagnosis — How? What type of problem is this? E.g. conservation principles, force laws, angular momentum.\nDerivation — Write down the fundamental equations, the diagnosis expressed as symbols. You will need as many equations as variables. Add to the diagram if necessary. Check dimensions.\nDetermination (or D’algebra) — Math manipulations to get the answer. Box it!\nDimensions — Check dimensions and limiting cases/sanity check. \\(LHS = RHS\\) then :).\nsubstitutions — Only if necessary, do rough calculation by hand and check units, include an error term.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "thinking.html#example-problem-1",
+    "href": "thinking.html#example-problem-1",
+    "title": "1  How to Think Like a Physicist",
+    "section": "Example Problem 1",
+    "text": "Example Problem 1\nA body, mass \\(m\\), slides without friction from rest at height \\(H\\) to lower height \\(h\\), colliding with a horizontal spring of strength \\(k\\). By how much does it compress?\n\n\n\n\n\n\nWarningTODO: Diagram\n\n\n\nDiagram showing: (1) Initial state — mass \\(m\\) at height \\(H\\) on a frictionless ramp. (2) Final state — mass at height \\(h\\) compressing a horizontal spring by distance \\(x\\). Include direction arrows for gravity and coordinate axes.\n\n\n\nDefinitions & Data\n\n\n\nVariable\nDescription\n\n\n\n\n\\(m\\)\nMass of object\n\n\n\\(H\\)\nInitial height\n\n\n\\(h\\)\nFinal height\n\n\n\\(k\\)\nSpring constant\n\n\n\\(g\\)\nAcceleration due to gravity (\\(9.81 \\, \\text{m/s}^2\\))\n\n\n\\(x\\)\nCompression of spring\n\n\n\\(U_{gpe}\\)\nGravitational potential energy\n\n\n\\(U_{E}\\)\nElastic potential energy\n\n\n\\(E\\)\nEnergy\n\n\n\n\n\nDiagnosis\nConservation of Energy (\\(E\\) is conserved).\n\\[U_{gpe} \\rightarrow U_{E}\\]\n\\[mgH = mgh + \\frac{1}{2} k x^{2}\\]\n\n\nDerivation\n\\[F = -kx\\]\n\\[\\begin{aligned}\nU &= -\\int F \\, \\textnormal{d}x\\\\\n&= -\\int_{x_i}^{x_{f}} k x \\, \\textnormal{d}x\\\\\n&= \\frac{1}{2}k x_f^2\n\\end{aligned}\\]\n\n\nDetermination\n\\[mg\\left(H -h\\right) = \\frac{1}{2} k x^2\\]\n\\[\\frac{2mg\\left(H -h\\right)}{k} = x^2\\]\n\\[\\boxed{x = \\sqrt{\\frac{2mg(H-h)}{k}}}\\]\n\n\nDimensions\n\\[\\begin{aligned}\nL &= \\sqrt{\\frac{M L T^{-2} \\left(L\\right)}{M T^{-2}}}\\\\\n&= \\sqrt{L^2} = L \\quad \\checkmark\n\\end{aligned}\\]\n\n\nLimiting Cases\n\n\\(H \\rightarrow h\\): \\(H - h = 0 \\implies x = 0\\) — makes sense!\n\\(m \\rightarrow 0 \\implies x \\rightarrow 0\\) — makes sense!\n\\(k \\rightarrow \\infty \\implies x \\rightarrow 0\\) — makes sense!\n\\(k \\rightarrow 0 \\implies x \\rightarrow \\infty\\) — makes sense!\n\n\n\nSubstitution\nNot needed.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "thinking.html#example-problem-2",
+    "href": "thinking.html#example-problem-2",
+    "title": "1  How to Think Like a Physicist",
+    "section": "Example Problem 2",
+    "text": "Example Problem 2\nA man (mass \\(m\\)) is pulling a piano (mass \\(M\\)) up a hill (angle \\(\\theta\\) to horizontal), using a pulley. The coefficient of kinetic friction is \\(\\mu_k\\).\n\n\n\n\n\n\nWarningTODO: Diagram\n\n\n\nDiagram showing: (1) Inclined plane at angle \\(\\theta\\). (2) Piano (mass \\(M\\)) on the incline connected by string over pulley to man (mass \\(m\\)) hanging vertically. Include direction arrows and coordinate axes.\n\n\n\n\n\n\n\n\nWarningTODO: Free Body Diagrams\n\n\n\n\nMan: weight \\(mg\\) down, tension \\(T\\) up. (2) Piano: weight \\(Mg\\) decomposed into components along/perpendicular to incline, normal force \\(N\\), friction \\(\\mu_k N\\) opposing motion, tension \\(T\\) up the incline.\n\n\n\n\nDefinitions & Data\n\n\\(m\\): Mass of man (kg)\n\\(M\\): Mass of piano (kg)\n\\(\\theta\\): Angle of incline from horizontal\n\\(\\mu_k\\): Coefficient of kinetic friction\n\\(g\\): Acceleration due to gravity\n\\(T\\): Tension in string\n\\(N\\): Normal force\n\\(a\\): Acceleration of the system\n\n\n\nDiagnosis\nForces: free body diagram. Conservation of string.\n\nMan: \\(F = ma\\)\nPiano: component of gravity along incline, normal force, friction \\(f_k = \\mu_k N\\), tension \\(T\\).\n\n\n\nDerivation\nFor the man: \\[ma = mg - T\\] \\[T = m(g - a)\\]\nFor the piano: \\[N = Mg\\cos\\theta\\] \\[\\sum F = Mg\\sin\\theta + \\mu_k N - mg\\]\n\n\nDetermination\n\\[\\boxed{a = g\\left(\\frac{M\\sin\\theta + \\mu_k M\\cos\\theta - m}{M + m}\\right)}\\]\n\n\nDimensions\n\\[LHS = LT^{-2}, \\quad RHS = LT^{-2}\\left(\\frac{M + M - M}{M}\\right) \\quad \\checkmark\\]\n\n\nLimiting Cases\n\nIf \\(M \\gg m\\): acceleration to the right (piano dominates). Makes sense.\nIf \\(m \\gg M\\): acceleration negative (man pulls piano up). Makes sense.\n\\(\\theta = 0\\): acceleration depends on friction vs man’s weight. Makes sense.\n\\(\\theta = 90°\\): reduces to Atwood machine. Makes sense.\n\nThis working includes an error caught during the limiting cases check, and left in to show how this works.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "thinking.html#footnotes",
+    "href": "thinking.html#footnotes",
+    "title": "1  How to Think Like a Physicist",
+    "section": "",
+    "text": "A more thorough exploration of this algorithm can be found at Casey Handmer’s blog post In Space, No One Can Reason By Analogy.↩︎",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>How to Think Like a Physicist</span>"
+    ]
+  },
+  {
+    "objectID": "math.html",
+    "href": "math.html",
+    "title": "2  Math Toolkit",
+    "section": "",
+    "text": "2.1 Differentiation — Chain Rule\n\\[\\frac{d}{dr}\\left(6r^3(\\cos 2r + 5r)^7\\right) = 6r^2(\\cos 2r + 5r)^6(3\\cos 2r + 2r(25 - 7\\sin 2r))\\]\n\\[x = (5te^{2t+1} + 2)^8\\]\n\\[v = \\frac{dx}{dt} = 40e^{2t+1}(1 + 2t)(5te^{2t+1} + 2)^7\\]\n\\[a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2} = 40e^{2t+1}(5te^{2t+1} + 2)^6\\left(8(1+t) + (7 + 32t(1+t))5e^{2t+1}\\right)\\]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "math.html#partial-derivatives",
+    "href": "math.html#partial-derivatives",
+    "title": "2  Math Toolkit",
+    "section": "2.2 Partial Derivatives",
+    "text": "2.2 Partial Derivatives\nSimply take derivatives with respect to each variable, but consider extreme points if finding maxima or minima.\n\\[f(x,y) = 5xy + ye^x\\]\n\\[\\frac{\\partial}{\\partial x}f(x,y) = 5y + ye^x\\]\n\\[\\frac{\\partial}{\\partial y}f(x,y) = 5x + e^x\\]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "math.html#integration",
+    "href": "math.html#integration",
+    "title": "2  Math Toolkit",
+    "section": "2.3 Integration",
+    "text": "2.3 Integration\n\nSubstitution\n\\[\\int_{1/2}^{1} \\sqrt{1 - x^2}\\, dx \\quad \\text{Let } x = \\cos u, \\quad dx = -\\sin u\\, du\\]\n\\[\\Rightarrow I = \\int_{\\pi/2}^{\\pi/6} \\sqrt{1 - \\cos^2 u} \\cdot (-\\sin u)\\, du = \\int_{\\pi/6}^{\\pi/2} \\sin^2 u\\, du\\]\nUsing \\(\\cos 2u = 1 - 2\\sin^2 u\\):\n\\[I = \\frac{1}{2}\\int_{\\pi/6}^{\\pi/2} (1 - \\cos 2u)\\, du = \\frac{1}{2}\\left[-\\frac{\\sin 2u}{2} - u\\right]_{\\pi/6}^{\\pi/2} = \\frac{\\sqrt{3}}{8} - \\frac{\\pi}{6}\\]\n\n\nIntegration by Parts\nBasically the inverse of the product rule:\n\\[\\frac{d}{dx}(uv) = u\\frac{dv}{dx} + v\\frac{du}{dx}\\]\n\\[\\int u\\, dv = uv - \\int v\\, du\\]\nExample:\n\\[\\int \\tan^{-1} x\\, dx\\]\nLet \\(u = \\tan^{-1} x\\), \\(dv = dx\\).\n\\[x = \\tan u, \\quad \\frac{dx}{du} = 1 + \\tan^2 u = 1 + x^2\\]\n\\[du = \\frac{1}{1+x^2}\\, dx, \\quad v = x\\]\n\\[\\Rightarrow \\int \\tan^{-1} x\\, dx = x\\tan^{-1} x - \\int \\frac{x}{1+x^2}\\, dx = x\\tan^{-1} x - \\frac{1}{2}\\ln(1+x^2) + C\\]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "math.html#kinematic-equations",
+    "href": "math.html#kinematic-equations",
+    "title": "2  Math Toolkit",
+    "section": "2.4 Kinematic Equations",
+    "text": "2.4 Kinematic Equations\n\\[v = \\frac{dx}{dt}, \\qquad a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2}\\]\nSet \\(a\\) constant and \\(v(t=0) = v_0 = u\\):\n\\[dv = a\\, dt, \\quad \\int_u^v dv = \\int_0^t a\\, dt, \\quad \\boxed{v = u + at}\\]\n\\[dx = (u + at)\\, dt, \\quad \\int_{x_0}^x dx = \\int_0^t (u + at)\\, dt, \\quad \\boxed{x = x_0 + ut + \\frac{1}{2}at^2}\\]\n\\[a = \\frac{dv}{dt} = \\frac{dv}{dx}\\cdot\\frac{dx}{dt} = v\\frac{dv}{dx}\\]\n\\[a\\, dx = v\\, dv, \\quad \\int_0^x a\\, dx = \\int_u^v v\\, dv, \\quad \\boxed{v^2 = u^2 + 2ax}\\]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "math.html#differential-equations",
+    "href": "math.html#differential-equations",
+    "title": "2  Math Toolkit",
+    "section": "2.5 Differential Equations",
+    "text": "2.5 Differential Equations\nThere are infinite varieties of DEs, but nearly all physically relevant ones can be solved quickly by inspection. Here is a very incomplete summary of linear equations.\nFirst Order: Rearrange and integrate.\nSecond Order: Simple Harmonic Motion!\n\\[\\frac{d^2x}{dt^2} = -\\omega^2 x\\]\nGuess the answer of the form:\n\\[x = A\\cos\\omega t + B\\sin\\omega t\\]\nor\n\\[x = Ae^{i\\omega t + \\phi} = Ae^{i\\omega t} + Be^{-i\\omega t}\\]\nFor example, springs. Nearly everything in nature is a spring of one form or another.\n\\[\\frac{d^2x}{dt^2} + \\frac{k}{m}x = 0\\]\nSo by inspection, \\(\\omega^2 = k/m\\).\nAnother example: Solve \\(v = ktx\\).\n\\[\\frac{dx}{dt} = ktx, \\quad \\frac{dx}{x} = kt\\, dt, \\quad \\int_{x_0}^{x}\\frac{dx}{x} = k\\int_0^t t\\, dt\\]\n\\[2\\ln(x/x_0) = kt^2, \\quad \\boxed{x = x_0 e^{kt^2/2}}\\]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "math.html#coordinate-systems",
+    "href": "math.html#coordinate-systems",
+    "title": "2  Math Toolkit",
+    "section": "2.6 Coordinate Systems",
+    "text": "2.6 Coordinate Systems\n\nPlane Polar Coordinates (2D)\nFor a point \\(P\\) in the plane, the polar coordinates \\((r, \\theta)\\) are related to the Cartesian coordinates \\((x, y)\\) by:\n\\[r = \\sqrt{x^2 + y^2}, \\quad \\theta = \\arctan\\left(\\frac{y}{x}\\right)\\]\nor inversely:\n\\[x = r\\cos\\theta, \\quad y = r\\sin\\theta\\]\n\n\nCylindrical Polar Coordinates\nFor axial symmetry:\n\\[x = r\\cos\\theta, \\quad y = r\\sin\\theta, \\quad z = z\\]\n\n\nSpherical Polar Coordinates\nFor spherical symmetry, the coordinates are defined as:\n\\[0 \\le r, \\quad 0 \\le \\theta \\le \\pi, \\quad 0 \\le \\phi &lt; 2\\pi\\]\nwhere \\(r\\) is the radius, \\(\\theta\\) is the polar angle, and \\(\\phi\\) is the azimuthal angle.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "math.html#multivariate-integration",
+    "href": "math.html#multivariate-integration",
+    "title": "2  Math Toolkit",
+    "section": "2.7 Multivariate Integration",
+    "text": "2.7 Multivariate Integration\nUnivariate integration is one dimensional:\n\\[\\int f'(x)\\, dx = f(x) + C\\]\nAreas and volumes require multivariate integration.\n\\[\\text{Area} = \\iint_A dA = \\iint_A dx\\, dy = \\int_c^d\\left(\\int_a^b dx\\right) dy = (b-a)(d-c)\\]\n\nPolar Coordinates\nFor an infinitesimal area element \\(dA\\) in polar coordinates:\n\\[dA = r\\, dr\\, d\\theta\\]\n\n\nVolumes\nThe volume of a sphere:\n\\[\\text{Volume} = \\iiint_V dV = \\int_0^R \\int_0^\\pi \\int_0^{2\\pi} r^2 \\sin\\theta\\, dr\\, d\\theta\\, d\\phi = \\int_0^R r^2\\, dr \\int_0^\\pi \\sin\\theta\\, d\\theta \\int_0^{2\\pi} d\\phi\\]\n\\[= 2\\pi \\cdot \\frac{R^3}{3} \\cdot [-\\cos\\theta]_0^\\pi = \\frac{4}{3}\\pi R^3\\]\n\n\nFlux Integrals\nOne can also integrate an arbitrary scalar or vector function over some area or volume.\nVector field integrations are performed over areas to find fluxes, and are only concerned with the normal (perpendicular) component of the field:\n\\[I = \\iint \\vec{f} \\cdot \\hat{n}\\, dA\\]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Math Toolkit</span>"
+    ]
+  },
+  {
+    "objectID": "mechanics.html",
+    "href": "mechanics.html",
+    "title": "3  Mechanics",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Classical Physics",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Mechanics</span>"
+    ]
+  },
+  {
+    "objectID": "thermo.html",
+    "href": "thermo.html",
+    "title": "4  Thermodynamics",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Classical Physics",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Thermodynamics</span>"
+    ]
+  },
+  {
+    "objectID": "waves.html",
+    "href": "waves.html",
+    "title": "5  Waves & Oscillations",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Classical Physics",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Waves & Oscillations</span>"
+    ]
+  },
+  {
+    "objectID": "electrostatics.html",
+    "href": "electrostatics.html",
+    "title": "6  Electrostatics",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Electrostatics</span>"
+    ]
+  },
+  {
+    "objectID": "circuits.html",
+    "href": "circuits.html",
+    "title": "7  Circuits & Magnetism",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Circuits & Magnetism</span>"
+    ]
+  },
+  {
+    "objectID": "optics.html",
+    "href": "optics.html",
+    "title": "8  Optics",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Electromagnetism & Optics",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Optics</span>"
+    ]
+  },
+  {
+    "objectID": "relativity.html",
+    "href": "relativity.html",
+    "title": "9  Modern Physics & Relativity",
+    "section": "",
+    "text": "NoteStatus\n\n\n\nContent to be transcribed from IPhO notes.",
+    "crumbs": [
+      "Modern Physics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Modern Physics & Relativity</span>"
+    ]
   }
 ]

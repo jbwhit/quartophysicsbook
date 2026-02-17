@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Think Like A Physicist</title>
+<title>2&nbsp; Math Toolkit – Think Like A Physicist</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./relativity.html" rel="prev">
+<link href="./mechanics.html" rel="next">
+<link href="./thinking.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -93,6 +75,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -267,7 +278,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./thinking.html">Foundations</a></li><li class="breadcrumb-item"><a href="./math.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math Toolkit</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -322,7 +333,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./math.html" class="sidebar-item-text sidebar-link">
+  <a href="./math.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math Toolkit</span></span></a>
   </div>
 </li>
@@ -405,7 +416,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -414,16 +425,42 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#differentiation-chain-rule" id="toc-differentiation-chain-rule" class="nav-link active" data-scroll-target="#differentiation-chain-rule"><span class="header-section-number">2.1</span> Differentiation — Chain Rule</a></li>
+  <li><a href="#partial-derivatives" id="toc-partial-derivatives" class="nav-link" data-scroll-target="#partial-derivatives"><span class="header-section-number">2.2</span> Partial Derivatives</a></li>
+  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration"><span class="header-section-number">2.3</span> Integration</a>
+  <ul class="collapse">
+  <li><a href="#substitution" id="toc-substitution" class="nav-link" data-scroll-target="#substitution">Substitution</a></li>
+  <li><a href="#integration-by-parts" id="toc-integration-by-parts" class="nav-link" data-scroll-target="#integration-by-parts">Integration by Parts</a></li>
+  </ul></li>
+  <li><a href="#kinematic-equations" id="toc-kinematic-equations" class="nav-link" data-scroll-target="#kinematic-equations"><span class="header-section-number">2.4</span> Kinematic Equations</a></li>
+  <li><a href="#differential-equations" id="toc-differential-equations" class="nav-link" data-scroll-target="#differential-equations"><span class="header-section-number">2.5</span> Differential Equations</a></li>
+  <li><a href="#coordinate-systems" id="toc-coordinate-systems" class="nav-link" data-scroll-target="#coordinate-systems"><span class="header-section-number">2.6</span> Coordinate Systems</a>
+  <ul class="collapse">
+  <li><a href="#plane-polar-coordinates-2d" id="toc-plane-polar-coordinates-2d" class="nav-link" data-scroll-target="#plane-polar-coordinates-2d">Plane Polar Coordinates (2D)</a></li>
+  <li><a href="#cylindrical-polar-coordinates" id="toc-cylindrical-polar-coordinates" class="nav-link" data-scroll-target="#cylindrical-polar-coordinates">Cylindrical Polar Coordinates</a></li>
+  <li><a href="#spherical-polar-coordinates" id="toc-spherical-polar-coordinates" class="nav-link" data-scroll-target="#spherical-polar-coordinates">Spherical Polar Coordinates</a></li>
+  </ul></li>
+  <li><a href="#multivariate-integration" id="toc-multivariate-integration" class="nav-link" data-scroll-target="#multivariate-integration"><span class="header-section-number">2.7</span> Multivariate Integration</a>
+  <ul class="collapse">
+  <li><a href="#polar-coordinates" id="toc-polar-coordinates" class="nav-link" data-scroll-target="#polar-coordinates">Polar Coordinates</a></li>
+  <li><a href="#volumes" id="toc-volumes" class="nav-link" data-scroll-target="#volumes">Volumes</a></li>
+  <li><a href="#flux-integrals" id="toc-flux-integrals" class="nav-link" data-scroll-target="#flux-integrals">Flux Integrals</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./thinking.html">Foundations</a></li><li class="breadcrumb-item"><a href="./math.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math Toolkit</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math Toolkit</span></h1>
 </div>
 
 
@@ -440,11 +477,121 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" role="list" style="display: none">
+<section id="differentiation-chain-rule" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="differentiation-chain-rule"><span class="header-section-number">2.1</span> Differentiation — Chain Rule</h2>
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[\frac{d}{dr}\left(6r^3(\cos 2r + 5r)^7\right) = 6r^2(\cos 2r + 5r)^6(3\cos 2r + 2r(25 - 7\sin 2r))\]</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[x = (5te^{2t+1} + 2)^8\]</span></p>
+<p><span class="math display">\[v = \frac{dx}{dt} = 40e^{2t+1}(1 + 2t)(5te^{2t+1} + 2)^7\]</span></p>
+<p><span class="math display">\[a = \frac{dv}{dt} = \frac{d^2x}{dt^2} = 40e^{2t+1}(5te^{2t+1} + 2)^6\left(8(1+t) + (7 + 32t(1+t))5e^{2t+1}\right)\]</span></p>
+</section>
+<section id="partial-derivatives" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="partial-derivatives"><span class="header-section-number">2.2</span> Partial Derivatives</h2>
+<p>Simply take derivatives with respect to each variable, but consider extreme points if finding maxima or minima.</p>
+<p><span class="math display">\[f(x,y) = 5xy + ye^x\]</span></p>
+<p><span class="math display">\[\frac{\partial}{\partial x}f(x,y) = 5y + ye^x\]</span></p>
+<p><span class="math display">\[\frac{\partial}{\partial y}f(x,y) = 5x + e^x\]</span></p>
+</section>
+<section id="integration" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="integration"><span class="header-section-number">2.3</span> Integration</h2>
+<section id="substitution" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="substitution">Substitution</h3>
+<p><span class="math display">\[\int_{1/2}^{1} \sqrt{1 - x^2}\, dx \quad \text{Let } x = \cos u, \quad dx = -\sin u\, du\]</span></p>
+<p><span class="math display">\[\Rightarrow I = \int_{\pi/2}^{\pi/6} \sqrt{1 - \cos^2 u} \cdot (-\sin u)\, du = \int_{\pi/6}^{\pi/2} \sin^2 u\, du\]</span></p>
+<p>Using <span class="math inline">\(\cos 2u = 1 - 2\sin^2 u\)</span>:</p>
+<p><span class="math display">\[I = \frac{1}{2}\int_{\pi/6}^{\pi/2} (1 - \cos 2u)\, du = \frac{1}{2}\left[-\frac{\sin 2u}{2} - u\right]_{\pi/6}^{\pi/2} = \frac{\sqrt{3}}{8} - \frac{\pi}{6}\]</span></p>
+</section>
+<section id="integration-by-parts" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="integration-by-parts">Integration by Parts</h3>
+<p>Basically the inverse of the product rule:</p>
+<p><span class="math display">\[\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}\]</span></p>
+<p><span class="math display">\[\int u\, dv = uv - \int v\, du\]</span></p>
+<p><strong>Example:</strong></p>
+<p><span class="math display">\[\int \tan^{-1} x\, dx\]</span></p>
+<p>Let <span class="math inline">\(u = \tan^{-1} x\)</span>, <span class="math inline">\(dv = dx\)</span>.</p>
+<p><span class="math display">\[x = \tan u, \quad \frac{dx}{du} = 1 + \tan^2 u = 1 + x^2\]</span></p>
+<p><span class="math display">\[du = \frac{1}{1+x^2}\, dx, \quad v = x\]</span></p>
+<p><span class="math display">\[\Rightarrow \int \tan^{-1} x\, dx = x\tan^{-1} x - \int \frac{x}{1+x^2}\, dx = x\tan^{-1} x - \frac{1}{2}\ln(1+x^2) + C\]</span></p>
+</section>
+</section>
+<section id="kinematic-equations" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="kinematic-equations"><span class="header-section-number">2.4</span> Kinematic Equations</h2>
+<p><span class="math display">\[v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2x}{dt^2}\]</span></p>
+<p>Set <span class="math inline">\(a\)</span> constant and <span class="math inline">\(v(t=0) = v_0 = u\)</span>:</p>
+<p><span class="math display">\[dv = a\, dt, \quad \int_u^v dv = \int_0^t a\, dt, \quad \boxed{v = u + at}\]</span></p>
+<p><span class="math display">\[dx = (u + at)\, dt, \quad \int_{x_0}^x dx = \int_0^t (u + at)\, dt, \quad \boxed{x = x_0 + ut + \frac{1}{2}at^2}\]</span></p>
+<p><span class="math display">\[a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\frac{dv}{dx}\]</span></p>
+<p><span class="math display">\[a\, dx = v\, dv, \quad \int_0^x a\, dx = \int_u^v v\, dv, \quad \boxed{v^2 = u^2 + 2ax}\]</span></p>
+</section>
+<section id="differential-equations" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="differential-equations"><span class="header-section-number">2.5</span> Differential Equations</h2>
+<p>There are infinite varieties of DEs, but nearly all physically relevant ones can be solved quickly by inspection. Here is a very incomplete summary of linear equations.</p>
+<p><strong>First Order:</strong> Rearrange and integrate.</p>
+<p><strong>Second Order:</strong> Simple Harmonic Motion!</p>
+<p><span class="math display">\[\frac{d^2x}{dt^2} = -\omega^2 x\]</span></p>
+<p>Guess the answer of the form:</p>
+<p><span class="math display">\[x = A\cos\omega t + B\sin\omega t\]</span></p>
+<p>or</p>
+<p><span class="math display">\[x = Ae^{i\omega t + \phi} = Ae^{i\omega t} + Be^{-i\omega t}\]</span></p>
+<p>For example, springs. Nearly everything in nature is a spring of one form or another.</p>
+<p><span class="math display">\[\frac{d^2x}{dt^2} + \frac{k}{m}x = 0\]</span></p>
+<p>So by inspection, <span class="math inline">\(\omega^2 = k/m\)</span>.</p>
+<p><strong>Another example:</strong> Solve <span class="math inline">\(v = ktx\)</span>.</p>
+<p><span class="math display">\[\frac{dx}{dt} = ktx, \quad \frac{dx}{x} = kt\, dt, \quad \int_{x_0}^{x}\frac{dx}{x} = k\int_0^t t\, dt\]</span></p>
+<p><span class="math display">\[2\ln(x/x_0) = kt^2, \quad \boxed{x = x_0 e^{kt^2/2}}\]</span></p>
+</section>
+<section id="coordinate-systems" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="coordinate-systems"><span class="header-section-number">2.6</span> Coordinate Systems</h2>
+<section id="plane-polar-coordinates-2d" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="plane-polar-coordinates-2d">Plane Polar Coordinates (2D)</h3>
+<p>For a point <span class="math inline">\(P\)</span> in the plane, the polar coordinates <span class="math inline">\((r, \theta)\)</span> are related to the Cartesian coordinates <span class="math inline">\((x, y)\)</span> by:</p>
+<p><span class="math display">\[r = \sqrt{x^2 + y^2}, \quad \theta = \arctan\left(\frac{y}{x}\right)\]</span></p>
+<p>or inversely:</p>
+<p><span class="math display">\[x = r\cos\theta, \quad y = r\sin\theta\]</span></p>
+</section>
+<section id="cylindrical-polar-coordinates" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="cylindrical-polar-coordinates">Cylindrical Polar Coordinates</h3>
+<p>For axial symmetry:</p>
+<p><span class="math display">\[x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\]</span></p>
+</section>
+<section id="spherical-polar-coordinates" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="spherical-polar-coordinates">Spherical Polar Coordinates</h3>
+<p>For spherical symmetry, the coordinates are defined as:</p>
+<p><span class="math display">\[0 \le r, \quad 0 \le \theta \le \pi, \quad 0 \le \phi &lt; 2\pi\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is the radius, <span class="math inline">\(\theta\)</span> is the polar angle, and <span class="math inline">\(\phi\)</span> is the azimuthal angle.</p>
+</section>
+</section>
+<section id="multivariate-integration" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="multivariate-integration"><span class="header-section-number">2.7</span> Multivariate Integration</h2>
+<p>Univariate integration is one dimensional:</p>
+<p><span class="math display">\[\int f'(x)\, dx = f(x) + C\]</span></p>
+<p>Areas and volumes require multivariate integration.</p>
+<p><span class="math display">\[\text{Area} = \iint_A dA = \iint_A dx\, dy = \int_c^d\left(\int_a^b dx\right) dy = (b-a)(d-c)\]</span></p>
+<section id="polar-coordinates" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="polar-coordinates">Polar Coordinates</h3>
+<p>For an infinitesimal area element <span class="math inline">\(dA\)</span> in polar coordinates:</p>
+<p><span class="math display">\[dA = r\, dr\, d\theta\]</span></p>
+</section>
+<section id="volumes" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="volumes">Volumes</h3>
+<p>The volume of a sphere:</p>
+<p><span class="math display">\[\text{Volume} = \iiint_V dV = \int_0^R \int_0^\pi \int_0^{2\pi} r^2 \sin\theta\, dr\, d\theta\, d\phi = \int_0^R r^2\, dr \int_0^\pi \sin\theta\, d\theta \int_0^{2\pi} d\phi\]</span></p>
+<p><span class="math display">\[= 2\pi \cdot \frac{R^3}{3} \cdot [-\cos\theta]_0^\pi = \frac{4}{3}\pi R^3\]</span></p>
+</section>
+<section id="flux-integrals" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flux-integrals">Flux Integrals</h3>
+<p>One can also integrate an arbitrary scalar or vector function over some area or volume.</p>
+<p>Vector field integrations are performed over areas to find fluxes, and are only concerned with the normal (perpendicular) component of the field:</p>
+<p><span class="math display">\[I = \iint \vec{f} \cdot \hat{n}\, dA\]</span></p>
 
-</div>
 
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -862,11 +1009,14 @@ div.csl-indent {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./relativity.html" class="pagination-link" aria-label="Modern Physics &amp; Relativity">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Modern Physics &amp; Relativity</span></span>
+      <a href="./thinking.html" class="pagination-link" aria-label="How to Think Like a Physicist">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Think Like a Physicist</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./mechanics.html" class="pagination-link" aria-label="Mechanics">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Mechanics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

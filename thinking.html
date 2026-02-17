@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>References – Think Like A Physicist</title>
+<title>1&nbsp; How to Think Like a Physicist – Think Like A Physicist</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./relativity.html" rel="prev">
+<link href="./math.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -93,6 +75,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -267,7 +278,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./thinking.html">Foundations</a></li><li class="breadcrumb-item"><a href="./thinking.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Think Like a Physicist</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -316,7 +327,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./thinking.html" class="sidebar-item-text sidebar-link">
+  <a href="./thinking.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Think Like a Physicist</span></span></a>
   </div>
 </li>
@@ -405,7 +416,7 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -414,16 +425,43 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#si-units" id="toc-si-units" class="nav-link active" data-scroll-target="#si-units"><span class="header-section-number">1.1</span> SI Units</a></li>
+  <li><a href="#dimensional-analysis-and-sanity-checking" id="toc-dimensional-analysis-and-sanity-checking" class="nav-link" data-scroll-target="#dimensional-analysis-and-sanity-checking"><span class="header-section-number">1.2</span> Dimensional Analysis and Sanity Checking</a></li>
+  <li><a href="#solving-problems-with-the-7-ds-and-the-little-s" id="toc-solving-problems-with-the-7-ds-and-the-little-s" class="nav-link" data-scroll-target="#solving-problems-with-the-7-ds-and-the-little-s"><span class="header-section-number">1.3</span> Solving Problems with the 7 Ds and the little s</a></li>
+  <li><a href="#example-problem-1" id="toc-example-problem-1" class="nav-link" data-scroll-target="#example-problem-1">Example Problem 1</a>
+  <ul class="collapse">
+  <li><a href="#definitions-data" id="toc-definitions-data" class="nav-link" data-scroll-target="#definitions-data">Definitions &amp; Data</a></li>
+  <li><a href="#diagnosis" id="toc-diagnosis" class="nav-link" data-scroll-target="#diagnosis">Diagnosis</a></li>
+  <li><a href="#derivation" id="toc-derivation" class="nav-link" data-scroll-target="#derivation">Derivation</a></li>
+  <li><a href="#determination" id="toc-determination" class="nav-link" data-scroll-target="#determination">Determination</a></li>
+  <li><a href="#dimensions" id="toc-dimensions" class="nav-link" data-scroll-target="#dimensions">Dimensions</a></li>
+  <li><a href="#limiting-cases" id="toc-limiting-cases" class="nav-link" data-scroll-target="#limiting-cases">Limiting Cases</a></li>
+  <li><a href="#substitution" id="toc-substitution" class="nav-link" data-scroll-target="#substitution">Substitution</a></li>
+  </ul></li>
+  <li><a href="#example-problem-2" id="toc-example-problem-2" class="nav-link" data-scroll-target="#example-problem-2">Example Problem 2</a>
+  <ul class="collapse">
+  <li><a href="#definitions-data-1" id="toc-definitions-data-1" class="nav-link" data-scroll-target="#definitions-data-1">Definitions &amp; Data</a></li>
+  <li><a href="#diagnosis-1" id="toc-diagnosis-1" class="nav-link" data-scroll-target="#diagnosis-1">Diagnosis</a></li>
+  <li><a href="#derivation-1" id="toc-derivation-1" class="nav-link" data-scroll-target="#derivation-1">Derivation</a></li>
+  <li><a href="#determination-1" id="toc-determination-1" class="nav-link" data-scroll-target="#determination-1">Determination</a></li>
+  <li><a href="#dimensions-1" id="toc-dimensions-1" class="nav-link" data-scroll-target="#dimensions-1">Dimensions</a></li>
+  <li><a href="#limiting-cases-1" id="toc-limiting-cases-1" class="nav-link" data-scroll-target="#limiting-cases-1">Limiting Cases</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./thinking.html">Foundations</a></li><li class="breadcrumb-item"><a href="./thinking.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Think Like a Physicist</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">How to Think Like a Physicist</span></h1>
 </div>
 
 
@@ -440,11 +478,306 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" role="list" style="display: none">
-
+<section id="si-units" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="si-units"><span class="header-section-number">1.1</span> SI Units</h2>
+<table class="table-striped table-hover caption-top table">
+<caption>SI Base Units</caption>
+<thead>
+<tr class="header">
+<th>Base Quantity</th>
+<th>Base Unit Name</th>
+<th>Symbol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Length</strong></td>
+<td>meter</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td><strong>Time</strong></td>
+<td>second</td>
+<td>s</td>
+</tr>
+<tr class="odd">
+<td><strong>Mass</strong></td>
+<td>kilogram</td>
+<td>kg</td>
+</tr>
+<tr class="even">
+<td><strong>Electric Current</strong></td>
+<td>ampere</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td><strong>Thermodynamic Temperature</strong></td>
+<td>kelvin</td>
+<td>K</td>
+</tr>
+<tr class="even">
+<td><strong>Amount of Substance</strong></td>
+<td>mole</td>
+<td>mol</td>
+</tr>
+<tr class="odd">
+<td><strong>Luminous Intensity</strong></td>
+<td>candela</td>
+<td>cd</td>
+</tr>
+</tbody>
+</table>
+<p>The five fundamental units are length (meter, m), time (second, s), mass (kilogram, kg), charge (coulomb, C), and temperature (kelvin, K). Ampere (A), mole (mol), and candela (cd) are derived from these base units.</p>
+<p>All other units are derived from combinations of these fundamental units.</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Derived Units</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Unit</th>
+<th>Derivation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Force</strong></td>
+<td>Newton (N)</td>
+<td><span class="math inline">\(\text{kg} \cdot \text{m} \cdot \text{s}^{-2}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Energy</strong></td>
+<td>Joule (J)</td>
+<td><span class="math inline">\(\text{kg} \cdot \text{m}^2 \cdot \text{s}^{-2}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Power</strong></td>
+<td>Watt (W)</td>
+<td><span class="math inline">\(\text{kg} \cdot \text{m}^2 \cdot \text{s}^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Current</strong></td>
+<td>Ampere (A)</td>
+<td><span class="math inline">\(\text{C} \cdot \text{s}^{-1}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dimensional-analysis-and-sanity-checking" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="dimensional-analysis-and-sanity-checking"><span class="header-section-number">1.2</span> Dimensional Analysis and Sanity Checking</h2>
+<p>Vital tool for both checking (always!!) and fudging. It is part of a consistency check — units on both sides of the equation must be the same. A successful dimension check is followed by a :).</p>
+<p>Similarly, equations with vectors must have the same vector shape on each side.</p>
+<p>Math and formulas are a tool, not the final authority. Never formula fit. Understand what is going on and check that the answers are sensible.</p>
+</section>
+<section id="solving-problems-with-the-7-ds-and-the-little-s" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="solving-problems-with-the-7-ds-and-the-little-s"><span class="header-section-number">1.3</span> Solving Problems with the 7 Ds and the little s</h2>
+<p>Using this basic algorithm to approach problems from first principles is the single biggest update you are likely to make to your thinking, ever.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<ol type="1">
+<li><strong>Diagrams</strong> — Big, 2/3 page, as many as you need. Load the problem into your GPU.</li>
+<li><strong>Directions</strong> — Mark it (negative/positive).</li>
+<li><strong>Definitions and Given Data</strong> — Put it on the page (all of them).</li>
+<li><strong>Diagnosis</strong> — How? What type of problem is this? E.g. conservation principles, force laws, angular momentum.</li>
+<li><strong>Derivation</strong> — Write down the fundamental equations, the diagnosis expressed as symbols. You will need as many equations as variables. Add to the diagram if necessary. Check dimensions.</li>
+<li><strong>Determination</strong> (or D’algebra) — Math manipulations to get the answer. Box it!</li>
+<li><strong>Dimensions</strong> — <strong>Check dimensions and limiting cases/sanity check</strong>. <span class="math inline">\(LHS = RHS\)</span> then :).</li>
+<li><strong>substitutions</strong> — Only if necessary, do rough calculation by hand and check units, include an error term.</li>
+</ol>
+</section>
+<section id="example-problem-1" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-problem-1">Example Problem 1</h2>
+<p>A body, mass <span class="math inline">\(m\)</span>, slides without friction from rest at height <span class="math inline">\(H\)</span> to lower height <span class="math inline">\(h\)</span>, colliding with a horizontal spring of strength <span class="math inline">\(k\)</span>. By how much does it compress?</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Diagram showing: (1) Initial state — mass <span class="math inline">\(m\)</span> at height <span class="math inline">\(H\)</span> on a frictionless ramp. (2) Final state — mass at height <span class="math inline">\(h\)</span> compressing a horizontal spring by distance <span class="math inline">\(x\)</span>. Include direction arrows for gravity and coordinate axes.</p>
+</div>
+</div>
+<section id="definitions-data" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="definitions-data">Definitions &amp; Data</h3>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(m\)</span></td>
+<td>Mass of object</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(H\)</span></td>
+<td>Initial height</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(h\)</span></td>
+<td>Final height</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k\)</span></td>
+<td>Spring constant</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(g\)</span></td>
+<td>Acceleration due to gravity (<span class="math inline">\(9.81 \, \text{m/s}^2\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x\)</span></td>
+<td>Compression of spring</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(U_{gpe}\)</span></td>
+<td>Gravitational potential energy</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(U_{E}\)</span></td>
+<td>Elastic potential energy</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(E\)</span></td>
+<td>Energy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diagnosis" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="diagnosis">Diagnosis</h3>
+<p>Conservation of Energy (<span class="math inline">\(E\)</span> is conserved).</p>
+<p><span class="math display">\[U_{gpe} \rightarrow U_{E}\]</span></p>
+<p><span class="math display">\[mgH = mgh + \frac{1}{2} k x^{2}\]</span></p>
+</section>
+<section id="derivation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="derivation">Derivation</h3>
+<p><span class="math display">\[F = -kx\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+U &amp;= -\int F \, \textnormal{d}x\\
+&amp;= -\int_{x_i}^{x_{f}} k x \, \textnormal{d}x\\
+&amp;= \frac{1}{2}k x_f^2
+\end{aligned}\]</span></p>
+</section>
+<section id="determination" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="determination">Determination</h3>
+<p><span class="math display">\[mg\left(H -h\right) = \frac{1}{2} k x^2\]</span></p>
+<p><span class="math display">\[\frac{2mg\left(H -h\right)}{k} = x^2\]</span></p>
+<p><span class="math display">\[\boxed{x = \sqrt{\frac{2mg(H-h)}{k}}}\]</span></p>
+</section>
+<section id="dimensions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dimensions">Dimensions</h3>
+<p><span class="math display">\[\begin{aligned}
+L &amp;= \sqrt{\frac{M L T^{-2} \left(L\right)}{M T^{-2}}}\\
+&amp;= \sqrt{L^2} = L \quad \checkmark
+\end{aligned}\]</span></p>
+</section>
+<section id="limiting-cases" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="limiting-cases">Limiting Cases</h3>
+<ul>
+<li><span class="math inline">\(H \rightarrow h\)</span>: <span class="math inline">\(H - h = 0 \implies x = 0\)</span> — makes sense!</li>
+<li><span class="math inline">\(m \rightarrow 0 \implies x \rightarrow 0\)</span> — makes sense!</li>
+<li><span class="math inline">\(k \rightarrow \infty \implies x \rightarrow 0\)</span> — makes sense!</li>
+<li><span class="math inline">\(k \rightarrow 0 \implies x \rightarrow \infty\)</span> — makes sense!</li>
+</ul>
+</section>
+<section id="substitution" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="substitution">Substitution</h3>
+<p>Not needed.</p>
+</section>
+</section>
+<section id="example-problem-2" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="example-problem-2">Example Problem 2</h2>
+<p>A man (mass <span class="math inline">\(m\)</span>) is pulling a piano (mass <span class="math inline">\(M\)</span>) up a hill (angle <span class="math inline">\(\theta\)</span> to horizontal), using a pulley. The coefficient of kinetic friction is <span class="math inline">\(\mu_k\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Diagram showing: (1) Inclined plane at angle <span class="math inline">\(\theta\)</span>. (2) Piano (mass <span class="math inline">\(M\)</span>) on the incline connected by string over pulley to man (mass <span class="math inline">\(m\)</span>) hanging vertically. Include direction arrows and coordinate axes.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Free Body Diagrams
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Man: weight <span class="math inline">\(mg\)</span> down, tension <span class="math inline">\(T\)</span> up. (2) Piano: weight <span class="math inline">\(Mg\)</span> decomposed into components along/perpendicular to incline, normal force <span class="math inline">\(N\)</span>, friction <span class="math inline">\(\mu_k N\)</span> opposing motion, tension <span class="math inline">\(T\)</span> up the incline.</li>
+</ol>
+</div>
+</div>
+<section id="definitions-data-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="definitions-data-1">Definitions &amp; Data</h3>
+<ul>
+<li><span class="math inline">\(m\)</span>: Mass of man (kg)</li>
+<li><span class="math inline">\(M\)</span>: Mass of piano (kg)</li>
+<li><span class="math inline">\(\theta\)</span>: Angle of incline from horizontal</li>
+<li><span class="math inline">\(\mu_k\)</span>: Coefficient of kinetic friction</li>
+<li><span class="math inline">\(g\)</span>: Acceleration due to gravity</li>
+<li><span class="math inline">\(T\)</span>: Tension in string</li>
+<li><span class="math inline">\(N\)</span>: Normal force</li>
+<li><span class="math inline">\(a\)</span>: Acceleration of the system</li>
+</ul>
+</section>
+<section id="diagnosis-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="diagnosis-1">Diagnosis</h3>
+<p>Forces: free body diagram. Conservation of string.</p>
+<ul>
+<li>Man: <span class="math inline">\(F = ma\)</span></li>
+<li>Piano: component of gravity along incline, normal force, friction <span class="math inline">\(f_k = \mu_k N\)</span>, tension <span class="math inline">\(T\)</span>.</li>
+</ul>
+</section>
+<section id="derivation-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="derivation-1">Derivation</h3>
+<p>For the man: <span class="math display">\[ma = mg - T\]</span> <span class="math display">\[T = m(g - a)\]</span></p>
+<p>For the piano: <span class="math display">\[N = Mg\cos\theta\]</span> <span class="math display">\[\sum F = Mg\sin\theta + \mu_k N - mg\]</span></p>
+</section>
+<section id="determination-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="determination-1">Determination</h3>
+<p><span class="math display">\[\boxed{a = g\left(\frac{M\sin\theta + \mu_k M\cos\theta - m}{M + m}\right)}\]</span></p>
+</section>
+<section id="dimensions-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dimensions-1">Dimensions</h3>
+<p><span class="math display">\[LHS = LT^{-2}, \quad RHS = LT^{-2}\left(\frac{M + M - M}{M}\right) \quad \checkmark\]</span></p>
+</section>
+<section id="limiting-cases-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="limiting-cases-1">Limiting Cases</h3>
+<ul>
+<li>If <span class="math inline">\(M \gg m\)</span>: acceleration to the right (piano dominates). Makes sense.</li>
+<li>If <span class="math inline">\(m \gg M\)</span>: acceleration negative (man pulls piano up). Makes sense.</li>
+<li><span class="math inline">\(\theta = 0\)</span>: acceleration depends on friction vs man’s weight. Makes sense.</li>
+<li><span class="math inline">\(\theta = 90°\)</span>: reduces to Atwood machine. Makes sense.</li>
+</ul>
+<p>This working includes an error caught during the limiting cases check, and left in to show how this works.</p>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A more thorough exploration of this algorithm can be found at Casey Handmer’s blog post <a href="https://caseyhandmer.wordpress.com/2019/10/15/in-space-no-one-can-reason-by-analogy/">In Space, No One Can Reason By Analogy</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -862,11 +1195,14 @@ div.csl-indent {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./relativity.html" class="pagination-link" aria-label="Modern Physics &amp; Relativity">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Modern Physics &amp; Relativity</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Foreword">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Foreword</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./math.html" class="pagination-link" aria-label="Math Toolkit">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Math Toolkit</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
