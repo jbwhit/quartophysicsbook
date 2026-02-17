@@ -1,6 +1,6 @@
 # TODO - Think Like A Physicist (Quarto Book/Website)
 
-## Status: Phase 2 in progress
+## Status: Phase 2 complete — Phase 3 in progress
 
 ---
 
@@ -21,7 +21,7 @@
 - [x] **Chapter 7: Optics** (`optics.qmd`) — mirrors, lenses, diffraction, phasors
 - [x] **Chapter 8: Electrostatics** (`electrostatics.qmd`) — Coulomb, fields, Gauss's law
 - [x] **Chapter 9: Circuits & Magnetism** (`circuits.qmd`) — dipoles, induction, motors
-- [ ] **Chapter 10: Modern Physics** (`relativity.qmd`) — relativity, light cones, Doppler
+- [x] **Chapter 10: Modern Physics** (`relativity.qmd`) — relativity, light cones, Doppler
 
 ## Phase 3: Polish & Publish
 - [ ] Create proper diagrams (TikZ or SVG) to replace 40 placeholders
@@ -51,6 +51,9 @@ part: "Electromagnetism & Optics"
 part: "Modern Physics"
   relativity.qmd       — Relativity
 ```
+
+- [ ] A careful pass on correctness of the physics, not just fidelity to the notes.
+- [ ] A pass on consistency (unit conventions, etc).
 
 ---
 

@@ -1,6 +1,385 @@
 # Modern Physics & Relativity
 
-::: {.callout-note}
-## Status
-Content to be transcribed from IPhO notes.
+This chapter covers the physics that classical mechanics and electromagnetism cannot explain: the structure of atoms, the quantum nature of light and matter, and Einstein's theory of special relativity.
+
+## The Bohr Atom
+
+Classical physics — the Rutherford model — imagines electrons orbiting a nucleus like planets around a star. The problem: an accelerating charge radiates energy. The electron should spiral into the nucleus, and the atom should collapse. Atoms are clearly not doing this.
+
+**Bohr's postulates** (1913) resolve the crisis:
+
+1. **Stationary states**: Electrons exist only in discrete energy levels. They do not radiate while in these states. Both energy and angular momentum are quantized:
+
+$$\boxed{L = n\hbar}$$
+
+where $n = 1, 2, 3, \ldots$ is the principal quantum number and $\hbar = h/(2\pi)$ is the reduced Planck constant.
+
+2. **Photon emission**: When an electron transitions from a higher energy state $E_2$ to a lower state $E_1$, it emits a photon with frequency:
+
+$$\boxed{h\nu = E_2 - E_1}$$
+
+where $h = 6.63 \times 10^{-34}\;\text{J}\cdot\text{s}$ is Planck's constant and $\nu$ is the photon frequency. Equivalently, $E = h\nu$ and $\lambda = c/\nu$.
+
+The lowest possible energy state is called the **ground state** ($n = 1$).
+
+### Limitations
+
+The Bohr model:
+
+- Only accounts for one-electron atoms (hydrogen, He$^+$, Li$^{2+}$, ...)
+- Does not work for molecules or solids
+- Mixes quantum ideas (quantized orbits) with classical ones (definite trajectories)
+
+It did, however, explain the spectral lines of hydrogen and paved the way for full quantum mechanics.
+
+## The Photoelectric Effect
+
+The **photoelectric effect** is the release of electrons from a metal surface by light. It was discovered by Hertz in 1887 and explained by Einstein in 1905 (Nobel Prize, 1921).
+
+::: {.callout-warning}
+## TODO: Diagram
+Photoelectric apparatus: photosensitive cathode on the left, anode (collector) on the right, connected by a circuit with a voltage source and ammeter. Light (wavy arrow) hits the cathode; electrons are ejected and collected by the anode. Show the stopping potential $V_\text{stop}$.
 :::
+
+### The experiment
+
+Shine light on a metal surface and measure the kinetic energy of ejected electrons using a stopping voltage:
+
+$$K_\text{max} = eV_\text{stop}$$
+
+The **work function** $\phi$ is the minimum energy required to eject an electron from the surface.
+
+### Classical predictions (all wrong)
+
+According to classical wave theory:
+
+- More intense light should give electrons more energy (wrong — it gives more electrons, not faster ones)
+- Any frequency should work if you wait long enough (wrong — below a threshold frequency, no electrons are emitted regardless of intensity)
+- There should be a time delay for dim light (wrong — electrons appear instantly)
+
+### Three experimental tests
+
+1. **Vary intensity at constant frequency**: More intensity $\Rightarrow$ more photocurrent, but the same stopping voltage. Electrons can only absorb one photon at a time.
+
+2. **Vary frequency at constant intensity**: $K_\text{max}$ increases linearly with frequency. Below a threshold frequency (where $h\nu < \phi$), no electrons are emitted at all. The slope of $K_\text{max}$ vs. $\nu$ gives Planck's constant $h$.
+
+3. **Check for time delay**: No delay — if the photon energy exceeds $\phi$, electrons come out immediately.
+
+### Einstein's explanation
+
+Light acts like particles called **photons**, each carrying energy $E = h\nu$. Electrons can only absorb one photon at a time. By conservation of energy:
+
+$$\boxed{K_\text{max} = h\nu - \phi}$$
+
+This explains everything: the threshold frequency ($h\nu_0 = \phi$), the linear dependence on frequency, and the absence of time delay.
+
+## Wave–Particle Duality
+
+Einstein showed light behaves as particles (photons). De Broglie (1924) proposed the reverse: matter behaves as waves.
+
+### Photon properties
+
+A photon has energy and momentum but zero rest mass:
+
+$$E = h\nu, \qquad p = \frac{E}{c} = \frac{h}{\lambda}$$
+
+### De Broglie wavelength
+
+Any particle with momentum $p$ has an associated wavelength:
+
+$$\boxed{\lambda = \frac{h}{p} = \frac{h}{mv}}$$
+
+This works for everything. For macroscopic objects the wavelength is absurdly small — a tennis ball ($m = 57\;\text{g}$, $v = 100\;\text{m/s}$) has $\lambda \approx 10^{-34}\;\text{m}$. Only for subatomic particles does the wavelength become comparable to physical scales.
+
+**Example**: An electron ($m = 9.1 \times 10^{-31}\;\text{kg}$) at $v = 10^6\;\text{m/s}$ has $\lambda = h/(mv) \approx 7.3 \times 10^{-10}\;\text{m} \approx 0.73\;\text{nm}$, comparable to atomic spacing. This is why electron diffraction works.
+
+### Electrons as waves
+
+The 1989 single-electron double-slit experiment confirmed wave–particle duality dramatically: electrons sent through a double slit one at a time still build up an interference pattern. Each electron arrives as a particle (a single dot on the detector), but the statistical pattern of many hits is a wave interference pattern.
+
+### The wave function
+
+Quantum mechanics describes particles using a **wave function** $\psi$. The quantity $|\psi|^2$ gives the **probability density** — the probability of finding the particle at a given location.
+
+The wave function exhibits interference (explaining the double-slit pattern). It also leads to effects that have no classical analogue:
+
+- **Tunneling**: Particles can pass through barriers they classically could not surmount
+- **Discrete energy levels**: Bound particles have quantized energies (as in the Bohr atom)
+
+### Interpretations
+
+What does the wave function "mean"?
+
+- **Copenhagen interpretation**: Observation collapses the wave function. Before measurement, the particle is in a superposition of states.
+- **Many-worlds interpretation**: Every observation causes the universe to branch. All outcomes occur, in separate branches.
+
+Schrödinger's cat is a thought experiment illustrating the strangeness of superposition: a cat in a box is both alive and dead until observed. The physics doesn't depend on the interpretation — the predictions are the same.
+
+## Heisenberg Uncertainty Principle
+
+There is a fundamental limit to how precisely we can simultaneously know certain pairs of quantities. This is not a limitation of our instruments — it is a property of nature, arising from the wave-like description of particles.
+
+$$\boxed{\Delta x \, \Delta p \geq \frac{\hbar}{2}}$$
+
+where $\Delta x$ is the uncertainty in position and $\Delta p$ is the uncertainty in momentum. The more precisely you know position, the less precisely you can know momentum, and vice versa.
+
+Similarly, for energy and time:
+
+$$\boxed{\Delta E \, \Delta t \geq \frac{\hbar}{2}}$$
+
+### Physical intuition
+
+Consider a wave packet. A narrow packet (well-defined position) requires many Fourier components (spread-out momentum). A single frequency (definite momentum) extends over all space. This is a fundamental property of waves, not a measurement artifact.
+
+**Sound analogy**: A short burst of sound has a well-defined time of arrival but an uncertain pitch. A pure tone has a definite frequency but extends indefinitely in time. The same tradeoff applies to quantum particles.
+
+### Einstein's box
+
+Einstein proposed a thought experiment to beat the uncertainty principle: weigh a box before and after a photon escapes through a timed shutter, claiming to measure both $\Delta E$ (from the mass change via $E = mc^2$) and $\Delta t$ (from the shutter timing) with arbitrary precision. Bohr responded using general relativity — the box's change in position in a gravitational field introduces exactly enough uncertainty to preserve $\Delta E \, \Delta t \geq \hbar/2$.
+
+## Special Relativity
+
+Half of all cosmic rays come from gamma-ray bursts (a few per week). These rays have traveled for billions of years to reach Earth. Understanding them requires **time dilation** — and therefore special relativity.
+
+### Postulates
+
+Special relativity is based on two postulates:
+
+1. **The speed of light** in a vacuum is the same for all observers, independent of the motion of the source or observer: $c \approx 3 \times 10^8\;\text{m/s}$.
+
+2. **The laws of physics** are the same in all inertial reference frames. No experiment can detect absolute motion.
+
+### Geometry of spacetime
+
+In Euclidean geometry, lengths and angles are invariant under translations and rotations. In **Minkowski geometry** (the geometry of spacetime), the invariant quantity is the **spacetime interval**:
+
+$$\boxed{s^2 = c^2 t^2 - x^2}$$
+
+This interval is the same for all observers. It is the "proper distance" in spacetime — proportional to the proper time between events.
+
+- $s^2 > 0$: **Timelike** separation — events can be causally connected
+- $s^2 = 0$: **Lightlike** (null) — events connected by a light signal
+- $s^2 < 0$: **Spacelike** — events cannot be causally connected; nothing travels faster than light
+
+### Lorentz Transformations
+
+The Lorentz transformations relate coordinates in two inertial frames moving with relative velocity $v$:
+
+$$\boxed{x' = \gamma(x - vt), \qquad t' = \gamma\!\left(t - \frac{vx}{c^2}\right)}$$
+
+where the **Lorentz factor** is:
+
+$$\boxed{\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}}$$
+
+Note $\gamma \geq 1$, with $\gamma = 1$ for $v = 0$ and $\gamma \to \infty$ as $v \to c$.
+
+**Invariance proof**: One can verify algebraically that $c^2 t'^2 - x'^2 = c^2 t^2 - x^2$ using the Lorentz transformations. This is the defining property — the interval is preserved.
+
+### Relativity of Simultaneity
+
+Two events that are simultaneous in one frame are generally *not* simultaneous in another. Consider two events $(x_1, t_1)$ and $(x_2, t_2)$ with $t_1 = t_2$. In the primed frame:
+
+$$t_2' - t_1' = \gamma\!\left(t_2 - t_1 - \frac{v(x_2 - x_1)}{c^2}\right) = -\frac{\gamma v}{c^2}(x_2 - x_1)$$
+
+If the events are at different positions ($x_1 \neq x_2$), they are not simultaneous in the moving frame.
+
+### Length Contraction
+
+An object moving with speed $v$ relative to an observer appears shorter in the direction of motion. If the **proper length** (measured in the object's rest frame) is $L_0$:
+
+$$\boxed{L = \frac{L_0}{\gamma}}$$
+
+The proper length is the longest — it is measured in the frame where the object is at rest.
+
+### Time Dilation
+
+A moving clock runs slower. If the **proper time** (measured by the clock in its rest frame) between two events is $\Delta t_0$:
+
+$$\boxed{\Delta t = \gamma \, \Delta t_0}$$
+
+The proper time is the shortest — it is measured in the frame where the events occur at the same place.
+
+### Light clocks
+
+::: {.callout-warning}
+## TODO: Diagram
+Light clock: two mirrors separated by distance $L$. A pulse of light bounces between them. In the rest frame, the round-trip time is $T_0 = 2L/c$. In a frame where the clock moves with velocity $v$, the light travels a longer diagonal path. Show the triangle with legs $L$ and $vT_m/2$, and hypotenuse $cT_m/2$.
+:::
+
+A light clock provides a clean derivation of time dilation. In the rest frame, the round-trip time is $T_0 = 2L/c$. In a frame where the clock moves at speed $v$, the light follows a diagonal path of length $\sqrt{L^2 + (vT_m/2)^2}$ per half-trip. Setting this equal to $cT_m/2$ and solving:
+
+$$T_m = \frac{2L/c}{\sqrt{1 - v^2/c^2}} = \gamma T_0$$
+
+This is time dilation, derived from the two postulates alone.
+
+**Relativity of simultaneity**: Perpendicular light clocks agree with each other. Comparison of perpendicular clocks is closely related to the Michelson–Morley interferometric experiment, which confirmed that "ticks" are independent of orientation.
+
+### Velocity Addition
+
+In Newtonian mechanics, velocities add: $u' = u - v$. In special relativity:
+
+$$\boxed{u' = \frac{u - v}{1 - uv/c^2}}$$
+
+This ensures that no combined velocity can exceed $c$. If $u = c$, then $u' = c$ regardless of $v$ — the speed of light is invariant.
+
+## Spacetime Diagrams and Light Cones
+
+::: {.callout-warning}
+## TODO: Diagram
+Spacetime diagram: vertical axis is $ct$, horizontal axes are $x$ (and $y$). Light cones at 45 degrees emanate from an event. Label the future light cone (above), past light cone (below), timelike region (inside cones), spacelike region (outside cones). Show a worldline passing through the event, staying within the light cones.
+:::
+
+A **spacetime diagram** plots time (vertical) against space (horizontal). A particle's history is a **worldline**. Light travels along 45-degree lines (when using $ct$ for the vertical axis).
+
+The **light cone** of an event divides spacetime into:
+
+- **Future light cone**: events that the event can influence (reachable by signals traveling at $\leq c$)
+- **Past light cone**: events that could have influenced the event
+- **Spacelike region**: events outside the cones — causally disconnected
+
+Nothing travels faster than light, so all worldlines remain inside their light cones. This is the **causal structure** of spacetime.
+
+### A glimpse of general relativity
+
+In flat spacetime, light cones are uniformly oriented — all tilted the same way everywhere. **Gravity is curved spacetime**: near a massive object, light cones tilt toward the mass. Objects in freefall follow **geodesics** — the straightest possible paths through curved spacetime.
+
+A **black hole** occurs when light cones tilt so far that even outward-directed light cannot escape. The boundary is the **event horizon**.
+
+**Gödel's rotating universe** (1949): In a rotating cosmological solution, light cones tilt in the direction of rotation so much that closed timelike curves become possible — an object could, in principle, travel around the universe and arrive back at the same place and time. This remains a theoretical curiosity.
+
+## Relativistic Dynamics
+
+### Four-vectors
+
+Geometry is the theory of invariants. In Minkowski spacetime, the invariant interval $s^2 = c^2t^2 - x^2$ suggests treating spacetime as a four-dimensional vector space. The **four-position** is:
+
+$$X^\mu = (ct, \vec{x})$$
+
+The **four-velocity** is defined using proper time $\tau$:
+
+$$U^\mu = \frac{dX^\mu}{d\tau} = \gamma(c, \vec{v})$$
+
+Its invariant magnitude is:
+
+$$U^\mu U_\mu = \gamma^2(c^2 - v^2) = c^2 \qquad \text{(invariant)}$$
+
+The **four-acceleration** is $A^\mu = dU^\mu/d\tau$, and its invariant magnitude is negative: $A^\mu A_\mu = -a_0^2$ where $a_0$ is the proper acceleration.
+
+### Relativistic momentum
+
+The **relativistic three-momentum** is:
+
+$$\boxed{\vec{p} = \gamma m \vec{v}}$$
+
+where $m$ is the rest mass. This reduces to $m\vec{v}$ for $v \ll c$ and diverges as $v \to c$.
+
+### Relativistic energy
+
+The **total energy** is:
+
+$$\boxed{E = \gamma mc^2}$$
+
+For a particle at rest ($v = 0$, $\gamma = 1$): $E_0 = mc^2$ — the famous rest energy.
+
+The **kinetic energy** is the excess over rest energy:
+
+$$K = E - mc^2 = (\gamma - 1)mc^2$$
+
+For $v \ll c$: $\gamma \approx 1 + v^2/(2c^2)$, so $K \approx \frac{1}{2}mv^2$ — recovering the Newtonian result.
+
+### Energy–momentum relation
+
+Momentum and energy are unified into the **four-momentum** $P^\mu = (E/c, \vec{p})$, a Lorentz 4-vector. Its invariant magnitude gives the most important result in relativistic dynamics:
+
+$$\boxed{E^2 = p^2 c^2 + m^2 c^4}$$
+
+This is the relativistic energy–momentum relation. It works for all particles, including massless ones.
+
+### Photons
+
+For a photon ($m = 0$):
+
+$$E = pc, \qquad p = \frac{E}{c} = \frac{h\nu}{c} = \frac{h}{\lambda}$$
+
+The Einstein/de Broglie photon hypothesis relates the photon's momentum to its frequency/wavelength.
+
+## Relativistic Collisions
+
+Fundamental physics laws must be expressed as relationships between Lorentz invariants. Relativistic momentum (four-momentum) is conserved in all collisions:
+
+$$\sum_\text{before} P^\mu_i = \sum_\text{after} P^\mu_f$$
+
+### Impossible processes
+
+**Four-vector algebra** provides powerful constraints. Since $P^\mu P_\mu = m^2 c^2$ is invariant:
+
+- **A single photon cannot decay into a particle**: Consider $\gamma \to e^+ + e^-$. In the center-of-mass frame of the products, $P^2 > 0$, but for the photon $P^2 = 0$. Contradiction — this cannot conserve four-momentum.
+
+- **A single photon cannot be absorbed by a free electron**: Similarly, $e^- + \gamma \to e^-$ cannot conserve four-momentum. (This is why the photoelectric effect requires a bound electron in a metal.)
+
+### Compton Scattering
+
+::: {.callout-warning}
+## TODO: Diagram
+Compton scattering: a photon with wavelength $\lambda$ hits a stationary electron. After scattering, the photon has wavelength $\lambda'$ at angle $\theta$ to the original direction, and the electron recoils.
+:::
+
+A photon scatters off a stationary electron. Four-momentum conservation gives a change in the photon's wavelength:
+
+$$\boxed{\Delta\lambda = \lambda' - \lambda = \frac{h}{mc}(1 - \cos\theta)}$$
+
+where $\theta$ is the scattering angle and $m$ is the electron mass. The quantity $h/(mc)$ is the **Compton wavelength** of the electron ($\approx 2.4 \times 10^{-12}\;\text{m}$).
+
+**Derivation sketch**: Write four-momentum conservation $P_\gamma + P_e = P_\gamma' + P_e'$. Rearrange to isolate the electron: $(P_\gamma - P_\gamma' + P_e)^2 = P_e'^2$. Expand using $P_\gamma^2 = 0$, $P_e^2 = m^2c^2$, and $P_\gamma \cdot P_e = E_\gamma m c / c = h\nu \cdot m$. The dot product $P_\gamma \cdot P_\gamma'$ introduces $\cos\theta$, yielding the result.
+
+### Inverse Compton Scattering
+
+In **inverse Compton scattering**, a fast-moving electron collides with a low-energy photon, *boosting* the photon's energy. In the electron's rest frame, the photon approaches with energy $\sim \gamma f$ (Doppler-shifted). After scattering, it is Doppler-shifted again on the way back to the lab frame. The net energy boost is of order $\gamma^2$:
+
+$$f' \approx \gamma^2 f$$
+
+This process is astrophysically important: suitably fast charged particles are slowed by the cosmic microwave background as they travel through space, transferring energy to the CMB photons.
+
+## Visualising Relativity
+
+Special relativity affects not just measurements, but what you actually **see**. Observation $\neq$ simultaneous measurement — sight involves light that arrives at your eyes at the same instant, but may have left different parts of an object at different times.
+
+Three effects modify the appearance of relativistically moving objects:
+
+### Aberration
+
+The direction from which light appears to arrive shifts toward the direction of motion. The **angular aberration formula**:
+
+$$\boxed{\tan\frac{\alpha'}{2} = \sqrt{\frac{c - v}{c + v}}\,\tan\frac{\alpha}{2}}$$
+
+where $\alpha$ is the angle in the rest frame and $\alpha'$ in the moving frame. Since $\alpha' < \alpha$, objects ahead of you are compressed into a smaller angular region, while objects behind you spread out.
+
+**Rain analogy**: Walking through rain that falls vertically, it appears to come from ahead of you. The faster you walk, the more the rain appears to tilt forward. The same happens with light.
+
+Effects of angular aberration:
+
+- Objects in front appear smaller (compressed toward the forward direction)
+- Objects behind appear larger (spread out)
+- At high speeds, objects behind you can be "brought into" your forward field of view — you can see backwards
+
+### Relativistic Doppler Effect
+
+The frequency of light changes due to relative motion. For a source moving at velocity $v$ and emitting at angle $\alpha$ to the line of motion:
+
+$$\boxed{f' = \gamma(1 + \beta\cos\alpha)\,f}$$
+
+where $\beta = v/c$. This combines the classical Doppler effect with time dilation (the factor of $\gamma$).
+
+- **Approaching** ($\alpha = 0$): blueshift, $f' = f\sqrt{(1+\beta)/(1-\beta)}$
+- **Receding** ($\alpha = \pi$): redshift, $f' = f\sqrt{(1-\beta)/(1+\beta)}$
+- **Transverse** ($\alpha = \pi/2$): $f' = \gamma f$ — a purely relativistic effect (no classical analogue)
+
+At $\sim 0.7c$, the entire visible spectrum is shifted enough that objects can no longer be recognized by color.
+
+### Relativistic Beaming
+
+Light is concentrated in the direction of motion. The apparent intensity transforms as:
+
+$$I' \propto \left[\gamma(1 + \beta\cos\alpha)\right]^4 I$$
+
+A rapidly moving object appears dramatically brighter in the forward direction and dimmer behind. Looking through a fast-moving starfield, you would see the stars bunch up and brighten ahead of you, while the sky behind goes dark.
