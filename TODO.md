@@ -24,12 +24,12 @@
 - [ ] **Chapter 10: Modern Physics** (`relativity.qmd`) — relativity, light cones, Doppler
 
 ## Phase 3: Polish & Publish
-- [ ] Create proper diagrams (TikZ or SVG) to replace placeholders
+- [ ] Create proper diagrams (TikZ or SVG) to replace 40 placeholders
 - [ ] Add practice problems at end of each chapter
 - [ ] Write co-author preface (Jonathan + Casey)
 - [ ] Review all math for correctness
-- [ ] Test PDF output (ensure equations render properly)
-- [ ] Deploy to GitHub Pages
+- [x] Test PDF output (renders cleanly; CI validates on every push)
+- [x] Deploy to GitHub Pages (CI publishes HTML on push to `main`)
 
 ---
 
