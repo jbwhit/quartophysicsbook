@@ -18,7 +18,7 @@
 
 ## Phase 2: Transcribe IPhO Notes (169 photos → chapters)
 - [x] Catalog all 169 photos by topic (see `images/IPhO_notes_catalog.md`)
-- [ ] **Chapter 4: Mechanics** (`mechanics.qmd`) — forces, energy, momentum, rotation
+- [x] **Chapter 4: Mechanics** (`mechanics.qmd`) — forces, energy, momentum, rotation
 - [ ] **Chapter 5: Thermodynamics** (`thermo.qmd`) — gas laws, entropy, heat engines
 - [ ] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
 - [ ] **Chapter 7: Optics** (`optics.qmd`) — mirrors, lenses, diffraction, phasors
@@ -54,10 +54,6 @@ part: "Electromagnetism & Optics"
 part: "Modern Physics"
   relativity.qmd       — Relativity
 ```
-
-## Misc
-
-1. Is there a way to have the calculations verifiable through something like sympy? It's nice to have equation manipulation through markdown/latex, but I am worried that it's easy to get a transcribed step that's wrong and hard to catch? Maybe not even in the published content but as a test process? Or do you have any similar suggestions?
 
 ---
 

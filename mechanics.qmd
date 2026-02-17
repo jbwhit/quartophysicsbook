@@ -1,6 +1,733 @@
 # Mechanics
 
-::: {.callout-note}
-## Status
-Content to be transcribed from IPhO notes.
+## Energy, Conservation, and Forces
+
+### Energy
+
+Energy is the ability to do work — that which is conserved. It comes in two broad types:
+
+- **Kinetic energy** — energy of motion: $K = \frac{1}{2}mv^2$
+- **Potential energy** — stored energy associated with position or configuration
+
+Energy has units of $\text{kg} \cdot \text{m}^2 \cdot \text{s}^{-2} = \text{J}$ (joules). It is a scalar.
+
+There are many forms of potential energy, each associated with a fundamental force:
+
+| Force | Potential Energy |
+|-------|-----------------|
+| Gravitational | $U = mgh$ (near surface), $U = -\frac{Gm_1m_2}{r}$ (general) |
+| Elastic (spring) | $U = \frac{1}{2}kx^2$ |
+| Electrostatic | $U = \frac{kq_1q_2}{r}$ |
+| Weak nuclear | (particle physics) |
+| Strong nuclear | (particle physics) |
+
+: Forms of Potential Energy {.striped .hover}
+
+### Potential Energy Diagrams
+
+A potential energy diagram plots $U(x)$ vs position $x$. Key features:
+
+- **Equilibrium points** occur where $F = -\frac{dU}{dx} = 0$
+- **Stable equilibrium**: local minimum (restoring force)
+- **Unstable equilibrium**: local maximum
+- A **potential well** traps particles with insufficient energy to escape
+- The harmonic oscillator potential $U = \frac{1}{2}kx^2$ is the simplest potential well; square wells also exist (quantum mechanics)
+
+### Gravitational Potential Energy
+
+By convention, $U = 0$ at $r \to \infty$. Since gravity is attractive, bringing masses closer *decreases* their potential energy, so:
+
+$$\boxed{U = -\frac{Gm_1m_2}{r}}$$
+
+The force is related to the potential by:
+
+$$F = -\frac{dU}{dr} = -\frac{Gm_1 m_2}{r^2}\,\hat{r}$$
+
+The negative sign means the force points toward decreasing $r$ (attractive).
+
+**Example: On the surface of the Earth.**
+
+$$F = \frac{Gm_1 m_2}{r^2} = \frac{6.67 \times 10^{-11} \times 6 \times 10^{24} \times 8 \times 10^1}{(6.4 \times 10^6)^2} \approx 588 \;\text{N}$$
+
+**Change in gravitational PE** between two radii $r_1$ and $r_2$:
+
+$$\Delta U = -\frac{Gm_1 m_2}{r_2} + \frac{Gm_1 m_2}{r_1} = Gm_1 m_2\left(\frac{1}{r_1} - \frac{1}{r_2}\right)$$
+
+### Force, Energy, and Work
+
+Force is the derivative of potential energy:
+
+$$F = -\frac{dU}{dx}$$
+
+Conversely, potential energy is the negative integral of force:
+
+$$dU = -F \cdot dx \qquad \Rightarrow \qquad U = -\int F \cdot dx \quad (\text{always})$$
+
+**Work** is defined as the integral of force along a displacement:
+
+$$W = \int \vec{F} \cdot d\vec{x}$$
+
+*How much work does the Moon do sitting on the road due to the Earth?* Zero — no displacement, no work.
+
+### Conservation of Energy
+
+Energy is always conserved:
+
+$$\Delta E = 0 \qquad E_i = E_f \quad \text{for an isolated system}$$
+
+$$\Delta E_{\text{system}} + \Delta E_{\text{environment}} = 0$$
+
+Conservation principles (like conservation of energy) are extremely powerful problem-solving tools.
+
+**Example: Mass on a spring.** Consider a mass that can have gravitational PE, elastic PE, kinetic energy, bulk KE, and thermal energy:
+
+::: {.callout-warning}
+## TODO: Diagram
+Vertical mass-spring system showing the different energy types: gravitational PE at the top, elastic PE in the spring, and kinetic energy of the mass.
 :::
+
+### Hooke's Law and Spring Energy
+
+The restoring force of a spring:
+
+$$F_{\text{spring}} = -F_{\text{app}} = -k \Delta x$$
+
+$$F = -kx$$
+
+The work done compressing/stretching a spring (equivalently, the elastic PE stored):
+
+$$W = \int_0^x F\,dx$$
+
+$$\boxed{W = \frac{1}{2}kx^2}$$
+
+### Mechanical Energy and Conservative Forces
+
+A **conservative force** is one where only the endpoints matter — the work done is path-independent. For conservative forces, we can define a potential energy, and mechanical energy $E = U + K$ is conserved.
+
+Gravitational and elastic forces are conservative. Electrostatic forces are also conservative.
+
+**Non-conservative (dissipative) forces** convert mechanical energy into thermal and microscopic energy. Friction and air resistance are examples.
+
+$$U = Mgh \qquad KE = \frac{1}{2}mv^2$$
+
+When choosing a reference point for potential energy, you must be consistent — pick one and stick with it.
+
+## Newton's Laws and Forces
+
+### Potential vs. Potential Energy
+
+An important distinction:
+
+- **Potential energy** is an *extensive* property — depends on the specific object ($U_{\text{grav}} = -\frac{Gm_1m_2}{r}$)
+- **Potential** is an *intensive* property — depends only on the source ($V_{\text{grav}} = -\frac{Gm}{r}$)
+
+Intensive units = extensive units / mass (or charge).
+
+### Conservation Laws
+
+Many quantities are conserved in isolated systems:
+
+- Energy
+- Momentum
+- Angular momentum
+- Mass
+- Charge
+- (and others: strangeness, baryon number, etc.)
+
+### Newton's Laws
+
+1. Every body has constant velocity unless acted upon by a non-zero net force (inertia).
+2. $\vec{F} = m\vec{a} = \frac{d\vec{p}}{dt}$
+3. For every action, there is an equal and opposite reaction.
+
+Force has units of $\text{kg}\cdot\text{m}\cdot\text{s}^{-2} = \text{N}$.
+
+**Weight** $\neq$ mass. Weight is $mg$.
+
+### Free Body Diagrams
+
+Rules for drawing free body diagrams (FBDs):
+
+- Draw a box or lump (depending on state)
+- One body, simple, all forces on the same object on the diagram
+- Use vector component forces — only forces acting on the object
+- Only include *forces*, not velocities or accelerations
+- Everything you experience (forces) except for gravity is electromagnetic in nature
+
+**Example: Car going around a corner at constant speed.** What is the net force acting on the car, and what is its origin? The force is **centripetal**, directed toward the center of the turn, provided by friction between the tires and road.
+
+### Normal Force
+
+The normal (contact) force acts perpendicular to a surface. It is the surface's response to prevent objects from passing through.
+
+- Usually equal to the weight component perpendicular to the surface
+- It has a *maximum* value — the surface can be overwhelmed (e.g. breaking through)
+
+**Example: Elevator.**
+
+$$\sum F = ma$$
+
+If the elevator accelerates upward at acceleration $a$:
+
+$$N - mg = ma \qquad \Rightarrow \qquad N = m(g + a)$$
+
+### Friction
+
+**Static friction** acts parallel to the surface to prevent relative motion:
+
+- Cold welding of microscopic surface bumps
+- $F_s \leq \mu_s N$ (it adjusts up to a maximum)
+
+**Kinetic friction** involves continuous formation and breakage of bonds:
+
+- $F_k = \mu_k N$ (constant for a given pair of surfaces)
+- This is an *approximation* (only a model)
+
+**Example: Box on back of a ute (truck).**
+
+Maximum acceleration before sliding:
+
+$$F_{\max} = \mu_s N = \mu_s mg$$
+
+$$a_{\max} = \mu_s g \quad (\text{independent of mass})$$
+
+### Air Resistance
+
+$$F_{\text{air}} = \frac{1}{2}\rho v^2 C_D A$$
+
+At **terminal velocity**, the drag force equals the weight: $F_{\text{air}} = mg$.
+
+### Tension
+
+In an ideal rope:
+
+- Force at one end is instantly transmitted without loss — every part feels the same tension
+- $\theta_{\text{ideal rope}} = 0$ (massless, frictionless)
+- Ideal ropes have no mass and are inextensible ($T = \text{const}$ throughout)
+- Ideal pulleys act to change direction but nothing else
+- $N \leq F_{\text{pull}}$: varies depending on applied force
+- Two components of contact force (normal and friction) — minimum energy
+
+### Momentum
+
+$$\vec{p} = m\vec{v} \qquad \text{units: } \text{kg}\cdot\text{m}\cdot\text{s}^{-1} = \text{N}\cdot\text{s}$$
+
+$$\vec{F} = \frac{d\vec{p}}{dt}$$
+
+No force $\Rightarrow$ no change in momentum.
+
+**Example:** Two carts, one mass $m$, the other mass $2m$, pushed by equal force for 3 seconds on an air track.
+
+Equal momenta: $p_1 = p_2$
+
+$$KE \propto \frac{p^2}{2m}$$
+
+Since $p$ is the same, the lighter cart has more KE. It travels distance $2d$ while the heavier travels $d$.
+
+### Newton's Third Law
+
+Forces act on *different* objects:
+
+$$\vec{F}_{AB} = -\vec{F}_{BA}$$
+
+Gravity and normal force on the same object are **not** a Newton's third law pair — they have different origins.
+
+$$\frac{d\vec{p}}{dt} = 0 \quad \text{if } F_{\text{AB}} = -F_{\text{BA}} \quad \Rightarrow \quad \frac{dp_A}{dt} = -\frac{dp_B}{dt}$$
+
+Therefore, **momentum is always conserved** in an isolated system.
+
+## Collisions
+
+### Elastic Collisions
+
+In elastic collisions, both momentum and kinetic energy are conserved (gravity, conservative forces, Newton's cradle, gravitational slingshot).
+
+Isolated system, two bodies:
+
+$$\sum_i m_i v_i = C$$
+
+$$m_A v_{Ai} + m_B v_{Bi} = m_A v_{Af} + m_B v_{Bf}$$
+
+$$\frac{1}{2}m_A v_{Ai}^2 + \frac{1}{2}m_B v_{Bi}^2 = \frac{1}{2}m_A v_{Af}^2 + \frac{1}{2}m_B v_{Bf}^2$$
+
+Solving these two equations simultaneously gives the final velocities:
+
+$$\boxed{v_{Af} = \frac{m_A - m_B}{m_A + m_B}\,v_{Ai} + \frac{2m_B}{m_A + m_B}\,v_{Bi}}$$
+
+$$\boxed{v_{Bf} = \frac{2m_A}{m_A + m_B}\,v_{Ai} + \frac{m_B - m_A}{m_A + m_B}\,v_{Bi}}$$
+
+**Limiting cases:**
+
+- If the masses are equal ($m_A = m_B$): they swap velocities
+- If the masses are vastly different ($M \gg m$): $v_{Bf} \approx v_{Bi}$, the heavy object is barely affected
+- If $B$ is initially at rest ($v_{Bi} = 0$) and $M \gg m$: $v_{Af} \approx -v_{Ai}$ (bounces back), $v_{Bf} \approx 0$
+
+### Inelastic Collisions
+
+In inelastic collisions, kinetic energy is lost (to deformation, heat, sound, etc.), but **momentum is still conserved**.
+
+**Example: Rain falling into a moving sports car (coasting).**
+
+As rain accumulates, the speed decreases. If you drill a hole to let the water out, the car does *not* speed back up — unless the water is pumped out stationary with respect to the road.
+
+For a perfectly inelastic collision (objects stick together):
+
+$$m_A v_{Ai} + m_B v_{Bi} = (m_A + m_B) v_f$$
+
+$$\boxed{v_f = \frac{m_A v_{Ai} + m_B v_{Bi}}{m_A + m_B}}$$
+
+## Rotational Mechanics
+
+### Rotational Kinematics
+
+A **rigid body** has every point moving in a circular path, with the centers of those circles on a common axis. It can be approximated as a single point for pure rotation.
+
+**Variables:**
+
+| Linear | Rotational | Relation |
+|--------|-----------|----------|
+| $x$ (displacement) | $\theta$ (angle, rad) | $s = r\theta$ |
+| $v$ (velocity) | $\omega$ (angular velocity, rad/s) | $v = r\omega$ |
+| $a$ (acceleration) | $\alpha$ (angular acceleration, rad/s$^2$) | $a = r\alpha$ |
+
+: Linear vs. Rotational Quantities {.striped .hover}
+
+Positive direction is arbitrary but must be defined (right-hand rule).
+
+**Equations of motion** (identical in form to linear kinematics):
+
+$$\omega = \omega_0 + \alpha t$$
+
+$$\theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2$$
+
+$$\omega^2 = \omega_0^2 + 2\alpha\theta$$
+
+Angular velocity direction given by the **right-hand rule**: curl fingers in the direction of rotation, thumb points along the axis.
+
+### Torque
+
+Torque is the rotational analogue of force. It depends on where and in what direction the force is applied:
+
+$$\vec{\tau} = \vec{r} \times \vec{F}$$
+
+$$|\tau| = rF\sin\theta$$
+
+where $\theta$ is the angle between $\vec{r}$ and $\vec{F}$.
+
+### Moment of Inertia
+
+The moment of inertia $I$ is the rotational analogue of mass — it measures resistance to angular acceleration.
+
+- Single particle: $I = mr^2$
+- Collection of particles: $I = \sum_i m_i r_i^2$
+- Solid body: $I = \iiint r^2 \, dm$
+
+#### Parallel Axis Theorem
+
+$$I = I_{cm} + Mh^2$$
+
+where $h$ is the distance between the center-of-mass axis and the parallel axis.
+
+#### Perpendicular Axis Theorem
+
+For a thin, flat object (2D):
+
+$$I_z = I_x + I_y$$
+
+### Moment of Inertia of a Sphere
+
+For a uniform solid sphere of mass $M$ and radius $R$, using cylindrical polar coordinates:
+
+$$I = \iiint r_\perp^2 \, dm = \rho \iiint r_\perp^2 \, dV$$
+
+Carrying out the integration:
+
+$$I = 2\pi\rho \int_0^R \left(\frac{(R^2 - z^2)^2}{4}\right) dz = \frac{8\pi\rho}{15} R^5$$
+
+Since $M = \rho V = \rho \frac{4}{3}\pi R^3$:
+
+$$\boxed{I = \frac{2}{5}MR^2}$$
+
+### Newton's Second Law for Rotation
+
+$$\tau = I\alpha$$
+
+This is the rotational analogue of $F = ma$.
+
+### Example: Rolling Without Slipping {.unnumbered}
+
+A ball of mass $M$ and radius $R$ rolls without slipping down an incline of angle $\theta$.
+
+::: {.callout-warning}
+## TODO: Diagram
+Ball rolling down an incline. Show forces: weight $Mg$ at center (downward), normal force $N$ perpendicular to surface, friction $f$ at contact point (up the incline). Coordinate axes: $x$ along incline (positive downhill), $y$ perpendicular to incline.
+:::
+
+**Rolling constraint:** $v = R\omega$, so $a = R\alpha$.
+
+**Translational** (along the incline):
+
+$$Mg\sin\theta - f = Ma$$
+
+**Rotational** (about center of mass):
+
+$$fR = I\alpha = I\frac{a}{R}$$
+
+$$f = \frac{Ia}{R^2}$$
+
+Substituting:
+
+$$Mg\sin\theta - \frac{Ia}{R^2} = Ma$$
+
+$$a = \frac{Mg\sin\theta}{M + I/R^2} = \frac{g\sin\theta}{1 + I/(MR^2)}$$
+
+For a solid sphere with $I = \frac{2}{5}MR^2$:
+
+$$\boxed{a = \frac{5}{7}g\sin\theta}$$
+
+Objects with smaller $I/(MR^2)$ roll faster. A sliding frictionless block ($I = 0$) has $a = g\sin\theta$, the maximum.
+
+### Rotational Kinetic Energy
+
+For pure rotation:
+
+$$K = \frac{1}{2}I\omega^2$$
+
+For combined rotation and translation:
+
+$$K = \frac{1}{2}I\omega^2 + \frac{1}{2}Mv_{cm}^2$$
+
+Rotational work:
+
+$$W = \int \tau \, d\theta$$
+
+**Comparison of rolling objects down a ramp.** The total kinetic energy is $K = \frac{1}{2}mv^2(1 + k)$ where $k = I/(mR^2)$:
+
+| Object | $I$ | $k = I/(mR^2)$ |
+|--------|-----|-----------------|
+| Solid sphere | $\frac{2}{5}MR^2$ | $2/5$ |
+| Solid cylinder | $\frac{1}{2}MR^2$ | $1/2$ |
+| Hoop | $MR^2$ | $1$ |
+
+: Moments of Inertia for Rolling Objects {.striped .hover}
+
+The lower $k$, the higher the translational speed — the **sphere is fastest**.
+
+### Angular Momentum
+
+Angular momentum is the rotational analogue of linear momentum:
+
+$$\vec{L} = \vec{r} \times \vec{p}$$
+
+For a rigid body with axial symmetry:
+
+$$L = I\omega$$
+
+**Angular momentum and torque:**
+
+$$\vec{\tau} = \frac{d\vec{L}}{dt}$$
+
+This can be broken into components: $\sum \tau_x = \frac{dL_x}{dt}$, etc.
+
+**Steiner's theorem** (parallel axis for angular momentum):
+
+$$L = L_{cm} + MR_{cm} \times v_{cm}$$
+
+### Conservation of Angular Momentum
+
+If $\tau_{\text{ext}} = 0$, then $\frac{dL}{dt} = 0$, so $L = \text{const}$.
+
+$$I_i\omega_i = I_f\omega_f$$
+
+**Example: Girl on a merry-go-round.** A girl of mass $m$ walks from the rim (radius $R$) toward the center of a merry-go-round (moment of inertia $I_0$, initial angular velocity $\omega_0$).
+
+At the rim: $L = (I_0 + mR^2)\omega_0$
+
+At radius $r$: $L = (I_0 + mr^2)\omega$
+
+$$\omega = \frac{(I_0 + mR^2)\omega_0}{I_0 + mr^2}$$
+
+As $r \to 0$: $\omega$ increases (she spins faster as she moves inward).
+
+Angular momentum does **not** imply circular motion — objects moving in a straight line have angular momentum relative to any external point.
+
+### Precession
+
+::: {.callout-warning}
+## TODO: Diagram
+Spinning top with gravity pulling down at center of mass. Show the torque $\tau = rmg\sin\theta$ causing the angular momentum vector $\vec{L}$ to precess around the vertical axis. Include: the precession circle traced by the tip of $\vec{L}$, the angle $\theta$ from vertical, and the precession angular velocity $\omega_p$.
+:::
+
+Precession is caused by a small lateral torque that changes the *direction* of the angular momentum vector without affecting its magnitude.
+
+For a spinning top tilted at angle $\theta$ from vertical:
+
+- Torque: $\tau = rmg\sin\theta$
+- The torque causes $\vec{L}$ to rotate horizontally: $dL = L\sin\theta \, d\phi$
+
+$$\omega_p = \frac{d\phi}{dt}$$
+
+Since $\tau\,dt = dL = L\sin\theta\,d\phi$:
+
+$$\omega_p\,dt = \frac{dL}{L\sin\theta} = \frac{\tau\,dt}{L\sin\theta}$$
+
+$$\boxed{\omega_p = \frac{rmg}{L} = \frac{rmg}{I\omega}}$$
+
+The precession rate is inversely proportional to $L$ (the speed of the top) — a slower top precesses in wider, faster circles.
+
+## Gravity and Orbits
+
+### Newton's Law of Gravitation
+
+Gravity is an attractive force between any two masses:
+
+$$\vec{F} = -\frac{Gm_1 m_2}{r^2}\,\hat{r}$$
+
+**Shell theorem:** For multiple masses, use vector superposition (or potentials). Spherically symmetric objects behave exactly like point masses (when you are outside them).
+
+### Gravitational Field
+
+The gravitational field is the force per unit mass — an *intensive*, vector field:
+
+$$\vec{g} = -\frac{GM}{r^2}\,\hat{r}$$
+
+**Field lines:**
+
+- Show direction of force at a point in space
+- Emanate from masses
+- Never cross around sharp edges
+- Density of field lines gives relative field strength
+
+**Flux** is the measure of field lines passing through a surface:
+
+$$\Phi_{\text{grav}} = \oint \vec{g} \cdot d\vec{A}$$
+
+### Gauss's Law for Gravity
+
+The net flux through a closed surface depends only on the enclosed mass:
+
+$$\boxed{\oint \vec{g} \cdot d\vec{A} = -4\pi G M_{\text{enclosed}}}$$
+
+Use this (with a good choice of Gaussian surface) when there is symmetry.
+
+### Gravitational Field Inside and Outside a Sphere
+
+**Outside the Earth** (or any spherically symmetric body):
+
+$$g = \frac{GM}{r^2}$$
+
+Identical to a point mass at the center.
+
+**Inside a hollow shell:**
+
+$$g = 0$$
+
+Apply Gauss's law: the enclosed mass is zero, so the field inside a uniform shell vanishes. This is a remarkable result.
+
+**Inside a uniform solid sphere** (at radius $r < R$):
+
+The enclosed mass is $M_{\text{enc}} = M\frac{r^3}{R^3}$ (assuming uniform density), so:
+
+$$g = \frac{GM_{\text{enc}}}{r^2} = \frac{GM}{R^3}\,r$$
+
+The field increases linearly with $r$ inside the sphere.
+
+### Gravitational Potential Energy (General)
+
+Potential energy is extensive (depends on both masses). Define $U = 0$ at $r \to \infty$:
+
+$$U = -\int_\infty^r \vec{F} \cdot d\vec{r} = -\int_\infty^r \frac{GMm}{r^2}\,dr$$
+
+$$\boxed{U = -\frac{GMm}{r}}$$
+
+### Gravitational Potential
+
+Potential is the potential energy per unit mass — an *intensive* scalar:
+
+$$V = \frac{U}{m} = -\frac{GM}{r}$$
+
+| Property | Extensive | Intensive |
+|----------|-----------|-----------|
+| Energy | $E$ (J) | — |
+| Gravitational | $U$ (J) | $V$ (J/kg) |
+| Electrostatic | $U$ (J) | $V$ (V) |
+
+: Extensive vs. Intensive Quantities {.striped .hover}
+
+### Equipotentials
+
+- Lines or surfaces of equal potential
+- Perpendicular to field lines (e.g., perpendicular to gravity)
+- In a conservative field, journeys that start and end on the same equipotential require no net energy
+
+::: {.callout-warning}
+## TODO: Diagram
+Equipotential lines around a point mass, showing concentric circles with field lines (arrows) pointing radially inward, perpendicular to the equipotentials. Include a hilly landscape analogy showing contour lines.
+:::
+
+### Escape Velocity
+
+The velocity needed to escape a gravitational field entirely (reach $r \to \infty$ with $v = 0$). By conservation of energy:
+
+$$\frac{1}{2}mv_{\text{esc}}^2 - \frac{GMm}{r} = 0$$
+
+$$\boxed{v_{\text{esc}} = \sqrt{\frac{2GM}{r}}}$$
+
+### Kepler's Laws
+
+1. All planets move in **elliptical orbits** with the Sun at one focus.
+2. A line joining a planet to the Sun sweeps out **equal areas in equal times** (conservation of angular momentum).
+3. The square of the orbital period is proportional to the cube of the semi-major axis:
+
+$$T^2 \propto a^3$$
+
+**Proof of Kepler's Third Law** (for circular orbits):
+
+For a circular orbit, gravitational force provides centripetal acceleration:
+
+$$\frac{GMm}{r^2} = \frac{mv^2}{r} = mr\omega^2$$
+
+$$\omega^2 = \frac{GM}{r^3} \qquad \Rightarrow \qquad \frac{4\pi^2}{T^2} = \frac{GM}{r^3}$$
+
+$$\boxed{\frac{T^2}{r^3} = \frac{4\pi^2}{GM}}$$
+
+## Fluids
+
+### Pressure
+
+Fluids are things that flow. We describe them using **pressure** and **volume** instead of mass and force.
+
+$$P = \frac{F}{A}$$
+
+Units: $\text{kg}\cdot\text{m}^{-1}\cdot\text{s}^{-2} = \text{Pa}$ (pascals). Also: $1\;\text{atm} = 760\;\text{mmHg} = 1.4\;\text{PSI} = 1.01 \times 10^5\;\text{Pa}$.
+
+Pressure is a **scalar** — it has no direction (it acts equally in all directions at a point in a fluid).
+
+**Gauge pressure** vs. **absolute pressure:**
+
+- Gauge pressure is measured relative to atmospheric pressure
+- Absolute = gauge + atmospheric
+- Example: blood pressure of 120 mmHg is *gauge*; tire pressure of 12 kPa is *gauge*; barometric pressure of 102 kPa is *absolute*
+
+### Hydrostatic Pressure
+
+The pressure due to a static fluid column, from the weight of fluid above:
+
+$$F = W = mg = \rho V g = \rho A h g$$
+
+$$P = \frac{F}{A} = \rho g h$$
+
+$$\boxed{P = \rho g h + P_0}$$
+
+where $P_0$ is the pressure at the top of the fluid (e.g. atmospheric pressure).
+
+**Key insight:** Pressure depends only on *depth*, not on the shape of the container.
+
+**Example: Designing a dam.** For a wall of width $w$ and depth $h$, the pressure at depth $d$ is $P = \rho g d$. The total force requires integrating over the wall area.
+
+### Archimedes' Principle
+
+A submerged object displaces its own volume of fluid. This allows volume estimation of irregular objects (and fat content of people).
+
+**Buoyancy:** A body fully or partially submerged is buoyed up by a force equal to the *weight of the fluid it displaces*. Air also exerts a buoyancy force.
+
+$$F_{\text{buoy}} = \rho_{\text{fluid}} V_{\text{displaced}} \, g$$
+
+For a floating object: $F_{\text{buoy}} = W$, so:
+
+$$\rho_{\text{fluid}} V_{\text{displaced}} g = mg$$
+
+**Conditions:**
+
+- $\rho_{\text{object}} > \rho_{\text{fluid}}$: sinks ($W > F_b$)
+- $\rho_{\text{object}} < \rho_{\text{fluid}}$: floats ($F_b > W$, partially submerged)
+- $\rho_{\text{object}} = \rho_{\text{fluid}}$: neutral buoyancy (total submersion)
+
+For a partially submerged object: $F_b = W$, so $\rho_{\text{fluid}} V_{\text{displaced}} g = m_{\text{object}} g$, or equivalently $V_{\text{displaced}}/V_{\text{object}} = \rho_{\text{object}}/\rho_{\text{fluid}}$.
+
+**Example: Ice cubes.** Two identical glasses of water, one with an ice cube, one without. Do they have the same water level? Yes — the ice displaces exactly its own weight in water. When it melts, $W_{\text{ice}} = W_{\text{displaced water}}$, so the level stays the same.
+
+### Buoyancy Example: Helium Airship {.unnumbered}
+
+What volume of He is needed to lift a 1000 kg airship?
+
+::: {.callout-warning}
+## TODO: Diagram
+Airship (blimp shape) with volume $V_H$ of helium, payload mass $M$. Show forces: buoyancy $F_b = \rho_a V_H g$ upward, weight $Mg + \rho_H V_H g$ downward.
+:::
+
+At equilibrium ($\sum F = 0$):
+
+$$\rho_a V_H g - Mg - \rho_H V_H g = 0$$
+
+$$V_H(\rho_a - \rho_H) = M$$
+
+$$V_H = \frac{M}{\rho_a - \rho_H}$$
+
+### Real vs. Ideal Fluids
+
+| Ideal Fluid | Real Fluid |
+|-------------|------------|
+| Non-viscous (no internal friction) | Viscous |
+| Incompressible (density is constant) | May be compressible |
+| Laminar, non-rotational flow | Can become turbulent |
+
+: {.striped .hover}
+
+Viscous fluids slow down — important in fuel, oil, blood flow. Viscosity usually decreases with increasing temperature (engine oil gets runnier when warm).
+
+### Continuity Equation
+
+For an incompressible fluid, what goes in must come out. The **volume flow rate** is constant:
+
+$$Q = Av = \text{constant} \qquad \text{units: } \text{m}^3\text{s}^{-1}$$
+
+$$\boxed{A_1 v_1 = A_2 v_2}$$
+
+If the pipe narrows, the fluid speeds up.
+
+### Bernoulli's Equation
+
+Once a flow is established, two conservation principles apply:
+
+- **Continuity**: conservation of mass (volume flow rate is constant)
+- **Bernoulli's equation**: conservation of energy (energy density is constant)
+
+$$\boxed{P + \frac{1}{2}\rho v^2 + \rho g h = \text{constant}}$$
+
+This is conservation of energy density along a streamline:
+
+- $P$: pressure energy (electrostatic analogy)
+- $\frac{1}{2}\rho v^2$: kinetic energy density
+- $\rho g h$: gravitational potential energy density
+
+**Note:** The pressure in Bernoulli's equation is the pressure the walls of the pipe exert on the fluid. This is *not* conservation of momentum (a common misconception).
+
+**Example: Water flowing through a pipe.** At a constriction, $v$ increases (continuity), so $P$ must decrease (Bernoulli). This is a pressure drop: $\Delta P = -\frac{1}{2}\rho v^2$.
+
+### Bernoulli Applications
+
+**Venturi effect:** Where fluid speeds up, pressure drops. This explains:
+
+- Lift on an aerofoil (faster flow over top → lower pressure → net upward force)
+- Roofs blowing off in storms (fast wind over roof, still air underneath)
+- Aeroplane lift: $F_{\text{lift}} \approx \frac{1}{2}\rho v^2 A$
+
+::: {.callout-warning}
+## TODO: Diagram
+Aerofoil cross-section showing streamlines compressed above (faster, lower pressure) and wider below (slower, higher pressure). Include net upward force arrow.
+:::
+
+Open windows on the lee side to equalize pressure (how aeroplanes fly, how roofs stay on).
+
+Bernoulli's equation can only be applied along a continuous streamline.
+
+### Poiseuille's Law
+
+For viscous flow through a pipe of radius $r$ and length $\Delta L$, the volume flow rate is:
+
+$$\boxed{Q = \frac{\pi r^4}{8\eta} \frac{\Delta P}{\Delta L}}$$
+
+where $\eta$ is the dynamic viscosity. Note the extremely strong $r^4$ dependence — doubling the radius increases flow by a factor of 16.
+
+**Flow vs. flux:** Flow ($Q$) is volume per time; flux is flow per unit area.
