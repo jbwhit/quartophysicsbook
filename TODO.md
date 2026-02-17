@@ -16,15 +16,6 @@
 ### Questions for Casey
 1. Error propagation — considered under lab stuff that we're not covering?
 
-## Phase 0: Project Setup & Structure
-- [x] Restructure repo root as Quarto project
-- [x] Archive old attempts (`firstdraft/`, `old-qph/`, `physicsthinking/`, `repo/`, `quartophysicsbook/`) into `_archive/`
-- [x] Set up `_quarto.yml` with dual output (website + PDF book)
-- [x] Set up GitHub Actions deploy workflow
-- [x] Create chapter structure with parts
-- [x] Initialize git repo at root, initial commit, push to GitHub
-- [x] Verify `quarto preview` works locally
-
 ## Phase 1: Transcribe Casey's PDF Content → Quarto Chapters
 - [x] **Foreword** (`index.qmd`) — Casey's foreword
 - [x] **Chapter 1: How to Think Like a Physicist** (`thinking.qmd`)
