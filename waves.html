@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -396,8 +425,48 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#simple-harmonic-motion" id="toc-simple-harmonic-motion" class="nav-link active" data-scroll-target="#simple-harmonic-motion"><span class="header-section-number">5.1</span> Simple Harmonic Motion</a>
+  <ul class="collapse">
+  <li><a href="#what-is-an-oscillation" id="toc-what-is-an-oscillation" class="nav-link" data-scroll-target="#what-is-an-oscillation"><span class="header-section-number">5.1.1</span> What Is an Oscillation?</a></li>
+  <li><a href="#the-simple-harmonic-oscillator" id="toc-the-simple-harmonic-oscillator" class="nav-link" data-scroll-target="#the-simple-harmonic-oscillator"><span class="header-section-number">5.1.2</span> The Simple Harmonic Oscillator</a></li>
+  <li><a href="#velocity-and-acceleration-in-shm" id="toc-velocity-and-acceleration-in-shm" class="nav-link" data-scroll-target="#velocity-and-acceleration-in-shm"><span class="header-section-number">5.1.3</span> Velocity and Acceleration in SHM</a></li>
+  <li><a href="#potential-energy-in-shm" id="toc-potential-energy-in-shm" class="nav-link" data-scroll-target="#potential-energy-in-shm"><span class="header-section-number">5.1.4</span> Potential Energy in SHM</a></li>
+  <li><a href="#energy-conservation-in-shm" id="toc-energy-conservation-in-shm" class="nav-link" data-scroll-target="#energy-conservation-in-shm"><span class="header-section-number">5.1.5</span> Energy Conservation in SHM</a></li>
+  </ul></li>
+  <li><a href="#the-simple-pendulum" id="toc-the-simple-pendulum" class="nav-link" data-scroll-target="#the-simple-pendulum"><span class="header-section-number">5.2</span> The Simple Pendulum</a></li>
+  <li><a href="#traveling-waves" id="toc-traveling-waves" class="nav-link" data-scroll-target="#traveling-waves"><span class="header-section-number">5.3</span> Traveling Waves</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-wave" id="toc-what-is-a-wave" class="nav-link" data-scroll-target="#what-is-a-wave"><span class="header-section-number">5.3.1</span> What Is a Wave?</a></li>
+  <li><a href="#the-traveling-wave-equation" id="toc-the-traveling-wave-equation" class="nav-link" data-scroll-target="#the-traveling-wave-equation"><span class="header-section-number">5.3.2</span> The Traveling Wave Equation</a></li>
+  <li><a href="#waves-on-a-stretched-string" id="toc-waves-on-a-stretched-string" class="nav-link" data-scroll-target="#waves-on-a-stretched-string"><span class="header-section-number">5.3.3</span> Waves on a Stretched String</a></li>
+  <li><a href="#energy-and-power-in-waves" id="toc-energy-and-power-in-waves" class="nav-link" data-scroll-target="#energy-and-power-in-waves"><span class="header-section-number">5.3.4</span> Energy and Power in Waves</a></li>
+  <li><a href="#intensity" id="toc-intensity" class="nav-link" data-scroll-target="#intensity"><span class="header-section-number">5.3.5</span> Intensity</a></li>
+  </ul></li>
+  <li><a href="#superposition-and-interference" id="toc-superposition-and-interference" class="nav-link" data-scroll-target="#superposition-and-interference"><span class="header-section-number">5.4</span> Superposition and Interference</a>
+  <ul class="collapse">
+  <li><a href="#the-superposition-principle" id="toc-the-superposition-principle" class="nav-link" data-scroll-target="#the-superposition-principle"><span class="header-section-number">5.4.1</span> The Superposition Principle</a></li>
+  <li><a href="#interference" id="toc-interference" class="nav-link" data-scroll-target="#interference"><span class="header-section-number">5.4.2</span> Interference</a></li>
+  </ul></li>
+  <li><a href="#standing-waves" id="toc-standing-waves" class="nav-link" data-scroll-target="#standing-waves"><span class="header-section-number">5.5</span> Standing Waves</a>
+  <ul class="collapse">
+  <li><a href="#formation" id="toc-formation" class="nav-link" data-scroll-target="#formation"><span class="header-section-number">5.5.1</span> Formation</a></li>
+  <li><a href="#reflection-at-boundaries" id="toc-reflection-at-boundaries" class="nav-link" data-scroll-target="#reflection-at-boundaries"><span class="header-section-number">5.5.2</span> Reflection at Boundaries</a></li>
+  <li><a href="#resonance" id="toc-resonance" class="nav-link" data-scroll-target="#resonance"><span class="header-section-number">5.5.3</span> Resonance</a></li>
+  </ul></li>
+  <li><a href="#beats" id="toc-beats" class="nav-link" data-scroll-target="#beats"><span class="header-section-number">5.6</span> Beats</a></li>
+  <li><a href="#the-doppler-effect" id="toc-the-doppler-effect" class="nav-link" data-scroll-target="#the-doppler-effect"><span class="header-section-number">5.7</span> The Doppler Effect</a>
+  <ul class="collapse">
+  <li><a href="#moving-source-stationary-observer" id="toc-moving-source-stationary-observer" class="nav-link" data-scroll-target="#moving-source-stationary-observer"><span class="header-section-number">5.7.1</span> Moving Source, Stationary Observer</a></li>
+  <li><a href="#moving-observer-stationary-source" id="toc-moving-observer-stationary-source" class="nav-link" data-scroll-target="#moving-observer-stationary-source"><span class="header-section-number">5.7.2</span> Moving Observer, Stationary Source</a></li>
+  <li><a href="#general-doppler-formula" id="toc-general-doppler-formula" class="nav-link" data-scroll-target="#general-doppler-formula"><span class="header-section-number">5.7.3</span> General Doppler Formula</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,21 +491,317 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="simple-harmonic-motion" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="simple-harmonic-motion"><span class="header-section-number">5.1</span> Simple Harmonic Motion</h2>
+<section id="what-is-an-oscillation" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="what-is-an-oscillation"><span class="header-section-number">5.1.1</span> What Is an Oscillation?</h3>
+<p>An oscillation is caused by a <strong>restoring force</strong> — a force that acts to return a system to some equilibrium position. At equilibrium the net force is zero; displace the system and it gets pushed back.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status
+<span class="screen-reader-only">Warning</span>TODO: Diagram
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Content to be transcribed from IPhO notes.</p>
+<p>Potential energy well (U vs x) with a ball at the minimum. Show the restoring force arrows pointing inward on both sides of the equilibrium point.</p>
 </div>
 </div>
+<p><strong>Key variables:</strong></p>
+<table class="table-striped table-hover caption-top table">
+<caption>Oscillation Variables</caption>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(T\)</span></td>
+<td>Period — time for one complete oscillation</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(f\)</span></td>
+<td>Frequency — cycles per second (<span class="math inline">\(\text{Hz}\)</span>)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\omega\)</span></td>
+<td>Angular frequency (<span class="math inline">\(\text{rad/s}\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_0\)</span></td>
+<td>Amplitude — maximum displacement from equilibrium</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\phi\)</span></td>
+<td>Phase constant</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\lambda\)</span></td>
+<td>Wavelength</td>
+</tr>
+</tbody>
+</table>
+<p>The period and frequency are related by <span class="math inline">\(T = 1/f\)</span>, and the angular frequency is <span class="math inline">\(\omega = 2\pi f\)</span>.</p>
+</section>
+<section id="the-simple-harmonic-oscillator" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="the-simple-harmonic-oscillator"><span class="header-section-number">5.1.2</span> The Simple Harmonic Oscillator</h3>
+<p>The simplest case: a restoring force proportional to displacement (Hooke’s law):</p>
+<p><span class="math display">\[F = -kx\]</span></p>
+<p>Newton’s second law gives:</p>
+<p><span class="math display">\[m\ddot{x} = -kx \quad \Longrightarrow \quad \ddot{x} + \frac{k}{m}x = 0\]</span></p>
+<p>The general solution is:</p>
+<p><span class="math display">\[\boxed{x(t) = x_0 \cos(\omega t + \phi), \qquad \omega = \sqrt{\frac{k}{m}}}\]</span></p>
+<p>where <span class="math inline">\(x_0\)</span> and <span class="math inline">\(\phi\)</span> are set by initial conditions.</p>
+</section>
+<section id="velocity-and-acceleration-in-shm" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="velocity-and-acceleration-in-shm"><span class="header-section-number">5.1.3</span> Velocity and Acceleration in SHM</h3>
+<p>Differentiating:</p>
+<p><span class="math display">\[v(t) = \dot{x} = -x_0 \omega \sin(\omega t + \phi)\]</span></p>
+<p><span class="math display">\[a(t) = \ddot{x} = -x_0 \omega^2 \cos(\omega t + \phi)\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Three aligned graphs of <span class="math inline">\(x\)</span>, <span class="math inline">\(v\)</span>, and <span class="math inline">\(a\)</span> vs <span class="math inline">\(t\)</span> for SHM. Show <span class="math inline">\(x\)</span> as a cosine, <span class="math inline">\(v\)</span> as a negative sine (leading <span class="math inline">\(x\)</span> by <span class="math inline">\(\pi/2\)</span>), and <span class="math inline">\(a\)</span> as a negative cosine (opposite phase to <span class="math inline">\(x\)</span>). Label amplitudes <span class="math inline">\(x_0\)</span>, <span class="math inline">\(x_0\omega\)</span>, <span class="math inline">\(x_0\omega^2\)</span>.</p>
+</div>
+</div>
+<p>Note the relationships: <span class="math inline">\(v\)</span> leads <span class="math inline">\(x\)</span> by <span class="math inline">\(\pi/2\)</span>, and <span class="math inline">\(a\)</span> is exactly out of phase with <span class="math inline">\(x\)</span>. Finding the minima and maxima of these functions is a standard exercise.</p>
+</section>
+<section id="potential-energy-in-shm" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="potential-energy-in-shm"><span class="header-section-number">5.1.4</span> Potential Energy in SHM</h3>
+<p>From <span class="math inline">\(F = -kx\)</span>, the potential energy is:</p>
+<p><span class="math display">\[U = -\int F\,dx = \int_0^x kx'\,dx'\]</span></p>
+<p><span class="math display">\[\boxed{U = \frac{1}{2}kx^2} = \frac{1}{2}kx_0^2\cos^2(\omega t + \phi)\]</span></p>
+</section>
+<section id="energy-conservation-in-shm" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="energy-conservation-in-shm"><span class="header-section-number">5.1.5</span> Energy Conservation in SHM</h3>
+<p>The total mechanical energy is conserved:</p>
+<p><span class="math display">\[E_T = U + K = \frac{1}{2}kx^2 + \frac{1}{2}mv^2\]</span></p>
+<p>Substituting the SHM solutions:</p>
+<p><span class="math display">\[E_T = \frac{1}{2}kx_0^2\cos^2(\omega t + \phi) + \frac{1}{2}m\omega^2 x_0^2\sin^2(\omega t + \phi)\]</span></p>
+<p>Since <span class="math inline">\(m\omega^2 = k\)</span>, this simplifies to:</p>
+<p><span class="math display">\[\boxed{E_T = \frac{1}{2}kx_0^2}\]</span></p>
+<p>The total energy is constant and proportional to the square of the amplitude. Energy sloshes back and forth between kinetic and potential, but their sum never changes.</p>
+</section>
+</section>
+<section id="the-simple-pendulum" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="the-simple-pendulum"><span class="header-section-number">5.2</span> The Simple Pendulum</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Simple pendulum: mass <span class="math inline">\(m\)</span> hanging from a string of length <span class="math inline">\(L\)</span> at angle <span class="math inline">\(\theta\)</span> from vertical. Show the weight <span class="math inline">\(mg\)</span> decomposed into components along and perpendicular to the string. Label the arc length <span class="math inline">\(x = L\theta\)</span>.</p>
+</div>
+</div>
+<p>For a pendulum of length <span class="math inline">\(L\)</span> at angle <span class="math inline">\(\theta\)</span> from vertical, the restoring force along the arc is:</p>
+<p><span class="math display">\[F = -mg\sin\theta\]</span></p>
+<p>For <strong>small angles</strong> (<span class="math inline">\(\theta \lesssim 15°\)</span>), <span class="math inline">\(\sin\theta \approx \theta\)</span>, so:</p>
+<p><span class="math display">\[F \approx -mg\theta = -\frac{mg}{L}x\]</span></p>
+<p>where <span class="math inline">\(x = L\theta\)</span> is the arc-length displacement. This is Hooke’s law with effective spring constant <span class="math inline">\(k_\text{eff} = mg/L\)</span>, giving:</p>
+<p><span class="math display">\[\omega^2 = \frac{k_\text{eff}}{m} = \frac{g}{L}\]</span></p>
+<p><span class="math display">\[\boxed{T = 2\pi\sqrt{\frac{L}{g}}}\]</span></p>
+<p>Note that the period is independent of mass and (for small angles) independent of amplitude. This is why pendulums make good clocks.</p>
+</section>
+<section id="traveling-waves" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="traveling-waves"><span class="header-section-number">5.3</span> Traveling Waves</h2>
+<section id="what-is-a-wave" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="what-is-a-wave"><span class="header-section-number">5.3.1</span> What Is a Wave?</h3>
+<p>Waves transport <strong>energy and information</strong> without transporting matter. A mechanical wave travels through an elastic medium — particles in the medium oscillate about their equilibrium positions but do not travel with the wave.</p>
+<p><strong>Types:</strong></p>
+<ul>
+<li><strong>Transverse</strong> — particle displacement perpendicular to wave propagation (e.g., waves on a string, electromagnetic waves)</li>
+<li><strong>Longitudinal</strong> — particle displacement parallel to wave propagation (e.g., sound waves, compression in a spring)</li>
+</ul>
+<p>Waves can also be classified by:</p>
+<ul>
+<li><strong>Dimension</strong> — 1D (string), 2D (water surface, concentric circles), 3D (sound, spherical wavefronts)</li>
+<li><strong>Periodicity</strong> — periodic or pulse</li>
+<li><strong>Shape of wavefront</strong> — plane, cylindrical, spherical</li>
+</ul>
+</section>
+<section id="the-traveling-wave-equation" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="the-traveling-wave-equation"><span class="header-section-number">5.3.2</span> The Traveling Wave Equation</h3>
+<p>A sinusoidal wave traveling in the <span class="math inline">\(+x\)</span> direction:</p>
+<p><span class="math display">\[\boxed{y(x,t) = y_0 \sin(kx - \omega t)}\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(y_0\)</span> = amplitude</li>
+<li><span class="math inline">\(k = \frac{2\pi}{\lambda}\)</span> = wave number</li>
+<li><span class="math inline">\(\omega = 2\pi f\)</span> = angular frequency</li>
+</ul>
+<p>The <strong>phase velocity</strong> (speed of a given phase of the wave):</p>
+<p><span class="math display">\[\boxed{v = \frac{\omega}{k} = \lambda f}\]</span></p>
+<p>A snapshot at fixed <span class="math inline">\(t\)</span> shows the spatial pattern; a fixed point at constant <span class="math inline">\(x\)</span> oscillates in time.</p>
+</section>
+<section id="waves-on-a-stretched-string" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="waves-on-a-stretched-string"><span class="header-section-number">5.3.3</span> Waves on a Stretched String</h3>
+<p>For a string under tension <span class="math inline">\(F_T\)</span> with linear mass density <span class="math inline">\(\mu\)</span> (mass per unit length):</p>
+<p><span class="math display">\[\boxed{v = \sqrt{\frac{F_T}{\mu}}}\]</span></p>
+<p>This is one of the most important wave speed formulas. Greater tension means faster waves; greater mass density means slower waves.</p>
+</section>
+<section id="energy-and-power-in-waves" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="energy-and-power-in-waves"><span class="header-section-number">5.3.4</span> Energy and Power in Waves</h3>
+<p>The kinetic energy density of a transverse wave on a string:</p>
+<p><span class="math display">\[\frac{dK}{dx} = \frac{1}{2}\mu\omega^2 y_0^2 \cos^2(kx - \omega t)\]</span></p>
+<p>The time-averaged power transmitted by the wave:</p>
+<p><span class="math display">\[\boxed{P_\text{avg} = \frac{1}{2}\mu\omega^2 y_0^2 v}\]</span></p>
+</section>
+<section id="intensity" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="intensity"><span class="header-section-number">5.3.5</span> Intensity</h3>
+<p>For waves spreading in 3D, the <strong>intensity</strong> <span class="math inline">\(I\)</span> is the power per unit area:</p>
+<p><span class="math display">\[I = \frac{P_\text{avg}}{A}\]</span></p>
+<p>For a point source radiating uniformly in all directions (spherical wavefront):</p>
+<p><span class="math display">\[I = \frac{P_\text{avg}}{4\pi r^2}\]</span></p>
+<p>Intensity falls off as <span class="math inline">\(1/r^2\)</span> — the inverse square law. Since intensity is proportional to amplitude squared, the amplitude of a spherical wave falls off as <span class="math inline">\(1/r\)</span>.</p>
+</section>
+</section>
+<section id="superposition-and-interference" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="superposition-and-interference"><span class="header-section-number">5.4</span> Superposition and Interference</h2>
+<section id="the-superposition-principle" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="the-superposition-principle"><span class="header-section-number">5.4.1</span> The Superposition Principle</h3>
+<p>When two or more waves overlap, the resultant displacement at any point is the <strong>sum of the individual displacements</strong>:</p>
+<p><span class="math display">\[y_\text{total} = y_1 + y_2 + \cdots\]</span></p>
+<p>This holds for all linear wave equations (i.e., when the restoring force is proportional to displacement).</p>
+</section>
+<section id="interference" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="interference"><span class="header-section-number">5.4.2</span> Interference</h3>
+<p>When waves of the same frequency overlap:</p>
+<ul>
+<li><strong>Constructive interference</strong> — waves in phase, amplitudes add</li>
+<li><strong>Destructive interference</strong> — waves out of phase, amplitudes cancel</li>
+</ul>
+</section>
+</section>
+<section id="standing-waves" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="standing-waves"><span class="header-section-number">5.5</span> Standing Waves</h2>
+<section id="formation" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="formation"><span class="header-section-number">5.5.1</span> Formation</h3>
+<p>Two waves of equal amplitude and frequency traveling in <strong>opposite directions</strong> superimpose to form a standing wave:</p>
+<p><span class="math display">\[y_1 = y_0\sin(kx - \omega t), \qquad y_2 = y_0\sin(kx + \omega t)\]</span></p>
+<p>Using the product-to-sum identity:</p>
+<p><span class="math display">\[\boxed{y(x,t) = 2y_0\sin(kx)\cos(\omega t)}\]</span></p>
+<p>This is the product of a spatial part <span class="math inline">\(\sin(kx)\)</span> (the “shape”) and a temporal part <span class="math inline">\(\cos(\omega t)\)</span> (the “breathing”). The wave does not travel — it oscillates in place.</p>
+<ul>
+<li><strong>Nodes</strong> — points of zero amplitude at all times (<span class="math inline">\(\sin(kx) = 0\)</span>, i.e., <span class="math inline">\(kx = n\pi\)</span>)</li>
+<li><strong>Antinodes</strong> — points of maximum displacement (<span class="math inline">\(\sin(kx) = \pm 1\)</span>, i.e., <span class="math inline">\(kx = (n+\frac{1}{2})\pi\)</span>)</li>
+</ul>
+</section>
+<section id="reflection-at-boundaries" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="reflection-at-boundaries"><span class="header-section-number">5.5.2</span> Reflection at Boundaries</h3>
+<ul>
+<li><strong>Fixed boundary</strong> — a transverse wave undergoes a phase change of <span class="math inline">\(\pi\)</span> upon reflection (inverted)</li>
+<li><strong>Free boundary</strong> — no phase change upon reflection</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pulse reflection at fixed vs free boundaries. Show incoming and reflected pulses, with inversion at fixed end and no inversion at free end.</p>
+</div>
+</div>
+</section>
+<section id="resonance" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="resonance"><span class="header-section-number">5.5.3</span> Resonance</h3>
+<p>A medium of finite length <span class="math inline">\(L\)</span> supports standing waves only at specific frequencies — the <strong>resonant frequencies</strong> (harmonics).</p>
+<p><strong>Two fixed ends</strong> (or two free ends) — e.g., a stretched string:</p>
+<p><span class="math display">\[L = n\frac{\lambda}{2}, \qquad n = 1, 2, 3, \ldots\]</span></p>
+<p><span class="math display">\[\boxed{f_n = \frac{nv}{2L}}\]</span></p>
+<p>The <span class="math inline">\(n = 1\)</span> mode is the <strong>fundamental</strong>; higher <span class="math inline">\(n\)</span> are overtones.</p>
+<p><strong>One closed end, one open end</strong> — e.g., an organ pipe:</p>
+<p><span class="math display">\[L = (2n-1)\frac{\lambda}{4}, \qquad n = 1, 2, 3, \ldots\]</span></p>
+<p><span class="math display">\[\boxed{f_n = \frac{(2n-1)v}{4L}}\]</span></p>
+<p>Only odd harmonics are present.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Standing wave patterns for the first three harmonics of a string fixed at both ends, and for a pipe closed at one end and open at the other. Label nodes and antinodes.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="beats" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="beats"><span class="header-section-number">5.6</span> Beats</h2>
+<p>When two waves of <strong>nearly equal frequency</strong> are superimposed, they alternately go in and out of phase, producing a pulsating pattern called <strong>beats</strong>.</p>
+<p>For two waves <span class="math inline">\(y_1 = A\cos(\omega_1 t)\)</span> and <span class="math inline">\(y_2 = A\cos(\omega_2 t)\)</span>, the sum is:</p>
+<p><span class="math display">\[y = y_1 + y_2 = 2A\cos\!\left(\frac{\omega_1 - \omega_2}{2}t\right)\cos\!\left(\frac{\omega_1 + \omega_2}{2}t\right)\]</span></p>
+<p>using the product-to-sum identity <span class="math inline">\(\cos\alpha + \cos\beta = 2\cos\!\left(\frac{\alpha-\beta}{2}\right)\cos\!\left(\frac{\alpha+\beta}{2}\right)\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Beat pattern: two waves of slightly different frequency (top), and their superposition showing the amplitude envelope (bottom). Label the beat frequency.</p>
+</div>
+</div>
+<p>The result is a wave at the <strong>average frequency</strong> <span class="math inline">\(\bar{f} = (f_1 + f_2)/2\)</span>, with an amplitude that oscillates at the <strong>beat frequency</strong>:</p>
+<p><span class="math display">\[\boxed{f_\text{beat} = |f_1 - f_2|}\]</span></p>
+<p>You hear one beat per cycle of the envelope. Since the envelope goes through two maxima per cycle of <span class="math inline">\(\cos\!\left(\frac{\omega_1 - \omega_2}{2}t\right)\)</span>, the beat frequency is the difference (not half the difference) of the two frequencies.</p>
+</section>
+<section id="the-doppler-effect" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="the-doppler-effect"><span class="header-section-number">5.7</span> The Doppler Effect</h2>
+<p>The <strong>Doppler effect</strong> is the apparent shift in frequency due to relative motion between a source and an observer. Let <span class="math inline">\(V\)</span> be the speed of sound in the medium.</p>
+<section id="moving-source-stationary-observer" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="moving-source-stationary-observer"><span class="header-section-number">5.7.1</span> Moving Source, Stationary Observer</h3>
+<p>A source moving at speed <span class="math inline">\(V_s\)</span> toward the observer compresses the wavelength in front:</p>
+<p><span class="math display">\[\lambda' = \lambda - \frac{V_s}{f} = \lambda\left(1 - \frac{V_s}{V}\right)\]</span></p>
+<p>The observed frequency increases:</p>
+<p><span class="math display">\[f' = \frac{V}{\lambda'} = f\frac{V}{V - V_s}\]</span></p>
+</section>
+<section id="moving-observer-stationary-source" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="moving-observer-stationary-source"><span class="header-section-number">5.7.2</span> Moving Observer, Stationary Source</h3>
+<p>An observer moving at speed <span class="math inline">\(V_o\)</span> toward the source encounters crests more frequently:</p>
+<p><span class="math display">\[f' = \frac{V + V_o}{\lambda} = f\frac{V + V_o}{V}\]</span></p>
+</section>
+<section id="general-doppler-formula" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="general-doppler-formula"><span class="header-section-number">5.7.3</span> General Doppler Formula</h3>
+<p>For both source and observer moving (with velocities taken as positive when toward each other):</p>
+<p><span class="math display">\[\boxed{f' = f\,\frac{V - V_o}{V - V_s}}\]</span></p>
+<p>where <span class="math inline">\(V_o\)</span> is positive when the observer moves <strong>away</strong> from the source, and <span class="math inline">\(V_s\)</span> is positive when the source moves <strong>toward</strong> the observer. (Sign convention: define the positive direction as from source to observer. Then <span class="math inline">\(V_s &gt; 0\)</span> means the source chases the wave, reducing wavelength; <span class="math inline">\(V_o &gt; 0\)</span> means the observer flees the wave, reducing observed frequency.)</p>
+<p><strong>Limiting cases:</strong></p>
+<ul>
+<li>Source approaching (<span class="math inline">\(V_s &gt; 0\)</span>, <span class="math inline">\(V_o = 0\)</span>): <span class="math inline">\(f' &gt; f\)</span> — pitch increases</li>
+<li>Source receding (<span class="math inline">\(V_s &lt; 0\)</span>, <span class="math inline">\(V_o = 0\)</span>): <span class="math inline">\(f' &lt; f\)</span> — pitch decreases</li>
+<li>Observer approaching (<span class="math inline">\(V_o &lt; 0\)</span>, <span class="math inline">\(V_s = 0\)</span>): <span class="math inline">\(f' &gt; f\)</span></li>
+<li><span class="math inline">\(V_s \to V\)</span>: <span class="math inline">\(f' \to \infty\)</span> — sonic boom (Mach 1)</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

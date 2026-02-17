@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -396,8 +425,74 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#geometrical-optics" id="toc-geometrical-optics" class="nav-link active" data-scroll-target="#geometrical-optics"><span class="header-section-number">8.1</span> Geometrical Optics</a>
+  <ul class="collapse">
+  <li><a href="#the-ray-model-of-light" id="toc-the-ray-model-of-light" class="nav-link" data-scroll-target="#the-ray-model-of-light"><span class="header-section-number">8.1.1</span> The Ray Model of Light</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="header-section-number">8.1.2</span> Reflection</a></li>
+  <li><a href="#refraction-and-snells-law" id="toc-refraction-and-snells-law" class="nav-link" data-scroll-target="#refraction-and-snells-law"><span class="header-section-number">8.1.3</span> Refraction and Snell’s Law</a></li>
+  <li><a href="#total-internal-reflection" id="toc-total-internal-reflection" class="nav-link" data-scroll-target="#total-internal-reflection"><span class="header-section-number">8.1.4</span> Total Internal Reflection</a></li>
+  <li><a href="#fermats-principle" id="toc-fermats-principle" class="nav-link" data-scroll-target="#fermats-principle"><span class="header-section-number">8.1.5</span> Fermat’s Principle</a></li>
+  </ul></li>
+  <li><a href="#image-formation" id="toc-image-formation" class="nav-link" data-scroll-target="#image-formation"><span class="header-section-number">8.2</span> Image Formation</a>
+  <ul class="collapse">
+  <li><a href="#objects-and-images" id="toc-objects-and-images" class="nav-link" data-scroll-target="#objects-and-images"><span class="header-section-number">8.2.1</span> Objects and Images</a></li>
+  <li><a href="#plane-mirrors" id="toc-plane-mirrors" class="nav-link" data-scroll-target="#plane-mirrors"><span class="header-section-number">8.2.2</span> Plane Mirrors</a></li>
+  </ul></li>
+  <li><a href="#curved-mirrors" id="toc-curved-mirrors" class="nav-link" data-scroll-target="#curved-mirrors"><span class="header-section-number">8.3</span> Curved Mirrors</a>
+  <ul class="collapse">
+  <li><a href="#concave-mirrors" id="toc-concave-mirrors" class="nav-link" data-scroll-target="#concave-mirrors"><span class="header-section-number">8.3.1</span> Concave Mirrors</a></li>
+  <li><a href="#the-mirror-equation" id="toc-the-mirror-equation" class="nav-link" data-scroll-target="#the-mirror-equation"><span class="header-section-number">8.3.2</span> The Mirror Equation</a></li>
+  <li><a href="#magnification" id="toc-magnification" class="nav-link" data-scroll-target="#magnification"><span class="header-section-number">8.3.3</span> Magnification</a></li>
+  <li><a href="#convex-mirrors" id="toc-convex-mirrors" class="nav-link" data-scroll-target="#convex-mirrors"><span class="header-section-number">8.3.4</span> Convex Mirrors</a></li>
+  </ul></li>
+  <li><a href="#thin-lenses" id="toc-thin-lenses" class="nav-link" data-scroll-target="#thin-lenses"><span class="header-section-number">8.4</span> Thin Lenses</a>
+  <ul class="collapse">
+  <li><a href="#refraction-at-curved-surfaces" id="toc-refraction-at-curved-surfaces" class="nav-link" data-scroll-target="#refraction-at-curved-surfaces"><span class="header-section-number">8.4.1</span> Refraction at Curved Surfaces</a></li>
+  <li><a href="#the-lensmakers-equation" id="toc-the-lensmakers-equation" class="nav-link" data-scroll-target="#the-lensmakers-equation"><span class="header-section-number">8.4.2</span> The Lensmaker’s Equation</a></li>
+  <li><a href="#the-thin-lens-equation" id="toc-the-thin-lens-equation" class="nav-link" data-scroll-target="#the-thin-lens-equation"><span class="header-section-number">8.4.3</span> The Thin Lens Equation</a></li>
+  <li><a href="#ray-tracing-for-lenses" id="toc-ray-tracing-for-lenses" class="nav-link" data-scroll-target="#ray-tracing-for-lenses"><span class="header-section-number">8.4.4</span> Ray Tracing for Lenses</a></li>
+  <li><a href="#the-eye-and-vision" id="toc-the-eye-and-vision" class="nav-link" data-scroll-target="#the-eye-and-vision"><span class="header-section-number">8.4.5</span> The Eye and Vision</a></li>
+  <li><a href="#optical-instruments" id="toc-optical-instruments" class="nav-link" data-scroll-target="#optical-instruments"><span class="header-section-number">8.4.6</span> Optical Instruments</a></li>
+  </ul></li>
+  <li><a href="#physical-optics-interference" id="toc-physical-optics-interference" class="nav-link" data-scroll-target="#physical-optics-interference"><span class="header-section-number">8.5</span> Physical Optics: Interference</a>
+  <ul class="collapse">
+  <li><a href="#light-as-an-electromagnetic-wave" id="toc-light-as-an-electromagnetic-wave" class="nav-link" data-scroll-target="#light-as-an-electromagnetic-wave"><span class="header-section-number">8.5.1</span> Light as an Electromagnetic Wave</a></li>
+  <li><a href="#huygens-construction" id="toc-huygens-construction" class="nav-link" data-scroll-target="#huygens-construction"><span class="header-section-number">8.5.2</span> Huygens’ Construction</a></li>
+  <li><a href="#coherence" id="toc-coherence" class="nav-link" data-scroll-target="#coherence"><span class="header-section-number">8.5.3</span> Coherence</a></li>
+  <li><a href="#superposition-and-interference" id="toc-superposition-and-interference" class="nav-link" data-scroll-target="#superposition-and-interference"><span class="header-section-number">8.5.4</span> Superposition and Interference</a></li>
+  <li><a href="#phasors" id="toc-phasors" class="nav-link" data-scroll-target="#phasors"><span class="header-section-number">8.5.5</span> Phasors</a></li>
+  <li><a href="#the-double-slit" id="toc-the-double-slit" class="nav-link" data-scroll-target="#the-double-slit"><span class="header-section-number">8.5.6</span> The Double Slit</a></li>
+  <li><a href="#diffraction-gratings" id="toc-diffraction-gratings" class="nav-link" data-scroll-target="#diffraction-gratings"><span class="header-section-number">8.5.7</span> Diffraction Gratings</a></li>
+  <li><a href="#spectrometers-and-dispersion" id="toc-spectrometers-and-dispersion" class="nav-link" data-scroll-target="#spectrometers-and-dispersion"><span class="header-section-number">8.5.8</span> Spectrometers and Dispersion</a></li>
+  <li><a href="#thin-film-interference" id="toc-thin-film-interference" class="nav-link" data-scroll-target="#thin-film-interference"><span class="header-section-number">8.5.9</span> Thin Film Interference</a></li>
+  <li><a href="#the-michelson-interferometer" id="toc-the-michelson-interferometer" class="nav-link" data-scroll-target="#the-michelson-interferometer"><span class="header-section-number">8.5.10</span> The Michelson Interferometer</a></li>
+  </ul></li>
+  <li><a href="#diffraction" id="toc-diffraction" class="nav-link" data-scroll-target="#diffraction"><span class="header-section-number">8.6</span> Diffraction</a>
+  <ul class="collapse">
+  <li><a href="#huygens-principle-and-x-ray-diffraction" id="toc-huygens-principle-and-x-ray-diffraction" class="nav-link" data-scroll-target="#huygens-principle-and-x-ray-diffraction"><span class="header-section-number">8.6.1</span> Huygens’ Principle and X-Ray Diffraction</a></li>
+  <li><a href="#single-slit-diffraction" id="toc-single-slit-diffraction" class="nav-link" data-scroll-target="#single-slit-diffraction"><span class="header-section-number">8.6.2</span> Single Slit Diffraction</a></li>
+  <li><a href="#single-slit-intensity" id="toc-single-slit-intensity" class="nav-link" data-scroll-target="#single-slit-intensity"><span class="header-section-number">8.6.3</span> Single Slit Intensity</a></li>
+  <li><a href="#combined-double-slit-and-diffraction" id="toc-combined-double-slit-and-diffraction" class="nav-link" data-scroll-target="#combined-double-slit-and-diffraction"><span class="header-section-number">8.6.4</span> Combined Double Slit and Diffraction</a></li>
+  <li><a href="#circular-aperture-the-airy-disk" id="toc-circular-aperture-the-airy-disk" class="nav-link" data-scroll-target="#circular-aperture-the-airy-disk"><span class="header-section-number">8.6.5</span> Circular Aperture: The Airy Disk</a></li>
+  <li><a href="#the-rayleigh-criterion" id="toc-the-rayleigh-criterion" class="nav-link" data-scroll-target="#the-rayleigh-criterion"><span class="header-section-number">8.6.6</span> The Rayleigh Criterion</a></li>
+  </ul></li>
+  <li><a href="#polarization" id="toc-polarization" class="nav-link" data-scroll-target="#polarization"><span class="header-section-number">8.7</span> Polarization</a>
+  <ul class="collapse">
+  <li><a href="#what-is-polarization" id="toc-what-is-polarization" class="nav-link" data-scroll-target="#what-is-polarization"><span class="header-section-number">8.7.1</span> What Is Polarization?</a></li>
+  <li><a href="#polarization-by-absorption" id="toc-polarization-by-absorption" class="nav-link" data-scroll-target="#polarization-by-absorption"><span class="header-section-number">8.7.2</span> Polarization by Absorption</a></li>
+  <li><a href="#maluss-law" id="toc-maluss-law" class="nav-link" data-scroll-target="#maluss-law"><span class="header-section-number">8.7.3</span> Malus’s Law</a></li>
+  <li><a href="#polarization-by-reflection-brewsters-angle" id="toc-polarization-by-reflection-brewsters-angle" class="nav-link" data-scroll-target="#polarization-by-reflection-brewsters-angle"><span class="header-section-number">8.7.4</span> Polarization by Reflection: Brewster’s Angle</a></li>
+  <li><a href="#polarization-by-scattering" id="toc-polarization-by-scattering" class="nav-link" data-scroll-target="#polarization-by-scattering"><span class="header-section-number">8.7.5</span> Polarization by Scattering</a></li>
+  <li><a href="#birefringence" id="toc-birefringence" class="nav-link" data-scroll-target="#birefringence"><span class="header-section-number">8.7.6</span> Birefringence</a></li>
+  <li><a href="#circular-polarization-and-quarter-wave-plates" id="toc-circular-polarization-and-quarter-wave-plates" class="nav-link" data-scroll-target="#circular-polarization-and-quarter-wave-plates"><span class="header-section-number">8.7.7</span> Circular Polarization and Quarter-Wave Plates</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,21 +517,543 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="geometrical-optics" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="geometrical-optics"><span class="header-section-number">8.1</span> Geometrical Optics</h2>
+<section id="the-ray-model-of-light" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="the-ray-model-of-light"><span class="header-section-number">8.1.1</span> The Ray Model of Light</h3>
+<p>When light encounters obstacles or apertures much larger than its wavelength, we can ignore wave effects (interference, diffraction) and treat light as traveling in straight lines called <strong>rays</strong>. This is the <strong>ray model</strong> — the foundation of geometrical optics.</p>
+<p>At a boundary between two media, a ray can be:</p>
+<ul>
+<li><strong>Reflected</strong> — bounced back into the same medium</li>
+<li><strong>Refracted</strong> (transmitted) — bent as it passes into the new medium</li>
+</ul>
+</section>
+<section id="reflection" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="reflection"><span class="header-section-number">8.1.2</span> Reflection</h3>
+<p>The <strong>law of reflection</strong>: the angle of incidence equals the angle of reflection, both measured from the normal to the surface:</p>
+<p><span class="math display">\[\boxed{\theta_i = \theta_r}\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status
+<span class="screen-reader-only">Warning</span>TODO: Diagram
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Content to be transcribed from IPhO notes.</p>
+<p>Ray hitting a surface with incident and reflected rays. Show the normal line, <span class="math inline">\(\theta_i\)</span> and <span class="math inline">\(\theta_r\)</span> on either side of it.</p>
 </div>
 </div>
+<p>Phase change upon reflection depends on the relative wave speeds:</p>
+<ul>
+<li>If <span class="math inline">\(v_1 &lt; v_2\)</span> (going from slower to faster medium): reflected wave undergoes a phase change of <span class="math inline">\(\pi\)</span> (inverted)</li>
+<li>If <span class="math inline">\(v_1 &gt; v_2\)</span> (going from faster to slower medium): no phase change</li>
+</ul>
+</section>
+<section id="refraction-and-snells-law" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="refraction-and-snells-law"><span class="header-section-number">8.1.3</span> Refraction and Snell’s Law</h3>
+<p>When light crosses a boundary between two media, its speed changes. The <strong>refractive index</strong> <span class="math inline">\(n\)</span> of a medium is the ratio of the speed of light in vacuum to the speed in the medium:</p>
+<p><span class="math display">\[n = \frac{v_\text{vacuum}}{v}\]</span></p>
+<p>Since frequency is set by the source and does not change across a boundary, only the wavelength and speed change.</p>
+<p>Using Fermat’s principle (light takes the path of minimum time) or geometry, we derive <strong>Snell’s law</strong>:</p>
+<p><span class="math display">\[\boxed{n_1 \sin\theta_1 = n_2 \sin\theta_2}\]</span></p>
+<p>where <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span> are the angles from the normal in media 1 and 2, respectively.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Refraction at a boundary: incident ray in medium <span class="math inline">\(n_1\)</span>, refracted ray bending toward/away from normal in medium <span class="math inline">\(n_2\)</span>. Show angles <span class="math inline">\(\theta_1\)</span> and <span class="math inline">\(\theta_2\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="total-internal-reflection" class="level3" data-number="8.1.4">
+<h3 data-number="8.1.4" class="anchored" data-anchor-id="total-internal-reflection"><span class="header-section-number">8.1.4</span> Total Internal Reflection</h3>
+<p>When light travels from a denser medium (<span class="math inline">\(n_1 &gt; n_2\)</span>) to a less dense one, there is a <strong>critical angle</strong> <span class="math inline">\(\theta_c\)</span> beyond which all light is reflected — no transmission occurs:</p>
+<p><span class="math display">\[\sin\theta_c = \frac{n_2}{n_1} \quad \text{(only for } n_1 &gt; n_2\text{)}\]</span></p>
+<p><span class="math display">\[\boxed{\theta_c = \arcsin\!\left(\frac{n_2}{n_1}\right)}\]</span></p>
+<p>At <span class="math inline">\(\theta_1 = \theta_c\)</span>, the refracted ray travels along the surface (<span class="math inline">\(\theta_2 = 90°\)</span>). For <span class="math inline">\(\theta_1 &gt; \theta_c\)</span>, total internal reflection occurs. This is the principle behind <strong>optical fibers</strong> — light bounces along the core by repeated total internal reflection.</p>
+</section>
+<section id="fermats-principle" class="level3" data-number="8.1.5">
+<h3 data-number="8.1.5" class="anchored" data-anchor-id="fermats-principle"><span class="header-section-number">8.1.5</span> Fermat’s Principle</h3>
+<blockquote class="blockquote">
+<p>A light ray traveling from one point to another follows a path such that the time required is a minimum (or maximum) compared to other paths.</p>
+</blockquote>
+<p>Mathematically: <span class="math inline">\(dt/dx = 0\)</span> along the ray path. Fermat’s principle can be used to derive both the law of reflection and Snell’s law.</p>
+</section>
+</section>
+<section id="image-formation" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="image-formation"><span class="header-section-number">8.2</span> Image Formation</h2>
+<p>Geometrical optics deals with the formation of images using reflection (mirrors) and refraction (lenses). We can understand optical instruments using <strong>ray tracing</strong>.</p>
+<section id="objects-and-images" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="objects-and-images"><span class="header-section-number">8.2.1</span> Objects and Images</h3>
+<ul>
+<li><strong>Objects</strong> — things that emit or reflect light (the source)</li>
+<li><strong>Images</strong> — what you see (light on the back of your retina)
+<ul>
+<li><strong>Real image</strong> — light actually converges there; can be projected on a screen</li>
+<li><strong>Virtual image</strong> — light appears to diverge from there, but doesn’t actually pass through; cannot be projected</li>
+</ul></li>
+<li><strong>Magnification</strong> — ratio of image size to object size; can be <span class="math inline">\(&gt; 1\)</span> or <span class="math inline">\(&lt; 1\)</span></li>
+</ul>
+</section>
+<section id="plane-mirrors" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="plane-mirrors"><span class="header-section-number">8.2.2</span> Plane Mirrors</h3>
+<p>A plane mirror produces a virtual image that is:</p>
+<ul>
+<li>The same size as the object (<span class="math inline">\(|M| = 1\)</span>)</li>
+<li>The same distance behind the mirror as the object is in front</li>
+<li>Laterally inverted (left–right reversal)</li>
+</ul>
+<p>The minimum mirror length needed to see your full body is <strong>half your height</strong> — the mirror only needs to span from halfway between your eyes and the top of your head to halfway between your eyes and your feet.</p>
+<p><strong>Multiple mirrors:</strong></p>
+<ul>
+<li>Two mirrors at right angles produce 3 images</li>
+<li>Two parallel mirrors produce infinitely many images (fading with distance)</li>
+</ul>
+</section>
+</section>
+<section id="curved-mirrors" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="curved-mirrors"><span class="header-section-number">8.3</span> Curved Mirrors</h2>
+<section id="concave-mirrors" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="concave-mirrors"><span class="header-section-number">8.3.1</span> Concave Mirrors</h3>
+<p>A concave (converging) mirror has a focal length related to its radius of curvature:</p>
+<p><span class="math display">\[f = \frac{R}{2}\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Concave mirror showing center of curvature <span class="math inline">\(C\)</span>, focal point <span class="math inline">\(F\)</span>, and principal axis. Show how parallel rays converge at <span class="math inline">\(F\)</span>.</p>
+</div>
+</div>
+<p><strong>Ray diagrams</strong> — three special rays from the top of the object:</p>
+<ol type="1">
+<li><strong>Parallel ray</strong> — reflects through the focal point</li>
+<li><strong>Focal ray</strong> — passes through <span class="math inline">\(F\)</span>, reflects back parallel to the axis</li>
+<li><strong>Radial ray</strong> — travels through the center of curvature <span class="math inline">\(C\)</span>, reflects back on itself</li>
+</ol>
+<p>Any two of these rays locate the image.</p>
+<p><strong>Three cases for a concave mirror:</strong></p>
+<ol type="1">
+<li>Object beyond <span class="math inline">\(C\)</span> — image is real, inverted, reduced</li>
+<li>Object between <span class="math inline">\(C\)</span> and <span class="math inline">\(F\)</span> — image is real, inverted, magnified</li>
+<li>Object inside <span class="math inline">\(F\)</span> — image is virtual, upright, magnified</li>
+</ol>
+</section>
+<section id="the-mirror-equation" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="the-mirror-equation"><span class="header-section-number">8.3.2</span> The Mirror Equation</h3>
+<p><span class="math display">\[\boxed{\frac{1}{s} + \frac{1}{s'} = \frac{1}{f}}\]</span></p>
+<p>where <span class="math inline">\(s\)</span> is the object distance, <span class="math inline">\(s'\)</span> is the image distance, and <span class="math inline">\(f\)</span> is the focal length.</p>
+<p><strong>Sign conventions:</strong></p>
+<ul>
+<li>For a concave mirror, <span class="math inline">\(f\)</span> is positive</li>
+<li>For a convex mirror, <span class="math inline">\(f\)</span> is negative</li>
+<li>If <span class="math inline">\(s' &gt; 0\)</span>, the image is on the same side as the object (real)</li>
+<li>If <span class="math inline">\(s' &lt; 0\)</span>, the image is on the opposite side (virtual)</li>
+</ul>
+</section>
+<section id="magnification" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="magnification"><span class="header-section-number">8.3.3</span> Magnification</h3>
+<p><span class="math display">\[\boxed{M = -\frac{s'}{s}}\]</span></p>
+<ul>
+<li><span class="math inline">\(M &gt; 0\)</span>: image is upright</li>
+<li><span class="math inline">\(M &lt; 0\)</span>: image is inverted</li>
+<li><span class="math inline">\(|M| &gt; 1\)</span>: image is magnified</li>
+<li><span class="math inline">\(|M| &lt; 1\)</span>: image is reduced</li>
+</ul>
+</section>
+<section id="convex-mirrors" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="convex-mirrors"><span class="header-section-number">8.3.4</span> Convex Mirrors</h3>
+<p>A convex (diverging) mirror always produces a virtual, upright, reduced image. The focal point is behind the mirror (<span class="math inline">\(f &lt; 0\)</span>).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Convex mirror ray diagram showing virtual image formation. The reflected rays diverge, and the virtual image appears behind the mirror.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="thin-lenses" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="thin-lenses"><span class="header-section-number">8.4</span> Thin Lenses</h2>
+<section id="refraction-at-curved-surfaces" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="refraction-at-curved-surfaces"><span class="header-section-number">8.4.1</span> Refraction at Curved Surfaces</h3>
+<p>When light refracts through a curved surface, the sign conventions are:</p>
+<ul>
+<li><span class="math inline">\(s\)</span> is positive on the incident (incoming) side</li>
+<li><span class="math inline">\(s'\)</span> is positive on the transmission side</li>
+<li><span class="math inline">\(R\)</span> is positive for a convex surface, negative for concave</li>
+</ul>
+</section>
+<section id="the-lensmakers-equation" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="the-lensmakers-equation"><span class="header-section-number">8.4.2</span> The Lensmaker’s Equation</h3>
+<p>For a thin lens with refractive index <span class="math inline">\(n\)</span> in air, with radii of curvature <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>:</p>
+<p><span class="math display">\[\boxed{\frac{1}{f} = (n-1)\!\left(\frac{1}{R_1} - \frac{1}{R_2}\right)}\]</span></p>
+<p>The <strong>diopter</strong> <span class="math inline">\(D = 1/f\)</span> (in m<span class="math inline">\(^{-1}\)</span>) measures the optical power of a lens.</p>
+<ul>
+<li><strong>Converging lens</strong> (double convex): <span class="math inline">\(f &gt; 0\)</span> — brings parallel rays to a focus</li>
+<li><strong>Diverging lens</strong> (double concave): <span class="math inline">\(f &lt; 0\)</span> — spreads parallel rays apart</li>
+</ul>
+</section>
+<section id="the-thin-lens-equation" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="the-thin-lens-equation"><span class="header-section-number">8.4.3</span> The Thin Lens Equation</h3>
+<p>The same equation as for mirrors:</p>
+<p><span class="math display">\[\frac{1}{s} + \frac{1}{s'} = \frac{1}{f}\]</span></p>
+<p>with magnification <span class="math inline">\(M = -s'/s\)</span>.</p>
+</section>
+<section id="ray-tracing-for-lenses" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="ray-tracing-for-lenses"><span class="header-section-number">8.4.4</span> Ray Tracing for Lenses</h3>
+<p>Three special rays from the top of the object:</p>
+<ol type="1">
+<li><strong>Parallel ray</strong> — refracts through the focal point on the far side</li>
+<li><strong>Focal ray</strong> — passes through <span class="math inline">\(F\)</span> on the near side, refracts parallel to the axis</li>
+<li><strong>Central ray</strong> — passes straight through the center of the lens (undeviated, because the surfaces are locally parallel)</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Converging lens ray diagram showing the three special rays forming a real, inverted image. Also show the case where the object is inside <span class="math inline">\(F\)</span>, producing a virtual, upright, magnified image.</p>
+</div>
+</div>
+</section>
+<section id="the-eye-and-vision" class="level3" data-number="8.4.5">
+<h3 data-number="8.4.5" class="anchored" data-anchor-id="the-eye-and-vision"><span class="header-section-number">8.4.5</span> The Eye and Vision</h3>
+<p>The eye is a lens system that focuses images on the retina. The ciliary muscles adjust the lens curvature to focus at different distances (<strong>accommodation</strong>).</p>
+<ul>
+<li><strong>Short-sighted</strong> (myopia) — eye too long or lens too strong; corrected with a diverging lens</li>
+<li><strong>Long-sighted</strong> (hyperopia) — eye too short or lens too weak; corrected with a converging lens</li>
+</ul>
+<p>People naturally become long-sighted with age as the lens stiffens.</p>
+</section>
+<section id="optical-instruments" class="level3" data-number="8.4.6">
+<h3 data-number="8.4.6" class="anchored" data-anchor-id="optical-instruments"><span class="header-section-number">8.4.6</span> Optical Instruments</h3>
+<p><strong>Combination of lenses:</strong> line up images in cascade — the image of the first lens becomes the object of the second.</p>
+<p><strong>Refracting telescope:</strong> two converging lenses separated by <span class="math inline">\(L = f_1 + f_2\)</span> (matching focal points). The angular magnification is:</p>
+<p><span class="math display">\[m = \frac{f_1}{f_2}\]</span></p>
+<p>where <span class="math inline">\(f_1\)</span> is the objective focal length and <span class="math inline">\(f_2\)</span> is the eyepiece focal length. For high magnification, use a long-focal-length objective and a short-focal-length eyepiece.</p>
+<p><strong>Reflecting telescope:</strong> uses a concave mirror instead of an objective lens. Advantages:</p>
+<ul>
+<li>No <strong>chromatic aberration</strong> (different wavelengths refract at different angles through a lens, but all reflect identically from a mirror)</li>
+<li>Mirrors can be made larger and are structurally stronger</li>
+</ul>
+</section>
+</section>
+<section id="physical-optics-interference" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="physical-optics-interference"><span class="header-section-number">8.5</span> Physical Optics: Interference</h2>
+<p>When the size of obstacles or apertures is comparable to the wavelength of light, we must account for the wave nature of light. This is <strong>physical optics</strong>.</p>
+<section id="light-as-an-electromagnetic-wave" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="light-as-an-electromagnetic-wave"><span class="header-section-number">8.5.1</span> Light as an Electromagnetic Wave</h3>
+<p>Light is a transverse wave of coupled electric and magnetic fields. In vacuum:</p>
+<p><span class="math display">\[v = c = \frac{1}{\sqrt{\mu_0 \varepsilon_0}}\]</span></p>
+<p>The <span class="math inline">\(\mathbf{E}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> fields are perpendicular to each other and to the direction of propagation. As with all waves, the traveling wave solution is:</p>
+<p><span class="math display">\[E(x,t) = E_0 \sin(kx - \omega t)\]</span></p>
+<p>The <strong>intensity</strong> (time-averaged power per unit area) is proportional to the square of the electric field amplitude:</p>
+<p><span class="math display">\[I = \frac{1}{2}\varepsilon_0 c E_0^2\]</span></p>
+<p>Note the factor of <span class="math inline">\(1/2\)</span> from time-averaging. What we actually see (and what detectors measure) is the intensity, not the field.</p>
+</section>
+<section id="huygens-construction" class="level3" data-number="8.5.2">
+<h3 data-number="8.5.2" class="anchored" data-anchor-id="huygens-construction"><span class="header-section-number">8.5.2</span> Huygens’ Construction</h3>
+<p>Every point on a wavefront acts as a source of secondary spherical wavelets. The envelope of these wavelets at a later time gives the new wavefront.</p>
+<p>This principle explains:</p>
+<ul>
+<li><strong>Diffraction</strong> — bending of waves around obstacles and through apertures</li>
+<li><strong>Refraction</strong> — change in direction when wavelet speeds change at a boundary</li>
+</ul>
+</section>
+<section id="coherence" class="level3" data-number="8.5.3">
+<h3 data-number="8.5.3" class="anchored" data-anchor-id="coherence"><span class="header-section-number">8.5.3</span> Coherence</h3>
+<p>For interference to be observable, the light sources must be <strong>coherent</strong> — they must maintain a constant phase relationship <span class="math inline">\(\delta(t)\)</span> over time. Lasers are coherent; incandescent bulbs are not.</p>
+</section>
+<section id="superposition-and-interference" class="level3" data-number="8.5.4">
+<h3 data-number="8.5.4" class="anchored" data-anchor-id="superposition-and-interference"><span class="header-section-number">8.5.4</span> Superposition and Interference</h3>
+<p>When two coherent waves overlap:</p>
+<p><span class="math display">\[y(x,t) = y_1(x,t) + y_2(x,t)\]</span></p>
+<p>Any waveform can be built up from a set of simple sinusoidal waves (<strong>Fourier analysis</strong>). For two waves of the same amplitude and frequency but with a phase difference <span class="math inline">\(\phi\)</span>:</p>
+<p><span class="math display">\[y = 2A\cos\!\left(\frac{\phi}{2}\right)\sin\!\left(kx - \omega t + \frac{\phi}{2}\right)\]</span></p>
+<ul>
+<li><span class="math inline">\(\phi = 0\)</span>: <strong>constructive interference</strong> — amplitude doubles</li>
+<li><span class="math inline">\(\phi = \pi\)</span>: <strong>destructive interference</strong> — amplitude is zero</li>
+<li>Intermediate <span class="math inline">\(\phi\)</span>: something in between</li>
+</ul>
+</section>
+<section id="phasors" class="level3" data-number="8.5.5">
+<h3 data-number="8.5.5" class="anchored" data-anchor-id="phasors"><span class="header-section-number">8.5.5</span> Phasors</h3>
+<p>A <strong>phasor</strong> is a rotating vector of length <span class="math inline">\(E_0\)</span> that rotates at frequency <span class="math inline">\(\omega\)</span>. The projection onto one axis gives the instantaneous field:</p>
+<p><span class="math display">\[E(t) = E_0 \sin(\omega t)\]</span></p>
+<p>To add two waves, <strong>add their phasors as vectors</strong>. The resultant phasor gives the amplitude and phase of the combined wave. This is far easier than trigonometric manipulation, especially for many waves.</p>
+</section>
+<section id="the-double-slit" class="level3" data-number="8.5.6">
+<h3 data-number="8.5.6" class="anchored" data-anchor-id="the-double-slit"><span class="header-section-number">8.5.6</span> The Double Slit</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Double slit setup: monochromatic light incident on two slits separated by <span class="math inline">\(d\)</span>. Show path difference <span class="math inline">\(d\sin\theta\)</span> to a point P on a distant screen at angle <span class="math inline">\(\theta\)</span>.</p>
+</div>
+</div>
+<p>Two narrow slits separated by distance <span class="math inline">\(d\)</span>, illuminated by coherent monochromatic light. The <strong>path difference</strong> to a distant point at angle <span class="math inline">\(\theta\)</span> is:</p>
+<p><span class="math display">\[\Delta = d\sin\theta\]</span></p>
+<ul>
+<li><strong>Constructive interference</strong> (bright fringes): <span class="math inline">\(d\sin\theta = m\lambda\)</span>, where <span class="math inline">\(m = 0, \pm 1, \pm 2, \ldots\)</span></li>
+<li><strong>Destructive interference</strong> (dark fringes): <span class="math inline">\(d\sin\theta = (m + \tfrac{1}{2})\lambda\)</span></li>
+</ul>
+<p>Using phasors, the phase difference between the two waves is:</p>
+<p><span class="math display">\[\phi = \frac{2\pi d\sin\theta}{\lambda}\]</span></p>
+<p>Adding two phasors of equal amplitude <span class="math inline">\(E_0\)</span> at angle <span class="math inline">\(\phi\)</span> using the cosine rule gives a resultant amplitude <span class="math inline">\(E_R = 2E_0\cos(\phi/2)\)</span>. Since intensity goes as amplitude squared:</p>
+<p><span class="math display">\[\boxed{I = 4I_0 \cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)}\]</span></p>
+<p>where <span class="math inline">\(I_0\)</span> is the intensity from a single slit.</p>
+</section>
+<section id="diffraction-gratings" class="level3" data-number="8.5.7">
+<h3 data-number="8.5.7" class="anchored" data-anchor-id="diffraction-gratings"><span class="header-section-number">8.5.7</span> Diffraction Gratings</h3>
+<p>A <strong>diffraction grating</strong> is a large number <span class="math inline">\(N\)</span> of closely spaced slits (typically hundreds or thousands per mm). The maxima occur at the same positions as the double slit:</p>
+<p><span class="math display">\[d\sin\theta = m\lambda, \qquad m = 0, \pm 1, \pm 2, \ldots\]</span></p>
+<p>But with <span class="math inline">\(N\)</span> slits, the peaks become much <strong>sharper</strong>. The angular half-width of each peak is:</p>
+<p><span class="math display">\[\boxed{\delta\theta = \frac{\lambda}{Nd\cos\theta}}\]</span></p>
+<p>More slits means sharper peaks and better wavelength resolution.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Intensity patterns for <span class="math inline">\(N = 2\)</span>, <span class="math inline">\(3\)</span>, and many slits. Show how peaks narrow and secondary maxima appear as <span class="math inline">\(N\)</span> increases. Include phasor polygons for each case.</p>
+</div>
+</div>
+<p><strong>Phasor picture:</strong> For <span class="math inline">\(N\)</span> slits, the phasors form a polygon. At the first minimum, the phasors close into a regular polygon — the total phase accumulated is <span class="math inline">\(2\pi\)</span>, giving <span class="math inline">\(\phi_\text{min} = 2\pi/N\)</span> per slit.</p>
+</section>
+<section id="spectrometers-and-dispersion" class="level3" data-number="8.5.8">
+<h3 data-number="8.5.8" class="anchored" data-anchor-id="spectrometers-and-dispersion"><span class="header-section-number">8.5.8</span> Spectrometers and Dispersion</h3>
+<p>A diffraction grating acts as a <strong>spectrometer</strong> — it separates light by wavelength. The angular separation of different wavelengths is characterized by the <strong>dispersion</strong>:</p>
+<p><span class="math display">\[\boxed{D = \frac{d\theta}{d\lambda} = \frac{m}{d\cos\theta}}\]</span></p>
+<p>where <span class="math inline">\(m\)</span> is the diffraction order. Note that dispersion does not depend on <span class="math inline">\(N\)</span> — more slits make the peaks sharper, but don’t move them.</p>
+<p>The <strong>resolving power</strong> of a grating is its ability to distinguish two closely spaced wavelengths:</p>
+<p><span class="math display">\[\boxed{R = \frac{\lambda}{\Delta\lambda} = Nm}\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is the number of slits and <span class="math inline">\(m\)</span> is the order. To resolve finer wavelength differences, use more slits or work at higher order.</p>
+</section>
+<section id="thin-film-interference" class="level3" data-number="8.5.9">
+<h3 data-number="8.5.9" class="anchored" data-anchor-id="thin-film-interference"><span class="header-section-number">8.5.9</span> Thin Film Interference</h3>
+<p>When light reflects from a thin film (e.g., a soap bubble or oil slick), interference occurs between rays reflected from the top and bottom surfaces.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Thin film of thickness <span class="math inline">\(t\)</span> and refractive index <span class="math inline">\(n_2\)</span> between media <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_3\)</span>. Show the two reflected rays and the path difference.</p>
+</div>
+</div>
+<p>Key considerations:</p>
+<ul>
+<li>A ray reflecting from a boundary going to a higher <span class="math inline">\(n\)</span> gets a phase change of <span class="math inline">\(\pi\)</span> (equivalent to adding <span class="math inline">\(\lambda/2\)</span> to the path)</li>
+<li>A ray reflecting from a boundary going to a lower <span class="math inline">\(n\)</span> has no phase change</li>
+<li>The path difference through the film is <span class="math inline">\(2t\)</span> (multiplied by <span class="math inline">\(n_2\)</span> for the optical path)</li>
+</ul>
+<p>For a film of refractive index <span class="math inline">\(n\)</span> and thickness <span class="math inline">\(t\)</span>:</p>
+<ul>
+<li>If only one surface gives a phase change: constructive interference when <span class="math inline">\(2nt = m\lambda\)</span></li>
+<li>If both or neither surfaces give a phase change: constructive interference when <span class="math inline">\(2nt = (m + \tfrac{1}{2})\lambda\)</span></li>
+</ul>
+<p><strong>Anti-reflection coatings:</strong> Choose <span class="math inline">\(n\)</span> and <span class="math inline">\(t\)</span> so that the reflected rays interfere destructively. For a quarter-wave coating (<span class="math inline">\(t = \lambda/(4n)\)</span>), reflected light is suppressed.</p>
+</section>
+<section id="the-michelson-interferometer" class="level3" data-number="8.5.10">
+<h3 data-number="8.5.10" class="anchored" data-anchor-id="the-michelson-interferometer"><span class="header-section-number">8.5.10</span> The Michelson Interferometer</h3>
+<p>A <strong>beam splitter</strong> divides a beam into two paths. Each beam reflects from a mirror and returns. The recombined beams interfere, and the pattern depends on the path difference <span class="math inline">\(d_2 - d_1\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Michelson interferometer: source, beam splitter at 45°, two mirrors at right angles, and detector. Show the two beam paths.</p>
+</div>
+</div>
+<p>Moving one mirror by <span class="math inline">\(\lambda/2\)</span> shifts the pattern by one fringe. This allows extremely precise distance measurements — down to fractions of a wavelength.</p>
+</section>
+</section>
+<section id="diffraction" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="diffraction"><span class="header-section-number">8.6</span> Diffraction</h2>
+<p>Diffraction occurs when waves encounter obstacles or apertures comparable in size to their wavelength. While interference deals with a finite number of discrete sources, diffraction treats a continuous distribution.</p>
+<section id="huygens-principle-and-x-ray-diffraction" class="level3" data-number="8.6.1">
+<h3 data-number="8.6.1" class="anchored" data-anchor-id="huygens-principle-and-x-ray-diffraction"><span class="header-section-number">8.6.1</span> Huygens’ Principle and X-Ray Diffraction</h3>
+<p>Huygens’ principle: every point on a wavefront is a source of secondary wavelets. For a large object, the shadow behind it is sharp. For a small object (comparable to <span class="math inline">\(\lambda\)</span>), waves spread out — diffraction is significant.</p>
+<p><strong>X-ray diffraction</strong> uses short-wavelength radiation (<span class="math inline">\(\lambda \sim 0.1\)</span> nm) to probe crystal structure. <strong>Bragg’s law</strong> gives the condition for constructive interference from crystal planes separated by spacing <span class="math inline">\(d\)</span>:</p>
+<p><span class="math display">\[\boxed{m\lambda = 2d\sin\theta}\]</span></p>
+<p>where <span class="math inline">\(\theta\)</span> is measured from the crystal planes (not the normal). This can determine crystal structure and atomic spacing.</p>
+</section>
+<section id="single-slit-diffraction" class="level3" data-number="8.6.2">
+<h3 data-number="8.6.2" class="anchored" data-anchor-id="single-slit-diffraction"><span class="header-section-number">8.6.2</span> Single Slit Diffraction</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Single slit of width <span class="math inline">\(D\)</span> with Fraunhofer diffraction. Show incoming plane wave, the slit, and the diffraction pattern on a distant screen. Label the central maximum and first minima.</p>
+</div>
+</div>
+<p>For a single slit of width <span class="math inline">\(D\)</span>, <strong>Fraunhofer diffraction</strong> (far-field, <span class="math inline">\(L \gg D\)</span>) gives minima at:</p>
+<p><span class="math display">\[\boxed{D\sin\theta = m\lambda, \qquad m = \pm 1, \pm 2, \ldots}\]</span></p>
+<p>Note: <span class="math inline">\(m = 0\)</span> is the central maximum, not a minimum.</p>
+<p><strong>Phase difference</strong> between rays from opposite edges of the slit:</p>
+<p><span class="math display">\[\Delta\phi = \frac{2\pi D \sin\theta}{\lambda}\]</span></p>
+</section>
+<section id="single-slit-intensity" class="level3" data-number="8.6.3">
+<h3 data-number="8.6.3" class="anchored" data-anchor-id="single-slit-intensity"><span class="header-section-number">8.6.3</span> Single Slit Intensity</h3>
+<p>Using the phasor approach: divide the slit into infinitely many point sources. At <span class="math inline">\(\theta = 0\)</span>, all phasors line up (maximum intensity). At the first minimum, the phasors curl into a complete circle (net amplitude zero). At the second minimum, they form two complete circles.</p>
+<p>For an arbitrary angle, the phasor integration gives the intensity:</p>
+<p><span class="math display">\[\boxed{I = I_m \left[\frac{\sin(\alpha)}{\alpha}\right]^2, \qquad \alpha = \frac{\pi D \sin\theta}{\lambda}}\]</span></p>
+<p>where <span class="math inline">\(I_m\)</span> is the intensity at the central maximum. The function <span class="math inline">\(\operatorname{sinc}^2(\alpha) = [\sin(\alpha)/\alpha]^2\)</span> has:</p>
+<ul>
+<li>Central maximum at <span class="math inline">\(\alpha = 0\)</span> (using L’Hôpital: <span class="math inline">\(\sin\alpha/\alpha \to 1\)</span>)</li>
+<li>Zeros at <span class="math inline">\(\alpha = m\pi\)</span>, i.e., <span class="math inline">\(D\sin\theta = m\lambda\)</span></li>
+<li>Secondary maxima that are much weaker than the central peak</li>
+</ul>
+</section>
+<section id="combined-double-slit-and-diffraction" class="level3" data-number="8.6.4">
+<h3 data-number="8.6.4" class="anchored" data-anchor-id="combined-double-slit-and-diffraction"><span class="header-section-number">8.6.4</span> Combined Double Slit and Diffraction</h3>
+<p>In reality, each slit has a finite width <span class="math inline">\(D\)</span>, so the double-slit pattern is <strong>modulated</strong> by the single-slit diffraction envelope:</p>
+<p><span class="math display">\[I = I_m \left[\frac{\sin\alpha}{\alpha}\right]^2 \cos^2\!\left(\frac{\phi}{2}\right)\]</span></p>
+<p>where <span class="math inline">\(\alpha = \pi D\sin\theta/\lambda\)</span> (single-slit envelope) and <span class="math inline">\(\phi = 2\pi d\sin\theta/\lambda\)</span> (double-slit interference).</p>
+</section>
+<section id="circular-aperture-the-airy-disk" class="level3" data-number="8.6.5">
+<h3 data-number="8.6.5" class="anchored" data-anchor-id="circular-aperture-the-airy-disk"><span class="header-section-number">8.6.5</span> Circular Aperture: The Airy Disk</h3>
+<p>Telescopes and microscopes have circular apertures, so diffraction produces a circular pattern called the <strong>Airy disk</strong> instead of the linear pattern from a slit.</p>
+<p>The first minimum of the Airy disk occurs at:</p>
+<p><span class="math display">\[\boxed{\sin\theta = 1.22\frac{\lambda}{d}}\]</span></p>
+<p>where <span class="math inline">\(d\)</span> is the diameter of the aperture. The factor 1.22 (compared to 1.00 for a slit) comes from the geometry of the circular aperture (Bessel functions).</p>
+</section>
+<section id="the-rayleigh-criterion" class="level3" data-number="8.6.6">
+<h3 data-number="8.6.6" class="anchored" data-anchor-id="the-rayleigh-criterion"><span class="header-section-number">8.6.6</span> The Rayleigh Criterion</h3>
+<p>Two point sources are just <strong>resolved</strong> when the central maximum of one falls on the first minimum of the other. This gives the minimum angular separation:</p>
+<p><span class="math display">\[\theta_R \approx 1.22\frac{\lambda}{d}\]</span></p>
+<p>For <strong>telescopes</strong>: increase <span class="math inline">\(d\)</span> (larger aperture) to resolve finer details. For <strong>microscopes</strong>: use a smaller <span class="math inline">\(\lambda\)</span> (e.g., electron microscopes, where the de Broglie wavelength is much smaller than visible light).</p>
+</section>
+</section>
+<section id="polarization" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="polarization"><span class="header-section-number">8.7</span> Polarization</h2>
+<section id="what-is-polarization" class="level3" data-number="8.7.1">
+<h3 data-number="8.7.1" class="anchored" data-anchor-id="what-is-polarization"><span class="header-section-number">8.7.1</span> What Is Polarization?</h3>
+<p>Light is a transverse wave — the electric field oscillates perpendicular to the direction of propagation. <strong>Polarization</strong> describes the direction of this oscillation.</p>
+<p>Most light sources (sun, incandescent bulbs) are <strong>unpolarized</strong> — the electric field direction varies randomly. Waves from a single antenna or laser, however, are <strong>polarized</strong> (the field oscillates in a preferred direction).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unpolarized light (random field directions) vs linearly polarized light (field oscillates in one plane). Show the propagation direction and field vectors.</p>
+</div>
+</div>
+<p>Methods of producing polarized light:</p>
+<ol type="1">
+<li><strong>Absorption</strong> (Polaroid sheets)</li>
+<li><strong>Reflection</strong> (Brewster’s angle)</li>
+<li><strong>Scattering</strong> (sunlight)</li>
+<li><strong>Birefringence</strong> (double refraction in crystals)</li>
+</ol>
+</section>
+<section id="polarization-by-absorption" class="level3" data-number="8.7.2">
+<h3 data-number="8.7.2" class="anchored" data-anchor-id="polarization-by-absorption"><span class="header-section-number">8.7.2</span> Polarization by Absorption</h3>
+<p>A <strong>Polaroid sheet</strong> contains long-chain molecules that absorb the component of the electric field parallel to the chains, transmitting only the component perpendicular to them (the <strong>transmission axis</strong>).</p>
+<p>For <strong>unpolarized</strong> light incident on a single polarizer, the transmitted intensity is:</p>
+<p><span class="math display">\[I = \frac{I_0}{2}\]</span></p>
+<p>because on average, half the intensity is in each polarization direction.</p>
+</section>
+<section id="maluss-law" class="level3" data-number="8.7.3">
+<h3 data-number="8.7.3" class="anchored" data-anchor-id="maluss-law"><span class="header-section-number">8.7.3</span> Malus’s Law</h3>
+<p>For <strong>already polarized</strong> light passing through a second polarizer (analyzer) at angle <span class="math inline">\(\theta\)</span> to the polarization direction:</p>
+<p><span class="math display">\[\boxed{I = I_0 \cos^2\theta}\]</span></p>
+<p>This is <strong>Malus’s law</strong>. When the polarizers are parallel (<span class="math inline">\(\theta = 0\)</span>), all light passes. When crossed (<span class="math inline">\(\theta = 90°\)</span>), no light passes.</p>
+<p><strong>Three polarizers:</strong> Surprisingly, inserting a third polarizer between two crossed polarizers at an intermediate angle can transmit some light. For example, with the middle polarizer at <span class="math inline">\(45°\)</span>:</p>
+<p><span class="math display">\[I = I_0 \cdot \frac{1}{2} \cdot \cos^2 45° \cdot \cos^2 45° = \frac{I_0}{8}\]</span></p>
+</section>
+<section id="polarization-by-reflection-brewsters-angle" class="level3" data-number="8.7.4">
+<h3 data-number="8.7.4" class="anchored" data-anchor-id="polarization-by-reflection-brewsters-angle"><span class="header-section-number">8.7.4</span> Polarization by Reflection: Brewster’s Angle</h3>
+<p>When unpolarized light reflects from a surface, the reflected light is partially polarized. At a special angle called <strong>Brewster’s angle</strong>, the reflected light is <strong>completely polarized</strong> (perpendicular to the plane of incidence):</p>
+<p><span class="math display">\[\boxed{\theta_B = \arctan\!\left(\frac{n_2}{n_1}\right)}\]</span></p>
+<p>At Brewster’s angle, the reflected and refracted rays are perpendicular (<span class="math inline">\(\theta_1 + \theta_2 = 90°\)</span>).</p>
+<p>Practical application: polarized sunglasses block horizontally polarized glare from reflective surfaces (roads, water) because reflected light is preferentially polarized in the horizontal plane.</p>
+</section>
+<section id="polarization-by-scattering" class="level3" data-number="8.7.5">
+<h3 data-number="8.7.5" class="anchored" data-anchor-id="polarization-by-scattering"><span class="header-section-number">8.7.5</span> Polarization by Scattering</h3>
+<p>When light scatters off air molecules, the scattered light is partially polarized. The electric field of the incoming wave causes the molecule to oscillate, and the re-radiated light is polarized in the plane perpendicular to the scattering direction.</p>
+<p>This explains why the sky appears polarized — looking at <span class="math inline">\(90°\)</span> from the sun, the scattered light is most strongly polarized.</p>
+<p>Scattering also explains why the <strong>sky is blue</strong>: the scattering intensity goes as <span class="math inline">\(1/\lambda^4\)</span> (Rayleigh scattering), so shorter wavelengths (blue) scatter much more than longer wavelengths (red).</p>
+</section>
+<section id="birefringence" class="level3" data-number="8.7.6">
+<h3 data-number="8.7.6" class="anchored" data-anchor-id="birefringence"><span class="header-section-number">8.7.6</span> Birefringence</h3>
+<p>In some crystalline materials (e.g., calcite), the refractive index depends on the polarization direction of the light. This is <strong>birefringence</strong> (double refraction).</p>
+<ul>
+<li><strong>Ordinary ray</strong> (<span class="math inline">\(n_o\)</span>) — refractive index is the same in all directions; obeys Snell’s law normally</li>
+<li><strong>Extraordinary ray</strong> (<span class="math inline">\(n_e\)</span>) — refractive index varies with direction relative to the <strong>optic axis</strong>; does not obey Snell’s law in the usual sense</li>
+</ul>
+<p>The two rays travel at different speeds through the crystal, acquiring a relative phase difference.</p>
+</section>
+<section id="circular-polarization-and-quarter-wave-plates" class="level3" data-number="8.7.7">
+<h3 data-number="8.7.7" class="anchored" data-anchor-id="circular-polarization-and-quarter-wave-plates"><span class="header-section-number">8.7.7</span> Circular Polarization and Quarter-Wave Plates</h3>
+<p>When two perpendicular linearly polarized components are out of phase, the result is <strong>elliptically polarized light</strong>. The tip of the electric field vector traces an ellipse as the wave propagates.</p>
+<p>Special cases:</p>
+<ul>
+<li><span class="math inline">\(\phi = 0\)</span> or <span class="math inline">\(\pi\)</span>: linearly polarized</li>
+<li><span class="math inline">\(\phi = \pm\pi/2\)</span> with equal amplitudes: <strong>circularly polarized</strong> — the field vector rotates in a circle</li>
+<li>Left or right circular polarization depends on which component leads</li>
+</ul>
+<p>A <strong>quarter-wave plate</strong> is a birefringent slab whose thickness is chosen so that the ordinary and extraordinary rays acquire a relative phase shift of <span class="math inline">\(\pi/2\)</span> (a quarter wavelength). Sending linearly polarized light at <span class="math inline">\(45°\)</span> to the optic axis through a quarter-wave plate produces circularly polarized light, and vice versa.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
