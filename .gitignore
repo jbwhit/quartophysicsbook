@@ -7,3 +7,9 @@ _freeze/
 *.html
 
 **/*.quarto_ipynb
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
