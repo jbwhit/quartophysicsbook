@@ -1,6 +1,511 @@
 # Optics
 
-::: {.callout-note}
-## Status
-Content to be transcribed from IPhO notes.
+## Geometrical Optics
+
+### The Ray Model of Light
+
+When light encounters obstacles or apertures much larger than its wavelength, we can ignore wave effects (interference, diffraction) and treat light as traveling in straight lines called **rays**. This is the **ray model** — the foundation of geometrical optics.
+
+At a boundary between two media, a ray can be:
+
+- **Reflected** — bounced back into the same medium
+- **Refracted** (transmitted) — bent as it passes into the new medium
+
+### Reflection
+
+The **law of reflection**: the angle of incidence equals the angle of reflection, both measured from the normal to the surface:
+
+$$\boxed{\theta_i = \theta_r}$$
+
+::: {.callout-warning}
+## TODO: Diagram
+Ray hitting a surface with incident and reflected rays. Show the normal line, $\theta_i$ and $\theta_r$ on either side of it.
 :::
+
+Phase change upon reflection depends on the relative wave speeds:
+
+- If $v_1 < v_2$ (going from slower to faster medium): reflected wave undergoes a phase change of $\pi$ (inverted)
+- If $v_1 > v_2$ (going from faster to slower medium): no phase change
+
+### Refraction and Snell's Law
+
+When light crosses a boundary between two media, its speed changes. The **refractive index** $n$ of a medium is the ratio of the speed of light in vacuum to the speed in the medium:
+
+$$n = \frac{v_\text{vacuum}}{v}$$
+
+Since frequency is set by the source and does not change across a boundary, only the wavelength and speed change.
+
+Using Fermat's principle (light takes the path of minimum time) or geometry, we derive **Snell's law**:
+
+$$\boxed{n_1 \sin\theta_1 = n_2 \sin\theta_2}$$
+
+where $\theta_1$ and $\theta_2$ are the angles from the normal in media 1 and 2, respectively.
+
+::: {.callout-warning}
+## TODO: Diagram
+Refraction at a boundary: incident ray in medium $n_1$, refracted ray bending toward/away from normal in medium $n_2$. Show angles $\theta_1$ and $\theta_2$.
+:::
+
+### Total Internal Reflection
+
+When light travels from a denser medium ($n_1 > n_2$) to a less dense one, there is a **critical angle** $\theta_c$ beyond which all light is reflected — no transmission occurs:
+
+$$\sin\theta_c = \frac{n_2}{n_1} \quad \text{(only for } n_1 > n_2\text{)}$$
+
+$$\boxed{\theta_c = \arcsin\!\left(\frac{n_2}{n_1}\right)}$$
+
+At $\theta_1 = \theta_c$, the refracted ray travels along the surface ($\theta_2 = 90°$). For $\theta_1 > \theta_c$, total internal reflection occurs. This is the principle behind **optical fibers** — light bounces along the core by repeated total internal reflection.
+
+### Fermat's Principle
+
+> A light ray traveling from one point to another follows a path such that the time required is a minimum (or maximum) compared to other paths.
+
+Mathematically: $dt/dx = 0$ along the ray path. Fermat's principle can be used to derive both the law of reflection and Snell's law.
+
+## Image Formation
+
+Geometrical optics deals with the formation of images using reflection (mirrors) and refraction (lenses). We can understand optical instruments using **ray tracing**.
+
+### Objects and Images
+
+- **Objects** — things that emit or reflect light (the source)
+- **Images** — what you see (light on the back of your retina)
+  - **Real image** — light actually converges there; can be projected on a screen
+  - **Virtual image** — light appears to diverge from there, but doesn't actually pass through; cannot be projected
+- **Magnification** — ratio of image size to object size; can be $> 1$ or $< 1$
+
+### Plane Mirrors
+
+A plane mirror produces a virtual image that is:
+
+- The same size as the object ($|M| = 1$)
+- The same distance behind the mirror as the object is in front
+- Laterally inverted (left–right reversal)
+
+The minimum mirror length needed to see your full body is **half your height** — the mirror only needs to span from halfway between your eyes and the top of your head to halfway between your eyes and your feet.
+
+**Multiple mirrors:**
+
+- Two mirrors at right angles produce 3 images
+- Two parallel mirrors produce infinitely many images (fading with distance)
+
+## Curved Mirrors
+
+### Concave Mirrors
+
+A concave (converging) mirror has a focal length related to its radius of curvature:
+
+$$f = \frac{R}{2}$$
+
+::: {.callout-warning}
+## TODO: Diagram
+Concave mirror showing center of curvature $C$, focal point $F$, and principal axis. Show how parallel rays converge at $F$.
+:::
+
+**Ray diagrams** — three special rays from the top of the object:
+
+1. **Parallel ray** — reflects through the focal point
+2. **Focal ray** — passes through $F$, reflects back parallel to the axis
+3. **Radial ray** — travels through the center of curvature $C$, reflects back on itself
+
+Any two of these rays locate the image.
+
+**Three cases for a concave mirror:**
+
+1. Object beyond $C$ — image is real, inverted, reduced
+2. Object between $C$ and $F$ — image is real, inverted, magnified
+3. Object inside $F$ — image is virtual, upright, magnified
+
+### The Mirror Equation
+
+$$\boxed{\frac{1}{s} + \frac{1}{s'} = \frac{1}{f}}$$
+
+where $s$ is the object distance, $s'$ is the image distance, and $f$ is the focal length.
+
+**Sign conventions:**
+
+- For a concave mirror, $f$ is positive
+- For a convex mirror, $f$ is negative
+- If $s' > 0$, the image is on the same side as the object (real)
+- If $s' < 0$, the image is on the opposite side (virtual)
+
+### Magnification
+
+$$\boxed{M = -\frac{s'}{s}}$$
+
+- $M > 0$: image is upright
+- $M < 0$: image is inverted
+- $|M| > 1$: image is magnified
+- $|M| < 1$: image is reduced
+
+### Convex Mirrors
+
+A convex (diverging) mirror always produces a virtual, upright, reduced image. The focal point is behind the mirror ($f < 0$).
+
+::: {.callout-warning}
+## TODO: Diagram
+Convex mirror ray diagram showing virtual image formation. The reflected rays diverge, and the virtual image appears behind the mirror.
+:::
+
+## Thin Lenses
+
+### Refraction at Curved Surfaces
+
+When light refracts through a curved surface, the sign conventions are:
+
+- $s$ is positive on the incident (incoming) side
+- $s'$ is positive on the transmission side
+- $R$ is positive for a convex surface, negative for concave
+
+### The Lensmaker's Equation
+
+For a thin lens with refractive index $n$ in air, with radii of curvature $R_1$ and $R_2$:
+
+$$\boxed{\frac{1}{f} = (n-1)\!\left(\frac{1}{R_1} - \frac{1}{R_2}\right)}$$
+
+The **diopter** $D = 1/f$ (in m$^{-1}$) measures the optical power of a lens.
+
+- **Converging lens** (double convex): $f > 0$ — brings parallel rays to a focus
+- **Diverging lens** (double concave): $f < 0$ — spreads parallel rays apart
+
+### The Thin Lens Equation
+
+The same equation as for mirrors:
+
+$$\frac{1}{s} + \frac{1}{s'} = \frac{1}{f}$$
+
+with magnification $M = -s'/s$.
+
+### Ray Tracing for Lenses
+
+Three special rays from the top of the object:
+
+1. **Parallel ray** — refracts through the focal point on the far side
+2. **Focal ray** — passes through $F$ on the near side, refracts parallel to the axis
+3. **Central ray** — passes straight through the center of the lens (undeviated, because the surfaces are locally parallel)
+
+::: {.callout-warning}
+## TODO: Diagram
+Converging lens ray diagram showing the three special rays forming a real, inverted image. Also show the case where the object is inside $F$, producing a virtual, upright, magnified image.
+:::
+
+### The Eye and Vision
+
+The eye is a lens system that focuses images on the retina. The ciliary muscles adjust the lens curvature to focus at different distances (**accommodation**).
+
+- **Short-sighted** (myopia) — eye too long or lens too strong; corrected with a diverging lens
+- **Long-sighted** (hyperopia) — eye too short or lens too weak; corrected with a converging lens
+
+People naturally become long-sighted with age as the lens stiffens.
+
+### Optical Instruments
+
+**Combination of lenses:** line up images in cascade — the image of the first lens becomes the object of the second.
+
+**Refracting telescope:** two converging lenses separated by $L = f_1 + f_2$ (matching focal points). The angular magnification is:
+
+$$m = \frac{f_1}{f_2}$$
+
+where $f_1$ is the objective focal length and $f_2$ is the eyepiece focal length. For high magnification, use a long-focal-length objective and a short-focal-length eyepiece.
+
+**Reflecting telescope:** uses a concave mirror instead of an objective lens. Advantages:
+
+- No **chromatic aberration** (different wavelengths refract at different angles through a lens, but all reflect identically from a mirror)
+- Mirrors can be made larger and are structurally stronger
+
+## Physical Optics: Interference
+
+When the size of obstacles or apertures is comparable to the wavelength of light, we must account for the wave nature of light. This is **physical optics**.
+
+### Light as an Electromagnetic Wave
+
+Light is a transverse wave of coupled electric and magnetic fields. In vacuum:
+
+$$v = c = \frac{1}{\sqrt{\mu_0 \varepsilon_0}}$$
+
+The $\mathbf{E}$ and $\mathbf{B}$ fields are perpendicular to each other and to the direction of propagation. As with all waves, the traveling wave solution is:
+
+$$E(x,t) = E_0 \sin(kx - \omega t)$$
+
+The **intensity** (time-averaged power per unit area) is proportional to the square of the electric field amplitude:
+
+$$I = \frac{1}{2}\varepsilon_0 c E_0^2$$
+
+Note the factor of $1/2$ from time-averaging. What we actually see (and what detectors measure) is the intensity, not the field.
+
+### Huygens' Construction
+
+Every point on a wavefront acts as a source of secondary spherical wavelets. The envelope of these wavelets at a later time gives the new wavefront.
+
+This principle explains:
+
+- **Diffraction** — bending of waves around obstacles and through apertures
+- **Refraction** — change in direction when wavelet speeds change at a boundary
+
+### Coherence
+
+For interference to be observable, the light sources must be **coherent** — they must maintain a constant phase relationship $\delta(t)$ over time. Lasers are coherent; incandescent bulbs are not.
+
+### Superposition and Interference
+
+When two coherent waves overlap:
+
+$$y(x,t) = y_1(x,t) + y_2(x,t)$$
+
+Any waveform can be built up from a set of simple sinusoidal waves (**Fourier analysis**). For two waves of the same amplitude and frequency but with a phase difference $\phi$:
+
+$$y = 2A\cos\!\left(\frac{\phi}{2}\right)\sin\!\left(kx - \omega t + \frac{\phi}{2}\right)$$
+
+- $\phi = 0$: **constructive interference** — amplitude doubles
+- $\phi = \pi$: **destructive interference** — amplitude is zero
+- Intermediate $\phi$: something in between
+
+### Phasors
+
+A **phasor** is a rotating vector of length $E_0$ that rotates at frequency $\omega$. The projection onto one axis gives the instantaneous field:
+
+$$E(t) = E_0 \sin(\omega t)$$
+
+To add two waves, **add their phasors as vectors**. The resultant phasor gives the amplitude and phase of the combined wave. This is far easier than trigonometric manipulation, especially for many waves.
+
+### The Double Slit
+
+::: {.callout-warning}
+## TODO: Diagram
+Double slit setup: monochromatic light incident on two slits separated by $d$. Show path difference $d\sin\theta$ to a point P on a distant screen at angle $\theta$.
+:::
+
+Two narrow slits separated by distance $d$, illuminated by coherent monochromatic light. The **path difference** to a distant point at angle $\theta$ is:
+
+$$\Delta = d\sin\theta$$
+
+- **Constructive interference** (bright fringes): $d\sin\theta = m\lambda$, where $m = 0, \pm 1, \pm 2, \ldots$
+- **Destructive interference** (dark fringes): $d\sin\theta = (m + \tfrac{1}{2})\lambda$
+
+Using phasors, the phase difference between the two waves is:
+
+$$\phi = \frac{2\pi d\sin\theta}{\lambda}$$
+
+Adding two phasors of equal amplitude $E_0$ at angle $\phi$ using the cosine rule gives a resultant amplitude $E_R = 2E_0\cos(\phi/2)$. Since intensity goes as amplitude squared:
+
+$$\boxed{I = 4I_0 \cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)}$$
+
+where $I_0$ is the intensity from a single slit.
+
+### Diffraction Gratings
+
+A **diffraction grating** is a large number $N$ of closely spaced slits (typically hundreds or thousands per mm). The maxima occur at the same positions as the double slit:
+
+$$d\sin\theta = m\lambda, \qquad m = 0, \pm 1, \pm 2, \ldots$$
+
+But with $N$ slits, the peaks become much **sharper**. The angular half-width of each peak is:
+
+$$\boxed{\delta\theta = \frac{\lambda}{Nd\cos\theta}}$$
+
+More slits means sharper peaks and better wavelength resolution.
+
+::: {.callout-warning}
+## TODO: Diagram
+Intensity patterns for $N = 2$, $3$, and many slits. Show how peaks narrow and secondary maxima appear as $N$ increases. Include phasor polygons for each case.
+:::
+
+**Phasor picture:** For $N$ slits, the phasors form a polygon. At the first minimum, the phasors close into a regular polygon — the total phase accumulated is $2\pi$, giving $\phi_\text{min} = 2\pi/N$ per slit.
+
+### Spectrometers and Dispersion
+
+A diffraction grating acts as a **spectrometer** — it separates light by wavelength. The angular separation of different wavelengths is characterized by the **dispersion**:
+
+$$\boxed{D = \frac{d\theta}{d\lambda} = \frac{m}{d\cos\theta}}$$
+
+where $m$ is the diffraction order. Note that dispersion does not depend on $N$ — more slits make the peaks sharper, but don't move them.
+
+The **resolving power** of a grating is its ability to distinguish two closely spaced wavelengths:
+
+$$\boxed{R = \frac{\lambda}{\Delta\lambda} = Nm}$$
+
+where $N$ is the number of slits and $m$ is the order. To resolve finer wavelength differences, use more slits or work at higher order.
+
+### Thin Film Interference
+
+When light reflects from a thin film (e.g., a soap bubble or oil slick), interference occurs between rays reflected from the top and bottom surfaces.
+
+::: {.callout-warning}
+## TODO: Diagram
+Thin film of thickness $t$ and refractive index $n_2$ between media $n_1$ and $n_3$. Show the two reflected rays and the path difference.
+:::
+
+Key considerations:
+
+- A ray reflecting from a boundary going to a higher $n$ gets a phase change of $\pi$ (equivalent to adding $\lambda/2$ to the path)
+- A ray reflecting from a boundary going to a lower $n$ has no phase change
+- The path difference through the film is $2t$ (multiplied by $n_2$ for the optical path)
+
+For a film of refractive index $n$ and thickness $t$:
+
+- If only one surface gives a phase change: constructive interference when $2nt = m\lambda$
+- If both or neither surfaces give a phase change: constructive interference when $2nt = (m + \tfrac{1}{2})\lambda$
+
+**Anti-reflection coatings:** Choose $n$ and $t$ so that the reflected rays interfere destructively. For a quarter-wave coating ($t = \lambda/(4n)$), reflected light is suppressed.
+
+### The Michelson Interferometer
+
+A **beam splitter** divides a beam into two paths. Each beam reflects from a mirror and returns. The recombined beams interfere, and the pattern depends on the path difference $d_2 - d_1$.
+
+::: {.callout-warning}
+## TODO: Diagram
+Michelson interferometer: source, beam splitter at 45°, two mirrors at right angles, and detector. Show the two beam paths.
+:::
+
+Moving one mirror by $\lambda/2$ shifts the pattern by one fringe. This allows extremely precise distance measurements — down to fractions of a wavelength.
+
+## Diffraction
+
+Diffraction occurs when waves encounter obstacles or apertures comparable in size to their wavelength. While interference deals with a finite number of discrete sources, diffraction treats a continuous distribution.
+
+### Huygens' Principle and X-Ray Diffraction
+
+Huygens' principle: every point on a wavefront is a source of secondary wavelets. For a large object, the shadow behind it is sharp. For a small object (comparable to $\lambda$), waves spread out — diffraction is significant.
+
+**X-ray diffraction** uses short-wavelength radiation ($\lambda \sim 0.1$ nm) to probe crystal structure. **Bragg's law** gives the condition for constructive interference from crystal planes separated by spacing $d$:
+
+$$\boxed{m\lambda = 2d\sin\theta}$$
+
+where $\theta$ is measured from the crystal planes (not the normal). This can determine crystal structure and atomic spacing.
+
+### Single Slit Diffraction
+
+::: {.callout-warning}
+## TODO: Diagram
+Single slit of width $D$ with Fraunhofer diffraction. Show incoming plane wave, the slit, and the diffraction pattern on a distant screen. Label the central maximum and first minima.
+:::
+
+For a single slit of width $D$, **Fraunhofer diffraction** (far-field, $L \gg D$) gives minima at:
+
+$$\boxed{D\sin\theta = m\lambda, \qquad m = \pm 1, \pm 2, \ldots}$$
+
+Note: $m = 0$ is the central maximum, not a minimum.
+
+**Phase difference** between rays from opposite edges of the slit:
+
+$$\Delta\phi = \frac{2\pi D \sin\theta}{\lambda}$$
+
+### Single Slit Intensity
+
+Using the phasor approach: divide the slit into infinitely many point sources. At $\theta = 0$, all phasors line up (maximum intensity). At the first minimum, the phasors curl into a complete circle (net amplitude zero). At the second minimum, they form two complete circles.
+
+For an arbitrary angle, the phasor integration gives the intensity:
+
+$$\boxed{I = I_m \left[\frac{\sin(\alpha)}{\alpha}\right]^2, \qquad \alpha = \frac{\pi D \sin\theta}{\lambda}}$$
+
+where $I_m$ is the intensity at the central maximum. The function $\operatorname{sinc}^2(\alpha) = [\sin(\alpha)/\alpha]^2$ has:
+
+- Central maximum at $\alpha = 0$ (using L'Hôpital: $\sin\alpha/\alpha \to 1$)
+- Zeros at $\alpha = m\pi$, i.e., $D\sin\theta = m\lambda$
+- Secondary maxima that are much weaker than the central peak
+
+### Combined Double Slit and Diffraction
+
+In reality, each slit has a finite width $D$, so the double-slit pattern is **modulated** by the single-slit diffraction envelope:
+
+$$I = I_m \left[\frac{\sin\alpha}{\alpha}\right]^2 \cos^2\!\left(\frac{\phi}{2}\right)$$
+
+where $\alpha = \pi D\sin\theta/\lambda$ (single-slit envelope) and $\phi = 2\pi d\sin\theta/\lambda$ (double-slit interference).
+
+### Circular Aperture: The Airy Disk
+
+Telescopes and microscopes have circular apertures, so diffraction produces a circular pattern called the **Airy disk** instead of the linear pattern from a slit.
+
+The first minimum of the Airy disk occurs at:
+
+$$\boxed{\sin\theta = 1.22\frac{\lambda}{d}}$$
+
+where $d$ is the diameter of the aperture. The factor 1.22 (compared to 1.00 for a slit) comes from the geometry of the circular aperture (Bessel functions).
+
+### The Rayleigh Criterion
+
+Two point sources are just **resolved** when the central maximum of one falls on the first minimum of the other. This gives the minimum angular separation:
+
+$$\theta_R \approx 1.22\frac{\lambda}{d}$$
+
+For **telescopes**: increase $d$ (larger aperture) to resolve finer details. For **microscopes**: use a smaller $\lambda$ (e.g., electron microscopes, where the de Broglie wavelength is much smaller than visible light).
+
+## Polarization
+
+### What Is Polarization?
+
+Light is a transverse wave — the electric field oscillates perpendicular to the direction of propagation. **Polarization** describes the direction of this oscillation.
+
+Most light sources (sun, incandescent bulbs) are **unpolarized** — the electric field direction varies randomly. Waves from a single antenna or laser, however, are **polarized** (the field oscillates in a preferred direction).
+
+::: {.callout-warning}
+## TODO: Diagram
+Unpolarized light (random field directions) vs linearly polarized light (field oscillates in one plane). Show the propagation direction and field vectors.
+:::
+
+Methods of producing polarized light:
+
+1. **Absorption** (Polaroid sheets)
+2. **Reflection** (Brewster's angle)
+3. **Scattering** (sunlight)
+4. **Birefringence** (double refraction in crystals)
+
+### Polarization by Absorption
+
+A **Polaroid sheet** contains long-chain molecules that absorb the component of the electric field parallel to the chains, transmitting only the component perpendicular to them (the **transmission axis**).
+
+For **unpolarized** light incident on a single polarizer, the transmitted intensity is:
+
+$$I = \frac{I_0}{2}$$
+
+because on average, half the intensity is in each polarization direction.
+
+### Malus's Law
+
+For **already polarized** light passing through a second polarizer (analyzer) at angle $\theta$ to the polarization direction:
+
+$$\boxed{I = I_0 \cos^2\theta}$$
+
+This is **Malus's law**. When the polarizers are parallel ($\theta = 0$), all light passes. When crossed ($\theta = 90°$), no light passes.
+
+**Three polarizers:** Surprisingly, inserting a third polarizer between two crossed polarizers at an intermediate angle can transmit some light. For example, with the middle polarizer at $45°$:
+
+$$I = I_0 \cdot \frac{1}{2} \cdot \cos^2 45° \cdot \cos^2 45° = \frac{I_0}{8}$$
+
+### Polarization by Reflection: Brewster's Angle
+
+When unpolarized light reflects from a surface, the reflected light is partially polarized. At a special angle called **Brewster's angle**, the reflected light is **completely polarized** (perpendicular to the plane of incidence):
+
+$$\boxed{\theta_B = \arctan\!\left(\frac{n_2}{n_1}\right)}$$
+
+At Brewster's angle, the reflected and refracted rays are perpendicular ($\theta_1 + \theta_2 = 90°$).
+
+Practical application: polarized sunglasses block horizontally polarized glare from reflective surfaces (roads, water) because reflected light is preferentially polarized in the horizontal plane.
+
+### Polarization by Scattering
+
+When light scatters off air molecules, the scattered light is partially polarized. The electric field of the incoming wave causes the molecule to oscillate, and the re-radiated light is polarized in the plane perpendicular to the scattering direction.
+
+This explains why the sky appears polarized — looking at $90°$ from the sun, the scattered light is most strongly polarized.
+
+Scattering also explains why the **sky is blue**: the scattering intensity goes as $1/\lambda^4$ (Rayleigh scattering), so shorter wavelengths (blue) scatter much more than longer wavelengths (red).
+
+### Birefringence
+
+In some crystalline materials (e.g., calcite), the refractive index depends on the polarization direction of the light. This is **birefringence** (double refraction).
+
+- **Ordinary ray** ($n_o$) — refractive index is the same in all directions; obeys Snell's law normally
+- **Extraordinary ray** ($n_e$) — refractive index varies with direction relative to the **optic axis**; does not obey Snell's law in the usual sense
+
+The two rays travel at different speeds through the crystal, acquiring a relative phase difference.
+
+### Circular Polarization and Quarter-Wave Plates
+
+When two perpendicular linearly polarized components are out of phase, the result is **elliptically polarized light**. The tip of the electric field vector traces an ellipse as the wave propagates.
+
+Special cases:
+
+- $\phi = 0$ or $\pi$: linearly polarized
+- $\phi = \pm\pi/2$ with equal amplitudes: **circularly polarized** — the field vector rotates in a circle
+- Left or right circular polarization depends on which component leads
+
+A **quarter-wave plate** is a birefringent slab whose thickness is chosen so that the ordinary and extraordinary rays acquire a relative phase shift of $\pi/2$ (a quarter wavelength). Sending linearly polarized light at $45°$ to the optic axis through a quarter-wave plate produces circularly polarized light, and vice versa.
