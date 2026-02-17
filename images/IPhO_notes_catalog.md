@@ -10,11 +10,18 @@
 | 2-6 | Problem solving, SI units, 7 Ds method, example problems | `thinking.qmd` |
 | 7-14 | Math toolkit (differentiation, integration, kinematics, DEs, coordinates, multivariate) | `math.qmd` |
 | 15-16 | Lab safety & error analysis (OUT OF SCOPE) | — |
-| 17-18 | Energy, conservation, potential energy, forces, work | `mechanics.qmd` |
-| ??-?? | Mechanics continued (forces, momentum, rotation) | `mechanics.qmd` |
-| ??-?? | Thermodynamics (gas laws, entropy, heat engines) | `thermo.qmd` |
-| ??-?? | Waves & Oscillations | `waves.qmd` |
-| ??-97 | E&M I (Coulomb, fields, Gauss's law) | `electrostatics.qmd` |
+| 17-28 | Mechanics: energy, forces, momentum, collisions, rotational mechanics | `mechanics.qmd` |
+| 29-31, 39-41, 48-57 | Thermodynamics (heat transfer, gas laws, Carnot, entropy, phase diagrams) | `thermo.qmd` |
+| 32-34 | Mechanics: rotational part II (KE, angular momentum, precession) | `mechanics.qmd` |
+| 35-38 | Mechanics: gravity, orbits, Kepler's laws | `mechanics.qmd` |
+| 42-47 | Waves & Oscillations (SHM, pendulum, traveling/standing waves, resonance) | `waves.qmd` |
+| 58-60 | Modern Physics: Bohr atom, photoelectric effect | `relativity.qmd` |
+| 61-65 | Mechanics: fluids (pressure, buoyancy, Bernoulli) | `mechanics.qmd` |
+| 66-77 | Geometrical Optics (reflection, refraction, mirrors, lenses, telescopes) | `optics.qmd` |
+| 78-85 | DC Circuits (Ohm, Kirchhoff, RC, RL, LC circuits) | `circuits.qmd` |
+| 86-88 | Modern Physics: wave-particle duality, quantum intro | `relativity.qmd` |
+| 89-90 | Exam prep & worked problems | — |
+| 91-97 | E&M I: Electrostatics (Coulomb, fields, Gauss's law, potentials) | `electrostatics.qmd` |
 | 98-101 | E&M II: Equipotentials, capacitors, dielectrics, dipoles | `electrostatics.qmd` |
 | 102-112 | Physical Optics 1-2: EM waves, interference, diffraction gratings, thin films, interferometers | `optics.qmd` |
 | 113-116 | E&M III: Magnetostatics (Lorentz force, Biot-Savart, Ampere's law, solenoids, magnetic dipoles) | `circuits.qmd` |
@@ -149,7 +156,39 @@
 - **73**: Geometrical optics — refraction at thin/curved surfaces, sign conventions (s positive on outside/incident side, s' positive on transmission side, R positive for convex, negative for concave)
 - **74**: Thin lenses — double convex lens refraction, lensmaker's equation 1/f = (n-1)(1/R₁ - 1/R₂) (boxed), diopters D = 1/f, converging vs diverging lenses
 
-### Photos 75-97: TO BE CATALOGED
+- **75**: Lens ray tracing — 3 special rays (parallel→focal, focal→parallel, central→straight), converging lens cases (magnified/real, virtual/upright/reduced), magnification M = -s'/s, thin lens approximation
+- **76**: Eye & vision — lens focuses image on retina, ciliary muscles, short-sighted vs long-sighted, corrective lenses, combination of lenses (optical instruments), telescopes L = f₁ + f₂, magnification m = f₁/f₂
+- **77**: Reflecting telescope — diagram, advantages (no chromatic aberration, stronger, easier to make), chromatic aberration in lenses (different wavelengths → different speeds)
+
+### DC Circuits (78-85)
+- **78**: DC Circuits — electric circuits, current I = C/s (flow of positive charge), voltage V (electric potential, extensive), Ohm's law V = IR, resistance, resistors (turn electrical energy → heat), P = I²R (boxed), cells (DC source, EMF ε)
+- **79**: Kirchhoff's laws — (1) charge conservation at junctions (I₁ + I₂ = I₃ + I₄), (2) sum of potentials around loop = 0 (energy conservation). Resistors in series R = R₁ + R₂ (boxed), parallel 1/R = 1/R₁ + 1/R₂ (boxed)
+
+- **80**: Power dissipation in circuits — energy analysis, P = V²/R, P = I²R, multiple resistors, voltmeters (high R, measure voltage) & ammeters (low R, measure current)
+- **81**: Real power supply — internal resistance r, V = ε - Ir, if r ≈ R then lots of power dissipated in battery, complex circuits solved by finding effective resistance or Kirchhoff's laws, matrix methods
+- **82**: Matrix solution for circuit equations (row reduction), transients, capacitors (store charge/energy in E field, V = Q/C), inductors (store energy in B field, V = LdI/dt), capacitors in series/parallel, inductors in series/parallel
+- **83**: RC circuit — charging: Q = CV(1 - e^(-t/RC)), τ = RC (time constant), charge to 67% in one time constant, discharging: Q = CV(e^(-t/RC) - 1)
+- **84**: RL circuit — charging: I = V/R(1 - e^(-Rt/L)), τ = L/R, discharging: I = V/R(e^(-Rt/L) - 1)
+- **85**: Energy stored in capacitor U = ½CV² = ½q²/C, energy stored in inductor U = ½LI², LC circuit oscillatory: d²q/dt² + q/LC = 0, ω = 1/√(LC) (boxed)
+
+### Modern Physics — Wave-Particle Duality & Quantum (86-89)
+- **86**: Modern Physics II — E = hν (photon energy), de Broglie wavelength λ = h/p = h/(mv), wave-particle duality, photon momentum p = E/c = h/λ, de Broglie works for everything (tennis ball example: λ ≈ 10⁻³⁵ m)
+- **87**: Electrons as waves — 1989 single electron double-slit experiment, wave/particle duality, wave function ψ, |ψ|² = probability density, interpretations (Copenhagen, Many Worlds), effects & connections (tunneling, energy levels)
+- **88**: Thought experiments — Schrödinger's cat, radioactive particle + geiger counter + cyanide, superposition of states, quantum suicide, ΔxΔp ≥ ℏ/2, ΔEΔt ≥ ℏ/2
+
+### Exam Prep & Worked Problems (89)
+- **89**: "First mock exam" — things to be careful about (diagrams big!, directions on every diagram, layout clear & orderly), things to work on (trig, mechanics/rotational, calculus), watch inequalities in integrals, worked problem begins (Q3: wave/oscillation problem)
+
+- **90**: Exam Q3 continued — circuit/wave problem, "with circuits use Kirchhoff!", assessment breakdown (labs 40%, exams 60%)
+
+### E&M I — Electrostatics (91-97)
+- **91**: E&M I — Electrostatics: charge (conserved, quantized, ±, measured in Coulombs), e = 1.6×10⁻¹⁹ C, Coulomb's law F = q₁q₂/(4πε₀r²) r̂, electric field E = F/q (intensive), field line directions
+- **92**: Vector addition of electric fields, principle of superposition, field lines (start at +, end at -, never cross, hit surfaces at 90°, density ∝ field strength), electric dipole
+- **93**: Conductors — allow flow of charge, charge distribution on conductors, E = 0 inside conductor (internal charges cancel external field), continuous charge distributions (σ surface, λ linear)
+- **94**: Flux — Φ = ∫E·dA, Gauss's law for gravity (∮g·dA = -4πGM_enc), Gauss's law for charge ∮E·dA = q_enc/ε₀ (boxed), useful with symmetry, ∮E·dA = 0 for no enclosed charge
+- **95**: Gauss's law applications — point charge E = q/(4πε₀r²) (boxed), line charge E = λ/(2πε₀r) (boxed)
+- **96**: Gauss's law — charged sphere: inside E = ρr/(3ε₀), outside E = Q/(4πε₀r²). Gaussian surface through conductor → induced charge. Hollow conducting sphere shields interior from exterior charge. Dipole moment D = qd, τ = p × E
+- **97**: Energy — dipole U = -p·E = qEℓcosθ, minimum when parallel. E&M II: Potential energies & potentials, W = -∫F·ds, potential V = U/q (intensive, scalar, "voltage"), path integral (path doesn't matter, distance is scalar), V = q/(4πε₀r), superposition of potentials
 
 ### E&M II — Electrostatics continued (98-101)
 - **98**: Equipotentials, E = -nabla V, Laplacian, capacitors (parallel plates), stored charge

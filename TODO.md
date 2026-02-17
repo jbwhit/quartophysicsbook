@@ -13,14 +13,17 @@
 
 ---
 
+### Questions for Casey
+1. Error propagation — considered under lab stuff that we're not covering?
+
 ## Phase 0: Project Setup & Structure
 - [x] Restructure repo root as Quarto project
 - [x] Archive old attempts (`firstdraft/`, `old-qph/`, `physicsthinking/`, `repo/`, `quartophysicsbook/`) into `_archive/`
 - [x] Set up `_quarto.yml` with dual output (website + PDF book)
 - [x] Set up GitHub Actions deploy workflow
 - [x] Create chapter structure with parts
-- [ ] Initialize git repo at root, initial commit, push to GitHub
-- [ ] Verify `quarto preview` works locally
+- [x] Initialize git repo at root, initial commit, push to GitHub
+- [x] Verify `quarto preview` works locally
 
 ## Phase 1: Transcribe Casey's PDF Content → Quarto Chapters
 - [x] **Foreword** (`index.qmd`) — Casey's foreword
@@ -41,7 +44,7 @@
 - [x] ~~**Chapter 3: Labs & Error Analysis**~~ — Removed (out of scope per foreword)
 
 ## Phase 2: Transcribe IPhO Notes (169 photos → chapters)
-- [ ] Catalog all 169 photos by topic (create an index/mapping)
+- [x] Catalog all 169 photos by topic (see `images/IPhO_notes_catalog.md`)
 - [ ] **Chapter 4: Mechanics** (`mechanics.qmd`) — forces, energy, momentum, rotation
 - [ ] **Chapter 5: Thermodynamics** (`thermo.qmd`) — gas laws, entropy, heat engines
 - [ ] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
@@ -78,6 +81,10 @@ part: "Electromagnetism & Optics"
 part: "Modern Physics"
   relativity.qmd       — Relativity
 ```
+
+## Misc
+
+1. Is there a way to have the calculations verifiable through something like sympy? It's nice to have equation manipulation through markdown/latex, but I am worried that it's easy to get a transcribed step that's wrong and hard to catch? Maybe not even in the published content but as a test process? Or do you have any similar suggestions?
 
 ---
 
