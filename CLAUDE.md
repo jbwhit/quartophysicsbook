@@ -12,6 +12,10 @@ Scope: physics thinking and problem-solving only. No lab sections, no test-takin
 
 Commit early and often, and push to GitHub after each logical chunk of work.
 
+### Session Management
+
+After completing each chapter, remind the user to compact the conversation (`/compact`) before starting the next chapter. This keeps context manageable across long transcription sessions.
+
 ### TODO Hygiene
 
 `TODO.md` tracks current and upcoming work. When a logical section (e.g., an entire Phase) is fully complete, move its items from `TODO.md` into `DONE.md` to keep the TODO file clean and focused on what's left.

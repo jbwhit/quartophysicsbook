@@ -1,6 +1,456 @@
 # Thermodynamics
 
-::: {.callout-note}
-## Status
-Content to be transcribed from IPhO notes.
+## Temperature and Heat
+
+### Temperature
+
+Temperature measures how hot or cold something is — more precisely, it determines the direction of heat flow between two systems in thermal contact.
+
+A **thermometer** works by exploiting a physical property that varies with temperature (e.g., the volume of a gas at constant pressure). The **constant-volume gas thermometer** defines temperature via the pressure of a gas at fixed volume:
+
+$$T_\text{gas} = T_\text{ref} \frac{P}{P_\text{ref}} \quad \text{(proportional to pressure)}$$
+
+At the **triple point of water** ($T_\text{trip} = 273.16\;\text{K}$), we fix the scale. As gas pressure is reduced to zero, all gas thermometers converge — this defines the **ideal gas temperature scale**.
+
+### Zeroth Law of Thermodynamics
+
+Why do different thermometers agree? The **zeroth law**:
+
+> If systems A and B are each in thermal equilibrium with system C, then A and B are in thermal equilibrium with each other.
+
+This guarantees that temperature is well-defined and standardized. The Celsius scale is related to Kelvin by:
+
+$$T_C = T_K - 273.15\;\text{K}$$
+
+### Heat
+
+**Heat** ($Q$) is the transfer of thermal energy, measured in joules. Heat flows between two bodies that are not in thermal equilibrium — always from hot to cold.
+
+### Heat Transfer
+
+There are three ways heat can flow:
+
+**Conduction** — heat flows through a material without bulk motion. The rate of heat flow:
+
+$$H = \frac{Q}{t} = \frac{kA\,\Delta T}{\Delta x}$$
+
+where $k$ is the thermal conductivity, $A$ the cross-sectional area, $\Delta T$ the temperature difference, and $\Delta x$ the thickness.
+
+**Radiation** — heat transfer via electromagnetic waves. The Stefan–Boltzmann law gives the radiated intensity:
+
+$$I = \varepsilon \sigma T^4$$
+
+where $\sigma = 5.67 \times 10^{-8}\;\text{W}\,\text{m}^{-2}\,\text{K}^{-4}$ is the Stefan–Boltzmann constant and $\varepsilon$ is the emissivity ($0 \le \varepsilon \le 1$; $\varepsilon = 1$ for a blackbody). Radiated power is proportional to $T^4$.
+
+**Convection** — heat transfer by bulk fluid motion. Heated fluid becomes less dense and rises in bubbles (turbulence, convection cells). This drives radiators, atmospheric circulation, and many other phenomena.
+
+### Thermal Expansion
+
+Most materials expand when heated.
+
+**Linear expansion**: for a rod of length $L$,
+
+$$\Delta L = \alpha L \Delta T$$
+
+where $\alpha$ is the coefficient of linear expansion. Note that holes get bigger too.
+
+**Volume expansion**: for a solid with dimensions $a \times b \times c$,
+
+$$V = abc, \qquad V + \Delta V = (a + \alpha a \Delta T)(b + \alpha b \Delta T)(c + \alpha c \Delta T)$$
+
+Expanding and keeping only first-order terms in $\Delta T$:
+
+$$\Delta V \approx 3\alpha V \Delta T = \beta V \Delta T$$
+
+where $\beta \approx 3\alpha$ is the coefficient of volume expansion.
+
+For **liquids** (no linear expansion applies), $\Delta V = \beta V \Delta T$ directly. Note that $\beta$ is generally temperature-dependent, and for water, $\beta > 0$ usually but $\beta < 0$ near $4°\text{C}$ (water's anomalous expansion).
+
+### Phases and Latent Heat
+
+Matter exists in three common phases: **solid**, **liquid**, and **gas**. Phase transitions occur at specific temperatures and pressures.
+
+**Latent heat** ($\ell$) is the heat per kilogram required for a phase change:
+
+- $\ell_f$ — latent heat of fusion (solid $\leftrightarrow$ liquid)
+- $\ell_v$ — latent heat of vaporization (liquid $\leftrightarrow$ gas)
+
+### Heat Capacity
+
+**Heat capacity** $C$ is the heat required to raise the temperature of a system by one degree:
+
+$$C = \frac{\delta Q}{\delta T} \quad [\text{J/K}] \quad \text{(extensive)}$$
+
+**Specific heat capacity** $c$ is heat capacity per unit mass (or per mole):
+
+$$\delta Q = mc\,\delta T, \qquad c = \frac{C}{m} \quad [\text{J/(kg·K)}] \quad \text{(intensive)}$$
+
+### First Law of Thermodynamics
+
+For a process between two equilibrium states A and B, the quantity $Q + W$ is the same regardless of the path taken:
+
+$$\Delta U = Q + W$$
+
+where $Q$ is heat added to the system and $W$ is work done on the system. Internal energy $U$ is a **state function** — it depends only on the current state, not on how the system got there.
+
+
+## Ideal Gas and Kinetic Theory
+
+### The Ideal Gas Law
+
+An **ideal gas** satisfies:
+
+$$\boxed{PV = NkT = nRT}$$
+
+where:
+
+| Symbol | Meaning |
+|--------|---------|
+| $P$ | Pressure |
+| $V$ | Volume |
+| $N$ | Number of molecules |
+| $n$ | Number of moles |
+| $k = 1.38 \times 10^{-23}\;\text{J/K}$ | Boltzmann constant |
+| $R = 8.314\;\text{J/(K·mol)}$ | Gas constant |
+| $N_A = 6.022 \times 10^{23}\;\text{mol}^{-1}$ | Avogadro's number |
+
+: Ideal Gas Parameters {.striped .hover}
+
+Note $R = N_A k$.
+
+**Assumptions** of the ideal gas model:
+
+1. Particles have negligible volume and exert no long-range forces
+2. Total number of particles is large
+3. Newtonian mechanics applies
+4. Interactions occur through collisions of negligible duration
+5. Equipartition theorem holds
+
+### Equipartition Theorem
+
+On average, each degree of freedom contributes $\frac{1}{2}kT$ of energy per molecule:
+
+$$\varepsilon = \frac{f}{2}kT$$
+
+where $f$ is the number of degrees of freedom.
+
+| Molecule | $f$ | Example |
+|----------|------|---------|
+| Monatomic | 3 | He (3 translational) |
+| Diatomic | 5 | N$_2$ (3 translational + 2 rotational) |
+| Polyatomic | 6 | H$_2$O (3 translational + 3 rotational) |
+
+: Degrees of Freedom {.striped .hover}
+
+The total internal energy of an ideal gas is:
+
+$$\boxed{U = \frac{f}{2}NkT = \frac{f}{2}nRT}$$
+
+### Kinetic Theory of Gases
+
+Consider $N$ molecules in a box of side $L$. A molecule with velocity $v_x$ bouncing off a wall transfers momentum $\Delta p = 2mv_x$ each round trip (time $\Delta t = 2L/v_x$).
+
+The force from one molecule:
+
+$$F = \frac{\Delta p}{\Delta t} = \frac{2mv_x}{2L/v_x} = \frac{mv_x^2}{L}$$
+
+Summing over all $N$ molecules and using $P = F/A = F/L^2$:
+
+$$P = \frac{Nm\overline{v_x^2}}{L^3} = \frac{Nm\overline{v_x^2}}{V}$$
+
+Since the motion is isotropic, $\overline{v_x^2} = \frac{1}{3}\overline{v^2}$, so:
+
+$$\boxed{P = \frac{1}{3}\frac{Nm\overline{v^2}}{V} = \frac{1}{3}\rho v_\text{rms}^2}$$
+
+where $v_\text{rms} = \sqrt{\overline{v^2}}$ is the root-mean-square speed.
+
+### Dalton's Law
+
+For a mixture of gases, the total pressure is the sum of the partial pressures:
+
+$$P_\text{total} = \sum_i P_i$$
+
+### RMS Speed
+
+From $P = NkT/V$ and $P = \frac{1}{3}Nm\overline{v^2}/V$:
+
+$$\frac{1}{2}m\overline{v^2} = \frac{3}{2}kT \qquad \Longrightarrow \qquad v_\text{rms} = \sqrt{\frac{3kT}{m}}$$
+
+The total translational kinetic energy is:
+
+$$K_\text{trans} = \frac{3}{2}NkT = \frac{3}{2}PV$$
+
+
+## Thermodynamic Processes
+
+### PV Diagrams and Work
+
+The first law of thermodynamics:
+
+$$dU = \delta Q + \delta W$$
+
+where $U$ is a state function (path-independent). On a PV diagram, the work done *on* the gas is:
+
+$$\boxed{W = -\int_{V_1}^{V_2} P\,dV = -\text{(area under curve)}}$$
+
+The sign convention: $W > 0$ when work is done *on* the gas (compression), $W < 0$ when the gas expands.
+
+::: {.callout-warning}
+## TODO: Diagram
+PV diagram showing work as area under the curve for an expansion process, with labeled axes $P$ and $V$.
 :::
+
+### Special Processes
+
+| Process | Condition | Work | Heat |
+|---------|-----------|------|------|
+| **Isochoric** | $dV = 0$ | $W = 0$ | $Q = \Delta U$ |
+| **Isobaric** | $dP = 0$ | $W = -P\Delta V$ | $Q = \Delta U + P\Delta V$ |
+| **Isothermal** | $dT = 0$, $PV = \text{const}$ | $W = -NkT\ln\frac{V_2}{V_1}$ | $Q = -W$ |
+| **Adiabatic** | $\delta Q = 0$ | $W = \Delta U$ | $Q = 0$ |
+
+: Thermodynamic Processes {.striped .hover}
+
+### Isothermal Process
+
+For an ideal gas at constant temperature ($PV = NkT = \text{const}$):
+
+$$W_\text{isotherm} = -\int_{V_1}^{V_2} \frac{NkT}{V}\,dV = -NkT\ln\frac{V_2}{V_1}$$
+
+Since $dT = 0$, the internal energy doesn't change ($\Delta U = 0$ for an ideal gas), so:
+
+$$Q = -W = NkT\ln\frac{V_2}{V_1}$$
+
+### Specific Heat Capacities
+
+**At constant volume** ($dV = 0$, so $W = 0$):
+
+$$dU = \delta Q = nC_v\,dT$$
+
+Since $U = \frac{f}{2}nRT$, we get $dU = \frac{f}{2}nR\,dT$, giving:
+
+$$\boxed{C_v = \frac{f}{2}R}$$
+
+**At constant pressure** ($dP = 0$):
+
+$$dU = \delta Q + \delta W = nC_p\,dT - P\,dV$$
+
+Using $PV = nRT$, at constant pressure $P\,dV = nR\,dT$. Then:
+
+$$\frac{f}{2}nR\,dT = nC_p\,dT - nR\,dT$$
+
+$$\boxed{C_p = \left(\frac{f}{2} + 1\right)R}$$
+
+The **heat capacity ratio**:
+
+$$\boxed{\gamma = \frac{C_p}{C_v} = \frac{f + 2}{f}}$$
+
+| Gas type | $f$ | $\gamma$ |
+|----------|------|----------|
+| Monatomic | 3 | 5/3 |
+| Diatomic | 5 | 7/5 |
+| Polyatomic | 6 | 4/3 |
+
+: Heat Capacity Ratios {.striped .hover}
+
+### Adiabatic Process
+
+For an adiabatic process ($\delta Q = 0$), starting from the first law and using $dU = \frac{f}{2}nR\,dT$:
+
+$$dU = \delta W = -P\,dV$$
+
+$$\frac{f}{2}nR\,dT = -P\,dV$$
+
+Using $d(PV) = P\,dV + V\,dP = nR\,dT$, we can write:
+
+$$\frac{f}{2}(P\,dV + V\,dP) = -P\,dV$$
+
+$$\frac{f}{2}V\,dP = -\left(\frac{f}{2} + 1\right)P\,dV$$
+
+$$\frac{dP}{P} = -\gamma\frac{dV}{V}$$
+
+Integrating:
+
+$$\ln P + \gamma \ln V = \text{const}$$
+
+$$\boxed{PV^\gamma = \text{constant}}$$
+
+On a PV diagram, adiabats are steeper than isotherms (since $\gamma > 1$).
+
+::: {.callout-warning}
+## TODO: Diagram
+PV diagram comparing an isotherm and an adiabat through the same point, showing the adiabat is steeper.
+:::
+
+**Definitions:**
+
+- **Equilibrium**: no macroscopic changes; temperature is well-defined
+- **Quasistatic**: system is always in equilibrium; infinitely slow changes
+
+
+## Heat Engines and the Carnot Cycle
+
+### Heat Engines
+
+A **heat engine** absorbs heat $|Q_H|$ from a hot reservoir, does work $|W|$, and rejects heat $|Q_C|$ to a cold reservoir. By conservation of energy:
+
+$$|Q_H| = |W| + |Q_C|$$
+
+::: {.callout-warning}
+## TODO: Diagram
+Schematic of a heat engine: hot reservoir ($T_H$) at top, cold reservoir ($T_C$) at bottom, engine in middle with arrows showing $Q_H$ in, $W$ out, $Q_C$ out.
+:::
+
+The **efficiency** of a heat engine:
+
+$$e = \frac{|W|}{|Q_H|} = \frac{|Q_H| - |Q_C|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|}$$
+
+### Refrigerators
+
+A **refrigerator** is a heat engine run in reverse: it uses work $|W|$ to transfer heat from cold to hot.
+
+The **coefficient of performance**:
+
+$$K = \frac{|Q_C|}{|W|} = \frac{|Q_C|}{|Q_H| - |Q_C|}$$
+
+### Second Law of Thermodynamics
+
+**Kelvin–Planck form**: No process can convert heat completely into work (no perfect heat engine).
+
+**Clausius form**: No process can transfer heat from cold to hot with no other effect (no perfect refrigerator).
+
+These two statements are equivalent.
+
+### The Carnot Cycle
+
+Carnot constructed a conceptual engine from two isotherms and two adiabats:
+
+::: {.callout-warning}
+## TODO: Diagram
+PV diagram of Carnot cycle: four stages labeled A→B (isothermal expansion at $T_H$), B→C (adiabatic expansion), C→D (isothermal compression at $T_C$), D→A (adiabatic compression). Shaded area = net work.
+:::
+
+1. **A → B**: Isothermal expansion at $T_H$ (absorb $Q_H$)
+2. **B → C**: Adiabatic expansion ($T_H \to T_C$)
+3. **C → D**: Isothermal compression at $T_C$ (reject $Q_C$)
+4. **D → A**: Adiabatic compression ($T_C \to T_H$)
+
+For the isothermal stages:
+
+$$Q_{AB} = NkT_H \ln\frac{V_B}{V_A} > 0, \qquad Q_{CD} = NkT_C \ln\frac{V_D}{V_C} < 0$$
+
+For the adiabatic stages, $PV^\gamma = \text{const}$ with $PV = NkT$ gives $TV^{\gamma-1} = \text{const}$:
+
+$$T_H V_B^{\gamma-1} = T_C V_C^{\gamma-1}, \qquad T_H V_A^{\gamma-1} = T_C V_D^{\gamma-1}$$
+
+Dividing: $\frac{V_B}{V_A} = \frac{V_C}{V_D}$, so the logarithms in $Q_{AB}$ and $Q_{CD}$ have the same magnitude. The efficiency:
+
+$$e = 1 - \frac{|Q_C|}{|Q_H|} = 1 - \frac{T_C \ln(V_C/V_D)}{T_H \ln(V_B/V_A)} = 1 - \frac{T_C}{T_H}$$
+
+$$\boxed{e_\text{Carnot} = 1 - \frac{T_C}{T_H}}$$
+
+### Carnot Refrigerator
+
+Running the Carnot cycle in reverse gives a refrigerator with coefficient of performance:
+
+$$\boxed{K_\text{Carnot} = \frac{T_C}{T_H - T_C}}$$
+
+### Carnot's Theorem
+
+> The efficiency of any heat engine operating between two temperatures can never exceed the efficiency of a Carnot engine operating between the same two temperatures.
+
+**Proof by contradiction**: Suppose an engine has efficiency $e' > e_\text{Carnot}$. Use it to drive a Carnot refrigerator. The combined system would transfer heat from cold to hot with no work input — violating the Clausius form of the second law.
+
+The same argument shows that the Carnot refrigerator has the highest possible coefficient of performance.
+
+### Key Property of the Carnot Cycle
+
+For any Carnot cycle:
+
+$$\frac{|Q_H|}{T_H} = \frac{|Q_C|}{T_C}, \qquad \text{or equivalently} \qquad \frac{Q_H}{T_H} + \frac{Q_C}{T_C} = 0$$
+
+The Carnot cycle is **reversible**. Any reversible process can be approximated as a sum of infinitesimal Carnot cycles, which means:
+
+$$\oint \frac{\delta Q}{T} = 0 \quad \text{(for any reversible cycle)}$$
+
+
+## Entropy
+
+### Entropy as a State Function
+
+Since $\oint \frac{\delta Q}{T} = 0$ for reversible processes, $\frac{\delta Q}{T}$ defines an exact differential for a state function — **entropy**:
+
+$$dS = \frac{\delta Q_\text{rev}}{T}$$
+
+The entropy change between two states A and B is:
+
+$$\Delta S = \int_A^B \frac{\delta Q_\text{rev}}{T}$$
+
+and is independent of the path taken (as long as we use a reversible path to calculate it).
+
+### Second Law in Terms of Entropy
+
+For a reversible process, $\Delta S_\text{system} + \Delta S_\text{surroundings} = 0$.
+
+For an irreversible process, consider heat flow: if $T_\text{sys} < T_\text{surr}$ (heat flows in), then $dQ_\text{sys} > 0$ and $dQ_\text{surr} < 0$, with $|dQ_\text{surr}/T_\text{surr}| < |dQ_\text{sys}/T_\text{sys}|$ since $T_\text{surr} > T_\text{sys}$. Therefore:
+
+$$\boxed{\Delta S_\text{universe} \ge 0}$$
+
+with equality only for reversible processes. This is the **second law of thermodynamics**: in any process between equilibrium states, the total entropy of the universe cannot decrease.
+
+### Entropy and Adiabatic Processes
+
+For an adiabatic process, $\delta Q = 0$, so $dS = \delta Q/T = 0$. A reversible adiabatic process is therefore **isentropic** ($\Delta S = 0$).
+
+### The Carnot Cycle on a T–S Diagram
+
+On a temperature-entropy ($T$–$S$) diagram, the Carnot cycle is a rectangle:
+
+::: {.callout-warning}
+## TODO: Diagram
+T–S diagram of Carnot cycle: rectangle with isotherms (horizontal lines at $T_H$ and $T_C$) and adiabats (vertical lines). Shaded area = net work. $Q = \int T\,dS$ along isotherms.
+:::
+
+The heat exchanged is:
+
+$$Q = \int T\,dS = \text{area under curve on T–S diagram}$$
+
+The net work equals the enclosed area of the cycle on the T–S diagram (just as it equals the enclosed area on the PV diagram).
+
+
+## Phase Diagrams
+
+### Ideal vs Real Gases
+
+The ideal gas law $PV = NkT$ is an excellent approximation in many regimes but fails at **extremes** — very high pressure or very low temperature — where intermolecular forces and finite molecular volume matter. Under these conditions, gases can **liquefy**.
+
+### Phase Diagram
+
+A **phase diagram** plots pressure vs temperature, showing the regions where each phase (solid, liquid, gas) is stable.
+
+::: {.callout-warning}
+## TODO: Diagram
+Phase diagram showing solid, liquid, and gas regions. Label the triple point, critical point, lines of coexistence (sublimation, melting, boiling), and the special features for water (negative slope of melting curve).
+:::
+
+Key features:
+
+- **Triple point**: the unique $(P, T)$ where all three phases coexist in equilibrium
+- **Critical point**: beyond this, no distinction between liquid and gas (supercritical fluid)
+- **Lines of coexistence**: boundaries between phases (sublimation, melting, boiling lines)
+- For **water**, the melting curve has a negative slope (ice is less dense than water), which is unusual
+
+### Phase Transitions on a T–S Diagram
+
+During a constant-pressure phase change:
+
+::: {.callout-warning}
+## TODO: Diagram
+T–S diagram showing constant-pressure heating: temperature rises, then plateaus during phase change (latent heat absorbed at constant T increases entropy), then rises again.
+:::
+
+- Temperature increases until the phase boundary is reached
+- During the phase change, temperature remains constant while entropy increases (latent heat is absorbed: $\Delta S = Q/T = m\ell/T$)
+- After the phase change completes, temperature rises again
+
+The **van der Waals model** accounts for intermolecular attraction and finite molecular volume, providing a qualitative description of the gas-to-liquid transition.

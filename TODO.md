@@ -19,7 +19,7 @@
 ## Phase 2: Transcribe IPhO Notes (169 photos → chapters)
 - [x] Catalog all 169 photos by topic (see `images/IPhO_notes_catalog.md`)
 - [x] **Chapter 4: Mechanics** (`mechanics.qmd`) — forces, energy, momentum, rotation
-- [ ] **Chapter 5: Thermodynamics** (`thermo.qmd`) — gas laws, entropy, heat engines
+- [x] **Chapter 5: Thermodynamics** (`thermo.qmd`) — gas laws, entropy, heat engines
 - [ ] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
 - [ ] **Chapter 7: Optics** (`optics.qmd`) — mirrors, lenses, diffraction, phasors
 - [ ] **Chapter 8: Electrostatics** (`electrostatics.qmd`) — Coulomb, fields, Gauss's law
