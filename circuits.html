@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -396,8 +425,76 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#dc-circuits" id="toc-dc-circuits" class="nav-link active" data-scroll-target="#dc-circuits"><span class="header-section-number">7.1</span> DC Circuits</a>
+  <ul class="collapse">
+  <li><a href="#current-and-voltage" id="toc-current-and-voltage" class="nav-link" data-scroll-target="#current-and-voltage"><span class="header-section-number">7.1.1</span> Current and Voltage</a></li>
+  <li><a href="#ohms-law" id="toc-ohms-law" class="nav-link" data-scroll-target="#ohms-law"><span class="header-section-number">7.1.2</span> Ohm’s Law</a></li>
+  <li><a href="#power-dissipation" id="toc-power-dissipation" class="nav-link" data-scroll-target="#power-dissipation"><span class="header-section-number">7.1.3</span> Power Dissipation</a></li>
+  <li><a href="#emf-and-internal-resistance" id="toc-emf-and-internal-resistance" class="nav-link" data-scroll-target="#emf-and-internal-resistance"><span class="header-section-number">7.1.4</span> EMF and Internal Resistance</a></li>
+  <li><a href="#kirchhoffs-laws" id="toc-kirchhoffs-laws" class="nav-link" data-scroll-target="#kirchhoffs-laws"><span class="header-section-number">7.1.5</span> Kirchhoff’s Laws</a></li>
+  <li><a href="#resistors-in-series-and-parallel" id="toc-resistors-in-series-and-parallel" class="nav-link" data-scroll-target="#resistors-in-series-and-parallel"><span class="header-section-number">7.1.6</span> Resistors in Series and Parallel</a></li>
+  <li><a href="#measurements" id="toc-measurements" class="nav-link" data-scroll-target="#measurements"><span class="header-section-number">7.1.7</span> Measurements</a></li>
+  </ul></li>
+  <li><a href="#capacitors-and-inductors" id="toc-capacitors-and-inductors" class="nav-link" data-scroll-target="#capacitors-and-inductors"><span class="header-section-number">7.2</span> Capacitors and Inductors</a>
+  <ul class="collapse">
+  <li><a href="#capacitors" id="toc-capacitors" class="nav-link" data-scroll-target="#capacitors"><span class="header-section-number">7.2.1</span> Capacitors</a></li>
+  <li><a href="#inductors" id="toc-inductors" class="nav-link" data-scroll-target="#inductors"><span class="header-section-number">7.2.2</span> Inductors</a></li>
+  </ul></li>
+  <li><a href="#transient-circuits" id="toc-transient-circuits" class="nav-link" data-scroll-target="#transient-circuits"><span class="header-section-number">7.3</span> Transient Circuits</a>
+  <ul class="collapse">
+  <li><a href="#rc-circuit" id="toc-rc-circuit" class="nav-link" data-scroll-target="#rc-circuit"><span class="header-section-number">7.3.1</span> RC Circuit</a></li>
+  <li><a href="#rl-circuit" id="toc-rl-circuit" class="nav-link" data-scroll-target="#rl-circuit"><span class="header-section-number">7.3.2</span> RL Circuit</a></li>
+  <li><a href="#lc-circuit" id="toc-lc-circuit" class="nav-link" data-scroll-target="#lc-circuit"><span class="header-section-number">7.3.3</span> LC Circuit</a></li>
+  </ul></li>
+  <li><a href="#magnetostatics" id="toc-magnetostatics" class="nav-link" data-scroll-target="#magnetostatics"><span class="header-section-number">7.4</span> Magnetostatics</a>
+  <ul class="collapse">
+  <li><a href="#magnetic-fields" id="toc-magnetic-fields" class="nav-link" data-scroll-target="#magnetic-fields"><span class="header-section-number">7.4.1</span> Magnetic Fields</a></li>
+  <li><a href="#the-lorentz-force" id="toc-the-lorentz-force" class="nav-link" data-scroll-target="#the-lorentz-force"><span class="header-section-number">7.4.2</span> The Lorentz Force</a></li>
+  <li><a href="#drift-velocity-and-current-carrying-wires" id="toc-drift-velocity-and-current-carrying-wires" class="nav-link" data-scroll-target="#drift-velocity-and-current-carrying-wires"><span class="header-section-number">7.4.3</span> Drift Velocity and Current-Carrying Wires</a></li>
+  <li><a href="#the-biotsavart-law" id="toc-the-biotsavart-law" class="nav-link" data-scroll-target="#the-biotsavart-law"><span class="header-section-number">7.4.4</span> The Biot–Savart Law</a></li>
+  <li><a href="#magnetic-field-of-a-long-straight-wire" id="toc-magnetic-field-of-a-long-straight-wire" class="nav-link" data-scroll-target="#magnetic-field-of-a-long-straight-wire"><span class="header-section-number">7.4.5</span> Magnetic Field of a Long Straight Wire</a></li>
+  <li><a href="#force-between-parallel-conductors" id="toc-force-between-parallel-conductors" class="nav-link" data-scroll-target="#force-between-parallel-conductors"><span class="header-section-number">7.4.6</span> Force Between Parallel Conductors</a></li>
+  <li><a href="#ampères-law" id="toc-ampères-law" class="nav-link" data-scroll-target="#ampères-law"><span class="header-section-number">7.4.7</span> Ampère’s Law</a></li>
+  <li><a href="#solenoids" id="toc-solenoids" class="nav-link" data-scroll-target="#solenoids"><span class="header-section-number">7.4.8</span> Solenoids</a></li>
+  <li><a href="#magnetic-dipoles" id="toc-magnetic-dipoles" class="nav-link" data-scroll-target="#magnetic-dipoles"><span class="header-section-number">7.4.9</span> Magnetic Dipoles</a></li>
+  </ul></li>
+  <li><a href="#electromagnetic-induction" id="toc-electromagnetic-induction" class="nav-link" data-scroll-target="#electromagnetic-induction"><span class="header-section-number">7.5</span> Electromagnetic Induction</a>
+  <ul class="collapse">
+  <li><a href="#magnetic-flux" id="toc-magnetic-flux" class="nav-link" data-scroll-target="#magnetic-flux"><span class="header-section-number">7.5.1</span> Magnetic Flux</a></li>
+  <li><a href="#faradays-law" id="toc-faradays-law" class="nav-link" data-scroll-target="#faradays-law"><span class="header-section-number">7.5.2</span> Faraday’s Law</a></li>
+  <li><a href="#lenzs-law" id="toc-lenzs-law" class="nav-link" data-scroll-target="#lenzs-law"><span class="header-section-number">7.5.3</span> Lenz’s Law</a></li>
+  <li><a href="#motional-emf" id="toc-motional-emf" class="nav-link" data-scroll-target="#motional-emf"><span class="header-section-number">7.5.4</span> Motional EMF</a></li>
+  <li><a href="#inductance" id="toc-inductance" class="nav-link" data-scroll-target="#inductance"><span class="header-section-number">7.5.5</span> Inductance</a></li>
+  <li><a href="#mutual-inductance" id="toc-mutual-inductance" class="nav-link" data-scroll-target="#mutual-inductance"><span class="header-section-number">7.5.6</span> Mutual Inductance</a></li>
+  <li><a href="#magnetic-materials" id="toc-magnetic-materials" class="nav-link" data-scroll-target="#magnetic-materials"><span class="header-section-number">7.5.7</span> Magnetic Materials</a></li>
+  <li><a href="#energy-in-a-magnetic-field" id="toc-energy-in-a-magnetic-field" class="nav-link" data-scroll-target="#energy-in-a-magnetic-field"><span class="header-section-number">7.5.8</span> Energy in a Magnetic Field</a></li>
+  </ul></li>
+  <li><a href="#ac-circuits" id="toc-ac-circuits" class="nav-link" data-scroll-target="#ac-circuits"><span class="header-section-number">7.6</span> AC Circuits</a>
+  <ul class="collapse">
+  <li><a href="#alternating-current" id="toc-alternating-current" class="nav-link" data-scroll-target="#alternating-current"><span class="header-section-number">7.6.1</span> Alternating Current</a></li>
+  <li><a href="#impedance" id="toc-impedance" class="nav-link" data-scroll-target="#impedance"><span class="header-section-number">7.6.2</span> Impedance</a></li>
+  <li><a href="#phase-relationships" id="toc-phase-relationships" class="nav-link" data-scroll-target="#phase-relationships"><span class="header-section-number">7.6.3</span> Phase Relationships</a></li>
+  <li><a href="#series-rlc-circuit" id="toc-series-rlc-circuit" class="nav-link" data-scroll-target="#series-rlc-circuit"><span class="header-section-number">7.6.4</span> Series RLC Circuit</a></li>
+  <li><a href="#resonance" id="toc-resonance" class="nav-link" data-scroll-target="#resonance"><span class="header-section-number">7.6.5</span> Resonance</a></li>
+  <li><a href="#power-in-ac-circuits" id="toc-power-in-ac-circuits" class="nav-link" data-scroll-target="#power-in-ac-circuits"><span class="header-section-number">7.6.6</span> Power in AC Circuits</a></li>
+  <li><a href="#rms-values" id="toc-rms-values" class="nav-link" data-scroll-target="#rms-values"><span class="header-section-number">7.6.7</span> RMS Values</a></li>
+  <li><a href="#frequency-filtering" id="toc-frequency-filtering" class="nav-link" data-scroll-target="#frequency-filtering"><span class="header-section-number">7.6.8</span> Frequency Filtering</a></li>
+  </ul></li>
+  <li><a href="#maxwells-equations-and-electromagnetic-waves" id="toc-maxwells-equations-and-electromagnetic-waves" class="nav-link" data-scroll-target="#maxwells-equations-and-electromagnetic-waves"><span class="header-section-number">7.7</span> Maxwell’s Equations and Electromagnetic Waves</a>
+  <ul class="collapse">
+  <li><a href="#energy-density-of-the-electric-field" id="toc-energy-density-of-the-electric-field" class="nav-link" data-scroll-target="#energy-density-of-the-electric-field"><span class="header-section-number">7.7.1</span> Energy Density of the Electric Field</a></li>
+  <li><a href="#maxwells-equations" id="toc-maxwells-equations" class="nav-link" data-scroll-target="#maxwells-equations"><span class="header-section-number">7.7.2</span> Maxwell’s Equations</a></li>
+  <li><a href="#displacement-current" id="toc-displacement-current" class="nav-link" data-scroll-target="#displacement-current"><span class="header-section-number">7.7.3</span> Displacement Current</a></li>
+  <li><a href="#electromagnetic-waves" id="toc-electromagnetic-waves" class="nav-link" data-scroll-target="#electromagnetic-waves"><span class="header-section-number">7.7.4</span> Electromagnetic Waves</a></li>
+  <li><a href="#the-poynting-vector" id="toc-the-poynting-vector" class="nav-link" data-scroll-target="#the-poynting-vector"><span class="header-section-number">7.7.5</span> The Poynting Vector</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,21 +519,451 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="dc-circuits" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="dc-circuits"><span class="header-section-number">7.1</span> DC Circuits</h2>
+<section id="current-and-voltage" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="current-and-voltage"><span class="header-section-number">7.1.1</span> Current and Voltage</h3>
+<p>An <strong>electric circuit</strong> is a closed loop through which charge flows, transferring electrical energy. <strong>Current</strong> <span class="math inline">\(I\)</span> is the flow of positive charge:</p>
+<p><span class="math display">\[I = \frac{dq}{dt}\]</span></p>
+<p>measured in <strong>amperes</strong> (A = C/s).</p>
+<p><strong>Voltage</strong> <span class="math inline">\(V\)</span> is the electric potential difference between two points, measured in <strong>volts</strong> (V). It is an intensive quantity — the energy per unit charge.</p>
+</section>
+<section id="ohms-law" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="ohms-law"><span class="header-section-number">7.1.2</span> Ohm’s Law</h3>
+<p>The voltage across a resistor is proportional to the current through it:</p>
+<p><span class="math display">\[\boxed{V = IR}\]</span></p>
+<p>where <span class="math inline">\(R\)</span> is the <strong>resistance</strong> (in ohms, <span class="math inline">\(\Omega\)</span>). Resistors convert electrical energy into heat.</p>
+</section>
+<section id="power-dissipation" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="power-dissipation"><span class="header-section-number">7.1.3</span> Power Dissipation</h3>
+<p>The power dissipated in a resistor:</p>
+<p><span class="math display">\[\boxed{P = IV = I^2 R = \frac{V^2}{R}}\]</span></p>
+<p>These three forms are equivalent via Ohm’s law. Use whichever is most convenient given the known quantities.</p>
+</section>
+<section id="emf-and-internal-resistance" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="emf-and-internal-resistance"><span class="header-section-number">7.1.4</span> EMF and Internal Resistance</h3>
+<p>A <strong>cell</strong> (battery) is a DC source with electromotive force (EMF) <span class="math inline">\(\mathcal{E}\)</span>. An ideal battery maintains constant potential <span class="math inline">\(\mathcal{E}\)</span>, giving <span class="math inline">\(I = \mathcal{E}/R\)</span>.</p>
+<p>A real battery has <strong>internal resistance</strong> <span class="math inline">\(r\)</span>. The terminal voltage is:</p>
+<p><span class="math display">\[V = \mathcal{E} - Ir\]</span></p>
+<p>If <span class="math inline">\(r\)</span> is comparable to <span class="math inline">\(R\)</span>, significant power is dissipated inside the battery. With no current flowing (open circuit), <span class="math inline">\(V = \mathcal{E}\)</span>.</p>
+</section>
+<section id="kirchhoffs-laws" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="kirchhoffs-laws"><span class="header-section-number">7.1.5</span> Kirchhoff’s Laws</h3>
+<p><strong>Kirchhoff’s junction rule</strong> (charge conservation): The total current entering a junction equals the total current leaving:</p>
+<p><span class="math display">\[\sum I_\text{in} = \sum I_\text{out}\]</span></p>
+<p><strong>Kirchhoff’s loop rule</strong> (energy conservation): The sum of potential differences around any closed loop is zero:</p>
+<p><span class="math display">\[\sum \Delta V = 0\]</span></p>
+<p>No perpetual motion — what goes up must come down.</p>
+</section>
+<section id="resistors-in-series-and-parallel" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="resistors-in-series-and-parallel"><span class="header-section-number">7.1.6</span> Resistors in Series and Parallel</h3>
+<p><strong>Series</strong> (same current through each):</p>
+<p><span class="math display">\[\boxed{R_\text{series} = R_1 + R_2 + \cdots}\]</span></p>
+<p><strong>Parallel</strong> (same voltage across each):</p>
+<p><span class="math display">\[\boxed{\frac{1}{R_\text{parallel}} = \frac{1}{R_1} + \frac{1}{R_2} + \cdots}\]</span></p>
+<p>Complex circuits can be solved by finding the effective resistance, or by applying Kirchhoff’s laws directly (which may require solving systems of equations — matrix methods work well).</p>
+</section>
+<section id="measurements" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="measurements"><span class="header-section-number">7.1.7</span> Measurements</h3>
+<p>A <strong>voltmeter</strong> measures voltage and has very high resistance (ideally infinite) — it draws negligible current. An <strong>ammeter</strong> measures current and has very low resistance (ideally zero) — it doesn’t affect the circuit. In practice, neither is perfect.</p>
+</section>
+</section>
+<section id="capacitors-and-inductors" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="capacitors-and-inductors"><span class="header-section-number">7.2</span> Capacitors and Inductors</h2>
+<section id="capacitors" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="capacitors"><span class="header-section-number">7.2.1</span> Capacitors</h3>
+<p>A <strong>capacitor</strong> stores energy in an electric field. The voltage across a capacitor is:</p>
+<p><span class="math display">\[V = \frac{q}{C}\]</span></p>
+<p>where <span class="math inline">\(C\)</span> is the <strong>capacitance</strong>. (See the Electrostatics chapter for the derivation of <span class="math inline">\(C = \varepsilon_0 A/d\)</span> for parallel plates.)</p>
+<p><strong>Capacitors in series:</strong></p>
+<p><span class="math display">\[\boxed{\frac{1}{C_\text{series}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots}\]</span></p>
+<p><strong>Capacitors in parallel:</strong></p>
+<p><span class="math display">\[\boxed{C_\text{parallel} = C_1 + C_2 + \cdots}\]</span></p>
+<p>Note: capacitors combine opposite to resistors — series adds reciprocals, parallel adds directly.</p>
+<p>Energy stored in a capacitor:</p>
+<p><span class="math display">\[\boxed{U = \frac{1}{2}CV^2 = \frac{1}{2}\frac{q^2}{C}}\]</span></p>
+</section>
+<section id="inductors" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="inductors"><span class="header-section-number">7.2.2</span> Inductors</h3>
+<p>An <strong>inductor</strong> stores energy in a magnetic field. The voltage across an inductor is:</p>
+<p><span class="math display">\[\boxed{V = L\frac{dI}{dt}}\]</span></p>
+<p>where <span class="math inline">\(L\)</span> is the <strong>inductance</strong> (in henries, H). This has the same form as <span class="math inline">\(V = q/C\)</span> for capacitors, but with current replacing charge and a time derivative.</p>
+<p><strong>Inductors in series:</strong></p>
+<p><span class="math display">\[\boxed{L_\text{series} = L_1 + L_2 + \cdots}\]</span></p>
+<p><strong>Inductors in parallel:</strong></p>
+<p><span class="math display">\[\boxed{\frac{1}{L_\text{parallel}} = \frac{1}{L_1} + \frac{1}{L_2} + \cdots}\]</span></p>
+<p>Inductors combine like resistors — series adds directly, parallel adds reciprocals.</p>
+<p>Energy stored in an inductor:</p>
+<p><span class="math display">\[\boxed{U = \frac{1}{2}LI^2}\]</span></p>
+</section>
+</section>
+<section id="transient-circuits" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="transient-circuits"><span class="header-section-number">7.3</span> Transient Circuits</h2>
+<p>Transients happen once, then the circuit reaches equilibrium.</p>
+<section id="rc-circuit" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="rc-circuit"><span class="header-section-number">7.3.1</span> RC Circuit</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status
+<span class="screen-reader-only">Warning</span>TODO: Diagram
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Content to be transcribed from IPhO notes.</p>
+<p>RC circuit with battery, switch, resistor <span class="math inline">\(R\)</span>, and capacitor <span class="math inline">\(C\)</span>. Show charging curve <span class="math inline">\(q(t) = CV(1 - e^{-t/RC})\)</span> approaching <span class="math inline">\(CV\)</span> asymptotically. Mark the time constant <span class="math inline">\(\tau = RC\)</span>.</p>
 </div>
 </div>
+<p>Applying Kirchhoff’s loop rule to a charging RC circuit:</p>
+<p><span class="math display">\[V = IR + \frac{q}{C} = 0\]</span></p>
+<p>Since <span class="math inline">\(I = dq/dt\)</span>, this gives a first-order ODE. Solving with the initial condition <span class="math inline">\(q(0) = 0\)</span>:</p>
+<p><span class="math display">\[\boxed{q(t) = CV\left(1 - e^{-t/RC}\right)}\]</span></p>
+<p>The <strong>time constant</strong> <span class="math inline">\(\tau = RC\)</span> sets the charging timescale. After one time constant, the capacitor has charged to <span class="math inline">\(\approx 63\%\)</span> (<span class="math inline">\(1 - 1/e\)</span>) of its final value. Small <span class="math inline">\(\tau\)</span> means fast charging.</p>
+<p><strong>Discharging</strong> (remove the battery): <span class="math inline">\(q(t) = CV\, e^{-t/RC}\)</span>.</p>
+</section>
+<section id="rl-circuit" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="rl-circuit"><span class="header-section-number">7.3.2</span> RL Circuit</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RL circuit with battery, switch, resistor <span class="math inline">\(R\)</span>, and inductor <span class="math inline">\(L\)</span>. Show current curve <span class="math inline">\(I(t) = (V/R)(1 - e^{-Rt/L})\)</span> approaching <span class="math inline">\(V/R\)</span> asymptotically. Mark the time constant <span class="math inline">\(\tau = L/R\)</span>.</p>
+</div>
+</div>
+<p>Applying Kirchhoff’s loop rule:</p>
+<p><span class="math display">\[V = IR + L\frac{dI}{dt}\]</span></p>
+<p>Solving with <span class="math inline">\(I(0) = 0\)</span>:</p>
+<p><span class="math display">\[\boxed{I(t) = \frac{V}{R}\left(1 - e^{-Rt/L}\right)}\]</span></p>
+<p>The time constant is <span class="math inline">\(\tau = L/R\)</span>. After one time constant, the current has reached <span class="math inline">\(\approx 63\%\)</span> of its final value <span class="math inline">\(V/R\)</span>.</p>
+<p><strong>Discharging</strong> (remove the battery): <span class="math inline">\(I(t) = (V/R)\,e^{-Rt/L}\)</span>.</p>
+</section>
+<section id="lc-circuit" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="lc-circuit"><span class="header-section-number">7.3.3</span> LC Circuit</h3>
+<p>An LC circuit with no resistance is <strong>oscillatory</strong> — the energy sloshes between the capacitor (electric field) and inductor (magnetic field):</p>
+<p><span class="math display">\[\frac{q}{C} + L\frac{dI}{dt} = 0\]</span></p>
+<p>Since <span class="math inline">\(I = dq/dt\)</span>:</p>
+<p><span class="math display">\[\frac{d^2q}{dt^2} + \frac{q}{LC} = 0\]</span></p>
+<p>This is the SHM equation with:</p>
+<p><span class="math display">\[\boxed{\omega = \frac{1}{\sqrt{LC}}}\]</span></p>
+<p>Adding resistance gives a damped RLC circuit, which decays to the LC oscillation (see AC circuits below).</p>
+</section>
+</section>
+<section id="magnetostatics" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="magnetostatics"><span class="header-section-number">7.4</span> Magnetostatics</h2>
+<section id="magnetic-fields" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="magnetic-fields"><span class="header-section-number">7.4.1</span> Magnetic Fields</h3>
+<p>Magnets produce <strong>magnetic fields</strong> <span class="math inline">\(\vec{B}\)</span>, measured in <strong>tesla</strong> (T). Unlike electric charges, there are no magnetic monopoles — magnetic field lines always form closed loops (north to south outside the magnet, south to north inside).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bar magnet field lines forming closed loops from N to S externally. Earth’s magnetic field — note that Earth’s geographic north pole is actually a magnetic south pole.</p>
+</div>
+</div>
+</section>
+<section id="the-lorentz-force" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="the-lorentz-force"><span class="header-section-number">7.4.2</span> The Lorentz Force</h3>
+<p>A charged particle moving in electric and magnetic fields experiences the <strong>Lorentz force</strong>:</p>
+<p><span class="math display">\[\boxed{\vec{F} = q(\vec{E} + \vec{v}\times\vec{B})}\]</span></p>
+<p>The magnetic force is always perpendicular to the velocity — it can change the direction of motion but <strong>cannot do work</strong> (since <span class="math inline">\(\vec{F}\cdot\vec{v} = q(\vec{v}\times\vec{B})\cdot\vec{v} = 0\)</span>).</p>
+<p>A particle moving perpendicular to a uniform <span class="math inline">\(\vec{B}\)</span> follows a <strong>circular path</strong>: the magnetic force provides centripetal acceleration.</p>
+</section>
+<section id="drift-velocity-and-current-carrying-wires" class="level3" data-number="7.4.3">
+<h3 data-number="7.4.3" class="anchored" data-anchor-id="drift-velocity-and-current-carrying-wires"><span class="header-section-number">7.4.3</span> Drift Velocity and Current-Carrying Wires</h3>
+<p>In a conductor, current arises from the <strong>drift velocity</strong> <span class="math inline">\(v_d\)</span> of charge carriers. For <span class="math inline">\(n\)</span> carriers per unit volume in a wire of cross-sectional area <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[I = nqv_d A\]</span></p>
+<p>The force on a current-carrying wire of length <span class="math inline">\(\vec{L}\)</span> in a magnetic field:</p>
+<p><span class="math display">\[\boxed{\vec{F} = I\vec{L}\times\vec{B}}\]</span></p>
+</section>
+<section id="the-biotsavart-law" class="level3" data-number="7.4.4">
+<h3 data-number="7.4.4" class="anchored" data-anchor-id="the-biotsavart-law"><span class="header-section-number">7.4.4</span> The Biot–Savart Law</h3>
+<p>A current-carrying wire produces a magnetic field. The contribution from an infinitesimal element <span class="math inline">\(d\vec{l}\)</span> carrying current <span class="math inline">\(I\)</span>:</p>
+<p><span class="math display">\[\boxed{d\vec{B} = \frac{\mu_0}{4\pi}\frac{I\,d\vec{l}\times\hat{r}}{r^2}}\]</span></p>
+<p>where <span class="math inline">\(\mu_0 = 4\pi \times 10^{-7}\;\text{T}\cdot\text{m/A}\)</span> is the <strong>permeability of free space</strong>.</p>
+</section>
+<section id="magnetic-field-of-a-long-straight-wire" class="level3" data-number="7.4.5">
+<h3 data-number="7.4.5" class="anchored" data-anchor-id="magnetic-field-of-a-long-straight-wire"><span class="header-section-number">7.4.5</span> Magnetic Field of a Long Straight Wire</h3>
+<p>Integrating the Biot–Savart law for an infinite straight wire:</p>
+<p><span class="math display">\[\boxed{B = \frac{\mu_0 I}{2\pi d}}\]</span></p>
+<p>where <span class="math inline">\(d\)</span> is the perpendicular distance from the wire. The field wraps around the wire (right-hand rule).</p>
+</section>
+<section id="force-between-parallel-conductors" class="level3" data-number="7.4.6">
+<h3 data-number="7.4.6" class="anchored" data-anchor-id="force-between-parallel-conductors"><span class="header-section-number">7.4.6</span> Force Between Parallel Conductors</h3>
+<p>Two parallel wires carrying currents <span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_2\)</span> separated by distance <span class="math inline">\(d\)</span> exert a force per unit length on each other:</p>
+<p><span class="math display">\[\boxed{\frac{F}{L} = \frac{\mu_0}{2\pi}\frac{I_1 I_2}{d}}\]</span></p>
+<p>Parallel currents attract; antiparallel currents repel. This force was historically used to define the ampere.</p>
+</section>
+<section id="ampères-law" class="level3" data-number="7.4.7">
+<h3 data-number="7.4.7" class="anchored" data-anchor-id="ampères-law"><span class="header-section-number">7.4.7</span> Ampère’s Law</h3>
+<p>The magnetic analogue of Gauss’s law — relates the line integral of <span class="math inline">\(\vec{B}\)</span> around a closed loop to the enclosed current:</p>
+<p><span class="math display">\[\boxed{\oint \vec{B}\cdot d\vec{s} = \mu_0 I_\text{enc}}\]</span></p>
+<p>Like Gauss’s law, this is always true but most <em>useful</em> when symmetry makes <span class="math inline">\(\vec{B}\)</span> constant along the path and parallel (or perpendicular) to <span class="math inline">\(d\vec{s}\)</span>.</p>
+</section>
+<section id="solenoids" class="level3" data-number="7.4.8">
+<h3 data-number="7.4.8" class="anchored" data-anchor-id="solenoids"><span class="header-section-number">7.4.8</span> Solenoids</h3>
+<p>A <strong>solenoid</strong> is a tightly wound coil of wire. Inside an ideal solenoid (infinite length, negligible edge effects), the field is uniform and parallel to the axis. Outside, it’s approximately zero.</p>
+<p>Applying Ampère’s law to a rectangular path:</p>
+<p><span class="math display">\[BL = \mu_0 N I\]</span></p>
+<p>where <span class="math inline">\(N\)</span> is the number of turns enclosed by the path and <span class="math inline">\(n = N/L\)</span> is the number of turns per unit length:</p>
+<p><span class="math display">\[\boxed{B = \mu_0 n I}\]</span></p>
+<p>The field depends only on the current and turn density — not on the radius.</p>
+</section>
+<section id="magnetic-dipoles" class="level3" data-number="7.4.9">
+<h3 data-number="7.4.9" class="anchored" data-anchor-id="magnetic-dipoles"><span class="header-section-number">7.4.9</span> Magnetic Dipoles</h3>
+<p>A current loop has a <strong>magnetic dipole moment</strong>:</p>
+<p><span class="math display">\[\vec{\mu} = I\vec{A}\]</span></p>
+<p>where <span class="math inline">\(\vec{A}\)</span> is the area vector (direction by right-hand rule). Far from the loop, the field has the same structure as an electric dipole field.</p>
+<p>In an external field, a magnetic dipole experiences a <strong>torque</strong>:</p>
+<p><span class="math display">\[\boxed{\vec{\tau} = \vec{\mu}\times\vec{B}}\]</span></p>
+<p>This is the principle behind <strong>electric motors</strong> — current loops in magnetic fields experience torques that produce rotation.</p>
+<p>The <strong>potential energy</strong> of a magnetic dipole:</p>
+<p><span class="math display">\[\boxed{U = -\vec{\mu}\cdot\vec{B}}\]</span></p>
+<p>Minimum energy when <span class="math inline">\(\vec{\mu} \parallel \vec{B}\)</span> (aligned); maximum when antiparallel.</p>
+</section>
+</section>
+<section id="electromagnetic-induction" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="electromagnetic-induction"><span class="header-section-number">7.5</span> Electromagnetic Induction</h2>
+<section id="magnetic-flux" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="magnetic-flux"><span class="header-section-number">7.5.1</span> Magnetic Flux</h3>
+<p>The <strong>magnetic flux</strong> through a surface:</p>
+<p><span class="math display">\[\Phi_B = \oint \vec{B}\cdot d\vec{A}\]</span></p>
+<p>If <span class="math inline">\(\vec{B}\)</span> is uniform and perpendicular to a flat area <span class="math inline">\(A\)</span>: <span class="math inline">\(\Phi_B = BA\)</span>.</p>
+</section>
+<section id="faradays-law" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="faradays-law"><span class="header-section-number">7.5.2</span> Faraday’s Law</h3>
+<p>A changing magnetic flux through a loop induces an EMF:</p>
+<p><span class="math display">\[\boxed{\mathcal{E} = -\frac{d\Phi_B}{dt}}\]</span></p>
+<p>The flux can change by changing <span class="math inline">\(B\)</span>, changing the area <span class="math inline">\(A\)</span>, or changing the orientation.</p>
+</section>
+<section id="lenzs-law" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="lenzs-law"><span class="header-section-number">7.5.3</span> Lenz’s Law</h3>
+<p>The direction of the induced EMF <strong>opposes</strong> the change in magnetic flux that caused it. This is a consequence of conservation of energy — if it aided the change, we’d get energy for free.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wire loop being pulled out of a region of magnetic field (into the page). Show: decreasing flux, induced current direction (to oppose the decrease), and the retarding force on the loop. Include right-hand rule orientation.</p>
+</div>
+</div>
+</section>
+<section id="motional-emf" class="level3" data-number="7.5.4">
+<h3 data-number="7.5.4" class="anchored" data-anchor-id="motional-emf"><span class="header-section-number">7.5.4</span> Motional EMF</h3>
+<p>A wire of length <span class="math inline">\(h\)</span> moving with velocity <span class="math inline">\(v_0\)</span> perpendicular to a magnetic field <span class="math inline">\(B\)</span> develops an EMF:</p>
+<p><span class="math display">\[\mathcal{E} = Bhv_0\]</span></p>
+<p>If this wire is part of a circuit with resistance <span class="math inline">\(R\)</span>, the induced current is <span class="math inline">\(I = Bhv_0/R\)</span>, and the force required to maintain constant velocity:</p>
+<p><span class="math display">\[\boxed{F = \frac{B^2h^2v_0}{R}}\]</span></p>
+</section>
+<section id="inductance" class="level3" data-number="7.5.5">
+<h3 data-number="7.5.5" class="anchored" data-anchor-id="inductance"><span class="header-section-number">7.5.5</span> Inductance</h3>
+<p><strong>Inductance</strong> <span class="math inline">\(L\)</span> quantifies how much flux a coil produces per unit current — it is a geometric property, analogous to capacitance. The induced EMF is:</p>
+<p><span class="math display">\[\mathcal{E} = -L\frac{dI}{dt}\]</span></p>
+<p>For a solenoid of <span class="math inline">\(N\)</span> turns, length <span class="math inline">\(\ell\)</span>, and cross-sectional area <span class="math inline">\(\pi R^2\)</span>:</p>
+<p><span class="math display">\[\Phi_B = \mu_0 n I \cdot \pi R^2, \qquad N\Phi_B = \mu_0 n^2 \pi R^2 \ell \cdot I\]</span></p>
+<p><span class="math display">\[\boxed{L = \mu_0 n^2 \pi R^2 \ell}\]</span></p>
+</section>
+<section id="mutual-inductance" class="level3" data-number="7.5.6">
+<h3 data-number="7.5.6" class="anchored" data-anchor-id="mutual-inductance"><span class="header-section-number">7.5.6</span> Mutual Inductance</h3>
+<p>Two coils can couple magnetically. If the flux through coil 2 due to coil 1 is <span class="math inline">\(\Phi_2 = MI_1\)</span>, then:</p>
+<p><span class="math display">\[\mathcal{E}_2 = -M\frac{dI_1}{dt}\]</span></p>
+<p>Mutual inductance is <strong>symmetric</strong>: <span class="math inline">\(M_{12} = M_{21} = M\)</span>. The coupling constant <span class="math inline">\(k \leq 1\)</span> measures how much flux from one coil threads the other. This is the principle behind <strong>transformers</strong>.</p>
+</section>
+<section id="magnetic-materials" class="level3" data-number="7.5.7">
+<h3 data-number="7.5.7" class="anchored" data-anchor-id="magnetic-materials"><span class="header-section-number">7.5.7</span> Magnetic Materials</h3>
+<p>Inserting magnetic materials into solenoids changes the field, analogous to dielectrics in capacitors:</p>
+<ul>
+<li><strong>Diamagnetic</strong>: No intrinsic dipole moment; applied field induces a slight opposing field. Weakly reduces <span class="math inline">\(B\)</span>. (e.g., water)</li>
+<li><strong>Paramagnetic</strong>: Dipoles align with applied field, slightly strengthening it. (e.g., aluminum)</li>
+<li><strong>Ferromagnetic</strong>: Dipoles have large-scale order in domains, greatly increasing <span class="math inline">\(B\)</span>. (e.g., iron)</li>
+</ul>
+<p>The permeability becomes <span class="math inline">\(\mu = \kappa_m \mu_0\)</span>, and inductance scales accordingly: <span class="math inline">\(L = \kappa_m L_0\)</span>.</p>
+</section>
+<section id="energy-in-a-magnetic-field" class="level3" data-number="7.5.8">
+<h3 data-number="7.5.8" class="anchored" data-anchor-id="energy-in-a-magnetic-field"><span class="header-section-number">7.5.8</span> Energy in a Magnetic Field</h3>
+<p>The energy stored in an inductor:</p>
+<p><span class="math display">\[U = \frac{1}{2}LI^2\]</span></p>
+<p>Using <span class="math inline">\(B = \mu_0 nI\)</span> and <span class="math inline">\(L = \mu_0 n^2 \pi R^2 \ell\)</span>, the <strong>energy density</strong> (energy per unit volume) of the magnetic field:</p>
+<p><span class="math display">\[\boxed{u_B = \frac{1}{2\mu_0}B^2}\]</span></p>
+<p>Compare with the electric field energy density <span class="math inline">\(u_E = \frac{1}{2}\varepsilon_0 E^2\)</span>.</p>
+</section>
+</section>
+<section id="ac-circuits" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="ac-circuits"><span class="header-section-number">7.6</span> AC Circuits</h2>
+<section id="alternating-current" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="alternating-current"><span class="header-section-number">7.6.1</span> Alternating Current</h3>
+<p>In AC circuits, the voltage source varies sinusoidally:</p>
+<p><span class="math display">\[V = V_0\cos(\omega t)\]</span></p>
+<p>It is convenient to use <strong>complex notation</strong>: <span class="math inline">\(V = V_0 e^{i\omega t}\)</span> (taking the real part at the end). The current also varies sinusoidally: <span class="math inline">\(I = I_0 e^{i(\omega t + \phi)}\)</span>, where <span class="math inline">\(\phi\)</span> is the phase difference between current and voltage.</p>
+</section>
+<section id="impedance" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="impedance"><span class="header-section-number">7.6.2</span> Impedance</h3>
+<p>Redefine Ohm’s law for AC using <strong>impedance</strong> <span class="math inline">\(Z\)</span> (the AC generalization of resistance):</p>
+<p><span class="math display">\[V = IZ\]</span></p>
+<p>Each circuit element has an impedance:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>AC Impedances</caption>
+<colgroup>
+<col style="width: 29%">
+<col style="width: 35%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Impedance</th>
+<th>Reactance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Resistor</td>
+<td><span class="math inline">\(Z_R = R\)</span></td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td>Inductor</td>
+<td><span class="math inline">\(Z_L = i\omega L\)</span></td>
+<td><span class="math inline">\(X_L = \omega L\)</span></td>
+</tr>
+<tr class="odd">
+<td>Capacitor</td>
+<td><span class="math inline">\(Z_C = \dfrac{1}{i\omega C} = \dfrac{-i}{\omega C}\)</span></td>
+<td><span class="math inline">\(X_C = \dfrac{1}{\omega C}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reactance</strong> is the magnitude of the imaginary part of impedance. It pulls the current out of phase with the voltage. Impedances combine just like resistances — in series add directly, in parallel add reciprocals.</p>
+<p>Kirchhoff’s laws still work with impedances.</p>
+</section>
+<section id="phase-relationships" class="level3" data-number="7.6.3">
+<h3 data-number="7.6.3" class="anchored" data-anchor-id="phase-relationships"><span class="header-section-number">7.6.3</span> Phase Relationships</h3>
+<ul>
+<li><strong>Resistor</strong>: Current and voltage are <strong>in phase</strong> (<span class="math inline">\(\phi = 0\)</span>)</li>
+<li><strong>Inductor</strong>: Voltage <strong>leads</strong> current by <span class="math inline">\(90°\)</span> (current lags)</li>
+<li><strong>Capacitor</strong>: Current <strong>leads</strong> voltage by <span class="math inline">\(90°\)</span> (voltage lags)</li>
+</ul>
+<p>The mnemonic: <strong>ELI the ICE man</strong> — voltage (E) leads current (I) in an inductor (L); current (I) leads voltage (E) in a capacitor (C).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Phasor diagram for a series RLC circuit. Show voltage phasors <span class="math inline">\(V_R\)</span> (along current), <span class="math inline">\(V_L\)</span> (leading by 90°), <span class="math inline">\(V_C\)</span> (lagging by 90°), and the resultant voltage. Mark the phase angle <span class="math inline">\(\phi\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="series-rlc-circuit" class="level3" data-number="7.6.4">
+<h3 data-number="7.6.4" class="anchored" data-anchor-id="series-rlc-circuit"><span class="header-section-number">7.6.4</span> Series RLC Circuit</h3>
+<p>For a series RLC circuit:</p>
+<p><span class="math display">\[Z = R + i\omega L + \frac{1}{i\omega C} = R + i\left(\omega L - \frac{1}{\omega C}\right)\]</span></p>
+<p>The magnitude and phase:</p>
+<p><span class="math display">\[|Z| = \sqrt{R^2 + \left(\omega L - \frac{1}{\omega C}\right)^2}, \qquad \tan\phi = \frac{\omega L - 1/(\omega C)}{R}\]</span></p>
+<p>The current amplitude is <span class="math inline">\(I_0 = V_0/|Z|\)</span>.</p>
+</section>
+<section id="resonance" class="level3" data-number="7.6.5">
+<h3 data-number="7.6.5" class="anchored" data-anchor-id="resonance"><span class="header-section-number">7.6.5</span> Resonance</h3>
+<p>The current is maximized when the impedance is minimized — when the reactive parts cancel:</p>
+<p><span class="math display">\[\omega L = \frac{1}{\omega C}\]</span></p>
+<p><span class="math display">\[\boxed{\omega_\text{res} = \frac{1}{\sqrt{LC}}}\]</span></p>
+<p>At resonance: <span class="math inline">\(|Z| = R\)</span> (purely resistive), <span class="math inline">\(\phi = 0\)</span> (current in phase with voltage), and the power factor <span class="math inline">\(\cos\phi = 1\)</span> (maximum power transfer). This is the same frequency as the LC oscillation.</p>
+</section>
+<section id="power-in-ac-circuits" class="level3" data-number="7.6.6">
+<h3 data-number="7.6.6" class="anchored" data-anchor-id="power-in-ac-circuits"><span class="header-section-number">7.6.6</span> Power in AC Circuits</h3>
+<p>The instantaneous power <span class="math inline">\(P = IV\)</span> oscillates. The time-averaged power:</p>
+<p><span class="math display">\[\boxed{P_\text{avg} = \frac{1}{2}V_0 I_0 \cos\phi = V_\text{rms} I_\text{rms} \cos\phi}\]</span></p>
+<p>where <span class="math inline">\(\cos\phi\)</span> is the <strong>power factor</strong>. Only the resistive component dissipates power — reactive elements (inductors, capacitors) store and release energy without net dissipation.</p>
+</section>
+<section id="rms-values" class="level3" data-number="7.6.7">
+<h3 data-number="7.6.7" class="anchored" data-anchor-id="rms-values"><span class="header-section-number">7.6.7</span> RMS Values</h3>
+<p>The <strong>root-mean-square</strong> value of a sinusoidal quantity:</p>
+<p><span class="math display">\[\boxed{V_\text{rms} = \frac{V_0}{\sqrt{2}}}\]</span></p>
+<p>This is the value reported by AC voltmeters and the standard for household voltage (e.g., 120 V is <span class="math inline">\(V_\text{rms}\)</span>, so <span class="math inline">\(V_0 \approx 170\)</span> V). Same for current: <span class="math inline">\(I_\text{rms} = I_0/\sqrt{2}\)</span>.</p>
+</section>
+<section id="frequency-filtering" class="level3" data-number="7.6.8">
+<h3 data-number="7.6.8" class="anchored" data-anchor-id="frequency-filtering"><span class="header-section-number">7.6.8</span> Frequency Filtering</h3>
+<p>Impedance depends on frequency, making circuits natural <strong>filters</strong>:</p>
+<ul>
+<li><strong>Low frequency</strong> (<span class="math inline">\(\omega \to 0\)</span>): <span class="math inline">\(Z_C \to \infty\)</span> (capacitor blocks), <span class="math inline">\(Z_L \to 0\)</span> (inductor passes)</li>
+<li><strong>High frequency</strong> (<span class="math inline">\(\omega \to \infty\)</span>): <span class="math inline">\(Z_C \to 0\)</span> (capacitor passes), <span class="math inline">\(Z_L \to \infty\)</span> (inductor blocks)</li>
+</ul>
+<p>A capacitive line filter protects circuits from high-frequency interference by shorting it to ground.</p>
+</section>
+</section>
+<section id="maxwells-equations-and-electromagnetic-waves" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="maxwells-equations-and-electromagnetic-waves"><span class="header-section-number">7.7</span> Maxwell’s Equations and Electromagnetic Waves</h2>
+<section id="energy-density-of-the-electric-field" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="energy-density-of-the-electric-field"><span class="header-section-number">7.7.1</span> Energy Density of the Electric Field</h3>
+<p>From the parallel-plate capacitor (<span class="math inline">\(U = \frac{1}{2}CV^2\)</span>, <span class="math inline">\(C = \varepsilon_0 A/d\)</span>, <span class="math inline">\(V = Ed\)</span>):</p>
+<p><span class="math display">\[U = \frac{1}{2}\varepsilon_0 E^2 \cdot (Ad)\]</span></p>
+<p>The <strong>energy density</strong> of the electric field:</p>
+<p><span class="math display">\[\boxed{u_E = \frac{1}{2}\varepsilon_0 E^2}\]</span></p>
+</section>
+<section id="maxwells-equations" class="level3" data-number="7.7.2">
+<h3 data-number="7.7.2" class="anchored" data-anchor-id="maxwells-equations"><span class="header-section-number">7.7.2</span> Maxwell’s Equations</h3>
+<p>The four equations governing all of electromagnetism (in integral form, for free space):</p>
+<p><span class="math display">\[\oint \vec{E}\cdot d\vec{A} = \frac{q}{\varepsilon_0} \qquad \text{(Gauss's law)}\]</span></p>
+<p><span class="math display">\[\oint \vec{B}\cdot d\vec{A} = 0 \qquad \text{(No magnetic monopoles)}\]</span></p>
+<p><span class="math display">\[\oint \vec{E}\cdot d\vec{s} = -\frac{d\Phi_B}{dt} \qquad \text{(Faraday's law)}\]</span></p>
+<p><span class="math display">\[\oint \vec{B}\cdot d\vec{s} = \mu_0 I + \mu_0\varepsilon_0\frac{d\Phi_E}{dt} \qquad \text{(Ampère–Maxwell law)}\]</span></p>
+<p>The last equation includes Maxwell’s crucial addition: the <strong>displacement current</strong> <span class="math inline">\(\mu_0\varepsilon_0\, d\Phi_E/dt\)</span>. A changing electric field creates a magnetic field, just as a changing magnetic field creates an electric field (Faraday’s law). This symmetry is what makes electromagnetic waves possible.</p>
+</section>
+<section id="displacement-current" class="level3" data-number="7.7.3">
+<h3 data-number="7.7.3" class="anchored" data-anchor-id="displacement-current"><span class="header-section-number">7.7.3</span> Displacement Current</h3>
+<p>Consider a charging capacitor: current flows in the wire but not between the plates. Yet the magnetic field must be continuous. Maxwell resolved this by noting that the changing electric field between the plates acts like a current:</p>
+<p><span class="math display">\[I_d = \varepsilon_0\frac{d\Phi_E}{dt}\]</span></p>
+<p>Applying Ampère’s law with the displacement current gives the same result whether the surface passes through the wire or between the plates.</p>
+</section>
+<section id="electromagnetic-waves" class="level3" data-number="7.7.4">
+<h3 data-number="7.7.4" class="anchored" data-anchor-id="electromagnetic-waves"><span class="header-section-number">7.7.4</span> Electromagnetic Waves</h3>
+<p>From Faraday’s law and the Ampère–Maxwell law in free space (no charges or currents), taking derivatives:</p>
+<p><span class="math display">\[\frac{\partial^2 E}{\partial x^2} = \mu_0\varepsilon_0\frac{\partial^2 E}{\partial t^2}\]</span></p>
+<p>This is the <strong>wave equation</strong> with speed:</p>
+<p><span class="math display">\[\boxed{c = \frac{1}{\sqrt{\mu_0\varepsilon_0}}}\]</span></p>
+<p>Plugging in the values: <span class="math inline">\(c \approx 3 \times 10^8\)</span> m/s — the speed of light. Light is an electromagnetic wave.</p>
+<p>The solutions are sinusoidal:</p>
+<p><span class="math display">\[E = E_0\sin(kx - \omega t), \qquad B = B_0\sin(kx - \omega t)\]</span></p>
+<p>Key properties:</p>
+<ul>
+<li><span class="math inline">\(\vec{E}\)</span> and <span class="math inline">\(\vec{B}\)</span> are <strong>perpendicular</strong> to each other and to the direction of propagation</li>
+<li><span class="math inline">\(\vec{E}\)</span> and <span class="math inline">\(\vec{B}\)</span> are <strong>in phase</strong> (both zero and both maximum at the same points)</li>
+<li>Their amplitudes are related: <span class="math inline">\(E_0 = cB_0\)</span></li>
+<li>Energy density is shared equally between <span class="math inline">\(E\)</span> and <span class="math inline">\(B\)</span></li>
+</ul>
+</section>
+<section id="the-poynting-vector" class="level3" data-number="7.7.5">
+<h3 data-number="7.7.5" class="anchored" data-anchor-id="the-poynting-vector"><span class="header-section-number">7.7.5</span> The Poynting Vector</h3>
+<p>The <strong>Poynting vector</strong> gives the direction and rate of energy transport:</p>
+<p><span class="math display">\[\boxed{\vec{S} = \frac{1}{\mu_0}\vec{E}\times\vec{B}}\]</span></p>
+<p>The time-averaged intensity (power per unit area):</p>
+<p><span class="math display">\[\boxed{I = \langle S \rangle = \frac{E_\text{rms}^2}{c\mu_0} = c\varepsilon_0 E_\text{rms}^2}\]</span></p>
+<p>The Poynting vector also explains energy flow into circuit elements. For a solenoid being charged, the Poynting vector points inward at the surface — energy flows from the electromagnetic field into the inductor, consistent with <span class="math inline">\(U = \frac{1}{2}LI^2\)</span>.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
