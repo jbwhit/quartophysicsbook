@@ -89,6 +89,15 @@ Description of diagram contents, key elements, labels, etc.
 
 The handwritten IPhO note photos in `images/IPhO notes/` are reference material only — do NOT embed them in the book. Transcribe their content into proper Quarto markdown with LaTeX math.
 
+### Derivation Verification Tests
+
+Every boxed result (`$$\boxed{...}$$`) in the book MUST have a corresponding sympy test in `tests/test_<chapter>.py`. When transcribing a new chapter or adding a worked problem:
+
+1. Add a test that derives the boxed result symbolically and asserts it matches.
+2. Add tests for limiting cases mentioned in the Dimensions section.
+3. Run `uv run pytest tests/ -v` to verify before committing.
+
+Tests use `pytest` + `sympy`. One test file per chapter (e.g., `tests/test_mechanics.py`).
 
 ## Deployment
 
