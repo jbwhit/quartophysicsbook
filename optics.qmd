@@ -1,4 +1,4 @@
-# Mechanics
+# Optics
 
 ::: {.callout-note}
 ## Status

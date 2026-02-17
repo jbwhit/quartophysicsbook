@@ -1,19 +1,36 @@
 project:
   type: book
+  output-dir: _book
 
 book:
-  title: "Physics Thinking"
-  author: "Casey Handmer and Jonathan Whitmore"
-  image: physics_logo.png
-  sidebar: 
+  title: "Think Like A Physicist"
+  author:
+    - Casey Handmer
+    - Jonathan Whitmore
+  date: "2024"
+  image: cover.png
+  sidebar:
     logo: physics_logo.png
     search: true
-  date: "2024-01-01"
   chapters:
     - index.qmd
-    - intro.qmd
-    - mechanics.qmd
-    - summary.qmd
+    - part: "Foundations"
+      chapters:
+        - thinking.qmd
+        - math.qmd
+    - part: "Classical Physics"
+      chapters:
+        - mechanics.qmd
+        - thermo.qmd
+        - waves.qmd
+    - part: "Electromagnetism & Optics"
+      chapters:
+        - electrostatics.qmd
+        - circuits.qmd
+        - optics.qmd
+    - part: "Modern Physics"
+      chapters:
+        - relativity.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -25,6 +42,3 @@ format:
       dark: darkly
   pdf:
     documentclass: scrreprt
-
-
-

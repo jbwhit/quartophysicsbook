@@ -1,5 +1,13 @@
-# Preface {.unnumbered}
+# Foreword {.unnumbered}
 
-Consider this as an option for developing (and publishing?) the book. 
+First Principles Thinking is a teachable and incredibly powerful algorithm for efficiently solving real world problems and building the future.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+It is the best algorithm I know to make a brain useful.
+
+These notes are compiled from the International Physics Olympiad Australian training program held in Canberra c. 2005. I have found, over the intervening 18 years, that the skills and knowledge taught during this intensive two week program have formed the basis of my ability to apply physics to everyday problems.
+
+I have assembled these notes with the intention to create the most singularly terse summary of undergraduate physics ever written, accessible to motivated professionals who know how to Google. Necessarily, they do not cover the lab or test-taking aspects of the Olympiad training program.
+
+I hope you find thinking like a physicist to be as rewarding as I do.
+
+— Casey Handmer, 25 November, 2023.

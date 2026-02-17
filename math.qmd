@@ -1,0 +1,159 @@
+# Math Toolkit
+
+## Differentiation — Chain Rule
+
+a)
+
+$$\frac{d}{dr}\left(6r^3(\cos 2r + 5r)^7\right) = 6r^2(\cos 2r + 5r)^6(3\cos 2r + 2r(25 - 7\sin 2r))$$
+
+b)
+
+$$x = (5te^{2t+1} + 2)^8$$
+
+$$v = \frac{dx}{dt} = 40e^{2t+1}(1 + 2t)(5te^{2t+1} + 2)^7$$
+
+$$a = \frac{dv}{dt} = \frac{d^2x}{dt^2} = 40e^{2t+1}(5te^{2t+1} + 2)^6\left(8(1+t) + (7 + 32t(1+t))5e^{2t+1}\right)$$
+
+## Partial Derivatives
+
+Simply take derivatives with respect to each variable, but consider extreme points if finding maxima or minima.
+
+$$f(x,y) = 5xy + ye^x$$
+
+$$\frac{\partial}{\partial x}f(x,y) = 5y + ye^x$$
+
+$$\frac{\partial}{\partial y}f(x,y) = 5x + e^x$$
+
+## Integration
+
+### Substitution {.unnumbered}
+
+$$\int_{1/2}^{1} \sqrt{1 - x^2}\, dx \quad \text{Let } x = \cos u, \quad dx = -\sin u\, du$$
+
+$$\Rightarrow I = \int_{\pi/2}^{\pi/6} \sqrt{1 - \cos^2 u} \cdot (-\sin u)\, du = \int_{\pi/6}^{\pi/2} \sin^2 u\, du$$
+
+Using $\cos 2u = 1 - 2\sin^2 u$:
+
+$$I = \frac{1}{2}\int_{\pi/6}^{\pi/2} (1 - \cos 2u)\, du = \frac{1}{2}\left[-\frac{\sin 2u}{2} - u\right]_{\pi/6}^{\pi/2} = \frac{\sqrt{3}}{8} - \frac{\pi}{6}$$
+
+### Integration by Parts {.unnumbered}
+
+Basically the inverse of the product rule:
+
+$$\frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}$$
+
+$$\int u\, dv = uv - \int v\, du$$
+
+**Example:**
+
+$$\int \tan^{-1} x\, dx$$
+
+Let $u = \tan^{-1} x$, $dv = dx$.
+
+$$x = \tan u, \quad \frac{dx}{du} = 1 + \tan^2 u = 1 + x^2$$
+
+$$du = \frac{1}{1+x^2}\, dx, \quad v = x$$
+
+$$\Rightarrow \int \tan^{-1} x\, dx = x\tan^{-1} x - \int \frac{x}{1+x^2}\, dx = x\tan^{-1} x - \frac{1}{2}\ln(1+x^2) + C$$
+
+## Kinematic Equations
+
+$$v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt} = \frac{d^2x}{dt^2}$$
+
+Set $a$ constant and $v(t=0) = v_0 = u$:
+
+$$dv = a\, dt, \quad \int_u^v dv = \int_0^t a\, dt, \quad \boxed{v = u + at}$$
+
+$$dx = (u + at)\, dt, \quad \int_{x_0}^x dx = \int_0^t (u + at)\, dt, \quad \boxed{x = x_0 + ut + \frac{1}{2}at^2}$$
+
+$$a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\frac{dv}{dx}$$
+
+$$a\, dx = v\, dv, \quad \int_0^x a\, dx = \int_u^v v\, dv, \quad \boxed{v^2 = u^2 + 2ax}$$
+
+## Differential Equations
+
+There are infinite varieties of DEs, but nearly all physically relevant ones can be solved quickly by inspection. Here is a very incomplete summary of linear equations.
+
+**First Order:** Rearrange and integrate.
+
+**Second Order:** Simple Harmonic Motion!
+
+$$\frac{d^2x}{dt^2} = -\omega^2 x$$
+
+Guess the answer of the form:
+
+$$x = A\cos\omega t + B\sin\omega t$$
+
+or
+
+$$x = Ae^{i\omega t + \phi} = Ae^{i\omega t} + Be^{-i\omega t}$$
+
+For example, springs. Nearly everything in nature is a spring of one form or another.
+
+$$\frac{d^2x}{dt^2} + \frac{k}{m}x = 0$$
+
+So by inspection, $\omega^2 = k/m$.
+
+**Another example:** Solve $v = ktx$.
+
+$$\frac{dx}{dt} = ktx, \quad \frac{dx}{x} = kt\, dt, \quad \int_{x_0}^{x}\frac{dx}{x} = k\int_0^t t\, dt$$
+
+$$2\ln(x/x_0) = kt^2, \quad \boxed{x = x_0 e^{kt^2/2}}$$
+
+## Coordinate Systems
+
+### Plane Polar Coordinates (2D) {.unnumbered}
+
+For a point $P$ in the plane, the polar coordinates $(r, \theta)$ are related to the Cartesian coordinates $(x, y)$ by:
+
+$$r = \sqrt{x^2 + y^2}, \quad \theta = \arctan\left(\frac{y}{x}\right)$$
+
+or inversely:
+
+$$x = r\cos\theta, \quad y = r\sin\theta$$
+
+### Cylindrical Polar Coordinates {.unnumbered}
+
+For axial symmetry:
+
+$$x = r\cos\theta, \quad y = r\sin\theta, \quad z = z$$
+
+### Spherical Polar Coordinates {.unnumbered}
+
+For spherical symmetry, the coordinates are defined as:
+
+$$0 \le r, \quad 0 \le \theta \le \pi, \quad 0 \le \phi < 2\pi$$
+
+where $r$ is the radius, $\theta$ is the polar angle, and $\phi$ is the azimuthal angle.
+
+## Multivariate Integration
+
+Univariate integration is one dimensional:
+
+$$\int f'(x)\, dx = f(x) + C$$
+
+Areas and volumes require multivariate integration.
+
+$$\text{Area} = \iint_A dA = \iint_A dx\, dy = \int_c^d\left(\int_a^b dx\right) dy = (b-a)(d-c)$$
+
+### Polar Coordinates {.unnumbered}
+
+For an infinitesimal area element $dA$ in polar coordinates:
+
+$$dA = r\, dr\, d\theta$$
+
+### Volumes {.unnumbered}
+
+The volume of a sphere:
+
+$$\text{Volume} = \iiint_V dV = \int_0^R \int_0^\pi \int_0^{2\pi} r^2 \sin\theta\, dr\, d\theta\, d\phi = \int_0^R r^2\, dr \int_0^\pi \sin\theta\, d\theta \int_0^{2\pi} d\phi$$
+
+$$= 2\pi \cdot \frac{R^3}{3} \cdot [-\cos\theta]_0^\pi = \frac{4}{3}\pi R^3$$
+
+### Flux Integrals {.unnumbered}
+
+One can also integrate an arbitrary scalar or vector function over some area or volume.
+
+Vector field integrations are performed over areas to find fluxes, and are only concerned with the normal (perpendicular) component of the field:
+
+$$I = \iint \vec{f} \cdot \hat{n}\, dA$$
