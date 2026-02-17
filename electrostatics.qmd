@@ -1,6 +1,279 @@
 # Electrostatics
 
-::: {.callout-note}
-## Status
-Content to be transcribed from IPhO notes.
+## Electric Charge
+
+**Charge** is a fundamental, conserved property of particles. It comes in two types — positive and negative — and is measured in **coulombs** (C). The fundamental unit of charge is the electron charge:
+
+$$e = 1.6 \times 10^{-19}\;\text{C}$$
+
+Charges exert forces on each other at a distance: like charges repel, unlike charges attract. These interactions can be dealt with using vectors.
+
+## Coulomb's Law
+
+The force between two point charges $q_1$ and $q_2$ separated by distance $r$:
+
+$$\boxed{\vec{F} = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}\hat{r}}$$
+
+where $\varepsilon_0$ is the **permittivity of free space** ($\varepsilon_0 \approx 8.85 \times 10^{-12}\;\text{C}^2/\text{N}\cdot\text{m}^2$) and $\hat{r}$ points from one charge to the other. The force is positive (repulsive) for like charges and negative (attractive) for unlike charges.
+
+Note the structural similarity to Newton's law of gravitation — both are inverse-square laws. Coulomb's law deals with charge; gravity deals with mass.
+
+## The Electric Field
+
+Coulomb's law describes a force between two charges. But we often want an **intensive** property — one that doesn't depend on the test charge. Divide by the test charge to get the **electric field**:
+
+$$\boxed{\vec{E} = \frac{\vec{F}}{q} = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}\hat{r}}$$
+
+The electric field is the force per unit charge at a point in space. It exists whether or not a test charge is present.
+
+### Superposition
+
+The electric field obeys the **principle of superposition**: the total field from multiple charges is the vector sum of the individual fields:
+
+$$\vec{E}_\text{total} = \sum_i \vec{E}_i = \frac{1}{4\pi\varepsilon_0}\sum_i \frac{q_i}{r_i^2}\hat{r}_i$$
+
+### Field Lines
+
+Electric field lines are a visualization tool:
+
+- Start at positive charges (sources), end at negative charges (sinks)
+- Never cross
+- Always hit conducting surfaces at 90°
+- Closer lines indicate stronger field
+
+::: {.callout-warning}
+## TODO: Diagram
+Electric field lines for: (1) a single positive charge (radially outward), (2) a dipole (field lines from + to −), (3) two like charges (lines repelling). Show density of lines proportional to field strength.
 :::
+
+### Conductors
+
+Conductors allow charges to flow freely. In **electrostatic equilibrium**:
+
+- The electric field inside a conductor is **zero** ($\vec{E} = 0$)
+- All excess charge resides on the **surface**
+- Charge clusters more densely at sharp points (higher curvature → stronger field)
+- The field just outside the surface is perpendicular to it
+
+### Continuous Charge Distributions
+
+For many charges, replace the sum with an integral. Define charge densities:
+
+| Symbol | Meaning | Units |
+|--------|---------|-------|
+| $\lambda$ | Linear charge density | C/m |
+| $\sigma$ | Surface charge density | C/m² |
+| $\rho$ | Volume charge density | C/m³ |
+
+: Charge Density Notation {.striped .hover}
+
+The field from a continuous distribution:
+
+$$\vec{E} = \frac{1}{4\pi\varepsilon_0}\int \frac{dq}{r^2}\hat{r}$$
+
+## Gauss's Law
+
+### Electric Flux
+
+The **electric flux** through a surface measures how much field "flows through" it:
+
+$$\Phi_E = \oint \vec{E}\cdot d\vec{A}$$
+
+where $d\vec{A}$ is the outward-pointing area element of a closed surface. When $\vec{E}$ is constant and parallel to $d\vec{A}$, this simplifies to $\Phi_E = EA$.
+
+### The Law
+
+**Gauss's law** relates the flux through any closed surface to the enclosed charge:
+
+$$\boxed{\oint \vec{E}\cdot d\vec{A} = \frac{q_\text{enc}}{\varepsilon_0}}$$
+
+This is always true, but it is most *useful* when symmetry makes $\vec{E}$ constant over the Gaussian surface and parallel (or perpendicular) to $d\vec{A}$.
+
+Compare with the gravitational analogue: $\oint \vec{g}\cdot d\vec{A} = -4\pi G M_\text{enc}$.
+
+### Application: Point Charge
+
+Choose a spherical Gaussian surface of radius $r$ centered on charge $q$. By symmetry, $\vec{E}$ is radial and constant on the sphere:
+
+$$E(4\pi r^2) = \frac{q}{\varepsilon_0}$$
+
+$$\boxed{E = \frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}}$$
+
+This recovers Coulomb's law — Gauss's law contains it.
+
+### Application: Infinite Line Charge
+
+For an infinite line with linear charge density $\lambda$, choose a cylindrical Gaussian surface of radius $r$ and length $L$. The flux through the end caps is zero (field is parallel to caps); the curved surface contributes:
+
+$$E(2\pi r L) = \frac{\lambda L}{\varepsilon_0}$$
+
+$$\boxed{E = \frac{\lambda}{2\pi\varepsilon_0 r} = \frac{1}{4\pi\varepsilon_0}\frac{2\lambda}{r}}$$
+
+The field falls off as $1/r$, not $1/r^2$ — the line charge is effectively one-dimensional.
+
+::: {.callout-warning}
+## TODO: Diagram
+Gaussian surfaces for: (1) spherical surface around a point charge, (2) cylindrical surface around an infinite line charge. Show $\vec{E}$ and $d\vec{A}$ vectors on the surfaces, with end-cap contributions labeled as zero for the cylinder.
+:::
+
+### Application: Charged Conducting Sphere
+
+**Inside** ($r < R$): A Gaussian surface inside the conductor encloses no charge (all charge is on the surface), so $E = 0$.
+
+**Outside** ($r > R$): The field is identical to that of a point charge $Q$ at the center:
+
+$$E = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r^2}$$
+
+### Faraday Cage
+
+A hollow conducting shell shields its interior from external electric fields. If a charge $q$ is placed inside the cavity, it induces $-q$ on the inner surface and $+q$ on the outer surface, but external fields have no effect on the interior. This is the principle behind the **Faraday cage**.
+
+## Electric Potential
+
+### From Force to Potential Energy
+
+The work done by the electric force on charge $q$ moving through displacement $d\vec{s}$:
+
+$$dW = \vec{F}\cdot d\vec{s} = q\vec{E}\cdot d\vec{s}$$
+
+The potential energy change is $dU = -dW$, so:
+
+$$\Delta U = -q\int_a^b \vec{E}\cdot d\vec{s}$$
+
+### Electric Potential (Voltage)
+
+Divide by charge to get an **intensive** quantity — the **electric potential** $V$:
+
+$$\boxed{V = -\int \vec{E}\cdot d\vec{s}}$$
+
+The potential is a scalar (just add contributions!), which makes it much easier to work with than the vector field $\vec{E}$. The relationship between potential energy and potential is simply $U = qV$.
+
+The potential is path-independent — it depends only on the endpoints. This is because the electrostatic force is **conservative**.
+
+### Potential of a Point Charge
+
+For a point charge $Q$ at the origin:
+
+$$\boxed{V = \frac{1}{4\pi\varepsilon_0}\frac{Q}{r}}$$
+
+For multiple point charges, superposition gives:
+
+$$V = \frac{1}{4\pi\varepsilon_0}\sum_i \frac{q_i}{r_i}$$
+
+Since $V$ is a scalar, there are no vector components to worry about — just add the numbers.
+
+### From Potential Back to Field
+
+The electric field is the negative gradient of the potential:
+
+$$\boxed{\vec{E} = -\nabla V}$$
+
+In Cartesian coordinates:
+
+$$\vec{E} = -\frac{\partial V}{\partial x}\hat{x} - \frac{\partial V}{\partial y}\hat{y} - \frac{\partial V}{\partial z}\hat{z}$$
+
+In one dimension, $E = -dV/dx$.
+
+### Equipotentials
+
+Surfaces of constant potential are called **equipotentials**. Key properties:
+
+- $\vec{E}$ is always perpendicular to equipotential surfaces
+- No work is done moving a charge along an equipotential
+- A nonzero potential does *not* imply a nonzero field (e.g., inside a charged conductor $V$ is constant but $E = 0$)
+
+## Capacitors
+
+A **capacitor** stores charge (and energy) by maintaining a potential difference between two conductors.
+
+### Parallel-Plate Capacitor
+
+Consider two parallel plates of area $A$ separated by distance $d$, with surface charge density $\pm\sigma$. By Gauss's law (using a pillbox surface), the field between the plates is uniform:
+
+$$E = \frac{\sigma}{\varepsilon_0}$$
+
+The potential difference is:
+
+$$V = Ed = \frac{\sigma d}{\varepsilon_0} = \frac{qd}{\varepsilon_0 A}$$
+
+The **capacitance** — charge stored per unit voltage:
+
+$$\boxed{C = \frac{q}{V} = \frac{\varepsilon_0 A}{d}}$$
+
+Larger area and smaller separation give larger capacitance.
+
+### Energy Stored in a Capacitor
+
+Building up charge on a capacitor requires work against the growing potential. Adding charge $dq$ when the voltage is $V = q/C$:
+
+$$dU = V\,dq = \frac{q}{C}\,dq$$
+
+Integrating from $0$ to $Q$:
+
+$$\boxed{U = \frac{1}{2}\frac{Q^2}{C} = \frac{1}{2}CV^2}$$
+
+## Dielectrics
+
+To increase capacitance without changing geometry, insert a **dielectric** — an insulating material that becomes polarized in an electric field.
+
+### Polarization
+
+When an external field is applied to a dielectric, the molecular dipoles align with the field. This is called **polarization**. The internal dipoles cancel in the bulk, leaving a net surface charge that opposes the applied field.
+
+The **polarization** $\vec{P}$ is the dipole moment per unit volume. The bound surface charge density is:
+
+$$\sigma_\text{bound} = \vec{P}\cdot\hat{n}$$
+
+### Linear Dielectrics
+
+For linear dielectrics, $\vec{P} = \chi_e \varepsilon_0 \vec{E}$, where $\chi_e$ is the **electric susceptibility**. The total field inside the dielectric is reduced:
+
+$$E_\text{total} = E_0 - \frac{\sigma_\text{bound}}{\varepsilon_0} = \frac{E_0}{1 + \chi_e} = \frac{E_0}{\kappa}$$
+
+where $\kappa = 1 + \chi_e$ is the **dielectric constant**. The permittivity of the material is:
+
+$$\varepsilon = \kappa\varepsilon_0$$
+
+With a dielectric, the parallel-plate capacitance becomes:
+
+$$\boxed{C = \frac{\kappa\varepsilon_0 A}{d} = \kappa C_0}$$
+
+The dielectric multiplies the capacitance by $\kappa$.
+
+## Electric Dipoles
+
+An **electric dipole** consists of two equal and opposite charges $+q$ and $-q$ separated by distance $d$. The **dipole moment** is:
+
+$$\vec{p} = q\vec{d}$$
+
+where $\vec{d}$ points from the negative to the positive charge.
+
+### Torque on a Dipole
+
+In a uniform external field $\vec{E}$, the net force on a dipole is zero, but there is a torque:
+
+$$\boxed{\vec{\tau} = \vec{p}\times\vec{E}}$$
+
+The torque acts to align the dipole with the field.
+
+### Potential Energy of a Dipole
+
+The potential energy of a dipole in a uniform field:
+
+$$\boxed{U = -\vec{p}\cdot\vec{E} = -pE\cos\theta}$$
+
+Minimum energy (stable equilibrium) when $\vec{p} \parallel \vec{E}$ ($\theta = 0$); maximum energy when antiparallel ($\theta = \pi$).
+
+### Dipole Potential and Field
+
+Far from the dipole ($r \gg d$), the potential is:
+
+$$\boxed{V = \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{r^2}}$$
+
+Note the $1/r^2$ dependence — faster falloff than a point charge ($1/r$).
+
+The electric field of a dipole (in spherical coordinates):
+
+$$\boxed{\vec{E} = \frac{p}{4\pi\varepsilon_0 r^3}\left(2\cos\theta\,\hat{r} + \sin\theta\,\hat{\theta}\right)}$$
+
+This $1/r^3$ dependence (one power faster than a monopole's $1/r^2$) is characteristic of dipole fields. Along the axis ($\theta = 0$), $E = 2p/(4\pi\varepsilon_0 r^3)$; in the equatorial plane ($\theta = \pi/2$), $E = p/(4\pi\varepsilon_0 r^3)$.
