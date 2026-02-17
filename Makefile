@@ -7,6 +7,7 @@ test:  ## Run sympy derivation tests
 
 pdf: test  ## Render PDF (runs tests first)
 	quarto render --to pdf
+	cp _book/Think-Like-A-Physicist.pdf .
 
 html: test  ## Render HTML site (runs tests first)
 	quarto render --to html

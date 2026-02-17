@@ -7,6 +7,7 @@ _freeze/
 *.html
 
 **/*.quarto_ipynb
+Think-Like-A-Physicist.pdf
 
 # Python
 .venv/
