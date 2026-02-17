@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -396,8 +425,63 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#temperature-and-heat" id="toc-temperature-and-heat" class="nav-link active" data-scroll-target="#temperature-and-heat"><span class="header-section-number">4.1</span> Temperature and Heat</a>
+  <ul class="collapse">
+  <li><a href="#temperature" id="toc-temperature" class="nav-link" data-scroll-target="#temperature"><span class="header-section-number">4.1.1</span> Temperature</a></li>
+  <li><a href="#zeroth-law-of-thermodynamics" id="toc-zeroth-law-of-thermodynamics" class="nav-link" data-scroll-target="#zeroth-law-of-thermodynamics"><span class="header-section-number">4.1.2</span> Zeroth Law of Thermodynamics</a></li>
+  <li><a href="#heat" id="toc-heat" class="nav-link" data-scroll-target="#heat"><span class="header-section-number">4.1.3</span> Heat</a></li>
+  <li><a href="#heat-transfer" id="toc-heat-transfer" class="nav-link" data-scroll-target="#heat-transfer"><span class="header-section-number">4.1.4</span> Heat Transfer</a></li>
+  <li><a href="#thermal-expansion" id="toc-thermal-expansion" class="nav-link" data-scroll-target="#thermal-expansion"><span class="header-section-number">4.1.5</span> Thermal Expansion</a></li>
+  <li><a href="#phases-and-latent-heat" id="toc-phases-and-latent-heat" class="nav-link" data-scroll-target="#phases-and-latent-heat"><span class="header-section-number">4.1.6</span> Phases and Latent Heat</a></li>
+  <li><a href="#heat-capacity" id="toc-heat-capacity" class="nav-link" data-scroll-target="#heat-capacity"><span class="header-section-number">4.1.7</span> Heat Capacity</a></li>
+  <li><a href="#first-law-of-thermodynamics" id="toc-first-law-of-thermodynamics" class="nav-link" data-scroll-target="#first-law-of-thermodynamics"><span class="header-section-number">4.1.8</span> First Law of Thermodynamics</a></li>
+  </ul></li>
+  <li><a href="#ideal-gas-and-kinetic-theory" id="toc-ideal-gas-and-kinetic-theory" class="nav-link" data-scroll-target="#ideal-gas-and-kinetic-theory"><span class="header-section-number">4.2</span> Ideal Gas and Kinetic Theory</a>
+  <ul class="collapse">
+  <li><a href="#the-ideal-gas-law" id="toc-the-ideal-gas-law" class="nav-link" data-scroll-target="#the-ideal-gas-law"><span class="header-section-number">4.2.1</span> The Ideal Gas Law</a></li>
+  <li><a href="#equipartition-theorem" id="toc-equipartition-theorem" class="nav-link" data-scroll-target="#equipartition-theorem"><span class="header-section-number">4.2.2</span> Equipartition Theorem</a></li>
+  <li><a href="#kinetic-theory-of-gases" id="toc-kinetic-theory-of-gases" class="nav-link" data-scroll-target="#kinetic-theory-of-gases"><span class="header-section-number">4.2.3</span> Kinetic Theory of Gases</a></li>
+  <li><a href="#daltons-law" id="toc-daltons-law" class="nav-link" data-scroll-target="#daltons-law"><span class="header-section-number">4.2.4</span> Dalton’s Law</a></li>
+  <li><a href="#rms-speed" id="toc-rms-speed" class="nav-link" data-scroll-target="#rms-speed"><span class="header-section-number">4.2.5</span> RMS Speed</a></li>
+  </ul></li>
+  <li><a href="#thermodynamic-processes" id="toc-thermodynamic-processes" class="nav-link" data-scroll-target="#thermodynamic-processes"><span class="header-section-number">4.3</span> Thermodynamic Processes</a>
+  <ul class="collapse">
+  <li><a href="#pv-diagrams-and-work" id="toc-pv-diagrams-and-work" class="nav-link" data-scroll-target="#pv-diagrams-and-work"><span class="header-section-number">4.3.1</span> PV Diagrams and Work</a></li>
+  <li><a href="#special-processes" id="toc-special-processes" class="nav-link" data-scroll-target="#special-processes"><span class="header-section-number">4.3.2</span> Special Processes</a></li>
+  <li><a href="#isothermal-process" id="toc-isothermal-process" class="nav-link" data-scroll-target="#isothermal-process"><span class="header-section-number">4.3.3</span> Isothermal Process</a></li>
+  <li><a href="#specific-heat-capacities" id="toc-specific-heat-capacities" class="nav-link" data-scroll-target="#specific-heat-capacities"><span class="header-section-number">4.3.4</span> Specific Heat Capacities</a></li>
+  <li><a href="#adiabatic-process" id="toc-adiabatic-process" class="nav-link" data-scroll-target="#adiabatic-process"><span class="header-section-number">4.3.5</span> Adiabatic Process</a></li>
+  </ul></li>
+  <li><a href="#heat-engines-and-the-carnot-cycle" id="toc-heat-engines-and-the-carnot-cycle" class="nav-link" data-scroll-target="#heat-engines-and-the-carnot-cycle"><span class="header-section-number">4.4</span> Heat Engines and the Carnot Cycle</a>
+  <ul class="collapse">
+  <li><a href="#heat-engines" id="toc-heat-engines" class="nav-link" data-scroll-target="#heat-engines"><span class="header-section-number">4.4.1</span> Heat Engines</a></li>
+  <li><a href="#refrigerators" id="toc-refrigerators" class="nav-link" data-scroll-target="#refrigerators"><span class="header-section-number">4.4.2</span> Refrigerators</a></li>
+  <li><a href="#second-law-of-thermodynamics" id="toc-second-law-of-thermodynamics" class="nav-link" data-scroll-target="#second-law-of-thermodynamics"><span class="header-section-number">4.4.3</span> Second Law of Thermodynamics</a></li>
+  <li><a href="#the-carnot-cycle" id="toc-the-carnot-cycle" class="nav-link" data-scroll-target="#the-carnot-cycle"><span class="header-section-number">4.4.4</span> The Carnot Cycle</a></li>
+  <li><a href="#carnot-refrigerator" id="toc-carnot-refrigerator" class="nav-link" data-scroll-target="#carnot-refrigerator"><span class="header-section-number">4.4.5</span> Carnot Refrigerator</a></li>
+  <li><a href="#carnots-theorem" id="toc-carnots-theorem" class="nav-link" data-scroll-target="#carnots-theorem"><span class="header-section-number">4.4.6</span> Carnot’s Theorem</a></li>
+  <li><a href="#key-property-of-the-carnot-cycle" id="toc-key-property-of-the-carnot-cycle" class="nav-link" data-scroll-target="#key-property-of-the-carnot-cycle"><span class="header-section-number">4.4.7</span> Key Property of the Carnot Cycle</a></li>
+  </ul></li>
+  <li><a href="#entropy" id="toc-entropy" class="nav-link" data-scroll-target="#entropy"><span class="header-section-number">4.5</span> Entropy</a>
+  <ul class="collapse">
+  <li><a href="#entropy-as-a-state-function" id="toc-entropy-as-a-state-function" class="nav-link" data-scroll-target="#entropy-as-a-state-function"><span class="header-section-number">4.5.1</span> Entropy as a State Function</a></li>
+  <li><a href="#second-law-in-terms-of-entropy" id="toc-second-law-in-terms-of-entropy" class="nav-link" data-scroll-target="#second-law-in-terms-of-entropy"><span class="header-section-number">4.5.2</span> Second Law in Terms of Entropy</a></li>
+  <li><a href="#entropy-and-adiabatic-processes" id="toc-entropy-and-adiabatic-processes" class="nav-link" data-scroll-target="#entropy-and-adiabatic-processes"><span class="header-section-number">4.5.3</span> Entropy and Adiabatic Processes</a></li>
+  <li><a href="#the-carnot-cycle-on-a-ts-diagram" id="toc-the-carnot-cycle-on-a-ts-diagram" class="nav-link" data-scroll-target="#the-carnot-cycle-on-a-ts-diagram"><span class="header-section-number">4.5.4</span> The Carnot Cycle on a T–S Diagram</a></li>
+  </ul></li>
+  <li><a href="#phase-diagrams" id="toc-phase-diagrams" class="nav-link" data-scroll-target="#phase-diagrams"><span class="header-section-number">4.6</span> Phase Diagrams</a>
+  <ul class="collapse">
+  <li><a href="#ideal-vs-real-gases" id="toc-ideal-vs-real-gases" class="nav-link" data-scroll-target="#ideal-vs-real-gases"><span class="header-section-number">4.6.1</span> Ideal vs Real Gases</a></li>
+  <li><a href="#phase-diagram" id="toc-phase-diagram" class="nav-link" data-scroll-target="#phase-diagram"><span class="header-section-number">4.6.2</span> Phase Diagram</a></li>
+  <li><a href="#phase-transitions-on-a-ts-diagram" id="toc-phase-transitions-on-a-ts-diagram" class="nav-link" data-scroll-target="#phase-transitions-on-a-ts-diagram"><span class="header-section-number">4.6.3</span> Phase Transitions on a T–S Diagram</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,21 +506,523 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="temperature-and-heat" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="temperature-and-heat"><span class="header-section-number">4.1</span> Temperature and Heat</h2>
+<section id="temperature" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="temperature"><span class="header-section-number">4.1.1</span> Temperature</h3>
+<p>Temperature measures how hot or cold something is — more precisely, it determines the direction of heat flow between two systems in thermal contact.</p>
+<p>A <strong>thermometer</strong> works by exploiting a physical property that varies with temperature (e.g., the volume of a gas at constant pressure). The <strong>constant-volume gas thermometer</strong> defines temperature via the pressure of a gas at fixed volume:</p>
+<p><span class="math display">\[T_\text{gas} = T_\text{ref} \frac{P}{P_\text{ref}} \quad \text{(proportional to pressure)}\]</span></p>
+<p>At the <strong>triple point of water</strong> (<span class="math inline">\(T_\text{trip} = 273.16\;\text{K}\)</span>), we fix the scale. As gas pressure is reduced to zero, all gas thermometers converge — this defines the <strong>ideal gas temperature scale</strong>.</p>
+</section>
+<section id="zeroth-law-of-thermodynamics" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="zeroth-law-of-thermodynamics"><span class="header-section-number">4.1.2</span> Zeroth Law of Thermodynamics</h3>
+<p>Why do different thermometers agree? The <strong>zeroth law</strong>:</p>
+<blockquote class="blockquote">
+<p>If systems A and B are each in thermal equilibrium with system C, then A and B are in thermal equilibrium with each other.</p>
+</blockquote>
+<p>This guarantees that temperature is well-defined and standardized. The Celsius scale is related to Kelvin by:</p>
+<p><span class="math display">\[T_C = T_K - 273.15\;\text{K}\]</span></p>
+</section>
+<section id="heat" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="heat"><span class="header-section-number">4.1.3</span> Heat</h3>
+<p><strong>Heat</strong> (<span class="math inline">\(Q\)</span>) is the transfer of thermal energy, measured in joules. Heat flows between two bodies that are not in thermal equilibrium — always from hot to cold.</p>
+</section>
+<section id="heat-transfer" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="heat-transfer"><span class="header-section-number">4.1.4</span> Heat Transfer</h3>
+<p>There are three ways heat can flow:</p>
+<p><strong>Conduction</strong> — heat flows through a material without bulk motion. The rate of heat flow:</p>
+<p><span class="math display">\[H = \frac{Q}{t} = \frac{kA\,\Delta T}{\Delta x}\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the thermal conductivity, <span class="math inline">\(A\)</span> the cross-sectional area, <span class="math inline">\(\Delta T\)</span> the temperature difference, and <span class="math inline">\(\Delta x\)</span> the thickness.</p>
+<p><strong>Radiation</strong> — heat transfer via electromagnetic waves. The Stefan–Boltzmann law gives the radiated intensity:</p>
+<p><span class="math display">\[I = \varepsilon \sigma T^4\]</span></p>
+<p>where <span class="math inline">\(\sigma = 5.67 \times 10^{-8}\;\text{W}\,\text{m}^{-2}\,\text{K}^{-4}\)</span> is the Stefan–Boltzmann constant and <span class="math inline">\(\varepsilon\)</span> is the emissivity (<span class="math inline">\(0 \le \varepsilon \le 1\)</span>; <span class="math inline">\(\varepsilon = 1\)</span> for a blackbody). Radiated power is proportional to <span class="math inline">\(T^4\)</span>.</p>
+<p><strong>Convection</strong> — heat transfer by bulk fluid motion. Heated fluid becomes less dense and rises in bubbles (turbulence, convection cells). This drives radiators, atmospheric circulation, and many other phenomena.</p>
+</section>
+<section id="thermal-expansion" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="thermal-expansion"><span class="header-section-number">4.1.5</span> Thermal Expansion</h3>
+<p>Most materials expand when heated.</p>
+<p><strong>Linear expansion</strong>: for a rod of length <span class="math inline">\(L\)</span>,</p>
+<p><span class="math display">\[\Delta L = \alpha L \Delta T\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is the coefficient of linear expansion. Note that holes get bigger too.</p>
+<p><strong>Volume expansion</strong>: for a solid with dimensions <span class="math inline">\(a \times b \times c\)</span>,</p>
+<p><span class="math display">\[V = abc, \qquad V + \Delta V = (a + \alpha a \Delta T)(b + \alpha b \Delta T)(c + \alpha c \Delta T)\]</span></p>
+<p>Expanding and keeping only first-order terms in <span class="math inline">\(\Delta T\)</span>:</p>
+<p><span class="math display">\[\Delta V \approx 3\alpha V \Delta T = \beta V \Delta T\]</span></p>
+<p>where <span class="math inline">\(\beta \approx 3\alpha\)</span> is the coefficient of volume expansion.</p>
+<p>For <strong>liquids</strong> (no linear expansion applies), <span class="math inline">\(\Delta V = \beta V \Delta T\)</span> directly. Note that <span class="math inline">\(\beta\)</span> is generally temperature-dependent, and for water, <span class="math inline">\(\beta &gt; 0\)</span> usually but <span class="math inline">\(\beta &lt; 0\)</span> near <span class="math inline">\(4°\text{C}\)</span> (water’s anomalous expansion).</p>
+</section>
+<section id="phases-and-latent-heat" class="level3" data-number="4.1.6">
+<h3 data-number="4.1.6" class="anchored" data-anchor-id="phases-and-latent-heat"><span class="header-section-number">4.1.6</span> Phases and Latent Heat</h3>
+<p>Matter exists in three common phases: <strong>solid</strong>, <strong>liquid</strong>, and <strong>gas</strong>. Phase transitions occur at specific temperatures and pressures.</p>
+<p><strong>Latent heat</strong> (<span class="math inline">\(\ell\)</span>) is the heat per kilogram required for a phase change:</p>
+<ul>
+<li><span class="math inline">\(\ell_f\)</span> — latent heat of fusion (solid <span class="math inline">\(\leftrightarrow\)</span> liquid)</li>
+<li><span class="math inline">\(\ell_v\)</span> — latent heat of vaporization (liquid <span class="math inline">\(\leftrightarrow\)</span> gas)</li>
+</ul>
+</section>
+<section id="heat-capacity" class="level3" data-number="4.1.7">
+<h3 data-number="4.1.7" class="anchored" data-anchor-id="heat-capacity"><span class="header-section-number">4.1.7</span> Heat Capacity</h3>
+<p><strong>Heat capacity</strong> <span class="math inline">\(C\)</span> is the heat required to raise the temperature of a system by one degree:</p>
+<p><span class="math display">\[C = \frac{\delta Q}{\delta T} \quad [\text{J/K}] \quad \text{(extensive)}\]</span></p>
+<p><strong>Specific heat capacity</strong> <span class="math inline">\(c\)</span> is heat capacity per unit mass (or per mole):</p>
+<p><span class="math display">\[\delta Q = mc\,\delta T, \qquad c = \frac{C}{m} \quad [\text{J/(kg·K)}] \quad \text{(intensive)}\]</span></p>
+</section>
+<section id="first-law-of-thermodynamics" class="level3" data-number="4.1.8">
+<h3 data-number="4.1.8" class="anchored" data-anchor-id="first-law-of-thermodynamics"><span class="header-section-number">4.1.8</span> First Law of Thermodynamics</h3>
+<p>For a process between two equilibrium states A and B, the quantity <span class="math inline">\(Q + W\)</span> is the same regardless of the path taken:</p>
+<p><span class="math display">\[\Delta U = Q + W\]</span></p>
+<p>where <span class="math inline">\(Q\)</span> is heat added to the system and <span class="math inline">\(W\)</span> is work done on the system. Internal energy <span class="math inline">\(U\)</span> is a <strong>state function</strong> — it depends only on the current state, not on how the system got there.</p>
+</section>
+</section>
+<section id="ideal-gas-and-kinetic-theory" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ideal-gas-and-kinetic-theory"><span class="header-section-number">4.2</span> Ideal Gas and Kinetic Theory</h2>
+<section id="the-ideal-gas-law" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="the-ideal-gas-law"><span class="header-section-number">4.2.1</span> The Ideal Gas Law</h3>
+<p>An <strong>ideal gas</strong> satisfies:</p>
+<p><span class="math display">\[\boxed{PV = NkT = nRT}\]</span></p>
+<p>where:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Ideal Gas Parameters</caption>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(P\)</span></td>
+<td>Pressure</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(V\)</span></td>
+<td>Volume</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(N\)</span></td>
+<td>Number of molecules</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(n\)</span></td>
+<td>Number of moles</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(k = 1.38 \times 10^{-23}\;\text{J/K}\)</span></td>
+<td>Boltzmann constant</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(R = 8.314\;\text{J/(K·mol)}\)</span></td>
+<td>Gas constant</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(N_A = 6.022 \times 10^{23}\;\text{mol}^{-1}\)</span></td>
+<td>Avogadro’s number</td>
+</tr>
+</tbody>
+</table>
+<p>Note <span class="math inline">\(R = N_A k\)</span>.</p>
+<p><strong>Assumptions</strong> of the ideal gas model:</p>
+<ol type="1">
+<li>Particles have negligible volume and exert no long-range forces</li>
+<li>Total number of particles is large</li>
+<li>Newtonian mechanics applies</li>
+<li>Interactions occur through collisions of negligible duration</li>
+<li>Equipartition theorem holds</li>
+</ol>
+</section>
+<section id="equipartition-theorem" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="equipartition-theorem"><span class="header-section-number">4.2.2</span> Equipartition Theorem</h3>
+<p>On average, each degree of freedom contributes <span class="math inline">\(\frac{1}{2}kT\)</span> of energy per molecule:</p>
+<p><span class="math display">\[\varepsilon = \frac{f}{2}kT\]</span></p>
+<p>where <span class="math inline">\(f\)</span> is the number of degrees of freedom.</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Degrees of Freedom</caption>
+<thead>
+<tr class="header">
+<th>Molecule</th>
+<th><span class="math inline">\(f\)</span></th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Monatomic</td>
+<td>3</td>
+<td>He (3 translational)</td>
+</tr>
+<tr class="even">
+<td>Diatomic</td>
+<td>5</td>
+<td>N<span class="math inline">\(_2\)</span> (3 translational + 2 rotational)</td>
+</tr>
+<tr class="odd">
+<td>Polyatomic</td>
+<td>6</td>
+<td>H<span class="math inline">\(_2\)</span>O (3 translational + 3 rotational)</td>
+</tr>
+</tbody>
+</table>
+<p>The total internal energy of an ideal gas is:</p>
+<p><span class="math display">\[\boxed{U = \frac{f}{2}NkT = \frac{f}{2}nRT}\]</span></p>
+</section>
+<section id="kinetic-theory-of-gases" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="kinetic-theory-of-gases"><span class="header-section-number">4.2.3</span> Kinetic Theory of Gases</h3>
+<p>Consider <span class="math inline">\(N\)</span> molecules in a box of side <span class="math inline">\(L\)</span>. A molecule with velocity <span class="math inline">\(v_x\)</span> bouncing off a wall transfers momentum <span class="math inline">\(\Delta p = 2mv_x\)</span> each round trip (time <span class="math inline">\(\Delta t = 2L/v_x\)</span>).</p>
+<p>The force from one molecule:</p>
+<p><span class="math display">\[F = \frac{\Delta p}{\Delta t} = \frac{2mv_x}{2L/v_x} = \frac{mv_x^2}{L}\]</span></p>
+<p>Summing over all <span class="math inline">\(N\)</span> molecules and using <span class="math inline">\(P = F/A = F/L^2\)</span>:</p>
+<p><span class="math display">\[P = \frac{Nm\overline{v_x^2}}{L^3} = \frac{Nm\overline{v_x^2}}{V}\]</span></p>
+<p>Since the motion is isotropic, <span class="math inline">\(\overline{v_x^2} = \frac{1}{3}\overline{v^2}\)</span>, so:</p>
+<p><span class="math display">\[\boxed{P = \frac{1}{3}\frac{Nm\overline{v^2}}{V} = \frac{1}{3}\rho v_\text{rms}^2}\]</span></p>
+<p>where <span class="math inline">\(v_\text{rms} = \sqrt{\overline{v^2}}\)</span> is the root-mean-square speed.</p>
+</section>
+<section id="daltons-law" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="daltons-law"><span class="header-section-number">4.2.4</span> Dalton’s Law</h3>
+<p>For a mixture of gases, the total pressure is the sum of the partial pressures:</p>
+<p><span class="math display">\[P_\text{total} = \sum_i P_i\]</span></p>
+</section>
+<section id="rms-speed" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="rms-speed"><span class="header-section-number">4.2.5</span> RMS Speed</h3>
+<p>From <span class="math inline">\(P = NkT/V\)</span> and <span class="math inline">\(P = \frac{1}{3}Nm\overline{v^2}/V\)</span>:</p>
+<p><span class="math display">\[\frac{1}{2}m\overline{v^2} = \frac{3}{2}kT \qquad \Longrightarrow \qquad v_\text{rms} = \sqrt{\frac{3kT}{m}}\]</span></p>
+<p>The total translational kinetic energy is:</p>
+<p><span class="math display">\[K_\text{trans} = \frac{3}{2}NkT = \frac{3}{2}PV\]</span></p>
+</section>
+</section>
+<section id="thermodynamic-processes" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="thermodynamic-processes"><span class="header-section-number">4.3</span> Thermodynamic Processes</h2>
+<section id="pv-diagrams-and-work" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="pv-diagrams-and-work"><span class="header-section-number">4.3.1</span> PV Diagrams and Work</h3>
+<p>The first law of thermodynamics:</p>
+<p><span class="math display">\[dU = \delta Q + \delta W\]</span></p>
+<p>where <span class="math inline">\(U\)</span> is a state function (path-independent). On a PV diagram, the work done <em>on</em> the gas is:</p>
+<p><span class="math display">\[\boxed{W = -\int_{V_1}^{V_2} P\,dV = -\text{(area under curve)}}\]</span></p>
+<p>The sign convention: <span class="math inline">\(W &gt; 0\)</span> when work is done <em>on</em> the gas (compression), <span class="math inline">\(W &lt; 0\)</span> when the gas expands.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Status
+<span class="screen-reader-only">Warning</span>TODO: Diagram
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Content to be transcribed from IPhO notes.</p>
+<p>PV diagram showing work as area under the curve for an expansion process, with labeled axes <span class="math inline">\(P\)</span> and <span class="math inline">\(V\)</span>.</p>
 </div>
 </div>
+</section>
+<section id="special-processes" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="special-processes"><span class="header-section-number">4.3.2</span> Special Processes</h3>
+<table class="table-striped table-hover caption-top table">
+<caption>Thermodynamic Processes</caption>
+<colgroup>
+<col style="width: 28%">
+<col style="width: 34%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Process</th>
+<th>Condition</th>
+<th>Work</th>
+<th>Heat</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Isochoric</strong></td>
+<td><span class="math inline">\(dV = 0\)</span></td>
+<td><span class="math inline">\(W = 0\)</span></td>
+<td><span class="math inline">\(Q = \Delta U\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Isobaric</strong></td>
+<td><span class="math inline">\(dP = 0\)</span></td>
+<td><span class="math inline">\(W = -P\Delta V\)</span></td>
+<td><span class="math inline">\(Q = \Delta U + P\Delta V\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Isothermal</strong></td>
+<td><span class="math inline">\(dT = 0\)</span>, <span class="math inline">\(PV = \text{const}\)</span></td>
+<td><span class="math inline">\(W = -NkT\ln\frac{V_2}{V_1}\)</span></td>
+<td><span class="math inline">\(Q = -W\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Adiabatic</strong></td>
+<td><span class="math inline">\(\delta Q = 0\)</span></td>
+<td><span class="math inline">\(W = \Delta U\)</span></td>
+<td><span class="math inline">\(Q = 0\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="isothermal-process" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="isothermal-process"><span class="header-section-number">4.3.3</span> Isothermal Process</h3>
+<p>For an ideal gas at constant temperature (<span class="math inline">\(PV = NkT = \text{const}\)</span>):</p>
+<p><span class="math display">\[W_\text{isotherm} = -\int_{V_1}^{V_2} \frac{NkT}{V}\,dV = -NkT\ln\frac{V_2}{V_1}\]</span></p>
+<p>Since <span class="math inline">\(dT = 0\)</span>, the internal energy doesn’t change (<span class="math inline">\(\Delta U = 0\)</span> for an ideal gas), so:</p>
+<p><span class="math display">\[Q = -W = NkT\ln\frac{V_2}{V_1}\]</span></p>
+</section>
+<section id="specific-heat-capacities" class="level3" data-number="4.3.4">
+<h3 data-number="4.3.4" class="anchored" data-anchor-id="specific-heat-capacities"><span class="header-section-number">4.3.4</span> Specific Heat Capacities</h3>
+<p><strong>At constant volume</strong> (<span class="math inline">\(dV = 0\)</span>, so <span class="math inline">\(W = 0\)</span>):</p>
+<p><span class="math display">\[dU = \delta Q = nC_v\,dT\]</span></p>
+<p>Since <span class="math inline">\(U = \frac{f}{2}nRT\)</span>, we get <span class="math inline">\(dU = \frac{f}{2}nR\,dT\)</span>, giving:</p>
+<p><span class="math display">\[\boxed{C_v = \frac{f}{2}R}\]</span></p>
+<p><strong>At constant pressure</strong> (<span class="math inline">\(dP = 0\)</span>):</p>
+<p><span class="math display">\[dU = \delta Q + \delta W = nC_p\,dT - P\,dV\]</span></p>
+<p>Using <span class="math inline">\(PV = nRT\)</span>, at constant pressure <span class="math inline">\(P\,dV = nR\,dT\)</span>. Then:</p>
+<p><span class="math display">\[\frac{f}{2}nR\,dT = nC_p\,dT - nR\,dT\]</span></p>
+<p><span class="math display">\[\boxed{C_p = \left(\frac{f}{2} + 1\right)R}\]</span></p>
+<p>The <strong>heat capacity ratio</strong>:</p>
+<p><span class="math display">\[\boxed{\gamma = \frac{C_p}{C_v} = \frac{f + 2}{f}}\]</span></p>
+<table class="table-striped table-hover caption-top table">
+<caption>Heat Capacity Ratios</caption>
+<thead>
+<tr class="header">
+<th>Gas type</th>
+<th><span class="math inline">\(f\)</span></th>
+<th><span class="math inline">\(\gamma\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Monatomic</td>
+<td>3</td>
+<td>5/3</td>
+</tr>
+<tr class="even">
+<td>Diatomic</td>
+<td>5</td>
+<td>7/5</td>
+</tr>
+<tr class="odd">
+<td>Polyatomic</td>
+<td>6</td>
+<td>4/3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="adiabatic-process" class="level3" data-number="4.3.5">
+<h3 data-number="4.3.5" class="anchored" data-anchor-id="adiabatic-process"><span class="header-section-number">4.3.5</span> Adiabatic Process</h3>
+<p>For an adiabatic process (<span class="math inline">\(\delta Q = 0\)</span>), starting from the first law and using <span class="math inline">\(dU = \frac{f}{2}nR\,dT\)</span>:</p>
+<p><span class="math display">\[dU = \delta W = -P\,dV\]</span></p>
+<p><span class="math display">\[\frac{f}{2}nR\,dT = -P\,dV\]</span></p>
+<p>Using <span class="math inline">\(d(PV) = P\,dV + V\,dP = nR\,dT\)</span>, we can write:</p>
+<p><span class="math display">\[\frac{f}{2}(P\,dV + V\,dP) = -P\,dV\]</span></p>
+<p><span class="math display">\[\frac{f}{2}V\,dP = -\left(\frac{f}{2} + 1\right)P\,dV\]</span></p>
+<p><span class="math display">\[\frac{dP}{P} = -\gamma\frac{dV}{V}\]</span></p>
+<p>Integrating:</p>
+<p><span class="math display">\[\ln P + \gamma \ln V = \text{const}\]</span></p>
+<p><span class="math display">\[\boxed{PV^\gamma = \text{constant}}\]</span></p>
+<p>On a PV diagram, adiabats are steeper than isotherms (since <span class="math inline">\(\gamma &gt; 1\)</span>).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PV diagram comparing an isotherm and an adiabat through the same point, showing the adiabat is steeper.</p>
+</div>
+</div>
+<p><strong>Definitions:</strong></p>
+<ul>
+<li><strong>Equilibrium</strong>: no macroscopic changes; temperature is well-defined</li>
+<li><strong>Quasistatic</strong>: system is always in equilibrium; infinitely slow changes</li>
+</ul>
+</section>
+</section>
+<section id="heat-engines-and-the-carnot-cycle" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="heat-engines-and-the-carnot-cycle"><span class="header-section-number">4.4</span> Heat Engines and the Carnot Cycle</h2>
+<section id="heat-engines" class="level3" data-number="4.4.1">
+<h3 data-number="4.4.1" class="anchored" data-anchor-id="heat-engines"><span class="header-section-number">4.4.1</span> Heat Engines</h3>
+<p>A <strong>heat engine</strong> absorbs heat <span class="math inline">\(|Q_H|\)</span> from a hot reservoir, does work <span class="math inline">\(|W|\)</span>, and rejects heat <span class="math inline">\(|Q_C|\)</span> to a cold reservoir. By conservation of energy:</p>
+<p><span class="math display">\[|Q_H| = |W| + |Q_C|\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Schematic of a heat engine: hot reservoir (<span class="math inline">\(T_H\)</span>) at top, cold reservoir (<span class="math inline">\(T_C\)</span>) at bottom, engine in middle with arrows showing <span class="math inline">\(Q_H\)</span> in, <span class="math inline">\(W\)</span> out, <span class="math inline">\(Q_C\)</span> out.</p>
+</div>
+</div>
+<p>The <strong>efficiency</strong> of a heat engine:</p>
+<p><span class="math display">\[e = \frac{|W|}{|Q_H|} = \frac{|Q_H| - |Q_C|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|}\]</span></p>
+</section>
+<section id="refrigerators" class="level3" data-number="4.4.2">
+<h3 data-number="4.4.2" class="anchored" data-anchor-id="refrigerators"><span class="header-section-number">4.4.2</span> Refrigerators</h3>
+<p>A <strong>refrigerator</strong> is a heat engine run in reverse: it uses work <span class="math inline">\(|W|\)</span> to transfer heat from cold to hot.</p>
+<p>The <strong>coefficient of performance</strong>:</p>
+<p><span class="math display">\[K = \frac{|Q_C|}{|W|} = \frac{|Q_C|}{|Q_H| - |Q_C|}\]</span></p>
+</section>
+<section id="second-law-of-thermodynamics" class="level3" data-number="4.4.3">
+<h3 data-number="4.4.3" class="anchored" data-anchor-id="second-law-of-thermodynamics"><span class="header-section-number">4.4.3</span> Second Law of Thermodynamics</h3>
+<p><strong>Kelvin–Planck form</strong>: No process can convert heat completely into work (no perfect heat engine).</p>
+<p><strong>Clausius form</strong>: No process can transfer heat from cold to hot with no other effect (no perfect refrigerator).</p>
+<p>These two statements are equivalent.</p>
+</section>
+<section id="the-carnot-cycle" class="level3" data-number="4.4.4">
+<h3 data-number="4.4.4" class="anchored" data-anchor-id="the-carnot-cycle"><span class="header-section-number">4.4.4</span> The Carnot Cycle</h3>
+<p>Carnot constructed a conceptual engine from two isotherms and two adiabats:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PV diagram of Carnot cycle: four stages labeled A→B (isothermal expansion at <span class="math inline">\(T_H\)</span>), B→C (adiabatic expansion), C→D (isothermal compression at <span class="math inline">\(T_C\)</span>), D→A (adiabatic compression). Shaded area = net work.</p>
+</div>
+</div>
+<ol type="1">
+<li><strong>A → B</strong>: Isothermal expansion at <span class="math inline">\(T_H\)</span> (absorb <span class="math inline">\(Q_H\)</span>)</li>
+<li><strong>B → C</strong>: Adiabatic expansion (<span class="math inline">\(T_H \to T_C\)</span>)</li>
+<li><strong>C → D</strong>: Isothermal compression at <span class="math inline">\(T_C\)</span> (reject <span class="math inline">\(Q_C\)</span>)</li>
+<li><strong>D → A</strong>: Adiabatic compression (<span class="math inline">\(T_C \to T_H\)</span>)</li>
+</ol>
+<p>For the isothermal stages:</p>
+<p><span class="math display">\[Q_{AB} = NkT_H \ln\frac{V_B}{V_A} &gt; 0, \qquad Q_{CD} = NkT_C \ln\frac{V_D}{V_C} &lt; 0\]</span></p>
+<p>For the adiabatic stages, <span class="math inline">\(PV^\gamma = \text{const}\)</span> with <span class="math inline">\(PV = NkT\)</span> gives <span class="math inline">\(TV^{\gamma-1} = \text{const}\)</span>:</p>
+<p><span class="math display">\[T_H V_B^{\gamma-1} = T_C V_C^{\gamma-1}, \qquad T_H V_A^{\gamma-1} = T_C V_D^{\gamma-1}\]</span></p>
+<p>Dividing: <span class="math inline">\(\frac{V_B}{V_A} = \frac{V_C}{V_D}\)</span>, so the logarithms in <span class="math inline">\(Q_{AB}\)</span> and <span class="math inline">\(Q_{CD}\)</span> have the same magnitude. The efficiency:</p>
+<p><span class="math display">\[e = 1 - \frac{|Q_C|}{|Q_H|} = 1 - \frac{T_C \ln(V_C/V_D)}{T_H \ln(V_B/V_A)} = 1 - \frac{T_C}{T_H}\]</span></p>
+<p><span class="math display">\[\boxed{e_\text{Carnot} = 1 - \frac{T_C}{T_H}}\]</span></p>
+</section>
+<section id="carnot-refrigerator" class="level3" data-number="4.4.5">
+<h3 data-number="4.4.5" class="anchored" data-anchor-id="carnot-refrigerator"><span class="header-section-number">4.4.5</span> Carnot Refrigerator</h3>
+<p>Running the Carnot cycle in reverse gives a refrigerator with coefficient of performance:</p>
+<p><span class="math display">\[\boxed{K_\text{Carnot} = \frac{T_C}{T_H - T_C}}\]</span></p>
+</section>
+<section id="carnots-theorem" class="level3" data-number="4.4.6">
+<h3 data-number="4.4.6" class="anchored" data-anchor-id="carnots-theorem"><span class="header-section-number">4.4.6</span> Carnot’s Theorem</h3>
+<blockquote class="blockquote">
+<p>The efficiency of any heat engine operating between two temperatures can never exceed the efficiency of a Carnot engine operating between the same two temperatures.</p>
+</blockquote>
+<p><strong>Proof by contradiction</strong>: Suppose an engine has efficiency <span class="math inline">\(e' &gt; e_\text{Carnot}\)</span>. Use it to drive a Carnot refrigerator. The combined system would transfer heat from cold to hot with no work input — violating the Clausius form of the second law.</p>
+<p>The same argument shows that the Carnot refrigerator has the highest possible coefficient of performance.</p>
+</section>
+<section id="key-property-of-the-carnot-cycle" class="level3" data-number="4.4.7">
+<h3 data-number="4.4.7" class="anchored" data-anchor-id="key-property-of-the-carnot-cycle"><span class="header-section-number">4.4.7</span> Key Property of the Carnot Cycle</h3>
+<p>For any Carnot cycle:</p>
+<p><span class="math display">\[\frac{|Q_H|}{T_H} = \frac{|Q_C|}{T_C}, \qquad \text{or equivalently} \qquad \frac{Q_H}{T_H} + \frac{Q_C}{T_C} = 0\]</span></p>
+<p>The Carnot cycle is <strong>reversible</strong>. Any reversible process can be approximated as a sum of infinitesimal Carnot cycles, which means:</p>
+<p><span class="math display">\[\oint \frac{\delta Q}{T} = 0 \quad \text{(for any reversible cycle)}\]</span></p>
+</section>
+</section>
+<section id="entropy" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="entropy"><span class="header-section-number">4.5</span> Entropy</h2>
+<section id="entropy-as-a-state-function" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="entropy-as-a-state-function"><span class="header-section-number">4.5.1</span> Entropy as a State Function</h3>
+<p>Since <span class="math inline">\(\oint \frac{\delta Q}{T} = 0\)</span> for reversible processes, <span class="math inline">\(\frac{\delta Q}{T}\)</span> defines an exact differential for a state function — <strong>entropy</strong>:</p>
+<p><span class="math display">\[dS = \frac{\delta Q_\text{rev}}{T}\]</span></p>
+<p>The entropy change between two states A and B is:</p>
+<p><span class="math display">\[\Delta S = \int_A^B \frac{\delta Q_\text{rev}}{T}\]</span></p>
+<p>and is independent of the path taken (as long as we use a reversible path to calculate it).</p>
+</section>
+<section id="second-law-in-terms-of-entropy" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="second-law-in-terms-of-entropy"><span class="header-section-number">4.5.2</span> Second Law in Terms of Entropy</h3>
+<p>For a reversible process, <span class="math inline">\(\Delta S_\text{system} + \Delta S_\text{surroundings} = 0\)</span>.</p>
+<p>For an irreversible process, consider heat flow: if <span class="math inline">\(T_\text{sys} &lt; T_\text{surr}\)</span> (heat flows in), then <span class="math inline">\(dQ_\text{sys} &gt; 0\)</span> and <span class="math inline">\(dQ_\text{surr} &lt; 0\)</span>, with <span class="math inline">\(|dQ_\text{surr}/T_\text{surr}| &lt; |dQ_\text{sys}/T_\text{sys}|\)</span> since <span class="math inline">\(T_\text{surr} &gt; T_\text{sys}\)</span>. Therefore:</p>
+<p><span class="math display">\[\boxed{\Delta S_\text{universe} \ge 0}\]</span></p>
+<p>with equality only for reversible processes. This is the <strong>second law of thermodynamics</strong>: in any process between equilibrium states, the total entropy of the universe cannot decrease.</p>
+</section>
+<section id="entropy-and-adiabatic-processes" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="entropy-and-adiabatic-processes"><span class="header-section-number">4.5.3</span> Entropy and Adiabatic Processes</h3>
+<p>For an adiabatic process, <span class="math inline">\(\delta Q = 0\)</span>, so <span class="math inline">\(dS = \delta Q/T = 0\)</span>. A reversible adiabatic process is therefore <strong>isentropic</strong> (<span class="math inline">\(\Delta S = 0\)</span>).</p>
+</section>
+<section id="the-carnot-cycle-on-a-ts-diagram" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="the-carnot-cycle-on-a-ts-diagram"><span class="header-section-number">4.5.4</span> The Carnot Cycle on a T–S Diagram</h3>
+<p>On a temperature-entropy (<span class="math inline">\(T\)</span>–<span class="math inline">\(S\)</span>) diagram, the Carnot cycle is a rectangle:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>T–S diagram of Carnot cycle: rectangle with isotherms (horizontal lines at <span class="math inline">\(T_H\)</span> and <span class="math inline">\(T_C\)</span>) and adiabats (vertical lines). Shaded area = net work. <span class="math inline">\(Q = \int T\,dS\)</span> along isotherms.</p>
+</div>
+</div>
+<p>The heat exchanged is:</p>
+<p><span class="math display">\[Q = \int T\,dS = \text{area under curve on T–S diagram}\]</span></p>
+<p>The net work equals the enclosed area of the cycle on the T–S diagram (just as it equals the enclosed area on the PV diagram).</p>
+</section>
+</section>
+<section id="phase-diagrams" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="phase-diagrams"><span class="header-section-number">4.6</span> Phase Diagrams</h2>
+<section id="ideal-vs-real-gases" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="ideal-vs-real-gases"><span class="header-section-number">4.6.1</span> Ideal vs Real Gases</h3>
+<p>The ideal gas law <span class="math inline">\(PV = NkT\)</span> is an excellent approximation in many regimes but fails at <strong>extremes</strong> — very high pressure or very low temperature — where intermolecular forces and finite molecular volume matter. Under these conditions, gases can <strong>liquefy</strong>.</p>
+</section>
+<section id="phase-diagram" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="phase-diagram"><span class="header-section-number">4.6.2</span> Phase Diagram</h3>
+<p>A <strong>phase diagram</strong> plots pressure vs temperature, showing the regions where each phase (solid, liquid, gas) is stable.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Phase diagram showing solid, liquid, and gas regions. Label the triple point, critical point, lines of coexistence (sublimation, melting, boiling), and the special features for water (negative slope of melting curve).</p>
+</div>
+</div>
+<p>Key features:</p>
+<ul>
+<li><strong>Triple point</strong>: the unique <span class="math inline">\((P, T)\)</span> where all three phases coexist in equilibrium</li>
+<li><strong>Critical point</strong>: beyond this, no distinction between liquid and gas (supercritical fluid)</li>
+<li><strong>Lines of coexistence</strong>: boundaries between phases (sublimation, melting, boiling lines)</li>
+<li>For <strong>water</strong>, the melting curve has a negative slope (ice is less dense than water), which is unusual</li>
+</ul>
+</section>
+<section id="phase-transitions-on-a-ts-diagram" class="level3" data-number="4.6.3">
+<h3 data-number="4.6.3" class="anchored" data-anchor-id="phase-transitions-on-a-ts-diagram"><span class="header-section-number">4.6.3</span> Phase Transitions on a T–S Diagram</h3>
+<p>During a constant-pressure phase change:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>T–S diagram showing constant-pressure heating: temperature rises, then plateaus during phase change (latent heat absorbed at constant T increases entropy), then rises again.</p>
+</div>
+</div>
+<ul>
+<li>Temperature increases until the phase boundary is reached</li>
+<li>During the phase change, temperature remains constant while entropy increases (latent heat is absorbed: <span class="math inline">\(\Delta S = Q/T = m\ell/T\)</span>)</li>
+<li>After the phase change completes, temperature rises again</li>
+</ul>
+<p>The <strong>van der Waals model</strong> accounts for intermolecular attraction and finite molecular volume, providing a qualitative description of the gas-to-liquid transition.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
