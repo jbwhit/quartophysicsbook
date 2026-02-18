@@ -6,7 +6,7 @@ book:
   author:
     - Casey Handmer
     - Jonathan Whitmore
-  date: "2026"
+  date: today
   image: cover.png
   repo-url: https://github.com/jbwhit/quartophysicsbook
   repo-actions: [source, issue]
@@ -45,5 +45,6 @@ format:
     theme:
       light: flatly
       dark: darkly
+    embed-resources: true
   pdf:
     documentclass: scrreprt
