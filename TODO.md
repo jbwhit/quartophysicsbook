@@ -34,7 +34,7 @@
 - All 169 IPhO training note photos transcribed and catalogued
 - All content from Casey's "Think Like A Physicist" PDF transcribed (Chapters 1-2)
 - 136 boxed results with 192 passing sympy verification tests
-- 3 AI-generated TikZ diagrams (pendulum, heat engine, light clock) — awaiting human review
+- 3 AI-generated TikZ diagrams (pendulum, heat engine, light clock) — awaiting human review -- these are essentially placeholders as we will need to edit these substantially before they are acceptable.
 - Physics correctness pass complete (5 errors fixed: PSI conversion, gravitational force mass, optics phase change rule, RC circuit equation, Doppler angle description)
 - Consistency pass complete (vector notation unified to `\vec{}`, SI units throughout, `\delta`/`d`/`\partial` usage verified)
 - CI/CD pipeline: GitHub Actions builds HTML + PDF and deploys to GitHub Pages on push to main
@@ -54,7 +54,7 @@
 1. **Topic coverage**: Are there topics Casey wants to add beyond what's in the IPhO notes? (e.g., error propagation was excluded as "lab stuff" — agree?)
 2. **Depth**: Is the level of detail right? Some chapters are dense (circuits: 506 lines, 34 boxed results) while others are lighter (electrostatics: 279 lines)
 3. **Tone**: The transcribed IPhO notes are terse and formula-heavy. Casey's PDF chapters (thinking, math) are more conversational. Should we unify the tone?
-4. **Worked problems**: Currently only in thinking/mechanics/waves. Should every chapter get 7-Ds practice problems?
+4. **Worked problems**: Currently have example problems in thinking/mechanics/waves. How many worked 7-Ds practice problems are we thinking of targeting?
 5. **Modern physics scope**: The relativity chapter covers Bohr atom, photoelectric effect, QM intro, and SR. Is this the right mix for the book's level?
 6. **Diagrams**: 45 diagrams needed. Priority order? Are some more important than others?
 
@@ -65,12 +65,6 @@
 - Test-taking strategies (per foreword)
 
 ---
-
-## Pre-Casey Sync (DONE)
-
-- [x] Physics correctness pass across all IPhO-note chapters
-- [x] Consistency pass (notation, units, formatting) across all chapters
-- [x] Status summary (above)
 
 ## Phase 3: Polish & Publish (after Casey sync)
 
@@ -85,9 +79,8 @@
 - [ ] Write co-author preface (Jonathan + Casey)
 - [ ] Unify tone across chapters (pending Casey feedback)
 - [ ] Add cross-references between chapters where natural
+- [ ] Consider the UCSD physics qualifying exams as a source of problems.
 
-### Infrastructure
-- [x] ~~Add PDF rendering to CI~~ (done — CI renders both HTML and PDF, sidebar has download link)
 
 ---
 
