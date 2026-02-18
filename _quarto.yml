@@ -10,6 +10,7 @@ book:
   image: cover.png
   repo-url: https://github.com/jbwhit/quartophysicsbook
   repo-actions: [source, issue]
+  downloads: [pdf]
   sidebar:
     logo: physics_logo.png
     search: true

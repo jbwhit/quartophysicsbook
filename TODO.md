@@ -37,8 +37,9 @@
 - 3 AI-generated TikZ diagrams (pendulum, heat engine, light clock) — awaiting human review
 - Physics correctness pass complete (5 errors fixed: PSI conversion, gravitational force mass, optics phase change rule, RC circuit equation, Doppler angle description)
 - Consistency pass complete (vector notation unified to `\vec{}`, SI units throughout, `\delta`/`d`/`\partial` usage verified)
-- CI/CD pipeline: GitHub Actions builds and deploys to GitHub Pages on push to main
-- Website live with dual light/dark theme
+- CI/CD pipeline: GitHub Actions builds HTML + PDF and deploys to GitHub Pages on push to main
+- Website live with dual light/dark theme and PDF download link in sidebar
+- Pre-push git hook renders PDF locally before each push
 
 ### What's Left
 
@@ -86,7 +87,7 @@
 - [ ] Add cross-references between chapters where natural
 
 ### Infrastructure
-- [ ] Add PDF rendering to CI (currently HTML only)
+- [x] ~~Add PDF rendering to CI~~ (done — CI renders both HTML and PDF, sidebar has download link)
 
 ---
 
