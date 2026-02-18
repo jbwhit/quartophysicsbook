@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -465,6 +500,11 @@ window.Quarto = {
   <li><a href="#moving-observer-stationary-source" id="toc-moving-observer-stationary-source" class="nav-link" data-scroll-target="#moving-observer-stationary-source"><span class="header-section-number">5.7.2</span> Moving Observer, Stationary Source</a></li>
   <li><a href="#general-doppler-formula" id="toc-general-doppler-formula" class="nav-link" data-scroll-target="#general-doppler-formula"><span class="header-section-number">5.7.3</span> General Doppler Formula</a></li>
   </ul></li>
+  <li><a href="#practice-problems" id="toc-practice-problems" class="nav-link" data-scroll-target="#practice-problems"><span class="header-section-number">5.8</span> Practice Problems</a>
+  <ul class="collapse">
+  <li><a href="#fundamental-frequency-of-a-guitar-string" id="toc-fundamental-frequency-of-a-guitar-string" class="nav-link" data-scroll-target="#fundamental-frequency-of-a-guitar-string">Fundamental Frequency of a Guitar String</a></li>
+  <li><a href="#beat-frequency-and-beat-period" id="toc-beat-frequency-and-beat-period" class="nav-link" data-scroll-target="#beat-frequency-and-beat-period">Beat Frequency and Beat Period</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -596,19 +636,50 @@ window.Quarto = {
 </section>
 <section id="the-simple-pendulum" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="the-simple-pendulum"><span class="header-section-number">5.2</span> The Simple Pendulum</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>TODO: Diagram
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Simple pendulum: mass <span class="math inline">\(m\)</span> hanging from a string of length <span class="math inline">\(L\)</span> at angle <span class="math inline">\(\theta\)</span> from vertical. Show the weight <span class="math inline">\(mg\)</span> decomposed into components along and perpendicular to the string. Label the arc length <span class="math inline">\(x = L\theta\)</span>.</p>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode tikz code-with-copy"><code class="sourceCode latex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">%%| label: fig-simple-pendulum</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">%%| fig-cap: Simple pendulum — mass m on a string of length L, displaced by angle theta.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">tikzpicture</span>}[&gt;=stealth, thick, scale=1.2]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Pivot support</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[fill=gray!20] (-0.6,0) rectangle (0.6,0.15);</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\fill</span> (0,0) circle (2pt);</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Precomputed: 30 deg → sin30=0.5, cos30=0.866</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">% String length = 4, mass at (2, -3.464)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\coordinate</span> (pivot) at (0,0);</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\coordinate</span> (mass) at (2,-3.464);</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Dashed vertical reference</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[dashed, gray] (0,0) -- (0,-4);</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">% String</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[thick] (pivot) -- (mass);</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Angle arc (manual)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span> (0,-1.2) arc[start angle=-90, end angle=-60, radius=1.2];</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\node</span> at (0.35,-1.5) {<span class="ss">$</span><span class="sc">\theta</span><span class="ss">$</span>};</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Mass</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\filldraw</span>[fill=blue!30] (mass) circle (0.25);</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\node</span>[right] at (2.3,-3.464) {<span class="ss">$m$</span>};</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Length label</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\node</span>[above left] at (0.8,-1.5) {<span class="ss">$L$</span>};</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Weight mg (downward from mass center)</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[-&gt;, red, very thick] (mass) -- ++(0,-1.5) node[right] {<span class="ss">$mg$</span>};</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Component along string (toward pivot)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[-&gt;, blue, thick] (mass) -- ++(-0.75, 1.299)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    node[above left=-2pt] {<span class="ss">$mg</span><span class="sc">\cos\theta</span><span class="ss">$</span>};</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Component perpendicular to string (restoring, tangential)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[-&gt;, orange, thick] (mass) -- ++(-1.299, -0.75)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    node[below left=-2pt] {<span class="ss">$mg</span><span class="sc">\sin\theta</span><span class="ss">$</span>};</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Arc length label</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\draw</span>[&lt;-&gt;, thick, purple] (0,-2.4) arc[start angle=-90, end angle=-60, radius=2.4]</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    node[midway, below right=1pt] {<span class="ss">$x = L</span><span class="sc">\theta</span><span class="ss">$</span>};</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">tikzpicture</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For a pendulum of length <span class="math inline">\(L\)</span> at angle <span class="math inline">\(\theta\)</span> from vertical, the restoring force along the arc is:</p>
 <p><span class="math display">\[F = -mg\sin\theta\]</span></p>
 <p>For <strong>small angles</strong> (<span class="math inline">\(\theta \lesssim 15°\)</span>), <span class="math inline">\(\sin\theta \approx \theta\)</span>, so:</p>
@@ -798,8 +869,184 @@ window.Quarto = {
 <li>Observer approaching (<span class="math inline">\(V_o &lt; 0\)</span>, <span class="math inline">\(V_s = 0\)</span>): <span class="math inline">\(f' &gt; f\)</span></li>
 <li><span class="math inline">\(V_s \to V\)</span>: <span class="math inline">\(f' \to \infty\)</span> — sonic boom (Mach 1)</li>
 </ul>
+</section>
+</section>
+<section id="practice-problems" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="practice-problems"><span class="header-section-number">5.8</span> Practice Problems</h2>
+<section id="fundamental-frequency-of-a-guitar-string" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundamental-frequency-of-a-guitar-string">Fundamental Frequency of a Guitar String</h3>
+<p>A guitar string of length <span class="math inline">\(L\)</span> is under tension <span class="math inline">\(F_T\)</span> and has linear mass density <span class="math inline">\(\mu\)</span>. Find the fundamental frequency of vibration.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Guitar string fixed at both ends (bridge and nut), length <span class="math inline">\(L\)</span>. Show the fundamental mode (<span class="math inline">\(n=1\)</span>) with one half-wavelength fitting between the endpoints. Label the amplitude, nodes at each end, and antinode at the center.</p>
+</div>
+</div>
+<section id="diagram" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="diagram">Diagram</h4>
+<p>See placeholder above.</p>
+</section>
+<section id="directions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="directions">Directions</h4>
+<p>Not needed — purely scalar problem (frequency has no direction).</p>
+</section>
+<section id="definitions-given-data" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="definitions-given-data">Definitions &amp; Given Data</h4>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(L\)</span></td>
+<td>Length of string (m)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(F_T\)</span></td>
+<td>Tension in string (N)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu\)</span></td>
+<td>Linear mass density (kg/m)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(v\)</span></td>
+<td>Wave speed on string (m/s)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(f_1\)</span></td>
+<td>Fundamental frequency (Hz)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diagnosis" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="diagnosis">Diagnosis</h4>
+<p>Two results combine: the wave speed on a string (<span class="math inline">\(v = \sqrt{F_T/\mu}\)</span>) and the resonance condition for a string fixed at both ends (<span class="math inline">\(f_n = nv/(2L)\)</span>, with <span class="math inline">\(n=1\)</span> for the fundamental).</p>
+</section>
+<section id="derivation" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derivation">Derivation</h4>
+<p>Wave speed on a stretched string:</p>
+<p><span class="math display">\[v = \sqrt{\frac{F_T}{\mu}}\]</span></p>
+<p>Resonance condition for two fixed ends (fundamental, <span class="math inline">\(n = 1\)</span>):</p>
+<p><span class="math display">\[f_1 = \frac{v}{2L}\]</span></p>
+</section>
+<section id="determination" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="determination">Determination</h4>
+<p><span class="math display">\[\boxed{f_1 = \frac{1}{2L}\sqrt{\frac{F_T}{\mu}}}\]</span></p>
+</section>
+<section id="dimensions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="dimensions">Dimensions</h4>
+<ul>
+<li><span class="math inline">\([f_1] = \frac{1}{[\text{m}]}\sqrt{\frac{[\text{N}]}{[\text{kg/m}]}} = \frac{1}{[\text{m}]}\sqrt{\frac{[\text{kg}\cdot\text{m/s}^2]}{[\text{kg/m}]}} = \frac{1}{[\text{m}]} \cdot [\text{m/s}] = [\text{s}^{-1}]\)</span> ✓</li>
+<li>Increasing <span class="math inline">\(F_T\)</span> increases <span class="math inline">\(f_1\)</span> — tighter strings are higher-pitched ✓</li>
+<li>Increasing <span class="math inline">\(\mu\)</span> decreases <span class="math inline">\(f_1\)</span> — heavier strings are lower-pitched ✓</li>
+<li>Increasing <span class="math inline">\(L\)</span> decreases <span class="math inline">\(f_1\)</span> — longer strings are lower-pitched ✓</li>
+</ul>
+</section>
+<section id="substitution" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="substitution">Substitution</h4>
+<p>For a typical high-E guitar string (<span class="math inline">\(L = 0.65\;\text{m}\)</span>, <span class="math inline">\(F_T = 70\;\text{N}\)</span>, <span class="math inline">\(\mu = 3.9 \times 10^{-4}\;\text{kg/m}\)</span>):</p>
+<p><span class="math display">\[f_1 = \frac{1}{2 \times 0.65}\sqrt{\frac{70}{3.9 \times 10^{-4}}} \approx \frac{1}{1.3} \times 424 \approx 326\;\text{Hz}\]</span></p>
+<p>This is close to the expected E4 (<span class="math inline">\(\approx 330\;\text{Hz}\)</span>) ✓</p>
+</section>
+</section>
+<section id="beat-frequency-and-beat-period" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="beat-frequency-and-beat-period">Beat Frequency and Beat Period</h3>
+<p>Two tuning forks vibrate at frequencies <span class="math inline">\(f_1 = 440\;\text{Hz}\)</span> and <span class="math inline">\(f_2 = 444\;\text{Hz}\)</span>. Find the beat frequency and the time between successive maxima of loudness.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>TODO: Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Two sinusoidal waves of slightly different frequency shown separately (top two panels), and their superposition showing the beat envelope (bottom panel). Label the beat period <span class="math inline">\(T_\text{beat}\)</span>.</p>
+</div>
+</div>
+<section id="diagram-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="diagram-1">Diagram</h4>
+<p>See placeholder above.</p>
+</section>
+<section id="directions-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="directions-1">Directions</h4>
+<p>Not needed — purely algebraic.</p>
+</section>
+<section id="definitions-given-data-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="definitions-given-data-1">Definitions &amp; Given Data</h4>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(f_1 = 440\;\text{Hz}\)</span></td>
+<td>Frequency of fork 1</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(f_2 = 444\;\text{Hz}\)</span></td>
+<td>Frequency of fork 2</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(f_\text{beat}\)</span></td>
+<td>Beat frequency (Hz)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(T_\text{beat}\)</span></td>
+<td>Time between maxima (s)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diagnosis-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="diagnosis-1">Diagnosis</h4>
+<p>Superposition of two waves of nearly equal frequency produces beats. The beat frequency is the absolute difference of the individual frequencies.</p>
+</section>
+<section id="derivation-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="derivation-1">Derivation</h4>
+<p>From the superposition result derived earlier:</p>
+<p><span class="math display">\[f_\text{beat} = |f_1 - f_2|\]</span></p>
+<p>The time between successive maxima is one beat period:</p>
+<p><span class="math display">\[T_\text{beat} = \frac{1}{f_\text{beat}}\]</span></p>
+</section>
+<section id="determination-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="determination-1">Determination</h4>
+<p><span class="math display">\[\boxed{f_\text{beat} = |f_1 - f_2|}\]</span></p>
+<p><span class="math display">\[\boxed{T_\text{beat} = \frac{1}{|f_1 - f_2|}}\]</span></p>
+</section>
+<section id="dimensions-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="dimensions-1">Dimensions</h4>
+<ul>
+<li><span class="math inline">\([f_\text{beat}] = [\text{Hz}]\)</span> ✓</li>
+<li><span class="math inline">\([T_\text{beat}] = [\text{s}]\)</span> ✓</li>
+<li>If <span class="math inline">\(f_1 = f_2\)</span>: <span class="math inline">\(f_\text{beat} = 0\)</span> — no beats, constant loudness ✓</li>
+<li>As <span class="math inline">\(|f_1 - f_2|\)</span> increases, beats become faster and eventually indistinguishable — the ear hears two separate tones ✓</li>
+</ul>
+</section>
+<section id="substitution-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="substitution-1">Substitution</h4>
+<p><span class="math display">\[f_\text{beat} = |440 - 444| = 4\;\text{Hz}\]</span></p>
+<p><span class="math display">\[T_\text{beat} = \frac{1}{4} = 0.25\;\text{s}\]</span></p>
+<p>You hear 4 pulses of loudness per second, spaced 0.25 seconds apart.</p>
 
 
+</section>
 </section>
 </section>
 
