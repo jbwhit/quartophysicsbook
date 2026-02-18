@@ -296,10 +296,35 @@ A **heat engine** absorbs heat $|Q_H|$ from a hot reservoir, does work $|W|$, an
 
 $$|Q_H| = |W| + |Q_C|$$
 
-::: {.callout-warning}
-## TODO: Diagram
-Schematic of a heat engine: hot reservoir ($T_H$) at top, cold reservoir ($T_C$) at bottom, engine in middle with arrows showing $Q_H$ in, $W$ out, $Q_C$ out.
-:::
+```{.tikz}
+%%| label: fig-heat-engine
+%%| fig-cap: Heat engine schematic showing energy flow between reservoirs.
+\begin{tikzpicture}[>=stealth, thick]
+  % Hot reservoir
+  \draw[fill=red!20, rounded corners] (-1.8,3) rectangle (1.8,4);
+  \node at (0,3.5) {\textbf{Hot reservoir} $T_H$};
+
+  % Cold reservoir
+  \draw[fill=blue!20, rounded corners] (-1.8,-4) rectangle (1.8,-3);
+  \node at (0,-3.5) {\textbf{Cold reservoir} $T_C$};
+
+  % Engine
+  \draw[fill=gray!15, very thick, rounded corners] (-1.2,-1) rectangle (1.2,1);
+  \node at (0,0) {\textbf{Engine}};
+
+  % Q_H arrow (in)
+  \draw[->, red, line width=2pt] (0,3) -- (0,1.1)
+    node[midway, right=4pt] {$|Q_H|$};
+
+  % Q_C arrow (out)
+  \draw[->, blue, line width=2pt] (0,-1.1) -- (0,-3)
+    node[midway, right=4pt] {$|Q_C|$};
+
+  % W arrow (out to the right)
+  \draw[->, green!50!black, line width=2pt] (1.3,0) -- (3,0)
+    node[midway, above=2pt] {$|W|$};
+\end{tikzpicture}
+```
 
 The **efficiency** of a heat engine:
 

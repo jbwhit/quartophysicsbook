@@ -269,3 +269,91 @@ def test_elastic_collision_heavy_target_at_rest():
 
     # As M → ∞: vBf → 0 (heavy target doesn't move)
     assert limit(vBf, M, oo) == 0
+
+
+# ── Atwood machine ──────────────────────────────────────────────
+
+
+def test_atwood_acceleration():
+    """Verify: a = (m1 - m2)/(m1 + m2) * g from Newton's second law."""
+    m1, m2, g, a, T = symbols("m1 m2 g a T", positive=True)
+
+    # m1 g - T = m1 a  (eq1)
+    # T - m2 g = m2 a  (eq2)
+    eqs = [m1 * g - T - m1 * a, T - m2 * g - m2 * a]
+    sol = solve(eqs, [a, T])
+
+    expected_a = (m1 - m2) * g / (m1 + m2)
+    assert simplify(sol[a] - expected_a) == 0
+
+
+def test_atwood_tension():
+    """Verify: T = 2*m1*m2/(m1+m2) * g."""
+    m1, m2, g, a, T = symbols("m1 m2 g a T", positive=True)
+
+    eqs = [m1 * g - T - m1 * a, T - m2 * g - m2 * a]
+    sol = solve(eqs, [a, T])
+
+    expected_T = 2 * m1 * m2 * g / (m1 + m2)
+    assert simplify(sol[T] - expected_T) == 0
+
+
+def test_atwood_limiting_cases():
+    """Limiting cases for the Atwood machine."""
+    from sympy import limit, oo
+
+    m1, m2, g = symbols("m1 m2 g", positive=True)
+
+    a_atwood = (m1 - m2) * g / (m1 + m2)
+    T_atwood = 2 * m1 * m2 * g / (m1 + m2)
+
+    # Equal masses → a = 0 (balanced)
+    assert a_atwood.subs(m1, m2) == 0
+
+    # Equal masses → T = mg
+    assert simplify(T_atwood.subs(m1, m2) - m2 * g) == 0
+
+    # m2 = 0 → a = g (free fall)
+    assert simplify(a_atwood.subs(m2, 0) - g) == 0
+
+
+# ── Satellite orbit ─────────────────────────────────────────────
+
+
+def test_satellite_orbital_velocity():
+    """Verify: v = √(GM/(R+h)) from gravitational = centripetal force."""
+    G, M, m, R, h, v = symbols("G M m R h v", positive=True)
+
+    r = R + h
+    # GMm/r² = mv²/r → v² = GM/r
+    eq = G * M * m / r**2 - m * v**2 / r
+    v_solved = solve(eq, v)
+    expected = sqrt(G * M / (R + h))
+
+    assert any(simplify(sol - expected) == 0 for sol in v_solved)
+
+
+def test_satellite_period():
+    """Verify: T = 2π(R+h)^(3/2) / √(GM)."""
+    G, M, R, h = symbols("G M R h", positive=True)
+
+    r = R + h
+    v = sqrt(G * M / r)
+    T = 2 * pi * r / v
+    expected = 2 * pi * r ** Rational(3, 2) / sqrt(G * M)
+
+    assert simplify(T - expected) == 0
+
+
+def test_satellite_limiting_cases():
+    """Limiting cases for satellite orbit."""
+    from sympy import limit, oo
+
+    G, M, R, h = symbols("G M R h", positive=True)
+
+    v_orb = sqrt(G * M / (R + h))
+    T_orb = 2 * pi * (R + h) ** Rational(3, 2) / sqrt(G * M)
+
+    # As h → ∞: v → 0, T → ∞
+    assert limit(v_orb, h, oo) == 0
+    assert limit(T_orb, h, oo) is oo

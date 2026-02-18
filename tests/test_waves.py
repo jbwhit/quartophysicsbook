@@ -263,3 +263,62 @@ def test_wave_power_proportional_to_amplitude_squared():
     # Doubling frequency → 4× power
     P_doubled_freq = P.subs(omega, 2 * omega)
     assert simplify(P_doubled_freq / P) == 4
+
+
+# ── Guitar string fundamental frequency ─────────────────────
+
+
+def test_guitar_string_fundamental():
+    """Verify: f₁ = (1/2L)√(F_T/μ) from wave speed and resonance."""
+    L, F_T, mu = symbols("L F_T mu", positive=True)
+
+    v = sqrt(F_T / mu)
+    f1 = v / (2 * L)
+    expected = 1 / (2 * L) * sqrt(F_T / mu)
+
+    assert simplify(f1 - expected) == 0
+
+
+def test_guitar_string_limiting_cases():
+    """Limiting cases for guitar string frequency."""
+    from sympy import limit, oo
+
+    L, F_T, mu = symbols("L F_T mu", positive=True)
+
+    f1 = sqrt(F_T / mu) / (2 * L)
+
+    # Doubling tension → frequency increases by √2
+    f1_double_tension = f1.subs(F_T, 2 * F_T)
+    assert simplify(f1_double_tension / f1 - sqrt(2)) == 0
+
+    # Doubling length → frequency halves
+    f1_double_length = f1.subs(L, 2 * L)
+    assert simplify(f1_double_length / f1 - Rational(1, 2)) == 0
+
+    # As tension → 0: f → 0 (no restoring force, no vibration)
+    assert f1.subs(F_T, 0) == 0
+
+
+# ── Beat frequency and period ────────────────────────────────
+
+
+def test_beat_frequency():
+    """Verify: f_beat = |f1 - f2|."""
+    from sympy import Abs
+
+    f1, f2 = symbols("f1 f2", positive=True)
+
+    f_beat = Abs(f1 - f2)
+    T_beat = 1 / f_beat
+
+    # Numerical check: 440 and 444 Hz
+    assert f_beat.subs([(f1, 440), (f2, 444)]) == 4
+    assert T_beat.subs([(f1, 440), (f2, 444)]) == Rational(1, 4)
+
+
+def test_beat_frequency_equal_frequencies():
+    """If f1 = f2, no beats (f_beat = 0)."""
+    f = symbols("f", positive=True)
+
+    f_beat = f - f
+    assert f_beat == 0

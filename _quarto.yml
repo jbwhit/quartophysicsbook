@@ -35,6 +35,9 @@ book:
 
 bibliography: references.bib
 
+filters:
+  - diagram
+
 format:
   html:
     theme:
