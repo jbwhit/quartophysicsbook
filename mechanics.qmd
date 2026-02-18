@@ -47,7 +47,7 @@ The negative sign means the force points toward decreasing $r$ (attractive).
 
 **Example: On the surface of the Earth.**
 
-$$F = \frac{Gm_1 m_2}{r^2} = \frac{6.67 \times 10^{-11} \times 6 \times 10^{24} \times 8 \times 10^1}{(6.4 \times 10^6)^2} \approx 588 \;\text{N}$$
+$$F = \frac{Gm_1 m_2}{r^2} = \frac{6.67 \times 10^{-11} \times 6 \times 10^{24} \times 6 \times 10^1}{(6.4 \times 10^6)^2} \approx 588 \;\text{N}$$
 
 **Change in gravitational PE** between two radii $r_1$ and $r_2$:
 
@@ -599,7 +599,7 @@ Fluids are things that flow. We describe them using **pressure** and **volume** 
 
 $$P = \frac{F}{A}$$
 
-Units: $\text{kg}\cdot\text{m}^{-1}\cdot\text{s}^{-2} = \text{Pa}$ (pascals). Also: $1\;\text{atm} = 760\;\text{mmHg} = 1.4\;\text{PSI} = 1.01 \times 10^5\;\text{Pa}$.
+Units: $\text{kg}\cdot\text{m}^{-1}\cdot\text{s}^{-2} = \text{Pa}$ (pascals). Also: $1\;\text{atm} = 760\;\text{mmHg} = 14.7\;\text{PSI} = 1.01 \times 10^5\;\text{Pa}$.
 
 Pressure is a **scalar** — it has no direction (it acts equally in all directions at a point in a fluid).
 

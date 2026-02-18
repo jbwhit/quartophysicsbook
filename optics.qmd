@@ -24,8 +24,8 @@ Ray hitting a surface with incident and reflected rays. Show the normal line, $\
 
 Phase change upon reflection depends on the relative wave speeds:
 
-- If $v_1 < v_2$ (going from slower to faster medium): reflected wave undergoes a phase change of $\pi$ (inverted)
-- If $v_1 > v_2$ (going from faster to slower medium): no phase change
+- If $v_1 > v_2$ (going from faster to slower medium, i.e., lower $n$ to higher $n$): reflected wave undergoes a phase change of $\pi$ (inverted) — like reflection at a fixed end
+- If $v_1 < v_2$ (going from slower to faster medium, i.e., higher $n$ to lower $n$): no phase change — like reflection at a free end
 
 ### Refraction and Snell's Law
 
@@ -223,7 +223,7 @@ Light is a transverse wave of coupled electric and magnetic fields. In vacuum:
 
 $$v = c = \frac{1}{\sqrt{\mu_0 \varepsilon_0}}$$
 
-The $\mathbf{E}$ and $\mathbf{B}$ fields are perpendicular to each other and to the direction of propagation. As with all waves, the traveling wave solution is:
+The $\vec{E}$ and $\vec{B}$ fields are perpendicular to each other and to the direction of propagation. As with all waves, the traveling wave solution is:
 
 $$E(x,t) = E_0 \sin(kx - \omega t)$$
 

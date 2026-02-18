@@ -125,7 +125,7 @@ RC circuit with battery, switch, resistor $R$, and capacitor $C$. Show charging 
 
 Applying Kirchhoff's loop rule to a charging RC circuit:
 
-$$V = IR + \frac{q}{C} = 0$$
+$$V - IR - \frac{q}{C} = 0$$
 
 Since $I = dq/dt$, this gives a first-order ODE. Solving with the initial condition $q(0) = 0$:
 

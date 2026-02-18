@@ -422,7 +422,7 @@ Effects of angular aberration:
 
 ### Relativistic Doppler Effect
 
-The frequency of light changes due to relative motion. For a source moving at velocity $v$ and emitting at angle $\alpha$ to the line of motion:
+The frequency of light changes due to relative motion. For a source moving at velocity $v$, with the light arriving at angle $\alpha$ to the direction of motion in the observer's frame:
 
 $$\boxed{f' = \gamma(1 + \beta\cos\alpha)\,f}$$
 
