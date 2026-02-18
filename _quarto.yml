@@ -44,6 +44,5 @@ format:
     theme:
       light: flatly
       dark: darkly
-    embed-resources: true
   pdf:
     documentclass: scrreprt
