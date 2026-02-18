@@ -1,9 +1,6 @@
 project:
   type: book
   output-dir: _book
-  resources:
-    - "*_files/mediabag/*"
-
 book:
   title: "Think Like A Physicist"
   author:
@@ -47,5 +44,6 @@ format:
     theme:
       light: flatly
       dark: darkly
+    embed-resources: true
   pdf:
     documentclass: scrreprt
