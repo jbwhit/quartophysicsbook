@@ -13,7 +13,7 @@ Completed work, moved here from TODO.md to keep it clean.
 - [x] Initialize git repo at root, initial commit, push to GitHub
 - [x] Verify `quarto preview` works locally
 
-## Phase 1: Transcribe Casey's PDF Content → Quarto Chapters (COMPLETE)
+## Phase 1: Transcribe Casey's PDF Content (COMPLETE)
 - [x] **Foreword** (`index.qmd`) — Casey's foreword
 - [x] **Chapter 1: How to Think Like a Physicist** (`thinking.qmd`)
   - [x] SI Units & dimensional analysis
@@ -30,3 +30,28 @@ Completed work, moved here from TODO.md to keep it clean.
   - [x] Coordinate systems (Cartesian, polar, cylindrical, spherical)
   - [x] Multivariate integration (areas, volumes, flux integrals)
 - [x] ~~**Chapter 3: Labs & Error Analysis**~~ — Removed (out of scope per foreword)
+
+## Phase 2: Transcribe IPhO Notes — 169 photos (COMPLETE)
+- [x] Catalog all 169 photos by topic (see `images/IPhO_notes_catalog.md`)
+- [x] **Chapter 4: Mechanics** (`mechanics.qmd`)
+- [x] **Chapter 5: Thermodynamics** (`thermo.qmd`)
+- [x] **Chapter 6: Waves & Oscillations** (`waves.qmd`)
+- [x] **Chapter 7: Optics** (`optics.qmd`)
+- [x] **Chapter 8: Electrostatics** (`electrostatics.qmd`)
+- [x] **Chapter 9: Circuits & Magnetism** (`circuits.qmd`)
+- [x] **Chapter 10: Modern Physics & Relativity** (`relativity.qmd`)
+
+## Infrastructure (COMPLETE)
+- [x] Test PDF output (renders cleanly; CI validates on every push)
+- [x] Deploy to GitHub Pages (CI publishes HTML on push to `main`)
+- [x] Install `pandoc-ext/diagram` extension for TikZ support
+- [x] Set up CI with TinyTeX + Inkscape for diagram rendering
+- [x] Add "View source" and "Report an issue" links to website
+
+## Decisions Made
+- Repo root IS the Quarto project (restructured)
+- Old attempts archived in `_archive/`
+- IPhO note photos kept as reference only, not embedded in book
+- Where diagrams are needed but not yet created, use a placeholder TODO callout
+- **No labs or test-taking content** — per Casey's foreword, this covers thinking/physics only
+- AI-generated TikZ diagrams get a visible "Needs Review" callout until human sign-off
