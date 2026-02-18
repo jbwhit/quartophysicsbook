@@ -89,6 +89,19 @@ Description of diagram contents, key elements, labels, etc.
 :::
 ```
 
+### AI-Generated Diagram Review Notices
+
+Every TikZ diagram created by Claude MUST be followed by a review callout so it is visible on the website until a human signs off:
+
+```markdown
+::: {.callout-important}
+## Diagram Needs Review
+This diagram was AI-generated and has not yet been reviewed by a human. Labels, proportions, or physics details may need correction.
+:::
+```
+
+Remove the callout only after a human has reviewed and approved the diagram.
+
 ### IPhO Note Photos
 
 The handwritten IPhO note photos in `images/IPhO notes/` are reference material only — do NOT embed them in the book. Transcribe their content into proper Quarto markdown with LaTeX math.

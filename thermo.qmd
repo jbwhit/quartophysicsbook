@@ -326,6 +326,11 @@ $$|Q_H| = |W| + |Q_C|$$
 \end{tikzpicture}
 ```
 
+::: {.callout-important}
+## Diagram Needs Review
+This diagram was AI-generated and has not yet been reviewed by a human. Labels, proportions, or physics details may need correction.
+:::
+
 The **efficiency** of a heat engine:
 
 $$e = \frac{|W|}{|Q_H|} = \frac{|Q_H| - |Q_C|}{|Q_H|} = 1 - \frac{|Q_C|}{|Q_H|}$$

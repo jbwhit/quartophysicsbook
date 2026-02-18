@@ -259,6 +259,11 @@ The proper time is the shortest — it is measured in the frame where the events
 \end{tikzpicture}
 ```
 
+::: {.callout-important}
+## Diagram Needs Review
+This diagram was AI-generated and has not yet been reviewed by a human. Labels, proportions, or physics details may need correction.
+:::
+
 A light clock provides a clean derivation of time dilation. In the rest frame, the round-trip time is $T_0 = 2L/c$. In a frame where the clock moves at speed $v$, the light follows a diagonal path of length $\sqrt{L^2 + (vT_m/2)^2}$ per half-trip. Setting this equal to $cT_m/2$ and solving:
 
 $$T_m = \frac{2L/c}{\sqrt{1 - v^2/c^2}} = \gamma T_0$$

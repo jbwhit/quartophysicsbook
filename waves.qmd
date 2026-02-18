@@ -130,6 +130,11 @@ The total energy is constant and proportional to the square of the amplitude. En
 \end{tikzpicture}
 ```
 
+::: {.callout-important}
+## Diagram Needs Review
+This diagram was AI-generated and has not yet been reviewed by a human. Labels, proportions, or physics details may need correction.
+:::
+
 For a pendulum of length $L$ at angle $\theta$ from vertical, the restoring force along the arc is:
 
 $$F = -mg\sin\theta$$
