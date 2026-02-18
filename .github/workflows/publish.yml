@@ -20,6 +20,11 @@ jobs:
       - name: Install LaTeX
         run: quarto install tinytex
 
+      - name: Install TikZ dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y inkscape
+
       - name: Render PDF (catch rendering errors)
         run: quarto render --to pdf
 
