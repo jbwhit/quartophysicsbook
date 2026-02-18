@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: _book
+  resources:
+    - "*_files/mediabag/*"
 
 book:
   title: "Think Like A Physicist"
@@ -9,6 +11,8 @@ book:
     - Jonathan Whitmore
   date: "2026"
   image: cover.png
+  repo-url: https://github.com/jbwhit/quartophysicsbook
+  repo-actions: [source, issue]
   sidebar:
     logo: physics_logo.png
     search: true
