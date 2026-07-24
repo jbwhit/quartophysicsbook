@@ -8,6 +8,15 @@ _freeze/
 
 **/*.quarto_ipynb
 Think-Like-A-Physicist.pdf
+Think_Like_A_Physicist.pdf
+
+# Source/reference material (large; not part of the book source)
+/images/IPhO notes/
+/images/IPhO notes.zip
+background.md
+
+# Diagram filter build artifacts
+/diagram-*.pdf
 
 # Python
 .venv/

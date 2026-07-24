@@ -1,5 +1,9 @@
 # Foreword {.unnumbered}
 
+::: {.callout-note}
+This book is nearly 99% sourced from the notes of [Casey Handmer](https://x.com/CJHandmer).
+:::
+
 First Principles Thinking is a teachable and incredibly powerful algorithm for efficiently solving real world problems and building the future.
 
 It is the best algorithm I know to make a brain useful.
@@ -10,4 +14,4 @@ I have assembled these notes with the intention to create the most singularly te
 
 I hope you find thinking like a physicist to be as rewarding as I do.
 
-— Casey Handmer, 25 November, 2023.
+— [Casey Handmer](https://x.com/CJHandmer), 25 November, 2023.
