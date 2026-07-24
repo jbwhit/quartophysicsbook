@@ -1,0 +1,48 @@
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+name: Release PDF
+
+# Publishes the compiled PDF as a versioned GitHub Release asset.
+# Cut a release by pushing a tag:  git tag v0.1.0 -m "First draft" && git push origin v0.1.0
+# A manual run (workflow_dispatch) renders the PDF as a smoke test but does NOT create a release.
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install LaTeX
+        run: quarto install tinytex
+
+      - name: Install TikZ dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y inkscape
+
+      - name: Add TinyTeX to PATH
+        run: |
+          echo "$HOME/bin" >> $GITHUB_PATH
+          echo "$HOME/.TinyTeX/bin/x86_64-linux" >> $GITHUB_PATH
+
+      - name: Render PDF
+        run: quarto render --to pdf
+
+      - name: Publish PDF to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: _book/Think-Like-A-Physicist.pdf
+          fail_on_unmatched_files: true
+          generate_release_notes: true

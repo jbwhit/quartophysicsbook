@@ -1,4 +1,20 @@
-# References {.unnumbered}
+# Sources & Further Reading {.unnumbered}
 
-::: {#refs}
-:::
+This book is nearly entirely sourced from the notes and writing of
+[Casey Handmer](https://x.com/CJHandmer).
+
+## Primary sources
+
+- **Casey Handmer, *Think Like A Physicist*.** The original notes and
+  first chapters that this book is built from.
+- **International Physics Olympiad — Australian training program.**
+  Handwritten training notes from the intensive two-week program held in
+  Canberra, c. 2005, which form the basis of most chapters.
+
+## Further reading
+
+- Casey Handmer, ["In Space, No One Can Reason By
+  Analogy"](https://caseyhandmer.wordpress.com/2019/10/15/in-space-no-one-can-reason-by-analogy/)
+  — on first-principles thinking.
+- [Casey Handmer's blog](https://caseyhandmer.wordpress.com/) — essays on
+  physics, engineering, and building the future.
