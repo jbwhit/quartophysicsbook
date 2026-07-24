@@ -168,7 +168,7 @@ This is the SHM equation with:
 
 $$\boxed{\omega = \frac{1}{\sqrt{LC}}}$$
 
-Adding resistance gives a damped RLC circuit, which decays to the LC oscillation (see AC circuits below).
+Adding resistance gives a damped RLC circuit: the oscillation loses energy to the resistor and decays over time (see AC circuits below).
 
 ## Magnetostatics
 
@@ -273,7 +273,7 @@ Minimum energy when $\vec{\mu} \parallel \vec{B}$ (aligned); maximum when antipa
 
 The **magnetic flux** through a surface:
 
-$$\Phi_B = \oint \vec{B}\cdot d\vec{A}$$
+$$\Phi_B = \int \vec{B}\cdot d\vec{A}$$
 
 If $\vec{B}$ is uniform and perpendicular to a flat area $A$: $\Phi_B = BA$.
 
@@ -318,7 +318,7 @@ $$\boxed{L = \mu_0 n^2 \pi R^2 \ell}$$
 
 ### Mutual Inductance
 
-Two coils can couple magnetically. If the flux through coil 2 due to coil 1 is $\Phi_2 = MI_1$, then:
+Two coils can couple magnetically. If the flux linkage in coil 2 due to coil 1 is $\Phi_2 = MI_1$, then:
 
 $$\mathcal{E}_2 = -M\frac{dI_1}{dt}$$
 
@@ -354,7 +354,7 @@ In AC circuits, the voltage source varies sinusoidally:
 
 $$V = V_0\cos(\omega t)$$
 
-It is convenient to use **complex notation**: $V = V_0 e^{i\omega t}$ (taking the real part at the end). The current also varies sinusoidally: $I = I_0 e^{i(\omega t + \phi)}$, where $\phi$ is the phase difference between current and voltage.
+It is convenient to use **complex notation**: $V = V_0 e^{i\omega t}$ (taking the real part at the end). The current also varies sinusoidally: $I = I_0 e^{i(\omega t - \phi)}$, where $\phi = \arg Z$ is the phase by which the voltage leads the current.
 
 ### Impedance
 
@@ -460,7 +460,7 @@ $$\oint \vec{E}\cdot d\vec{s} = -\frac{d\Phi_B}{dt} \qquad \text{(Faraday's law)
 
 $$\oint \vec{B}\cdot d\vec{s} = \mu_0 I + \mu_0\varepsilon_0\frac{d\Phi_E}{dt} \qquad \text{(Ampère–Maxwell law)}$$
 
-The last equation includes Maxwell's crucial addition: the **displacement current** $\mu_0\varepsilon_0\, d\Phi_E/dt$. A changing electric field creates a magnetic field, just as a changing magnetic field creates an electric field (Faraday's law). This symmetry is what makes electromagnetic waves possible.
+The last equation includes Maxwell's crucial addition: the term $\mu_0\varepsilon_0\, d\Phi_E/dt$, arising from the **displacement current** $I_d = \varepsilon_0\, d\Phi_E/dt$. A changing electric field creates a magnetic field, just as a changing magnetic field creates an electric field (Faraday's law). This symmetry is what makes electromagnetic waves possible.
 
 ### Displacement Current
 

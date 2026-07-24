@@ -87,9 +87,9 @@ $$E = h\nu, \qquad p = \frac{E}{c} = \frac{h}{\lambda}$$
 
 Any particle with momentum $p$ has an associated wavelength:
 
-$$\boxed{\lambda = \frac{h}{p} = \frac{h}{mv}}$$
+$$\boxed{\lambda = \frac{h}{p}}$$
 
-This works for everything. For macroscopic objects the wavelength is absurdly small — a tennis ball ($m = 57\;\text{g}$, $v = 100\;\text{m/s}$) has $\lambda \approx 10^{-34}\;\text{m}$. Only for subatomic particles does the wavelength become comparable to physical scales.
+For a slow particle $p \approx mv$; relativistically $p = \gamma mv$. This works for everything. For macroscopic objects the wavelength is absurdly small — a tennis ball ($m = 57\;\text{g}$, $v = 100\;\text{m/s}$) has $\lambda \approx 10^{-34}\;\text{m}$. Only for subatomic particles does the wavelength become comparable to physical scales.
 
 **Example**: An electron ($m = 9.1 \times 10^{-31}\;\text{kg}$) at $v = 10^6\;\text{m/s}$ has $\lambda = h/(mv) \approx 7.3 \times 10^{-10}\;\text{m} \approx 0.73\;\text{nm}$, comparable to atomic spacing. This is why electron diffraction works.
 
@@ -392,7 +392,7 @@ where $\theta$ is the scattering angle and $m$ is the electron mass. The quantit
 
 ### Inverse Compton Scattering
 
-In **inverse Compton scattering**, a fast-moving electron collides with a low-energy photon, *boosting* the photon's energy. In the electron's rest frame, the photon approaches with energy $\sim \gamma f$ (Doppler-shifted). After scattering, it is Doppler-shifted again on the way back to the lab frame. The net energy boost is of order $\gamma^2$:
+In **inverse Compton scattering**, a fast-moving electron collides with a low-energy photon, *boosting* the photon's energy. In the electron's rest frame, the photon's frequency is Doppler-boosted to $\sim \gamma f$. After scattering, it is Doppler-shifted again on the way back to the lab frame. The net energy boost is of order $\gamma^2$:
 
 $$f' \approx \gamma^2 f$$
 
@@ -422,7 +422,7 @@ Effects of angular aberration:
 
 ### Relativistic Doppler Effect
 
-The frequency of light changes due to relative motion. For a source moving at velocity $v$, with the light arriving at angle $\alpha$ to the direction of motion in the observer's frame:
+The frequency of light changes due to relative motion. For a source moving at velocity $v$, with the light emitted at angle $\alpha$ to the direction of motion in the source's rest frame (the same convention as the aberration formula above):
 
 $$\boxed{f' = \gamma(1 + \beta\cos\alpha)\,f}$$
 
@@ -430,7 +430,7 @@ where $\beta = v/c$. This combines the classical Doppler effect with time dilati
 
 - **Approaching** ($\alpha = 0$): blueshift, $f' = f\sqrt{(1+\beta)/(1-\beta)}$
 - **Receding** ($\alpha = \pi$): redshift, $f' = f\sqrt{(1-\beta)/(1+\beta)}$
-- **Transverse** ($\alpha = \pi/2$): $f' = \gamma f$ — a purely relativistic effect (no classical analogue)
+- **Transverse** ($\alpha = \pi/2$): $f' = \gamma f$ — a purely relativistic effect (no classical analogue). (If instead the light *arrives* at $90°$ in the observer's frame, $f' = f/\gamma$ — the redshift usually quoted as *the* transverse Doppler effect.)
 
 At $\sim 0.7c$, the entire visible spectrum is shifted enough that objects can no longer be recognized by color.
 
