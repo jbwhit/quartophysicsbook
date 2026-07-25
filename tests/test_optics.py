@@ -387,3 +387,25 @@ def test_thin_film_quarter_wave():
     # Optical path = 2nt = λ/2 (half wavelength → destructive interference)
     optical_path = 2 * n * t
     assert simplify(optical_path - lam / 2) == 0
+
+
+# ── Diffraction grating peak width ────────────────────────────────
+
+
+def test_grating_peak_half_width():
+    """Verify the grating angular half-width δθ = λ/(N d cosθ).
+
+    The first minimum beside a principal maximum occurs when the path
+    difference across the whole grating changes by λ (an N-slit phase change
+    of 2π): d·δ(sinθ) = λ/N. Linearizing d(sinθ)/dθ = cosθ gives δθ."""
+    from sympy import diff
+
+    lam, N, d, theta = symbols("lambda N d theta", positive=True)
+
+    # Rate of change of the single-slit path difference d·sinθ with angle θ
+    dpath_dtheta = diff(d * sin(theta), theta)  # = d cosθ
+
+    # d·cosθ·δθ = λ/N  ⇒  δθ = λ/(N d cosθ)
+    delta_theta = (lam / N) / dpath_dtheta
+    expected = lam / (N * d * cos(theta))
+    assert simplify(delta_theta - expected) == 0

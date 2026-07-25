@@ -357,3 +357,52 @@ def test_satellite_limiting_cases():
     # As h → ∞: v → 0, T → ∞
     assert limit(v_orb, h, oo) == 0
     assert limit(T_orb, h, oo) is oo
+
+
+# ── Bernoulli & Poiseuille ────────────────────────────────────────
+
+
+def test_bernoulli_pressure_difference():
+    """Verify Bernoulli: P + ½ρv² + ρgh is constant along a streamline, so the
+    pressure difference between two points is ΔP = -½ρ(v₂²-v₁²) - ρg(h₂-h₁)."""
+    from sympy import Eq
+
+    P1, P2, rho, v1, v2, g, h1, h2 = symbols(
+        "P1 P2 rho v1 v2 g h1 h2", positive=True
+    )
+
+    invariant = Eq(
+        P1 + Rational(1, 2) * rho * v1**2 + rho * g * h1,
+        P2 + Rational(1, 2) * rho * v2**2 + rho * g * h2,
+    )
+    dP = solve(invariant, P2)[0] - P1
+    expected = -Rational(1, 2) * rho * (v2**2 - v1**2) - rho * g * (h2 - h1)
+    assert simplify(dP - expected) == 0
+
+
+def test_bernoulli_limiting_cases():
+    """Equal-height (Venturi) and static (hydrostatic) limits of Bernoulli."""
+    rho, v1, v2, g, h1, h2 = symbols("rho v1 v2 g h1 h2", positive=True)
+
+    dP = -Rational(1, 2) * rho * (v2**2 - v1**2) - rho * g * (h2 - h1)
+
+    # Equal height: pressure drops where the fluid moves faster
+    assert simplify(dP.subs(h2, h1) + Rational(1, 2) * rho * (v2**2 - v1**2)) == 0
+
+    # Static fluid (v₁ = v₂ = 0): hydrostatic — a lower point (h₂ < h₁) has higher P
+    dP_static = dP.subs({v1: 0, v2: 0})
+    assert simplify(dP_static - rho * g * (h1 - h2)) == 0
+
+
+def test_poiseuille_coefficient():
+    """Derive the Poiseuille coefficient by integrating the laminar velocity
+    profile v(s) = ΔP/(4ηΔL)·(r²-s²) over the cross-section: Q = ∫₀^r v·2πs ds
+    → Q = π r⁴ ΔP / (8 η ΔL)."""
+    from sympy import integrate
+
+    r, s, eta, dP, dL = symbols("r s eta dP dL", positive=True)
+
+    v_profile = dP / (4 * eta * dL) * (r**2 - s**2)
+    Q = integrate(v_profile * 2 * pi * s, (s, 0, r))
+    expected = pi * r**4 * dP / (8 * eta * dL)
+    assert simplify(Q - expected) == 0
