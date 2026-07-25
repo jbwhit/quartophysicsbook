@@ -277,6 +277,8 @@ $$\Phi_B = \int \vec{B}\cdot d\vec{A}$$
 
 If $\vec{B}$ is uniform and perpendicular to a flat area $A$: $\Phi_B = BA$.
 
+The surface can be any cap bounded by the loop — the flux is the same for all of them, because any two caps together form a closed surface, over which $\oint \vec{B}\cdot d\vec{A} = 0$ (no magnetic monopoles).
+
 ### Faraday's Law
 
 A changing magnetic flux through a loop induces an EMF:
