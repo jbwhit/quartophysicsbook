@@ -17,7 +17,7 @@ There are many forms of potential energy, each associated with a fundamental for
 |-------|-----------------|
 | Gravitational | $U = mgh$ (near surface), $U = -\frac{Gm_1m_2}{r}$ (general) |
 | Elastic (spring) | $U = \frac{1}{2}kx^2$ |
-| Electrostatic | $U = \frac{kq_1q_2}{r}$ |
+| Electrostatic | $U = \frac{1}{4\pi\varepsilon_0}\frac{q_1q_2}{r}$ |
 | Weak nuclear | (particle physics) |
 | Strong nuclear | (particle physics) |
 
@@ -41,7 +41,7 @@ $$\boxed{U = -\frac{Gm_1m_2}{r}}$$
 
 The force is related to the potential by:
 
-$$F = -\frac{dU}{dr} = -\frac{Gm_1 m_2}{r^2}\,\hat{r}$$
+$$\vec{F} = -\frac{dU}{dr}\,\hat{r} = -\frac{Gm_1 m_2}{r^2}\,\hat{r}$$
 
 The negative sign means the force points toward decreasing $r$ (attractive).
 
@@ -232,7 +232,7 @@ $$\vec{F}_{AB} = -\vec{F}_{BA}$$
 
 Gravity and normal force on the same object are **not** a Newton's third law pair — they have different origins.
 
-$$\frac{d\vec{p}}{dt} = 0 \quad \text{if } F_{\text{AB}} = -F_{\text{BA}} \quad \Rightarrow \quad \frac{dp_A}{dt} = -\frac{dp_B}{dt}$$
+$$\frac{d\vec{p}}{dt} = 0 \quad \text{if } \vec{F}_{\text{AB}} = -\vec{F}_{\text{BA}} \quad \Rightarrow \quad \frac{d\vec{p}_A}{dt} = -\frac{d\vec{p}_B}{dt}$$
 
 Therefore, **momentum is always conserved** in an isolated system.
 
@@ -433,7 +433,7 @@ This can be broken into components: $\sum \tau_x = \frac{dL_x}{dt}$, etc.
 
 **Steiner's theorem** (parallel axis for angular momentum):
 
-$$L = L_{cm} + MR_{cm} \times v_{cm}$$
+$$\vec{L} = \vec{L}_{cm} + M\vec{R}_{cm} \times \vec{v}_{cm}$$
 
 ### Conservation of Angular Momentum
 

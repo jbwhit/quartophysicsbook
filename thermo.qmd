@@ -79,11 +79,11 @@ Matter exists in three common phases: **solid**, **liquid**, and **gas**. Phase 
 
 **Heat capacity** $C$ is the heat required to raise the temperature of a system by one degree:
 
-$$C = \frac{\delta Q}{\delta T} \quad [\text{J/K}] \quad \text{(extensive)}$$
+$$C = \frac{\delta Q}{dT} \quad [\text{J/K}] \quad \text{(extensive)}$$
 
 **Specific heat capacity** $c$ is heat capacity per unit mass (or per mole):
 
-$$\delta Q = mc\,\delta T, \qquad c = \frac{C}{m} \quad [\text{J/(kg·K)}] \quad \text{(intensive)}$$
+$$\delta Q = mc\,dT, \qquad c = \frac{C}{m} \quad [\text{J/(kg·K)}] \quad \text{(intensive)}$$
 
 ### First Law of Thermodynamics
 
