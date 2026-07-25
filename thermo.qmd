@@ -430,7 +430,7 @@ with equality only for reversible processes. This is the **second law of thermod
 
 ### Entropy and Adiabatic Processes
 
-For an adiabatic process, $\delta Q = 0$, so $dS = \delta Q/T = 0$. A reversible adiabatic process is therefore **isentropic** ($\Delta S = 0$).
+For a **reversible** adiabatic process, $\delta Q = 0$, so $dS = \delta Q_\text{rev}/T = 0$ — the process is **isentropic** ($\Delta S = 0$). Entropy is defined by *reversible* heat, so an *irreversible* adiabatic process (still $\delta Q = 0$) instead has $\Delta S > 0$.
 
 ### The Carnot Cycle on a T–S Diagram
 

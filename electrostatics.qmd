@@ -14,7 +14,7 @@ The force between two point charges $q_1$ and $q_2$ separated by distance $r$:
 
 $$\boxed{\vec{F} = \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}\hat{r}}$$
 
-where $\varepsilon_0$ is the **permittivity of free space** ($\varepsilon_0 \approx 8.85 \times 10^{-12}\;\text{C}^2/\text{N}\cdot\text{m}^2$) and $\hat{r}$ points from one charge to the other. The force is positive (repulsive) for like charges and negative (attractive) for unlike charges.
+where $\varepsilon_0$ is the **permittivity of free space** ($\varepsilon_0 \approx 8.85 \times 10^{-12}\;\text{C}^2/(\text{N}\cdot\text{m}^2)$) and $\hat{r}$ points from one charge to the other. The force is positive (repulsive) for like charges and negative (attractive) for unlike charges.
 
 Note the structural similarity to Newton's law of gravitation — both are inverse-square laws. Coulomb's law deals with charge; gravity deals with mass.
 
@@ -144,9 +144,9 @@ $$\Delta U = -q\int_a^b \vec{E}\cdot d\vec{s}$$
 
 Divide by charge to get an **intensive** quantity — the **electric potential** $V$:
 
-$$\boxed{V = -\int \vec{E}\cdot d\vec{s}}$$
+$$\boxed{V = -\int_\infty^{r} \vec{E}\cdot d\vec{s}}$$
 
-The potential is a scalar (just add contributions!), which makes it much easier to work with than the vector field $\vec{E}$. The relationship between potential energy and potential is simply $U = qV$.
+taking $V = 0$ at infinity. The potential is a scalar (just add contributions!), which makes it much easier to work with than the vector field $\vec{E}$. The relationship between potential energy and potential is simply $U = qV$.
 
 The potential is path-independent — it depends only on the endpoints. This is because the electrostatic force is **conservative**.
 

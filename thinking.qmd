@@ -14,7 +14,7 @@
 
 : SI Base Units {.striped .hover}
 
-The five fundamental units are length (meter, m), time (second, s), mass (kilogram, kg), charge (coulomb, C), and temperature (kelvin, K). Ampere (A), mole (mol), and candela (cd) are derived from these base units.
+Officially, SI defines seven base units (the table above). In practice, physics problems rarely need the mole or candela, and it is often cleaner to treat electric **charge** (coulomb, C) as fundamental rather than current — the ampere is then charge per unit time, $1\;\text{A} = 1\;\text{C/s}$. That leaves five workhorses: length, time, mass, charge, and temperature.
 
 All other units are derived from combinations of these fundamental units.
 
@@ -86,8 +86,8 @@ $$mgH = mgh + \frac{1}{2} k x^{2}$$
 $$F = -kx$$
 
 $$\begin{aligned}
-U &= -\int F \, \textnormal{d}x\\
-&= -\int_{x_i}^{x_{f}} k x \, \textnormal{d}x\\
+U &= -\int F \, dx\\
+&= -\int_0^{x_f} (-k x) \, dx\\
 &= \frac{1}{2}k x_f^2
 \end{aligned}$$
 

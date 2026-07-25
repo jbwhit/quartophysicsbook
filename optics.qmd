@@ -342,8 +342,8 @@ Key considerations:
 
 For a film of refractive index $n$ and thickness $t$:
 
-- If only one surface gives a phase change: constructive interference when $2nt = m\lambda$
-- If both or neither surfaces give a phase change: constructive interference when $2nt = (m + \tfrac{1}{2})\lambda$
+- If only one surface gives a phase change: constructive interference when $2nt = (m + \tfrac{1}{2})\lambda$
+- If both or neither surfaces give a phase change: constructive interference when $2nt = m\lambda$
 
 **Anti-reflection coatings:** Choose $n$ and $t$ so that the reflected rays interfere destructively. For a quarter-wave coating ($t = \lambda/(4n)$), reflected light is suppressed.
 

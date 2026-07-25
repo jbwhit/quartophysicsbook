@@ -32,23 +32,23 @@ def test_position_from_velocity():
 
 
 def test_velocity_squared():
-    """Verify: v² = u² + 2ax.
+    """Verify: v² = u² + 2a(x - x₀).
 
-    From v = u + at and x = ut + ½at², eliminate t.
+    From v = u + at and x = x₀ + ut + ½at², eliminate t.
     """
-    a, u, v, t = symbols("a u v t")
+    a, u, v, t, x_0 = symbols("a u v t x_0")
 
     # v = u + at → t = (v-u)/a
     t_expr = (v - u) / a
 
-    # x = ut + ½at²
-    x_expr = u * t_expr + Rational(1, 2) * a * t_expr**2
-    x_simplified = simplify(x_expr)
+    # x = x₀ + ut + ½at²
+    x_expr = x_0 + u * t_expr + Rational(1, 2) * a * t_expr**2
 
-    # Should equal (v²-u²)/(2a)
-    expected_x = (v**2 - u**2) / (2 * a)
+    # Displacement (x - x₀) should equal (v²-u²)/(2a)
+    displacement = simplify(x_expr - x_0)
+    expected = (v**2 - u**2) / (2 * a)
 
-    assert simplify(x_simplified - expected_x) == 0
+    assert simplify(displacement - expected) == 0
 
 
 # ── Differential equations ──────────────────────────────────────────

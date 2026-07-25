@@ -61,7 +61,7 @@ $$F = -\frac{dU}{dx}$$
 
 Conversely, potential energy is the negative integral of force:
 
-$$dU = -F \cdot dx \qquad \Rightarrow \qquad U = -\int F \cdot dx \quad (\text{always})$$
+$$dU = -F \cdot dx \qquad \Rightarrow \qquad U = -\int F \cdot dx \quad (\text{conservative forces})$$
 
 **Work** is defined as the integral of force along a displacement:
 
@@ -288,9 +288,11 @@ A **rigid body** has every point moving in a circular path, with the centers of 
 |--------|-----------|----------|
 | $x$ (displacement) | $\theta$ (angle, rad) | $s = r\theta$ |
 | $v$ (velocity) | $\omega$ (angular velocity, rad/s) | $v = r\omega$ |
-| $a$ (acceleration) | $\alpha$ (angular acceleration, rad/s$^2$) | $a = r\alpha$ |
+| $a$ (acceleration) | $\alpha$ (angular acceleration, rad/s$^2$) | $a_t = r\alpha$ |
 
 : Linear vs. Rotational Quantities {.striped .hover}
+
+Here $a_t = r\alpha$ is the *tangential* acceleration; a point moving in a circle also has a radial (centripetal) acceleration $a_r = r\omega^2 = v^2/r$.
 
 Positive direction is arbitrary but must be defined (right-hand rule).
 
@@ -300,7 +302,7 @@ $$\omega = \omega_0 + \alpha t$$
 
 $$\theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2$$
 
-$$\omega^2 = \omega_0^2 + 2\alpha\theta$$
+$$\omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)$$
 
 Angular velocity direction given by the **right-hand rule**: curl fingers in the direction of rotation, thumb points along the axis.
 
@@ -342,7 +344,7 @@ $$I = \iiint r_\perp^2 \, dm = \rho \iiint r_\perp^2 \, dV$$
 
 Carrying out the integration:
 
-$$I = 2\pi\rho \int_0^R \left(\frac{(R^2 - z^2)^2}{4}\right) dz = \frac{8\pi\rho}{15} R^5$$
+$$I = \frac{\pi\rho}{2} \int_{-R}^{R} (R^2 - z^2)^2 \, dz = \frac{8\pi\rho}{15} R^5$$
 
 Since $M = \rho V = \rho \frac{4}{3}\pi R^3$:
 
@@ -536,7 +538,7 @@ The field increases linearly with $r$ inside the sphere.
 
 Potential energy is extensive (depends on both masses). Define $U = 0$ at $r \to \infty$:
 
-$$U = -\int_\infty^r \vec{F} \cdot d\vec{r} = -\int_\infty^r \frac{GMm}{r^2}\,dr$$
+$$U = -\int_\infty^r \vec{F} \cdot d\vec{r} = -\int_\infty^r \left(-\frac{GMm}{r^2}\right) dr$$
 
 $$\boxed{U = -\frac{GMm}{r}}$$
 
@@ -703,7 +705,7 @@ This is conservation of energy density along a streamline:
 
 **Note:** The pressure in Bernoulli's equation is the pressure the walls of the pipe exert on the fluid. This is *not* conservation of momentum (a common misconception).
 
-**Example: Water flowing through a pipe.** At a constriction, $v$ increases (continuity), so $P$ must decrease (Bernoulli). This is a pressure drop: $\Delta P = -\frac{1}{2}\rho v^2$.
+**Example: Water flowing through a pipe.** At a constriction, $v$ increases (continuity), so $P$ must decrease (Bernoulli). This is a pressure drop: between two points at equal height, $P_2 - P_1 = -\frac{1}{2}\rho(v_2^2 - v_1^2)$, which is negative where the fluid moves faster.
 
 ### Bernoulli Applications
 

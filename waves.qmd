@@ -328,7 +328,7 @@ $$f' = \frac{V + V_o}{\lambda} = f\frac{V + V_o}{V}$$
 
 ### General Doppler Formula
 
-For both source and observer moving (with velocities taken as positive when toward each other):
+For both source and observer moving along the line joining them (sign convention defined below):
 
 $$\boxed{f' = f\,\frac{V - V_o}{V - V_s}}$$
 

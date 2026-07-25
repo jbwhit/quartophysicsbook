@@ -30,11 +30,11 @@ $$\frac{\partial}{\partial y}f(x,y) = 5x + e^x$$
 
 $$\int_{1/2}^{1} \sqrt{1 - x^2}\, dx \quad \text{Let } x = \cos u, \quad dx = -\sin u\, du$$
 
-$$\Rightarrow I = \int_{\pi/2}^{\pi/6} \sqrt{1 - \cos^2 u} \cdot (-\sin u)\, du = \int_{\pi/6}^{\pi/2} \sin^2 u\, du$$
+$$\Rightarrow I = \int_{\pi/3}^{0} \sqrt{1 - \cos^2 u} \cdot (-\sin u)\, du = \int_0^{\pi/3} \sin^2 u\, du$$
 
 Using $\cos 2u = 1 - 2\sin^2 u$:
 
-$$I = \frac{1}{2}\int_{\pi/6}^{\pi/2} (1 - \cos 2u)\, du = \frac{1}{2}\left[-\frac{\sin 2u}{2} - u\right]_{\pi/6}^{\pi/2} = \frac{\sqrt{3}}{8} - \frac{\pi}{6}$$
+$$I = \frac{1}{2}\int_0^{\pi/3} (1 - \cos 2u)\, du = \frac{1}{2}\left[u - \frac{\sin 2u}{2}\right]_0^{\pi/3} = \frac{\pi}{6} - \frac{\sqrt{3}}{8}$$
 
 ### Integration by Parts {.unnumbered}
 
@@ -68,7 +68,7 @@ $$dx = (u + at)\, dt, \quad \int_{x_0}^x dx = \int_0^t (u + at)\, dt, \quad \box
 
 $$a = \frac{dv}{dt} = \frac{dv}{dx}\cdot\frac{dx}{dt} = v\frac{dv}{dx}$$
 
-$$a\, dx = v\, dv, \quad \int_0^x a\, dx = \int_u^v v\, dv, \quad \boxed{v^2 = u^2 + 2ax}$$
+$$a\, dx = v\, dv, \quad \int_{x_0}^x a\, dx = \int_u^v v\, dv, \quad \boxed{v^2 = u^2 + 2a(x - x_0)}$$
 
 ## Differential Equations
 
@@ -86,7 +86,7 @@ $$x = A\cos\omega t + B\sin\omega t$$
 
 or
 
-$$x = Ae^{i\omega t + \phi} = Ae^{i\omega t} + Be^{-i\omega t}$$
+$$x = Ae^{i\omega t} + Be^{-i\omega t}$$
 
 For example, springs. Nearly everything in nature is a spring of one form or another.
 
