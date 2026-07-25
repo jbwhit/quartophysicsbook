@@ -238,3 +238,19 @@ def test_carnot_engine_plus_refrigerator():
 
     # Refrigerator pumps same heat back: Q_C_ref should equal Q_C_engine
     assert simplify(Q_C_ref - Q_C_engine) == 0
+
+
+# ── Second law: entropy of the universe ─────────────────────────
+
+
+def test_entropy_increase_irreversible():
+    """ΔS_universe ≥ 0: heat Q flowing from hot (T_c+δ) to cold (T_c) gives a
+    strictly positive total entropy change, ΔS = Qδ/(T_c(T_c+δ)) > 0."""
+    Q, T_c, delta = symbols("Q T_c delta", positive=True)
+
+    T_h = T_c + delta
+    # Cold reservoir gains Q/T_c; hot reservoir loses Q/T_h
+    dS = Q / T_c - Q / T_h
+
+    # Manifestly positive for all positive symbols
+    assert simplify(dS - Q * delta / (T_c * (T_c + delta))) == 0

@@ -459,3 +459,149 @@ def test_rc_discharging():
 
     assert limit(q, t, oo) == 0
     assert q.subs(t, 0) == C * V_s
+
+
+# ── Energy in reactive elements ───────────────────────────────────
+
+
+def test_capacitor_energy_equivalence():
+    """U = ½CV² = ½q²/C are the same, using q = CV."""
+    C, V, q = symbols("C V q", positive=True)
+
+    U_v = Rational(1, 2) * C * V**2
+    U_q = Rational(1, 2) * q**2 / C
+
+    assert simplify(U_v.subs(V, q / C) - U_q) == 0
+
+
+def test_inductor_energy_from_emf():
+    """Derive U = ½LI² by integrating the power VI with V = L dI/dt.
+
+    Energy = ∫ V I dt = ∫ L (dI/dt) I dt = ∫ L i di from 0 to I.
+    This ties together the boxed V = L dI/dt and U = ½LI²."""
+    from sympy import integrate
+
+    L, I, i = symbols("L I i", positive=True)
+
+    U = integrate(L * i, (i, 0, I))
+    assert simplify(U - Rational(1, 2) * L * I**2) == 0
+
+
+# ── Magnetic force laws ───────────────────────────────────────────
+
+
+def test_lorentz_force():
+    """F = q(E + v×B): magnetic part ⊥ v, and F → qE when B = 0."""
+    from sympy import Matrix
+
+    q, vx, vy, vz, Ex, Ey, Ez, Bx, By, Bz = symbols(
+        "q v_x v_y v_z E_x E_y E_z B_x B_y B_z", real=True
+    )
+    v = Matrix([vx, vy, vz])
+    E = Matrix([Ex, Ey, Ez])
+    B = Matrix([Bx, By, Bz])
+
+    F = q * (E + v.cross(B))
+
+    # Magnetic force does no work: (v×B)·v = 0
+    assert simplify((q * v.cross(B)).dot(v)) == 0
+    # No magnetic field → pure electric force
+    assert simplify((F.subs({Bx: 0, By: 0, Bz: 0}) - q * E)) == Matrix([0, 0, 0])
+
+
+def test_force_on_current_wire():
+    """F = I L×B: force ⊥ to the wire, magnitude ILB when L ⊥ B."""
+    from sympy import Matrix
+
+    I, Lx, Ly, Lz, Bx, By, Bz, L, B = symbols(
+        "I L_x L_y L_z B_x B_y B_z L B", real=True
+    )
+    Lvec = Matrix([Lx, Ly, Lz])
+    Bvec = Matrix([Bx, By, Bz])
+
+    F = I * Lvec.cross(Bvec)
+    assert simplify(F.dot(Lvec)) == 0  # force perpendicular to the wire
+
+    # L along x, B along y → F = ILB along z
+    F_perp = I * Matrix([L, 0, 0]).cross(Matrix([0, B, 0]))
+    assert F_perp == Matrix([0, 0, I * L * B])
+
+
+def test_biot_savart_gives_wire_field():
+    """Integrate Biot–Savart along an infinite straight wire to recover
+    B = μ₀I/(2πd). dB = (μ₀I/4π)·d/(d²+z²)^{3/2} dz for the perpendicular
+    component at distance d."""
+    from sympy import Rational as R
+    from sympy import integrate, oo
+
+    mu0, I, d, z = symbols("mu_0 I d z", positive=True)
+
+    dB = mu0 * I / (4 * pi) * d / (d**2 + z**2) ** R(3, 2)
+    B = integrate(dB, (z, -oo, oo))
+
+    assert simplify(B - mu0 * I / (2 * pi * d)) == 0
+
+
+def test_ampere_law_gives_solenoid_field():
+    """Ampère's law on a rectangular loop of length ℓ enclosing nℓ turns:
+    B·ℓ = μ₀(nℓ)I ⇒ B = μ₀nI."""
+    from sympy import Eq
+
+    mu0, n, I, ell, B = symbols("mu_0 n I ell B", positive=True)
+
+    sol = solve(Eq(B * ell, mu0 * (n * ell) * I), B)[0]
+    assert simplify(sol - mu0 * n * I) == 0
+
+
+def test_magnetic_dipole_torque():
+    """τ = μ×B: magnitude μB sinθ, zero when aligned, max when perpendicular."""
+    from sympy import Matrix
+
+    mu, B, theta = symbols("mu B theta", positive=True)
+
+    m = Matrix([mu * sin(theta), 0, mu * cos(theta)])  # moment at angle θ to B
+    Bvec = Matrix([0, 0, B])  # field along z
+
+    tau = m.cross(Bvec)
+    assert simplify(tau[1] + mu * B * sin(theta)) == 0  # |τ| = μB sinθ
+    assert tau.subs(theta, 0) == Matrix([0, 0, 0])  # aligned → no torque
+
+
+def test_magnetic_dipole_energy():
+    """U = -μ·B = -μB cosθ: min when aligned, max when anti-aligned, and the
+    restoring torque magnitude is dU/dθ = μB sinθ."""
+    from sympy import diff
+
+    mu, B, theta = symbols("mu B theta", positive=True)
+
+    U = -mu * B * cos(theta)
+    assert U.subs(theta, 0) == -mu * B  # aligned: minimum energy
+    assert U.subs(theta, pi) == mu * B  # anti-aligned: maximum energy
+    assert simplify(diff(U, theta) - mu * B * sin(theta)) == 0  # torque = -dU/dθ
+
+
+def test_faraday_law_area_change():
+    """Faraday: ℰ = -dΦ_B/dt. A bar of length h sliding at v₀ sweeps area
+    A = h·v₀t in field B, giving |ℰ| = Bhv₀."""
+    from sympy import diff
+
+    B, h, v0, t = symbols("B h v_0 t", positive=True)
+
+    Phi = B * h * v0 * t
+    emf = -diff(Phi, t)
+    assert simplify(emf + B * h * v0) == 0
+
+
+def test_poynting_vector():
+    """S = (1/μ₀) E×B: magnitude EB/μ₀ and ⊥ to both E and B."""
+    from sympy import Matrix
+
+    mu0, E, B = symbols("mu_0 E B", positive=True)
+
+    Evec = Matrix([E, 0, 0])
+    Bvec = Matrix([0, B, 0])
+    S = (1 / mu0) * Evec.cross(Bvec)
+
+    assert simplify(S[2] - E * B / mu0) == 0  # magnitude, along z
+    assert simplify(S.dot(Evec)) == 0
+    assert simplify(S.dot(Bvec)) == 0

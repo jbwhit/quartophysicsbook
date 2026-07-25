@@ -367,9 +367,7 @@ def test_bernoulli_pressure_difference():
     pressure difference between two points is ΔP = -½ρ(v₂²-v₁²) - ρg(h₂-h₁)."""
     from sympy import Eq
 
-    P1, P2, rho, v1, v2, g, h1, h2 = symbols(
-        "P1 P2 rho v1 v2 g h1 h2", positive=True
-    )
+    P1, P2, rho, v1, v2, g, h1, h2 = symbols("P1 P2 rho v1 v2 g h1 h2", positive=True)
 
     invariant = Eq(
         P1 + Rational(1, 2) * rho * v1**2 + rho * g * h1,
@@ -406,3 +404,15 @@ def test_poiseuille_coefficient():
     Q = integrate(v_profile * 2 * pi * s, (s, 0, r))
     expected = pi * r**4 * dP / (8 * eta * dL)
     assert simplify(Q - expected) == 0
+
+
+def test_gauss_law_gravity_point_mass():
+    """Gauss's law for gravity ∮g·dA = -4πGM_enc, applied to a spherical
+    surface of radius r around mass M, recovers g = GM/r²."""
+    from sympy import Eq
+
+    G, M, r, g = symbols("G M r g", positive=True)
+
+    # Inward radial field: flux = -g·4πr²; Gauss's law sets it to -4πG·M
+    sol = solve(Eq(-g * 4 * pi * r**2, -4 * pi * G * M), g)[0]
+    assert simplify(sol - G * M / r**2) == 0

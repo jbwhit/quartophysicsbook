@@ -409,3 +409,22 @@ def test_grating_peak_half_width():
     delta_theta = (lam / N) / dpath_dtheta
     expected = lam / (N * d * cos(theta))
     assert simplify(delta_theta - expected) == 0
+
+
+# ── Law of reflection ─────────────────────────────────────────────
+
+
+def test_law_of_reflection():
+    """θ_i = θ_r: reflecting a ray off a plane (normal n̂) via
+    d' = d - 2(d·n̂)n̂ preserves the angle to the normal."""
+    from sympy import Matrix
+
+    theta = symbols("theta", positive=True)
+
+    d_in = Matrix([sin(theta), -cos(theta)])  # ray heading down onto surface y=0
+    n = Matrix([0, 1])  # surface normal
+
+    d_out = d_in - 2 * (d_in.dot(n)) * n
+
+    # Angle of incidence (reversed incoming ray to normal) equals angle of reflection
+    assert simplify((-d_in).dot(n) - d_out.dot(n)) == 0
