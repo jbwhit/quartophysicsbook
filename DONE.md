@@ -48,6 +48,29 @@ Completed work, moved here from TODO.md to keep it clean.
 - [x] Set up CI with TinyTeX + Inkscape for diagram rendering
 - [x] Add "View source" and "Report an issue" links to website
 
+## Session 2026-07-24: Correctness pass, test coverage, tooling
+- [x] Physics-correctness pass on all 9 chapters (two Codex xhigh reviews +
+  fable verification). Fixed: thin-film reflection conditions (were reversed),
+  AC phase-angle sign, relativistic Doppler frame convention, de Broglie
+  `λ=h/p`, adiabatic entropy `dS=δQ_rev/T`, Bernoulli pressure drop, solid-sphere
+  moment-of-inertia integral, gravitational-PE integrand sign, SI base-units
+  contradiction, and several minor factor/notation errors
+- [x] Consistency pass (fable): Coulomb-constant symbol, `\vec` notation, exact
+  vs inexact differentials
+- [x] **Complete boxed-result test coverage** — every `$$\boxed{...}$$` now has a
+  sympy test (192 → 209); added Bernoulli, Poiseuille coefficient, grating
+  half-width, Gauss-for-gravity, and the circuits EM laws (Lorentz, Biot–Savart,
+  Ampère, dipole torque/energy, Faraday, Poynting)
+- [x] Credited Casey Handmer with X handle + ~99% sourcing note; empty References
+  stub → Sources & Further Reading page
+- [x] **Versioned PDF releases**: `release.yml` attaches the PDF to a GitHub
+  Release on `vX.Y.Z` tags (no PDFs committed to the repo); first release `v0.1.0`
+- [x] **Ported global conventions**: `AGENTS.md` → `CLAUDE.md` symlink; ruff
+  (format + lint, physics-aware config); version-controlled `.githooks/`
+  (pre-commit format/lint, pre-push tests + PDF); `make setup/lint/format`; CI
+  `test` job (ruff + pytest) gating the deploy
+- [x] `.gitignore` hardened (303 MB IPhO notes zip, diagram build artifacts)
+
 ## Decisions Made
 - Repo root IS the Quarto project (restructured)
 - Old attempts archived in `_archive/`

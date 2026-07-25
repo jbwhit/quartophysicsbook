@@ -1,5 +1,41 @@
 # TODO - Think Like A Physicist
 
+## Review Pass Follow-ups (2026-07-24)
+
+Surfaced by a correctness + consistency pass (two Codex xhigh reviews + fable).
+The physics-correctness fixes and full boxed-result test coverage are **already
+applied and pushed** (see DONE.md); these are the remaining judgment/authorial
+calls and low-risk polish.
+
+**Needs Casey's call:**
+- [ ] `thinking.qmd` piano example is incoherent. The boxed sign "error" is
+  *intentional* (documented in `test_thinking.py`), but the Limiting Cases
+  section blesses every case ("Makes sense") instead of catching it — so the
+  demonstration doesn't demonstrate. Decide: rewrite the limiting-cases to
+  actually flag the error, or reframe the example.
+- [ ] `thinking.qmd` 7-Ds template violations in the flagship examples (the
+  chapter that *defines* the template): Examples 1 & 2 lack `### Diagram` /
+  `### Directions` sections, use "Definitions & Data" instead of "Definitions &
+  Given Data", split "Limiting Cases" out of "Dimensions", and Example 1's
+  Diagnosis contains derivation equations. First model the reader sees.
+- [ ] Confirm the SI-units reframing in `thinking.qmd`: the contradictory
+  "five fundamental units / ampere is derived" line was changed to acknowledge
+  the official 7 SI base units while framing charge-as-fundamental as a working
+  convention. Casey to confirm the framing.
+
+**Consistency polish (low-risk, no Casey needed):**
+- [ ] Add a clarifying note at each within-chapter symbol reuse: `k` (spring /
+  Boltzmann / wave number / coupling), `T_C` (Celsius / cold reservoir), `K`
+  (rolling KE factor), `D` (diopter / dispersion / slit width), `L` (angular
+  momentum / length), `d` (plate / slit / crystal-plane spacing).
+- [ ] Optional notation nits: polar `θ = arctan(y/x)` (quadrant / atan2 caveat),
+  Fermat `dt/dx = 0` wording (stationary-time), single-surface `R` sign-convention
+  wording in optics.
+
+> The "Current State" table below is a **Feb 2026 snapshot and is now stale**
+> (the suite is 209 tests; physics-correctness and full boxed-result-test
+> coverage passes are complete). Treat it as historical until refreshed.
+
 ## Current State (for Casey sync, Feb 2026)
 
 ### Book Structure
