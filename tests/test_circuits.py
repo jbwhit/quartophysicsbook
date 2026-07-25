@@ -1,7 +1,6 @@
 """Symbolic verification of derivations in circuits.qmd."""
 
 from sympy import (
-    I as j,
     Rational,
     cos,
     exp,
@@ -15,7 +14,6 @@ from sympy import (
     sqrt,
     symbols,
 )
-
 
 # ── Ohm's law & power ─────────────────────────────────────────
 

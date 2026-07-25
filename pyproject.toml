@@ -8,5 +8,18 @@ dependencies = []
 [dependency-groups]
 dev = [
     "pytest>=9.0.2",
+    "ruff>=0.10",
     "sympy>=1.14.0",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+# E741: physics notation legitimately uses single letters like I (current /
+#       moment of inertia) and l (length) as variable names.
+# F841: derivation tests often bind a full set of physical symbols for
+#       readability even when not every one appears in the final assertion.
+ignore = ["E741", "F841"]

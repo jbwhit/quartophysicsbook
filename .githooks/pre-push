@@ -1,0 +1,14 @@
+#!/bin/sh
+# Run the derivation tests, then render the PDF, before pushing.
+# Enable with `make setup` (sets core.hooksPath to .githooks).
+
+echo "Running derivation tests..."
+uv run pytest tests/ -q || {
+	echo "Tests failed — push aborted."
+	exit 1
+}
+
+echo "Rendering PDF before push..."
+quarto render --to pdf 2>&1 | tail -3
+cp _book/Think-Like-A-Physicist.pdf . 2>/dev/null
+echo "PDF rendered: _book/Think-Like-A-Physicist.pdf"

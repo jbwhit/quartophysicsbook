@@ -8,7 +8,6 @@ from sympy import (
     symbols,
 )
 
-
 # ── Kinematic equations ─────────────────────────────────────────────
 
 

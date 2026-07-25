@@ -10,10 +10,8 @@ from sympy import (
     simplify,
     sin,
     solve,
-    sqrt,
     symbols,
 )
-
 
 # ── Coulomb's law ───────────────────────────────────────────
 

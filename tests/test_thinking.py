@@ -2,7 +2,6 @@
 
 from sympy import Rational, cos, pi, simplify, sin, solve, sqrt, symbols
 
-
 # ── Example Problem 1: Spring compression ──────────────────────────
 
 

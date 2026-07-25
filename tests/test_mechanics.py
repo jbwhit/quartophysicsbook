@@ -2,7 +2,6 @@
 
 from sympy import (
     Rational,
-    cos,
     pi,
     simplify,
     sin,
@@ -10,7 +9,6 @@ from sympy import (
     sqrt,
     symbols,
 )
-
 
 # ── Gravitational PE ──────────────────────────────────────────────
 
@@ -300,7 +298,6 @@ def test_atwood_tension():
 
 def test_atwood_limiting_cases():
     """Limiting cases for the Atwood machine."""
-    from sympy import limit, oo
 
     m1, m2, g = symbols("m1 m2 g", positive=True)
 

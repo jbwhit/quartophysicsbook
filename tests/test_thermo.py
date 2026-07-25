@@ -9,7 +9,6 @@ from sympy import (
     symbols,
 )
 
-
 # ── Ideal gas law ───────────────────────────────────────────────
 
 
@@ -223,7 +222,8 @@ def test_vrms_limiting_cases():
 
 
 def test_carnot_engine_plus_refrigerator():
-    """Verify: Carnot engine driving Carnot refrigerator between same temps does no net work."""
+    """Carnot engine driving a Carnot refrigerator between the same reservoirs
+    does no net work."""
     T_H, T_C, Q_H = symbols("T_H T_C Q_H", positive=True)
 
     e = 1 - T_C / T_H

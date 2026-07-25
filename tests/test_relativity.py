@@ -1,11 +1,9 @@
 """Symbolic verification of derivations in relativity.qmd."""
 
-import pytest
 from sympy import (
     Rational,
     S,
     Symbol,
-    acos,
     cos,
     pi,
     simplify,
@@ -13,7 +11,6 @@ from sympy import (
     symbols,
     tan,
 )
-
 
 # --- Physical constants as symbols ---
 h, c, m, e = symbols("h c m e", positive=True)

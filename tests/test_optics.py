@@ -11,11 +11,8 @@ from sympy import (
     simplify,
     sin,
     solve,
-    sqrt,
     symbols,
-    tan,
 )
-
 
 # ── Snell's law ──────────────────────────────────────────────
 
@@ -53,7 +50,6 @@ def test_critical_angle():
     theta_c = asin(n2 / n1)
 
     # For glass (n1=1.5) to air (n2=1): θ_c ≈ 41.8°
-    import sympy
 
     val = theta_c.subs([(n1, Rational(3, 2)), (n2, 1)])
     assert 0 < val < pi / 2  # Must be between 0 and 90°

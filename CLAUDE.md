@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI agents (Claude Code, Codex, etc.) working in this repository. `AGENTS.md` is a symlink to this file, so every agent reads the same conventions.
 
 ## Project Overview
 
@@ -23,6 +23,9 @@ After completing each chapter, remind the user to compact the conversation (`/co
 ## Build & Development Commands
 
 ```bash
+# One-time setup after cloning: enable shared git hooks + sync deps
+make setup
+
 # Preview site locally (live reload)
 quarto preview
 
@@ -30,8 +33,18 @@ quarto preview
 quarto render
 
 # Run derivation verification tests
-uv run pytest tests/ -v
+uv run pytest tests/ -v      # or: make test
+
+# Format + lint (matches CI); auto-fix with `make format`
+make lint
 ```
+
+## Toolchain & Local Gate
+
+- **uv** is the entire Python toolchain. Always `uv run pytest` / `uv run ruff` — never bare `python`, `pip`, or a manually-activated venv.
+- **ruff** formats and lints (config in `pyproject.toml`). `E741` and `F841` are intentionally ignored so physics notation (`I`, `l`, and full symbol sets) is allowed.
+- **Before committing, run the full local gate** — not just one piece: `make lint` (`ruff format --check` **and** `ruff check`) **and** `uv run pytest tests/`. `make all` runs everything.
+- **Git hooks are version-controlled in `.githooks/`** and enabled by `make setup` (which sets `core.hooksPath`): `pre-commit` auto-formats and lints staged Python; `pre-push` runs the tests and renders the PDF. A committed hook stays inert until `make setup` points `core.hooksPath` at `.githooks`.
 
 ## Architecture
 
@@ -119,10 +132,13 @@ Tests use `pytest` + `sympy`. One test file per chapter (e.g., `tests/test_mecha
 ## Deployment
 
 Push to `main` triggers `.github/workflows/publish.yml`:
-1. Quarto renders the site to `_site/`
-2. `actions/deploy-pages` deploys to GitHub Pages
+1. The `test` job runs the sympy derivation tests and `ruff` — the deploy is gated on it passing.
+2. Quarto renders the site to `_site/`.
+3. `actions/deploy-pages` deploys to GitHub Pages.
 
 GitHub Pages source must be set to "GitHub Actions" (not "Deploy from a branch").
+
+**Versioned PDF releases:** pushing a `vX.Y.Z` tag triggers `.github/workflows/release.yml`, which renders the PDF and attaches it to a GitHub Release. Compiled PDFs are never committed to the repo.
 
 ## Theming
 

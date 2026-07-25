@@ -11,7 +11,6 @@ from sympy import (
     symbols,
 )
 
-
 # ── SHM angular frequency ─────────────────────────────────────
 
 
@@ -281,7 +280,6 @@ def test_guitar_string_fundamental():
 
 def test_guitar_string_limiting_cases():
     """Limiting cases for guitar string frequency."""
-    from sympy import limit, oo
 
     L, F_T, mu = symbols("L F_T mu", positive=True)
 
