@@ -403,9 +403,9 @@ Rotational work:
 
 $$W = \int \tau \, d\theta$$
 
-**Comparison of rolling objects down a ramp.** The total kinetic energy is $K = \frac{1}{2}mv^2(1 + k)$ where $k = I/(mR^2)$:
+**Comparison of rolling objects down a ramp.** The total kinetic energy is $K = \frac{1}{2}mv^2(1 + \beta)$ where $\beta = I/(mR^2)$:
 
-| Object | $I$ | $k = I/(mR^2)$ |
+| Object | $I$ | $\beta = I/(mR^2)$ |
 |--------|-----|-----------------|
 | Solid sphere | $\frac{2}{5}MR^2$ | $2/5$ |
 | Solid cylinder | $\frac{1}{2}MR^2$ | $1/2$ |
@@ -413,7 +413,7 @@ $$W = \int \tau \, d\theta$$
 
 : Moments of Inertia for Rolling Objects {.striped .hover}
 
-The lower $k$, the higher the translational speed — the **sphere is fastest**.
+The lower $\beta$, the higher the translational speed — the **sphere is fastest**.
 
 ### Angular Momentum
 

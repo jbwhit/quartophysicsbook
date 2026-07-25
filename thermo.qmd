@@ -32,9 +32,9 @@ There are three ways heat can flow:
 
 **Conduction** — heat flows through a material without bulk motion. The rate of heat flow:
 
-$$H = \frac{Q}{t} = \frac{kA\,\Delta T}{\Delta x}$$
+$$H = \frac{Q}{t} = \frac{\kappa A\,\Delta T}{\Delta x}$$
 
-where $k$ is the thermal conductivity, $A$ the cross-sectional area, $\Delta T$ the temperature difference, and $\Delta x$ the thickness.
+where $\kappa$ is the thermal conductivity, $A$ the cross-sectional area, $\Delta T$ the temperature difference, and $\Delta x$ the thickness.
 
 **Radiation** — heat transfer via electromagnetic waves. The Stefan–Boltzmann law gives the radiated intensity:
 

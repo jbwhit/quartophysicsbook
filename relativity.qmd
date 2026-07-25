@@ -189,6 +189,8 @@ An object moving with speed $v$ relative to an observer appears shorter in the d
 
 $$\boxed{L = \frac{L_0}{\gamma}}$$
 
+(Here $L$ is a length — distinct from the Bohr model's angular momentum $L = n\hbar$.)
+
 The proper length is the longest — it is measured in the frame where the object is at rest.
 
 ### Time Dilation

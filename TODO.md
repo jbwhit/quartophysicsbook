@@ -24,10 +24,13 @@ calls and low-risk polish.
   convention. Casey to confirm the framing.
 
 **Consistency polish (low-risk, no Casey needed):**
-- [ ] Add a clarifying note at each within-chapter symbol reuse: `k` (spring /
-  Boltzmann / wave number / coupling), `T_C` (Celsius / cold reservoir), `K`
-  (rolling KE factor), `D` (diopter / dispersion / slit width), `L` (angular
-  momentum / length), `d` (plate / slit / crystal-plane spacing).
+- [x] Symbol collisions (2026-07-24): renamed thermal conductivity `k` → `κ`
+  and the rolling inertia-ratio `k` → `β`; added a note distinguishing
+  relativity's length `L = L₀/γ` from the Bohr angular momentum `L = nℏ`.
+  **Left intentionally** as standard physics overloads (a terse book trusts the
+  reader): waves `k` (spring vs wave number), optics `D` (diopter vs
+  dispersion), thermo `T_C` (Celsius vs cold reservoir), and `d` (a spacing in
+  every plate/slit/crystal-plane context).
 - [ ] Optional notation nits: polar `θ = arctan(y/x)` (quadrant / atan2 caveat),
   Fermat `dt/dx = 0` wording (stationary-time), single-surface `R` sign-convention
   wording in optics.
