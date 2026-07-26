@@ -35,6 +35,14 @@ calls and low-risk polish.
   Fermat `dt/dx = 0` wording (stationary-time), single-surface `R` sign-convention
   wording in optics.
 
+**Diagrams (in progress):**
+- [x] Carnot cycle P–V diagram (thermo) — drafted 2026-07-25 via a 3-way model
+  bake-off (Codex xhigh vs fable vs agy/Gemini, anonymized cross-vote; **fable
+  won** 8 pts, the only entry with exact loop closure). Live with the standard
+  "Diagram Needs Review" callout. ~44 placeholders remain; **the bake-off method
+  is reusable** for the rest — one clear spec, three producers, anonymized vote,
+  render-and-verify, integrate the winner.
+
 > The "Current State" table below is a **Feb 2026 snapshot and is now stale**
 > (the suite is 209 tests; physics-correctness and full boxed-result-test
 > coverage passes are complete). Treat it as historical until refreshed.
