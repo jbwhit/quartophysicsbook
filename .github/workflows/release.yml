@@ -10,6 +10,10 @@ name: Release PDF
 # Cut a release by pushing a tag:  git tag v0.1.0 -m "First draft" && git push origin v0.1.0
 # A manual run (workflow_dispatch) renders the PDF as a smoke test but does NOT create a release.
 
+# Render dates (date: today) in Pacific time rather than the runner's UTC.
+env:
+  TZ: America/Los_Angeles
+
 permissions:
   contents: write
 

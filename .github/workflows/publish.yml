@@ -5,6 +5,11 @@ on:
 
 name: Quarto Publish
 
+# Render dates (date: today) in Pacific time, not the runner's UTC, so the
+# site's date does not jump ahead of California by up to a day.
+env:
+  TZ: America/Los_Angeles
+
 permissions:
   contents: read
   pages: write
