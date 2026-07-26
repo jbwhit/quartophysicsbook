@@ -359,57 +359,57 @@ Carnot constructed a conceptual engine from two isotherms and two adiabats:
 %%| label: fig-carnot-pv
 %%| fig-cap: The Carnot cycle on a P-V diagram — two isotherms ($T_H$, $T_C$) and two adiabats enclosing the net work $W$.
 \begin{tikzpicture}[>=stealth, thick]
-  \begin{scope}[x=2cm, y=1.3cm]
-    % Corners: A=(1,3), B=(2,1.5), C=(3.2,0.777), D=(1.6,1.554)
-    % Hot isotherm  P = 3/V;  cold isotherm P = 3(0.625^0.4)/V
-    % Adiabats      P = 3(2^0.4)/V^1.4  and  P = 3/V^1.4  (gamma = 1.4)
-    % V_B/V_A = V_C/V_D = 2, so the loop closes exactly.
+  \begin{scope}[x=1.6cm, y=1.3cm]
+    % Corners: A=(1,3), B=(2.6,1.154), C=(5.01,0.461), D=(1.927,1.198)
+    % Hot isotherm  P = 3/V;  cold isotherm P = 2.3077/V   (T_H/T_C = 1.3)
+    % Adiabats      P = 4.3965/V^1.4  and  P = 3/V^1.4      (gamma = 1.4)
+    % V_B/V_A = V_C/V_D = 2.6, so the loop closes exactly.
 
     % shaded interior = net work W
     \fill[gray!15]
-      plot[domain=1:2,     samples=100, smooth] (\x,{3/\x})
-      -- plot[domain=2:3.2,   samples=100, smooth] (\x,{3*(2^0.4)/(\x^1.4)})
-      -- plot[domain=3.2:1.6, samples=100, smooth] (\x,{3*(0.625^0.4)/\x})
-      -- plot[domain=1.6:1,   samples=100, smooth] (\x,{3/(\x^1.4)})
+      plot[domain=1:2.6,       samples=100, smooth] (\x,{3/\x})
+      -- plot[domain=2.6:5.0099,   samples=100, smooth] (\x,{4.3965/(\x^1.4)})
+      -- plot[domain=5.0099:1.9269, samples=100, smooth] (\x,{2.3077/\x})
+      -- plot[domain=1.9269:1,     samples=100, smooth] (\x,{3/(\x^1.4)})
       -- cycle;
 
     % axes
-    \draw[->] (0,0) -- (3.7,0) node[below] {$V$};
+    \draw[->] (0,0) -- (5.6,0) node[below] {$V$};
     \draw[->] (0,0) -- (0,3.5) node[left] {$P$};
 
     % A -> B : isothermal expansion at T_H
-    \draw[red!60!black, ->] plot[domain=1:1.35,   samples=50, smooth] (\x,{3/\x});
-    \draw[red!60!black]     plot[domain=1.35:2,   samples=60, smooth] (\x,{3/\x});
+    \draw[red!60!black, ->] plot[domain=1:1.55,   samples=50, smooth] (\x,{3/\x});
+    \draw[red!60!black]     plot[domain=1.55:2.6, samples=60, smooth] (\x,{3/\x});
     % B -> C : adiabatic expansion (steeper than isotherms)
-    \draw[->] plot[domain=2:2.6,   samples=50, smooth] (\x,{3*(2^0.4)/(\x^1.4)});
-    \draw     plot[domain=2.6:3.2, samples=50, smooth] (\x,{3*(2^0.4)/(\x^1.4)});
+    \draw[->] plot[domain=2.6:3.5,    samples=60, smooth] (\x,{4.3965/(\x^1.4)});
+    \draw     plot[domain=3.5:5.0099, samples=60, smooth] (\x,{4.3965/(\x^1.4)});
     % C -> D : isothermal compression at T_C
-    \draw[blue!60!black, ->] plot[domain=3.2:2.0, samples=60, smooth] (\x,{3*(0.625^0.4)/\x});
-    \draw[blue!60!black]     plot[domain=2.0:1.6, samples=50, smooth] (\x,{3*(0.625^0.4)/\x});
+    \draw[blue!60!black, ->] plot[domain=5.0099:3.6, samples=60, smooth] (\x,{2.3077/\x});
+    \draw[blue!60!black]     plot[domain=3.6:1.9269, samples=60, smooth] (\x,{2.3077/\x});
     % D -> A : adiabatic compression
-    \draw[->] plot[domain=1.6:1.3, samples=50, smooth] (\x,{3/(\x^1.4)});
-    \draw     plot[domain=1.3:1,   samples=50, smooth] (\x,{3/(\x^1.4)});
+    \draw[->] plot[domain=1.9269:1.5, samples=60, smooth] (\x,{3/(\x^1.4)});
+    \draw     plot[domain=1.5:1,      samples=60, smooth] (\x,{3/(\x^1.4)});
 
     % corner states
     \node[circle, fill, inner sep=1.1pt] at (1,3) {};
-    \node[circle, fill, inner sep=1.1pt] at (2,1.5) {};
-    \node[circle, fill, inner sep=1.1pt] at (3.2,0.7768) {};
-    \node[circle, fill, inner sep=1.1pt] at (1.6,1.5537) {};
+    \node[circle, fill, inner sep=1.1pt] at (2.6,1.154) {};
+    \node[circle, fill, inner sep=1.1pt] at (5.01,0.461) {};
+    \node[circle, fill, inner sep=1.1pt] at (1.927,1.198) {};
     \node[left]        at (1,3)          {$A$};
-    \node[above right] at (2,1.5)        {$B$};
-    \node[right]       at (3.2,0.7768)   {$C$};
-    \node[below left]  at (1.6,1.5537)   {$D$};
+    \node[above right] at (2.6,1.154)    {$B$};
+    \node[right]       at (5.01,0.461)   {$C$};
+    \node[below left]  at (1.927,1.198)  {$D$};
 
     % temperature labels
-    \node[red!60!black,  above right] at (1.7,1.765)  {$T_H$};
-    \node[blue!60!black, below left]  at (2.95,0.843) {$T_C$};
+    \node[red!60!black,  above right] at (2.12,1.415) {$T_H$};
+    \node[blue!60!black, below]       at (3.78,0.611) {$T_C$};
 
     % heat in along A->B, heat out along C->D
-    \draw[red!60!black, ->]  (1.2,2.95) node[above] {$Q_H$} -- (1.2,2.36);
-    \draw[blue!60!black, ->] (2.4,1.12) -- (2.4,0.48) node[below] {$Q_C$};
+    \draw[red!60!black, ->]  (1.62,2.40) node[above] {$Q_H$} -- (1.62,1.93);
+    \draw[blue!60!black, ->] (3.64,0.55) -- (3.64,0.08) node[below] {$Q_C$};
 
     % net work
-    \node at (1.45,1.93) {$W$};
+    \node at (1.86,1.42) {$W$};
   \end{scope}
 \end{tikzpicture}
 ```
